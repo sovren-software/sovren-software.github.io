@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- JSON-LD: Organization (all pages) -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"Sovren Software","url":"https://sovren.software","description":"Sovereign computing infrastructure — tools for computing, identity, and assets fully under user control.","email":"hello@sovren.software","sameAs":["https://github.com/sovren-software","https://twitter.com/sovren_software"],"knowsAbout":["NixOS","Linux","face authentication","PAM","ONNX","Rust","smart contracts","Base L2","non-custodial finance","sovereign computing"]}
+    </script>
+
+    <!-- JSON-LD: WebSite (all pages) -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Sovren Software","url":"https://sovren.software","description":"Sovereign OS. Local identity. Programmable assets."}
+    </script>
+
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

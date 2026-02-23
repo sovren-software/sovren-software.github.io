@@ -16,7 +16,7 @@ Contact: hello@sovren.software
 
 **Category:** Operating System / Sovereign Computing
 **Status:** Ships Summer 2026
-**URL:** https://sovren.software/#/augmentum
+**URL:** https://sovren.software/augmentum
 **Product site:** https://augmentum.computer
 **GitHub:** https://github.com/sovren-software/aegis-os
 
@@ -36,7 +36,7 @@ Built on: NixOS (Linux). Config: declarative, Git-tracked. AI layer: local infer
 
 **Category:** Identity / Authentication
 **Status:** Live — v0.1.0
-**URL:** https://sovren.software/#/visage
+**URL:** https://sovren.software/visage
 **GitHub:** https://github.com/sovren-software/visage
 **License:** MIT (open source)
 
@@ -56,7 +56,7 @@ Built in Rust. Auth: PAM module. Camera: RGB + IR via V4L2. Inference: ONNX, on-
 
 **Category:** Finance / Asset Management
 **Status:** Live on Base L2 (Mainnet)
-**URL:** https://sovren.software/#/mrhaven
+**URL:** https://sovren.software/mrhaven
 **Product site:** https://mrhaven.io
 **GitHub:** https://github.com/sovren-software/mr-haven
 
