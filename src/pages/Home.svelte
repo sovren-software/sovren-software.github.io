@@ -43,7 +43,7 @@
       <pre class="ascii-art">{asciiArt}</pre>
       <div class="hero-copy">
         <h1>THE SOVREN<br />STACK.</h1>
-        <p class="hero-sub">Building the infrastructure for digital autonomy.</p>
+        <p class="hero-sub">The infrastructure that multiplies what one person can do.</p>
       </div>
       <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
     </div>
@@ -67,11 +67,11 @@
       <h2 class="thesis-statement">
         Privacy is not a feature.<br />
         Control is not an option.<br />
-        Sovrenity is the baseline for the<br />
+        Sovereignty is the baseline for the<br />
         future of digital existence.
       </h2>
       <div class="thesis-foot">
-        <p>We build tools for those who refuse to be tracked, profiled, or boxed in. Our stack is open for inspection, closed to intrusion.</p>
+        <p>We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you.</p>
         <a href="#/ecosystem" class="btn-manifesto">READ THE MANIFESTO</a>
       </div>
     </div>

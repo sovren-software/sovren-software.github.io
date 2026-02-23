@@ -36,7 +36,7 @@
     <div class="overview-inner">
       <div class="overview-text">
         <p>Windows Hello has worked for years on Windows. Linux users have been left out. Visage closes that gap with a native, open-source face authentication daemon that works with any PAM-compatible application.</p>
-        <p>Built in Rust for performance and safety. The ONNX inference engine keeps model weights local. No account creation. No enrollment servers. No biometric data leaving your hardware.</p>
+        <p>Built in Rust for performance and safety. The ONNX inference engine keeps model weights local. No account creation. No enrollment servers. No biometric data leaving your hardware. Ships standalone and integrates natively with Augmentum OS as the hardware-verified identity layer.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">

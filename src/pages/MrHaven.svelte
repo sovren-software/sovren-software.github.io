@@ -34,7 +34,7 @@
       <span class="category">03 / FINANCE</span>
       <h1>MR.<br />HAVEN.</h1>
       <p class="status">Live on Base L2</p>
-      <p class="tagline">Non-custodial USDC time vault. Your assets transfer on your terms — no custodian, no intermediary, no exceptions.</p>
+      <p class="tagline">Non-custodial USDC time vault on Base L2. Programmable asset control for humans and autonomous agents — no custodian, no intermediary, no exceptions.</p>
     </div>
   </section>
 
@@ -42,7 +42,7 @@
     <div class="overview-inner">
       <div class="overview-text">
         <p>Traditional financial institutions hold your assets on your behalf. They decide when you can access them, who can receive them, and under what conditions. MrHaven removes them from the equation entirely.</p>
-        <p>Deployed on Base L2, MrHaven is a set of auditable smart contracts. Deposit USDC, define conditions, name beneficiaries. The contract handles execution — autonomously, verifiably, permanently.</p>
+        <p>Deployed on Base L2, MrHaven is a set of auditable smart contracts. Deposit USDC, define conditions, name beneficiaries — or designate autonomous agents as authorized recipients. The contract handles execution — autonomously, verifiably, permanently.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -103,7 +103,7 @@
   <section class="cta">
     <div class="cta-inner">
       <h2>YOUR ASSETS.<br />YOUR RULES.</h2>
-      <p>MrHaven is live on Base mainnet. Connect a wallet and set up your first vault in minutes.</p>
+      <p>MrHaven is live on Base mainnet. Connect a wallet and set up your first vault in minutes. SDK available for builders and autonomous agents.</p>
       <a href="https://mrhaven.io" target="_blank" rel="noreferrer" class="btn-primary">
         LAUNCH APP →
       </a>

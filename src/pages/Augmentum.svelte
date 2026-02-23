@@ -9,7 +9,7 @@
     },
     {
       label: 'AI-NATIVE SERVICES',
-      desc: 'Local inference baked into the OS layer. Your AI tools run on your hardware, not someone else\'s cloud. Models load on demand, stay resident when needed, and never phone home.',
+      desc: 'Local inference at the OS layer — not in a vendor\'s cloud. Your agents run on your hardware, load on demand, stay resident when needed, and never phone home. This is the layer that multiplies what one person can do.',
     },
     {
       label: 'HARDWARE-VERIFIED TRUST',
@@ -36,7 +36,7 @@
     <div class="overview-inner">
       <div class="overview-text">
         <p>Most operating systems are designed for vendor convenience, not user control. Updates happen on someone else's schedule. Telemetry ships by default. Your configuration drifts over time until your system is an unauditable mess.</p>
-        <p>Augmentum OS is different by design. Built on NixOS, the entire system state is declared in a single configuration. Reproducible. Version-controlled. Yours.</p>
+        <p>Augmentum OS is different by design. Built on NixOS, the entire system state is declared in a single configuration. Local AI inference runs at the OS layer — not in a vendor's cloud. Reproducible, version-controlled, and designed to multiply what one person can do.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">

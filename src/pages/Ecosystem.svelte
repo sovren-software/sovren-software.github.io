@@ -48,12 +48,12 @@
         This is not an accident. It is the product of incentive structures that reward scale and lock-in over user control. The vendors who built these systems are not malicious — they are optimizing for their shareholders, not for you.
       </p>
       <p class="thesis-body">
-        We reject the premise that this is the only way. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. We are building the stack that makes it practical.
+        We reject the premise that this is the only way. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. We are building the stack that makes it practical — and proving, in the process, that one person with the right infrastructure can outbuild what once required a team.
       </p>
       <blockquote>
         Privacy is not a feature.<br />
         Control is not an option.<br />
-        Sovrenity is the baseline.
+        Sovereignty is the baseline.
       </blockquote>
     </div>
   </section>
@@ -80,7 +80,7 @@
   <section class="closing">
     <div class="closing-inner">
       <h2>WE BUILD<br />THE ALTERNATIVE.</h2>
-      <p>The Sovren Stack covers computing, identity, and assets. Each product stands alone. Together they form a complete layer of sovereign infrastructure.</p>
+      <p>The Sovren Stack covers computing, identity, and assets. Each product stands alone. Together they form the infrastructure for one person to operate at the scale of a team.</p>
       <a href="#/" class="btn-primary">EXPLORE THE STACK →</a>
     </div>
   </section>
