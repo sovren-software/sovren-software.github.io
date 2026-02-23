@@ -6,10 +6,11 @@ Marketing site for Sovren Software at `sovren.software`.
 
 ## Stack
 
-- **Framework**: Vite + Svelte 5
-- **Router**: svelte-spa-router (hash-based — required for GitHub Pages static hosting)
-- **Font**: Geist Mono Variable (self-hosted, `public/fonts/GeistMono-Variable.woff2`)
+- **Framework**: SvelteKit + `@sveltejs/adapter-static` (prerendered static site)
+- **Font**: Geist Mono Variable (self-hosted, `static/fonts/GeistMono-Variable.woff2`)
 - **Deploy**: GitHub Actions → `sovren-software.github.io`, CNAME `sovren.software`
+- **CDN**: Cloudflare proxy in front of GitHub Pages (enables crawler access, hides Fastly)
+- **Search**: Bing Webmaster Tools verified, sitemap submitted
 
 ## Design System
 
@@ -27,18 +28,41 @@ White `#ffffff` contrast sections are used for overview/CTA blocks within produc
 
 ## Routing
 
-| Hash route | Page |
+SvelteKit file-based routing. All routes prerendered via `+layout.js` (`export const prerender = true`).
+
+| URL | File |
 |---|---|
-| `#/` | Home |
-| `#/augmentum` | Augmentum.svelte |
-| `#/visage` | Visage.svelte |
-| `#/mrhaven` | MrHaven.svelte |
-| `#/ecosystem` | Ecosystem.svelte |
-| `*` | NotFound.svelte |
+| `/` | `src/routes/+page.svelte` |
+| `/augmentum` | `src/routes/augmentum/+page.svelte` |
+| `/visage` | `src/routes/visage/+page.svelte` |
+| `/mrhaven` | `src/routes/mrhaven/+page.svelte` |
+| `/ecosystem` | `src/routes/ecosystem/+page.svelte` |
+| `*` | `src/routes/+error.svelte` |
 
-Active nav state: `import { location } from 'svelte-spa-router'` → `$location.startsWith(path)` in Nav.svelte.
+Active nav state: `import { page } from '$app/stores'` → `$page.url.pathname.startsWith(path)` in `src/lib/Nav.svelte`.
 
-Page transitions: `{#key routeKey}<div in:fade={{ duration: 150, delay: 50 }} out:fade={{ duration: 100 }}><Router {routes}/></div>{/key}` in App.svelte.
+Page transitions: `{#key $page.url.pathname}` with `in:fade`/`out:fade` in `src/routes/+layout.svelte`.
+
+## Static Assets
+
+All static files live in `static/` (NOT `public/` — SvelteKit convention). Copied verbatim to `dist/` at build time.
+
+| File | Purpose |
+|---|---|
+| `static/CNAME` | GitHub Pages custom domain — do not delete |
+| `static/robots.txt` | Crawler access — allows all, points to sitemap |
+| `static/sitemap.xml` | All 5 routes with clean URLs |
+| `static/llms.txt` | AI crawler context (ChatGPT, Perplexity, Claude) |
+| `static/BingSiteAuth.xml` | Bing Webmaster Tools verification |
+| `static/fonts/GeistMono-Variable.woff2` | Self-hosted font |
+
+## SEO / AI Discoverability
+
+- `src/app.html` — global JSON-LD (Organization + WebSite schemas)
+- Each `+page.svelte` — `<svelte:head>` with unique title, description, og:title, og:description, og:url
+- `static/llms.txt` — full product descriptions for AI crawlers
+- Cloudflare proxy — prevents GitHub/Fastly from blocking ChatGPT Browse proxy IPs
+- Bing Webmaster Tools — verified, sitemap submitted
 
 ## Copy Philosophy
 
@@ -87,9 +111,9 @@ npm run build        # verify build passes before pushing
 git push             # GitHub Actions auto-deploys from main branch
 ```
 
-CNAME file at `public/CNAME` contains `sovren.software` — Vite copies it to `dist/` at build time. Do not delete it.
+CNAME file at `static/CNAME` contains `sovren.software`. Do not delete it.
 
-GitHub Pages custom domain is set via API (`gh api repos/sovren-software/sovren-software.github.io/pages`). DNS is 4 A records (185.199.108-111.153) + www CNAME at Namecheap.
+DNS: 4 A records (185.199.108-111.153) + www CNAME → `sovren-software.github.io`. All proxied through Cloudflare.
 
 ## Known Limitations
 
