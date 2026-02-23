@@ -1,11 +1,13 @@
 <script>
-  import Router from 'svelte-spa-router'
+  import Router, { location } from 'svelte-spa-router'
+  import { fade } from 'svelte/transition'
   import Nav from './components/Nav.svelte'
   import Home from './pages/Home.svelte'
   import Augmentum from './pages/Augmentum.svelte'
   import Visage from './pages/Visage.svelte'
   import MrHaven from './pages/MrHaven.svelte'
   import Ecosystem from './pages/Ecosystem.svelte'
+  import NotFound from './pages/NotFound.svelte'
 
   const routes = {
     '/': Home,
@@ -13,29 +15,50 @@
     '/visage': Visage,
     '/mrhaven': MrHaven,
     '/ecosystem': Ecosystem,
+    '*': NotFound,
   }
+
+  // Key changes on route change to trigger the fade transition
+  $: routeKey = $location
 </script>
 
 <Nav />
-<Router {routes} />
+
+{#key routeKey}
+  <div in:fade={{ duration: 150, delay: 50 }} out:fade={{ duration: 100 }}>
+    <Router {routes} />
+  </div>
+{/key}
 
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <a href="#/" class="footer-wordmark">SOVREN</a>
       <nav class="footer-nav">
-        <a href="#/augmentum">AUGMENTUM</a>
-        <a href="#/visage">VISAGE</a>
-        <a href="#/mrhaven">MR. HAVEN</a>
-        <a href="#/ecosystem">ECOSYSTEM</a>
-        <a href="https://twitter.com/sovren_software" target="_blank" rel="noreferrer">TWITTER</a>
-        <a href="https://github.com/sovren-software" target="_blank" rel="noreferrer">GITHUB</a>
-        <a href="mailto:hello@sovren.software" class="muted">CONTACT</a>
-        <a href="#" class="muted">PRIVACY</a>
-        <a href="#" class="muted">LEGAL</a>
+        <div class="footer-col">
+          <span class="col-label">PRODUCTS</span>
+          <a href="#/augmentum">AUGMENTUM</a>
+          <a href="#/visage">VISAGE</a>
+          <a href="#/mrhaven">MR. HAVEN</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-label">COMPANY</span>
+          <a href="#/ecosystem">ECOSYSTEM</a>
+          <a href="mailto:hello@sovren.software">CONTACT</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-label">EXTERNAL</span>
+          <a href="https://twitter.com/sovren_software" target="_blank" rel="noreferrer">TWITTER</a>
+          <a href="https://github.com/sovren-software" target="_blank" rel="noreferrer">GITHUB</a>
+          <a href="https://mrhaven.io" target="_blank" rel="noreferrer">MRHAVEN.IO</a>
+          <a href="https://augmentum.computer" target="_blank" rel="noreferrer">AUGMENTUM.COMPUTER</a>
+        </div>
       </nav>
     </div>
-    <div class="footer-copy">© 2026 SOVREN SOFTWARE. BUILT FOR AUTONOMY.</div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 SOVREN SOFTWARE</span>
+      <span class="footer-copy muted">BUILT FOR AUTONOMY.</span>
+    </div>
   </div>
 </footer>
 
@@ -43,7 +66,7 @@
   footer {
     background: var(--bg);
     border-top: 1px solid var(--border);
-    padding: 3.5rem 2.5rem;
+    padding: 4rem 2.5rem 3rem;
   }
 
   .footer-inner {
@@ -51,14 +74,13 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   .footer-top {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 4rem;
     flex-wrap: wrap;
   }
 
@@ -72,28 +94,55 @@
 
   .footer-nav {
     display: flex;
+    gap: 4rem;
     flex-wrap: wrap;
-    gap: 0.75rem 2rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
   }
 
-  .footer-nav a {
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .col-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-col a {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
     color: var(--text-secondary);
     text-decoration: none;
+    transition: color 0.15s;
   }
 
-  .footer-nav a.muted {
-    color: var(--text-muted);
-  }
-
-  .footer-nav a:hover {
+  .footer-col a:hover {
     color: var(--text-primary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .footer-copy {
     font-size: 0.6rem;
     letter-spacing: 0.12em;
     color: var(--text-muted);
+  }
+
+  .footer-copy.muted {
+    color: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    .footer-nav {
+      gap: 2.5rem;
+    }
   }
 </style>

@@ -18,21 +18,21 @@
       category: 'OS',
       name: 'AUGMENTUM',
       href: '#/augmentum',
-      description: 'A hard-kernel operating system designed for zero-trust environments. Total isolation of critical processes from public networks.',
+      description: 'Declarative NixOS system. Your entire OS in a single reproducible config — version-controlled, rollback-capable, answerable only to you. No silent updates. No telemetry.',
     },
     {
       number: '02',
       category: 'IDENTITY',
       name: 'VISAGE',
       href: '#/visage',
-      description: 'A biometric wedge for decentralized authentication. Your face is your key, stored locally and never broadcast to the cloud.',
+      description: 'Linux face authentication via PAM. ONNX inference runs entirely on-device — no cloud enrollment, no biometric database. Open source, MIT licensed.',
     },
     {
       number: '03',
       category: 'FINANCE',
       name: 'MR. HAVEN',
       href: '#/mrhaven',
-      description: 'The ultimate financial passport. Encrypted asset management and private transaction relay for the global citizen.',
+      description: 'Non-custodial USDC time vault on Base L2. Set conditions, name beneficiaries, define schedules. Smart contract executes — no intermediary, no approval required.',
     },
   ]
 </script>

@@ -1,6 +1,13 @@
 <script>
+  import { location } from 'svelte-spa-router'
+
   let menuOpen = false
   function close() { menuOpen = false }
+
+  function isActive(path) {
+    if (path === '/') return $location === '/'
+    return $location.startsWith(path)
+  }
 </script>
 
 <nav>
@@ -15,10 +22,10 @@
       {menuOpen ? '[ CLOSE ]' : '[ MENU ]'}
     </button>
     <div class="nav-links" class:open={menuOpen}>
-      <a href="#/augmentum" on:click={close}>AUGMENTUM</a>
-      <a href="#/visage" on:click={close}>VISAGE</a>
-      <a href="#/mrhaven" on:click={close}>MR. HAVEN</a>
-      <a href="#/ecosystem" on:click={close}>ECOSYSTEM</a>
+      <a href="#/augmentum" on:click={close} class:active={isActive('/augmentum')}>AUGMENTUM</a>
+      <a href="#/visage" on:click={close} class:active={isActive('/visage')}>VISAGE</a>
+      <a href="#/mrhaven" on:click={close} class:active={isActive('/mrhaven')}>MR. HAVEN</a>
+      <a href="#/ecosystem" on:click={close} class:active={isActive('/ecosystem')}>ECOSYSTEM</a>
     </div>
   </div>
 </nav>
@@ -58,13 +65,14 @@
   }
 
   .nav-links a {
-    color: var(--text-secondary);
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.15s;
     white-space: nowrap;
   }
 
-  .nav-links a:hover {
+  .nav-links a:hover,
+  .nav-links a.active {
     color: var(--text-primary);
   }
 
