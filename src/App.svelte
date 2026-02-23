@@ -320,6 +320,11 @@
     color: var(--text-secondary);
     line-height: 1.6;
     flex: 1;
+    text-decoration: none;
+  }
+
+  .product-card * {
+    text-decoration: none;
   }
 
   .product-link {
