@@ -1,3 +1,11 @@
+<svelte:head>
+  <title>The Manifesto — Sovren Software Ecosystem</title>
+  <meta name="description" content="Privacy is not a feature. Control is not an option. Sovereignty is the baseline. The Sovren Stack: Augmentum OS, Visage, and Mr. Haven." />
+  <meta property="og:title" content="The Manifesto — Sovren Software" />
+  <meta property="og:description" content="Three pillars. One thesis. Sovereign computing, local identity, self-custodied assets." />
+  <meta property="og:url" content="https://sovren.software/#/ecosystem" />
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte'
   onMount(() => window.scrollTo(0, 0))

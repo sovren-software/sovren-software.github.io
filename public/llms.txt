@@ -1,0 +1,92 @@
+# Sovren Software
+
+> Sovereign computing infrastructure — tools for people and autonomous agents who want computing, identity, and assets fully under their control. We build the stack that makes digital autonomy practical.
+
+Sovren Software is an independent software company building open, inspectable tools across three domains: sovereign operating systems, local biometric identity, and non-custodial asset management. Everything is designed to run on hardware you own, answer only to you, and never route control through a third party.
+
+Website: https://sovren.software
+GitHub: https://github.com/sovren-software
+Contact: hello@sovren.software
+
+---
+
+## Products
+
+### Augmentum OS
+
+**Category:** Operating System / Sovereign Computing
+**Status:** Ships Summer 2026
+**URL:** https://sovren.software/#/augmentum
+**Product site:** https://augmentum.computer
+**GitHub:** https://github.com/sovren-software/aegis-os
+
+Augmentum OS is a NixOS-based sovereign operating system designed for users who want complete control over their computing environment. The entire OS state is declared in a single reproducible configuration file — version-controlled, auditable, and rollback-capable at any point. No silent updates. No telemetry. No vendor lock-in.
+
+Key capabilities:
+- **Declarative state:** Every package, service, and setting in one Git-tracked config file. Clone your system to new hardware in minutes.
+- **AI-native services:** Local inference runs at the OS layer — not in a vendor's cloud. Models load on demand, stay resident when needed, and never phone home.
+- **Hardware-verified trust:** Cryptographic attestation from first boot via TPM2 and Secure Boot. Every binary verified before execution.
+- **Sovereign builds:** Upgrades happen on your schedule. Test in isolation, roll back if anything breaks.
+
+Built on: NixOS (Linux). Config: declarative, Git-tracked. AI layer: local inference, on-device. Trust model: TPM2, Secure Boot.
+
+---
+
+### Visage
+
+**Category:** Identity / Authentication
+**Status:** Live — v0.1.0
+**URL:** https://sovren.software/#/visage
+**GitHub:** https://github.com/sovren-software/visage
+**License:** MIT (open source)
+
+Visage is a Linux face authentication daemon that works as a PAM module. Windows Hello has worked on Windows for years — Visage closes that gap for Linux. ONNX inference runs entirely on-device: no cloud enrollment, no biometric database, no data leaving your hardware.
+
+Key capabilities:
+- **Local ONNX inference:** Face recognition model runs on your hardware. Your biometrics never leave your machine.
+- **PAM integration:** Drop-in replacement for any PAM-based authentication stack. Works with sudo, screen lock, and login without modifying existing system configuration.
+- **IR camera support:** Native support for Windows Hello-compatible IR cameras. Liveness detection built in. Resistant to photo-based spoofing attacks.
+- **Sub-second authentication:** Under one second on warm starts. Persistent daemon keeps the model resident — faster than typing a password.
+
+Built in Rust. Auth: PAM module. Camera: RGB + IR via V4L2. Inference: ONNX, on-device. Ships standalone; integrates natively with Augmentum OS.
+
+---
+
+### Mr. Haven
+
+**Category:** Finance / Asset Management
+**Status:** Live on Base L2 (Mainnet)
+**URL:** https://sovren.software/#/mrhaven
+**Product site:** https://mrhaven.io
+**GitHub:** https://github.com/sovren-software/mr-haven
+
+Mr. Haven is a non-custodial USDC time vault protocol deployed on Base L2 (Coinbase's Ethereum L2). It removes financial intermediaries from asset management entirely. Deposit USDC, define conditions, name beneficiaries or autonomous agents — the smart contract handles execution with no intermediary, no approval required.
+
+Key capabilities:
+- **Time vault:** Lock USDC for any duration. Set exact unlock timestamps or recurring release schedules. Contract enforces the rules — no humans in the loop.
+- **Inactivity trigger:** Set a threshold: if you go offline for X days, funds transfer. An on-chain dead man's switch.
+- **Beneficiary designations:** Designate multiple beneficiaries with percentage splits. Update designations anytime while funds are locked.
+- **Non-custodial:** Your keys, your rules. No admin key. No company can freeze, redirect, or reclaim your funds.
+
+Chain: Base L2. Asset: USDC. Standard: ERC4626 vault. Custody: non-custodial. Smart contract only.
+
+---
+
+## The Thesis
+
+The default state of modern technology is extraction. Your operating system reports back to its maker. Your biometrics are stored in someone else's database. Your assets move through someone else's rails.
+
+Sovren Software rejects that premise. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. We are building the stack that makes it practical.
+
+> Privacy is not a feature. Control is not an option. Sovereignty is the baseline.
+
+---
+
+## Company
+
+- **Founded:** 2025
+- **Structure:** Independent software company
+- **Open source:** Visage (MIT). Augmentum OS (private, planned open source). Mr. Haven (auditable smart contracts).
+- **GitHub:** https://github.com/sovren-software
+- **Twitter/X:** https://twitter.com/sovren_software
+- **Email:** hello@sovren.software

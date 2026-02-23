@@ -1,3 +1,11 @@
+<svelte:head>
+  <title>Augmentum OS — Sovereign NixOS Operating System | Sovren Software</title>
+  <meta name="description" content="NixOS-based sovereign OS with declarative config, local AI inference, and hardware-verified trust. No silent updates, no telemetry. Ships Summer 2026." />
+  <meta property="og:title" content="Augmentum OS — Sovereign NixOS Operating System" />
+  <meta property="og:description" content="Your entire OS in a single reproducible config. Version-controlled, rollback-capable, answerable only to you." />
+  <meta property="og:url" content="https://sovren.software/#/augmentum" />
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte'
   onMount(() => window.scrollTo(0, 0))

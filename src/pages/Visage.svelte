@@ -1,3 +1,11 @@
+<svelte:head>
+  <title>Visage — Linux Face Authentication via PAM | Sovren Software</title>
+  <meta name="description" content="Open source Linux face authentication via PAM. ONNX inference runs on-device — no cloud enrollment, no biometric database. Rust. MIT licensed. v0.1.0." />
+  <meta property="og:title" content="Visage — Linux Face Authentication via PAM" />
+  <meta property="og:description" content="Windows Hello for Linux. ONNX face recognition runs entirely on your hardware. No cloud enrollment. MIT licensed, written in Rust." />
+  <meta property="og:url" content="https://sovren.software/#/visage" />
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte'
   onMount(() => window.scrollTo(0, 0))

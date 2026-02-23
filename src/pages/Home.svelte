@@ -1,3 +1,11 @@
+<svelte:head>
+  <title>Sovren Software — Sovereign Computing Stack</title>
+  <meta name="description" content="Sovereign OS. Local identity. Programmable assets. Augmentum OS, Visage, and Mr. Haven — computing, identity, and finance fully under your control." />
+  <meta property="og:title" content="Sovren Software — Sovereign Computing Stack" />
+  <meta property="og:description" content="Sovereign OS. Local identity. Programmable assets. The stack for people who refuse to be owned by their software vendor." />
+  <meta property="og:url" content="https://sovren.software/" />
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte'
   onMount(() => window.scrollTo(0, 0))
@@ -16,7 +24,7 @@
     {
       number: '01',
       category: 'OS',
-      name: 'AUGMENTUM',
+      name: 'AUGMENTUM OS',
       href: '#/augmentum',
       description: 'Declarative NixOS system. Your entire OS in a single reproducible config — version-controlled, rollback-capable, answerable only to you. No silent updates. No telemetry.',
     },

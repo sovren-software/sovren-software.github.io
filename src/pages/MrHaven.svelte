@@ -1,3 +1,11 @@
+<svelte:head>
+  <title>Mr. Haven — Non-Custodial USDC Time Vault on Base L2 | Sovren Software</title>
+  <meta name="description" content="Programmable non-custodial USDC vault on Base L2. Set time-based schedules, inactivity triggers, and beneficiary designations. No intermediary. Live on mainnet." />
+  <meta property="og:title" content="Mr. Haven — Non-Custodial USDC Time Vault on Base L2" />
+  <meta property="og:description" content="Programmable asset control for humans and autonomous agents. Your keys, your conditions, your beneficiaries. Smart contract only." />
+  <meta property="og:url" content="https://sovren.software/#/mrhaven" />
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte'
   onMount(() => window.scrollTo(0, 0))
