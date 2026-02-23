@@ -1,14 +1,21 @@
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --bg: #0a0a0a;
-  --surface: #111111;
-  --surface-2: #161616;
-  --border: #1e1e1e;
-  --text-primary: #efefef;
-  --text-secondary: #888888;
-  --text-muted: #3f3f3f;
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --max-w: 960px;
+  --bg: #000000;
+  --surface: #080808;
+  --surface-2: #111111;
+  --border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-muted: rgba(255, 255, 255, 0.25);
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --max-w: 1200px;
 }
 
 *, *::before, *::after {
@@ -25,7 +32,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
