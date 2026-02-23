@@ -43,7 +43,7 @@
       <pre class="ascii-art">{asciiArt}</pre>
       <div class="hero-copy">
         <h1>THE SOVREN<br />STACK.</h1>
-        <p class="hero-sub">The infrastructure that multiplies what one person can do.</p>
+        <p class="hero-sub">Sovereign OS. Local identity. Programmable assets.</p>
       </div>
       <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
     </div>
