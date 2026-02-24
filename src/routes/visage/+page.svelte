@@ -1,6 +1,6 @@
 <svelte:head>
   <title>Visage — Linux Face Authentication via PAM | Sovren Software</title>
-  <meta name="description" content="Open source Linux face authentication via PAM. ONNX inference runs on-device — no cloud enrollment, no biometric database. Rust. MIT licensed. v0.1.0." />
+  <meta name="description" content="Open source Linux face authentication via PAM. ONNX inference runs on-device — no cloud enrollment, no biometric database. Rust. MIT licensed. v0.2.0." />
   <meta property="og:title" content="Visage — Linux Face Authentication via PAM" />
   <meta property="og:description" content="Windows Hello for Linux. ONNX face recognition runs entirely on your hardware. No cloud enrollment. MIT licensed, written in Rust." />
   <meta property="og:url" content="https://sovren.software/visage" />
@@ -23,7 +23,7 @@
     },
     {
       label: 'SUB-SECOND AUTH',
-      desc: 'Under one second on warm starts. The persistent daemon keeps the model resident so authentication is instant — faster than typing a password.',
+      desc: 'Under one second on IR camera hardware with a warm daemon. The persistent daemon keeps the model resident — no cold start on every lock. Authentication finishes before your hand leaves the trackpad.',
     },
   ]
 </script>
@@ -33,7 +33,7 @@
     <div class="hero-inner">
       <span class="category">02 / IDENTITY</span>
       <h1>VISAGE.</h1>
-      <p class="status">Open source · MIT · v0.1.0</p>
+      <p class="status">Open source · MIT · v0.2.0</p>
       <p class="tagline">Linux face authentication via PAM. Your face is your key — processed locally, never broadcast to the cloud.</p>
     </div>
   </section>
@@ -42,7 +42,8 @@
     <div class="overview-inner">
       <div class="overview-text">
         <p>Windows Hello has worked for years on Windows. Linux users have been left out. Visage closes that gap with a native, open-source face authentication daemon that works with any PAM-compatible application.</p>
-        <p>Built in Rust for performance and safety. The ONNX inference engine keeps model weights local. No account creation. No enrollment servers. No biometric data leaving your hardware. Ships standalone and integrates natively with Augmentum OS as the hardware-verified identity layer.</p>
+        <p>Built in Rust for performance and safety. The ONNX inference engine keeps model weights local. No account creation. No enrollment servers. No biometric data leaving your hardware.</p>
+        <p>v0.x is MIT-licensed and works on any Linux system. v2, in active development, integrates at the Augmentum OS identity layer — your face-verified credential becomes a system-level primitive, not just a PAM module. The open/closed split is intentional: the open-source foundation earns trust; the OS-native layer delivers the full vision.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -67,7 +68,7 @@
         </div>
         <div class="spec-row">
           <span class="spec-label">STATUS</span>
-          <span class="spec-value spec-live">Live · v0.1.0</span>
+          <span class="spec-value spec-live">Live · v0.2.0</span>
         </div>
       </div>
     </div>

@@ -43,6 +43,7 @@
       <div class="overview-text">
         <p>Most operating systems are designed for vendor convenience, not user control. Updates happen on someone else's schedule. Telemetry ships by default. Your configuration drifts over time until your system is an unauditable mess.</p>
         <p>Augmentum OS is different by design. Built on NixOS, the entire system state is declared in a single configuration. Local AI inference runs at the OS layer — not in a vendor's cloud. Reproducible, version-controlled, and designed to multiply what one person can do.</p>
+        <p>Augmentum OS is also the integration layer for the Sovren Stack. Visage face authentication runs as a hardware-verified identity primitive at the OS level. MrHaven vault access is a first-class credential. The three products are each useful alone — together they form a complete sovereign computing platform.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -86,9 +87,9 @@
   <section class="cta">
     <div class="cta-inner">
       <h2>BE NOTIFIED<br />AT LAUNCH.</h2>
-      <p>Augmentum OS enters beta in Q2 2026. Join the list for early access.</p>
-      <a href="https://augmentum.computer" target="_blank" rel="noreferrer" class="btn-primary">
-        VISIT AUGMENTUM.COMPUTER →
+      <p>Augmentum OS ships Summer 2026. Email us to join the early access list — no marketing, just a launch notification.</p>
+      <a href="mailto:hello@sovren.software?subject=Augmentum OS Early Access" class="btn-primary">
+        REQUEST EARLY ACCESS →
       </a>
     </div>
   </section>

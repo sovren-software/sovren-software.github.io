@@ -28,8 +28,8 @@
       desc: 'Designate multiple beneficiaries with percentage splits. Update designations anytime while funds are locked. Remove or replace beneficiaries until conditions are met.',
     },
     {
-      label: 'NON-CUSTODIAL',
-      desc: 'Your keys, your rules. The contract holds no admin key. No company can freeze, redirect, or reclaim your funds. Pure smart contract execution.',
+      label: 'AUTONOMOUS AGENTS',
+      desc: 'Designed for both human and autonomous principals. AI agents can hold funds, trigger transfers, and execute plans with the same non-custodial guarantees as any human user. No API key. No service account. No trust required — the contract enforces the rules regardless of who calls it.',
     },
   ]
 </script>
@@ -49,6 +49,7 @@
       <div class="overview-text">
         <p>Traditional financial institutions hold your assets on your behalf. They decide when you can access them, who can receive them, and under what conditions. MrHaven removes them from the equation entirely.</p>
         <p>Deployed on Base L2, MrHaven is a set of auditable smart contracts. Deposit USDC, define conditions, name beneficiaries — or designate autonomous agents as authorized recipients. The contract handles execution — autonomously, verifiably, permanently.</p>
+        <p>This matters for AI agents as much as for humans. Autonomous agents that manage capital need programmable infrastructure with no human approval bottleneck in the execution path. MrHaven is designed from the start for both human and autonomous principals — the protocol doesn't distinguish between who holds the keys.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -109,7 +110,7 @@
   <section class="cta">
     <div class="cta-inner">
       <h2>YOUR ASSETS.<br />YOUR RULES.</h2>
-      <p>MrHaven is live on Base mainnet. Connect a wallet and set up your first vault in minutes. SDK available for builders and autonomous agents.</p>
+      <p>MrHaven is live on Base mainnet. Connect a wallet and set up your first vault in minutes.</p>
       <a href="https://mrhaven.io" target="_blank" rel="noreferrer" class="btn-primary">
         LAUNCH APP →
       </a>

@@ -117,17 +117,20 @@ DNS: 4 A records (185.199.108-111.153) + www CNAME → `sovren-software.github.i
 
 ## Known Limitations
 
-- No email capture / waitlist on Augmentum OS page (external link to `augmentum.computer` only)
 - No blog platform for the content launch strategy (teaser article, X thread)
-- `augmentum.computer` has no landing page yet
-- MrHaven SDK not yet documented on the site
-- No visual that shows the three products converging (convergence story is text-only)
+- `augmentum.computer` has no landing page yet (CTA now uses mailto:hello@sovren.software)
+- MrHaven SDK not yet documented on the site (removed SDK mention from CTA until ready)
+- No visual that shows the three products converging (convergence story is text-only, now stronger)
 
 ## Remaining Work
 
 - [ ] `augmentum.computer` holding page or redirect
-- [ ] Waitlist capture on Augmentum OS page
 - [ ] Blog/article platform for the two-article launch sequence
-- [ ] MrHaven SDK section on the MrHaven page
+- [ ] MrHaven SDK section on the MrHaven page (when SDK docs exist)
 - [ ] Visual convergence diagram on Ecosystem page
 - [ ] X profile update (currently MrHaven-branded)
+- [x] Waitlist capture on Augmentum OS page — mailto:hello@sovren.software (2026-02-24)
+- [x] Visage version updated to v0.2.0 (2026-02-24)
+- [x] AI agent angle surfaced on MrHaven page (2026-02-24)
+- [x] Convergence story strengthened across Augmentum OS, Ecosystem pages (2026-02-24)
+- [x] Visage v2/Augmentum OS integration callout added (2026-02-24)

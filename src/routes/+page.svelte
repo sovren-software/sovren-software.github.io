@@ -38,7 +38,7 @@
       category: 'FINANCE',
       name: 'MR. HAVEN',
       href: '/mrhaven',
-      description: 'Non-custodial USDC time vault on Base L2. Set conditions, name beneficiaries, define schedules. Smart contract executes — no intermediary, no approval required.',
+      description: 'Non-custodial USDC time vault on Base L2. Set conditions, name beneficiaries, define schedules — or designate autonomous agents as recipients. Smart contract executes regardless of who holds the keys.',
     },
   ]
 </script>

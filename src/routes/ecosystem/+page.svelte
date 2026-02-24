@@ -56,6 +56,9 @@
       <p class="thesis-body">
         We reject the premise that this is the only way. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. We are building the stack that makes it practical — and proving, in the process, that one person with the right infrastructure can outbuild what once required a team.
       </p>
+      <p class="thesis-body">
+        Each product stands on its own. Augmentum OS runs without Visage. Visage installs on any Linux system. MrHaven works without either. But the convergence is the point: Visage identity becomes a hardware-verified OS primitive. MrHaven vaults become a first-class OS credential. The three layers compose into something no single product delivers alone.
+      </p>
       <blockquote>
         Privacy is not a feature.<br />
         Control is not an option.<br />
@@ -86,7 +89,7 @@
   <section class="closing">
     <div class="closing-inner">
       <h2>WE BUILD<br />THE ALTERNATIVE.</h2>
-      <p>The Sovren Stack covers computing, identity, and assets. Each product stands alone. Together they form the infrastructure for one person to operate at the scale of a team.</p>
+      <p>The Sovren Stack covers computing, identity, and assets. Each product stands alone. Together — Augmentum OS as the substrate, Visage as the identity primitive, MrHaven as the capital layer — they form the infrastructure for one person to operate at the scale of a team.</p>
       <a href="/" class="btn-primary">EXPLORE THE STACK →</a>
     </div>
   </section>
