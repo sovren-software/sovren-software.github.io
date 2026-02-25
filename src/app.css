@@ -6,7 +6,12 @@
   font-display: swap;
 }
 
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+   ═══════════════════════════════════════════ */
+
 :root {
+  /* ── Colors: Dark mode (default) ── */
   --bg: #000000;
   --surface: #080808;
   --surface-2: #111111;
@@ -14,9 +19,102 @@
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.55);
   --text-muted: rgba(255, 255, 255, 0.25);
+  --text-ghost: rgba(255, 255, 255, 0.12);
+
+  /* ── Colors: Light sections (inverted) ── */
+  --light-bg: #ffffff;
+  --light-border: #e5e5e5;
+  --light-text-primary: #000000;
+  --light-text-body: #333333;
+  --light-text-secondary: #555555;
+  --light-text-muted: #999999;
+  --light-text-dim: #888888;
+
+  /* ── Typography ── */
   --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --fs-hero: clamp(3.5rem, 11vw, 8rem);
+  --fs-hero-product: clamp(4rem, 12vw, 9rem);
+  --fs-hero-large: clamp(5rem, 18vw, 12rem);
+  --fs-h2: clamp(2rem, 5vw, 4rem);
+  --fs-h2-large: clamp(2.5rem, 6vw, 5rem);
+  --fs-thesis: clamp(1.75rem, 3.5vw, 3.25rem);
+  --fs-lead: clamp(1.3rem, 2.5vw, 1.7rem);
+  --fs-tagline: clamp(0.95rem, 2vw, 1.1rem);
+  --fs-pillar-title: clamp(0.95rem, 1.5vw, 1.15rem);
+  --fs-body: 0.9rem;
+  --fs-body-sm: 0.875rem;
+  --fs-body-xs: 0.85rem;
+  --fs-spec: 0.72rem;
+  --fs-label: 0.65rem;
+  --fs-label-sm: 0.62rem;
+  --fs-label-xs: 0.58rem;
+  --fs-nav: 0.65rem;
+  --fs-wordmark: 0.875rem;
+  --fs-btn: 0.7rem;
+  --fs-scroll-hint: 0.65rem;
+  --fs-footer-link: 0.68rem;
+  --fs-footer-copy: 0.6rem;
+
+  --lh-tight: 0.95;
+  --lh-heading: 1.05;
+  --lh-default: 1.6;
+  --lh-relaxed: 1.75;
+  --lh-loose: 1.85;
+
+  --ls-tight: -0.01em;
+  --ls-default: 0.02em;
+  --ls-moderate: 0.04em;
+  --ls-wide: 0.1em;
+  --ls-wider: 0.18em;
+  --ls-widest: 0.25em;
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ── Spacing ── */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 0.75rem;
+  --space-lg: 1rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+  --space-3xl: 2.5rem;
+  --space-4xl: 3rem;
+  --space-5xl: 4rem;
+  --space-6xl: 6rem;
+  --space-7xl: 7rem;
+
+  --pad-section: 6rem 2.5rem;
+  --pad-section-lg: 7rem 2.5rem;
+  --pad-hero: 5rem 2.5rem;
+
+  /* ── Layout ── */
   --max-w: 1200px;
+  --max-w-prose: 760px;
+  --max-w-body: 480px;
+  --max-w-tagline: 600px;
+  --nav-h: 60px;
+
+  /* ── Transitions ── */
+  --transition-fast: 0.15s;
+  --ease-default: ease;
+
+  /* ── Z-index ── */
+  --z-nav: 100;
+
+  /* ── Breakpoints (reference only — used in @media) ── */
+  /* --bp-mobile: 768px; */
+
+  /* ── Buttons ── */
+  --btn-pad: 0.85rem 1.75rem;
 }
+
+/* ═══════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════ */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -33,7 +131,7 @@ body {
   background-color: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-mono);
-  line-height: 1.6;
+  line-height: var(--lh-default);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -97,10 +97,10 @@
 
 <style>
   .hero {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - var(--nav-h));
     display: flex;
     align-items: flex-end;
-    padding: 5rem 2.5rem;
+    padding: var(--pad-hero);
     border-bottom: 1px solid var(--border);
   }
 
@@ -112,73 +112,73 @@
 
   .category {
     display: block;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
     color: var(--text-muted);
-    margin-bottom: 1.75rem;
+    margin-bottom: var(--space-2xl);
     text-transform: uppercase;
   }
 
   h1 {
     font-size: clamp(4rem, 14vw, 10rem);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     letter-spacing: 0.06em;
-    line-height: 0.95;
-    margin-bottom: 2rem;
+    line-height: var(--lh-tight);
+    margin-bottom: var(--space-2xl);
   }
 
   .tagline {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-size: var(--fs-tagline);
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: var(--max-w-tagline);
     line-height: 1.65;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--ls-default);
   }
 
   /* Thesis expanded */
   .thesis-expanded {
-    background: #ffffff;
-    color: #000;
-    padding: 7rem 2.5rem;
-    border-bottom: 1px solid #e5e5e5;
+    background: var(--light-bg);
+    color: var(--light-text-primary);
+    padding: var(--pad-section-lg);
+    border-bottom: 1px solid var(--light-border);
   }
 
   .thesis-inner {
-    max-width: 760px;
+    max-width: var(--max-w-prose);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--space-2xl);
   }
 
   .thesis-lede {
     font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: 600;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    color: #000;
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-default);
+    letter-spacing: var(--ls-tight);
+    color: var(--light-text-primary);
   }
 
   .thesis-body {
     font-size: 0.95rem;
-    line-height: 1.85;
+    line-height: var(--lh-loose);
     color: #444;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--ls-default);
   }
 
   blockquote {
-    border-left: 2px solid #000;
-    padding-left: 2rem;
-    margin: 1rem 0;
+    border-left: 2px solid var(--light-text-primary);
+    padding-left: var(--space-2xl);
+    margin: var(--space-lg) 0;
     font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     line-height: 1.7;
     letter-spacing: 0.01em;
   }
 
   /* Pillars */
   .pillars {
-    padding: 6rem 2.5rem;
+    padding: var(--pad-section);
     border-top: 1px solid var(--border);
   }
 
@@ -189,18 +189,18 @@
 
   .section-label {
     display: block;
-    font-size: 0.62rem;
+    font-size: var(--fs-label-sm);
     letter-spacing: 0.2em;
     color: var(--text-muted);
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-4xl);
     text-transform: uppercase;
   }
 
   .pillar {
     display: grid;
     grid-template-columns: 200px 1fr;
-    gap: 4rem;
-    padding: 3rem 0;
+    gap: var(--space-5xl);
+    padding: var(--space-4xl) 0;
     border-top: 1px solid var(--border);
   }
 
@@ -211,19 +211,19 @@
   .pillar-header {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 0.25rem;
+    gap: var(--space-sm);
+    padding-top: var(--space-xs);
   }
 
   .pillar-n {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
     color: var(--text-muted);
   }
 
   .pillar-domain {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: var(--fs-btn);
+    font-weight: var(--fw-bold);
     letter-spacing: 0.16em;
     color: var(--text-secondary);
   }
@@ -231,31 +231,31 @@
   .pillar-body {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-lg);
   }
 
   .pillar-thesis {
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: var(--text-primary);
     line-height: 1.55;
     letter-spacing: 0.01em;
   }
 
   .pillar-text {
-    font-size: 0.85rem;
+    font-size: var(--fs-body-xs);
     color: var(--text-secondary);
-    line-height: 1.75;
-    letter-spacing: 0.02em;
-    max-width: 600px;
+    line-height: var(--lh-relaxed);
+    letter-spacing: var(--ls-default);
+    max-width: var(--max-w-tagline);
   }
 
   .pillar-link {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
     color: var(--text-muted);
     text-decoration: none;
-    transition: color 0.15s;
+    transition: color var(--transition-fast);
     text-transform: uppercase;
   }
 
@@ -265,10 +265,10 @@
 
   /* Closing */
   .closing {
-    background: #fff;
-    color: #000;
-    padding: 7rem 2.5rem;
-    border-top: 1px solid #e5e5e5;
+    background: var(--light-bg);
+    color: var(--light-text-primary);
+    padding: var(--pad-section-lg);
+    border-top: 1px solid var(--light-border);
   }
 
   .closing-inner {
@@ -276,36 +276,36 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--space-xl);
   }
 
   .closing h2 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 700;
+    font-size: var(--fs-h2-large);
+    font-weight: var(--fw-bold);
     letter-spacing: 0.08em;
     line-height: 1.0;
   }
 
   .closing p {
-    font-size: 0.9rem;
-    color: #555;
+    font-size: var(--fs-body);
+    color: var(--light-text-secondary);
     max-width: 520px;
-    line-height: 1.75;
-    letter-spacing: 0.02em;
+    line-height: var(--lh-relaxed);
+    letter-spacing: var(--ls-default);
   }
 
   .btn-primary {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    padding: 0.85rem 1.75rem;
-    background: #000;
-    color: #fff;
+    font-size: var(--fs-btn);
+    letter-spacing: var(--ls-wider);
+    padding: var(--btn-pad);
+    background: var(--light-text-primary);
+    color: var(--light-bg);
     text-decoration: none;
-    transition: opacity 0.15s;
+    transition: opacity var(--transition-fast);
     align-self: flex-start;
-    margin-top: 0.5rem;
+    margin-top: var(--space-sm);
   }
 
   .btn-primary:hover {
@@ -315,7 +315,7 @@
   /* Responsive */
   @media (max-width: 768px) {
     .hero {
-      padding: 3rem 1.5rem 4rem;
+      padding: var(--space-4xl) var(--space-xl) var(--space-5xl);
     }
 
     h1 {
@@ -324,7 +324,7 @@
 
     .pillar {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: var(--space-xl);
     }
   }
 </style>

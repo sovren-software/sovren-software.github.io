@@ -13,7 +13,7 @@
 
 <style>
   .error-page {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - var(--nav-h));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,38 +23,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-xl);
     text-align: center;
-    padding: 4rem 2rem;
+    padding: var(--space-5xl) var(--space-2xl);
   }
 
   .error-code {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-widest);
     color: var(--text-muted);
   }
 
   h1 {
     font-size: clamp(3rem, 10vw, 7rem);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     letter-spacing: 0.08em;
     line-height: 1.0;
   }
 
   p {
-    font-size: 0.85rem;
+    font-size: var(--fs-body-xs);
     color: var(--text-secondary);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ls-moderate);
   }
 
   .btn-back {
     display: inline-block;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
     color: var(--text-muted);
     text-decoration: none;
-    margin-top: 0.5rem;
-    transition: color 0.15s;
+    margin-top: var(--space-sm);
+    transition: color var(--transition-fast);
   }
 
   .btn-back:hover {

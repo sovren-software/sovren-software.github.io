@@ -49,7 +49,7 @@
   footer {
     background: var(--bg);
     border-top: 1px solid var(--border);
-    padding: 4rem 2.5rem 3rem;
+    padding: var(--space-5xl) var(--space-3xl) var(--space-4xl);
   }
 
   .footer-inner {
@@ -57,27 +57,27 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: var(--space-4xl);
   }
 
   .footer-top {
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
+    gap: var(--space-5xl);
     flex-wrap: wrap;
   }
 
   .footer-wordmark {
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-wordmark);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wider);
     color: var(--text-primary);
     text-decoration: none;
   }
 
   .footer-nav {
     display: flex;
-    gap: 4rem;
+    gap: var(--space-5xl);
     flex-wrap: wrap;
   }
 
@@ -88,18 +88,18 @@
   }
 
   .col-label {
-    font-size: 0.58rem;
+    font-size: var(--fs-label-xs);
     letter-spacing: 0.2em;
     color: var(--text-muted);
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--space-xs);
   }
 
   .footer-col a {
-    font-size: 0.68rem;
+    font-size: var(--fs-footer-link);
     letter-spacing: 0.12em;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.15s;
+    transition: color var(--transition-fast);
   }
 
   .footer-col a:hover {
@@ -108,24 +108,24 @@
 
   .footer-bottom {
     display: flex;
-    gap: 1.5rem;
+    gap: var(--space-xl);
     align-items: center;
     flex-wrap: wrap;
   }
 
   .footer-copy {
-    font-size: 0.6rem;
+    font-size: var(--fs-footer-copy);
     letter-spacing: 0.12em;
     color: var(--text-muted);
   }
 
   .footer-copy.muted {
-    color: rgba(255, 255, 255, 0.12);
+    color: var(--text-ghost);
   }
 
   @media (max-width: 768px) {
     .footer-nav {
-      gap: 2.5rem;
+      gap: var(--space-3xl);
     }
   }
 </style>

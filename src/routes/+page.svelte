@@ -86,7 +86,7 @@
 
 <style>
   .hero {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - var(--nav-h));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,8 +97,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2.5rem;
-    padding: 4rem 2rem;
+    gap: var(--space-3xl);
+    padding: var(--space-5xl) var(--space-2xl);
   }
 
   .ascii-art {
@@ -111,9 +111,9 @@
   }
 
   h1 {
-    font-size: clamp(3.5rem, 11vw, 8rem);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
     line-height: 1.0;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -126,8 +126,8 @@
   }
 
   .scroll-hint {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
+    font-size: var(--fs-scroll-hint);
+    letter-spacing: var(--ls-widest);
     color: var(--text-muted);
   }
 
@@ -145,13 +145,13 @@
   }
 
   .product-card {
-    padding: 3rem 2.5rem;
+    padding: var(--space-4xl) var(--space-3xl);
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     border-right: 1px solid var(--border);
     min-height: 400px;
-    transition: background 0.15s;
+    transition: background var(--transition-fast);
     text-decoration: none;
   }
 
@@ -164,15 +164,15 @@
   }
 
   .product-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
     color: var(--text-muted);
     text-transform: uppercase;
   }
 
   .product-name {
     font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     letter-spacing: 0.14em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -181,16 +181,16 @@
   .product-desc {
     font-size: 0.82rem;
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: var(--lh-relaxed);
     flex: 1;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--ls-default);
   }
 
   .product-cta {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
     color: var(--text-muted);
-    transition: color 0.15s;
+    transition: color var(--transition-fast);
     text-transform: uppercase;
   }
 
@@ -200,9 +200,9 @@
 
   /* Thesis */
   .thesis {
-    background: #ffffff;
-    color: #000000;
-    padding: 7rem 2.5rem;
+    background: var(--light-bg);
+    color: var(--light-text-primary);
+    padding: var(--pad-section-lg);
   }
 
   .thesis-inner {
@@ -211,48 +211,48 @@
   }
 
   .thesis-statement {
-    font-size: clamp(1.75rem, 3.5vw, 3.25rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-size: var(--fs-thesis);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-tight);
     line-height: 1.25;
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-5xl);
   }
 
   .thesis-foot {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: var(--space-5xl);
     flex-wrap: wrap;
   }
 
   .thesis-foot p {
-    font-size: 0.875rem;
-    line-height: 1.75;
-    max-width: 480px;
-    color: #555;
-    letter-spacing: 0.02em;
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-relaxed);
+    max-width: var(--max-w-body);
+    color: var(--light-text-secondary);
+    letter-spacing: var(--ls-default);
   }
 
   .btn-manifesto {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    padding: 0.85rem 1.75rem;
-    border: 1px solid #000;
+    font-size: var(--fs-btn);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wider);
+    padding: var(--btn-pad);
+    border: 1px solid var(--light-text-primary);
     background: transparent;
-    color: #000;
+    color: var(--light-text-primary);
     cursor: pointer;
-    transition: background 0.15s, color 0.15s;
+    transition: background var(--transition-fast), color var(--transition-fast);
     white-space: nowrap;
     text-transform: uppercase;
     text-decoration: none;
   }
 
   .btn-manifesto:hover {
-    background: #000;
-    color: #fff;
+    background: var(--light-text-primary);
+    color: var(--light-bg);
   }
 
   /* Responsive */
@@ -265,7 +265,7 @@
       border-right: none;
       border-bottom: 1px solid var(--border);
       min-height: auto;
-      padding: 2rem 1.5rem;
+      padding: var(--space-2xl) var(--space-xl);
     }
 
     .product-card:last-child {
@@ -281,12 +281,12 @@
     }
 
     .thesis {
-      padding: 4rem 1.5rem;
+      padding: var(--space-5xl) var(--space-xl);
     }
 
     .thesis-foot {
       flex-direction: column;
-      gap: 2rem;
+      gap: var(--space-2xl);
     }
   }
 </style>
