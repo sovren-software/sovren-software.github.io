@@ -1,6 +1,9 @@
 <script>
   import { page } from '$app/stores';
 
+  export let theme = 'light';
+  export let onToggleTheme = () => {};
+
   let menuOpen = false;
   function close() { menuOpen = false; }
 
@@ -13,14 +16,22 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="wordmark" on:click={close}>SOVREN</a>
-    <button
-      class="hamburger"
-      class:open={menuOpen}
-      on:click={() => (menuOpen = !menuOpen)}
-      aria-label="Toggle menu"
-    >
-      {menuOpen ? '[ CLOSE ]' : '[ MENU ]'}
-    </button>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" on:click={onToggleTheme} aria-label="Toggle theme">
+        {theme === 'light' ? '[ DARK ]' : '[ LIGHT ]'}
+      </button>
+
+      <button
+        class="hamburger"
+        class:open={menuOpen}
+        on:click={() => (menuOpen = !menuOpen)}
+        aria-label="Toggle menu"
+      >
+        {menuOpen ? '[ CLOSE ]' : '[ MENU ]'}
+      </button>
+    </div>
+
     <div class="nav-links" class:open={menuOpen}>
       <a href="/augmentum" on:click={close} class:active={isActive('/augmentum')}>AUGMENTUM</a>
       <a href="/visage" on:click={close} class:active={isActive('/visage')}>VISAGE</a>
@@ -35,8 +46,9 @@
     position: sticky;
     top: 0;
     z-index: var(--z-nav);
-    background: var(--bg);
+    background: transparent;
     border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
   }
 
   .nav-inner {
@@ -55,6 +67,28 @@
     letter-spacing: var(--ls-wider);
     color: var(--text-primary);
     text-decoration: none;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    padding: var(--space-xs);
+  }
+
+  .theme-toggle:hover {
+    color: var(--text-primary);
   }
 
   .nav-links {

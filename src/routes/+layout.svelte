@@ -4,10 +4,34 @@
   import Scene from '$lib/three/Scene.svelte';
   import { page } from '$app/stores';
   import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
+
+  let theme = 'light';
+
+  onMount(() => {
+    if (browser) {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        theme = storedTheme;
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  });
+
+  function toggleTheme() {
+    theme = theme === 'light' ? 'dark' : 'light';
+    if (browser) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+  }
 </script>
 
 <Scene />
-<Nav />
+<Nav {theme} onToggleTheme={toggleTheme} />
 
 {#key $page.url.pathname}
   <div in:fade={{ duration: 150, delay: 50 }} out:fade={{ duration: 100 }}>
@@ -49,7 +73,7 @@
 
 <style>
   footer {
-    background: var(--bg);
+    background: transparent;
     border-top: 1px solid var(--border);
     padding: var(--space-5xl) var(--space-3xl) var(--space-4xl);
   }

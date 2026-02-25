@@ -6,8 +6,11 @@ Marketing site for Sovren Software at `sovren.software`.
 
 ## Stack
 
-- **Framework**: SvelteKit + `@sveltejs/adapter-static` (prerendered static site)
+- **Framework**: SvelteKit 2.x + `@sveltejs/adapter-static` (prerendered static site)
+- **3D Scene**: Three.js 0.183 (wireframe cube, grid, particles, product monoliths)
+- **Animation**: GSAP 3.x
 - **Font**: Geist Mono Variable (self-hosted, `static/fonts/GeistMono-Variable.woff2`)
+- **Build**: Vite 7.x
 - **Deploy**: GitHub Actions → `sovren-software.github.io`, CNAME `sovren.software`
 - **CDN**: Cloudflare proxy in front of GitHub Pages (enables crawler access, hides Fastly)
 - **Search**: Bing Webmaster Tools verified, sitemap submitted
@@ -18,28 +21,35 @@ Centralized in `src/app.css` with 60+ design tokens. All styles reference tokens
 
 ### Colors
 
-**Dark mode (default):**
+The site uses a `data-theme` attribute on `<html>` to switch between light and dark mode. CSS custom properties swap automatically.
+
+**Light mode (default — `:root` / `[data-theme='light']`):**
 ```
---bg: #000000
---surface: #080808
---surface-2: #111111
---border: rgba(255,255,255,0.1)
---text-primary: #ffffff
---text-secondary: rgba(255,255,255,0.55)
---text-muted: rgba(255,255,255,0.25)
---text-ghost: rgba(255,255,255,0.12)
+--bg: #ffffff
+--surface: rgba(230,230,230,0.4)
+--surface-2: rgba(210,210,210,0.5)
+--border: rgba(0,0,0,0.15)
+--border-glow: rgba(0,0,0,0.8)
+--text-primary: #000000
+--text-secondary: rgba(0,0,0,0.65)
+--text-muted: rgba(0,0,0,0.35)
+--text-ghost: rgba(0,0,0,0.15)
 ```
 
-**Light sections (overview/CTA blocks):**
+**Dark mode (`[data-theme='dark']`):**
 ```
---light-bg: #ffffff
---light-border: #e5e5e5
---light-text-primary: #000000
---light-text-body: #333333
---light-text-secondary: #555555
---light-text-muted: #999999
---light-text-dim: #888888
+--bg: #000000
+--surface: rgba(25,25,25,0.4)
+--surface-2: rgba(40,40,40,0.5)
+--border: rgba(255,255,255,0.15)
+--border-glow: rgba(255,255,255,0.8)
+--text-primary: #ffffff
+--text-secondary: rgba(255,255,255,0.65)
+--text-muted: rgba(255,255,255,0.35)
+--text-ghost: rgba(255,255,255,0.15)
 ```
+
+**Important:** Both themes are pure monochrome. No accent colors, no brand colors. Emphasis is achieved through weight and spacing, never color.
 
 ### Typography
 
@@ -117,8 +127,113 @@ Reusable Svelte components in `src/lib/`:
 
 - Never add a second typeface
 - Never use color for emphasis — use weight and letter-spacing only
-- White contrast sections use light tokens, never hardcoded values
-- All transitions: `var(--transition-fast)` (0.15s)
+- All color values must use theme-aware CSS variables — never hardcode `rgba(255,...)` or `rgba(0,...)`
+- All transitions: `var(--transition-fast)` (0.15s) or `var(--transition-slow)` (0.4s)
+
+## Theme System
+
+Light/dark mode toggle with persistence and system preference fallback.
+
+### How It Works
+
+1. **`+layout.svelte`** owns the theme state and provides `toggleTheme()` to `Nav.svelte`
+2. On mount: checks `localStorage('theme')` → falls back to `prefers-color-scheme` → defaults to light
+3. Sets `document.documentElement.setAttribute('data-theme', theme)`
+4. CSS variables in `app.css` swap via `:root` / `[data-theme='light']` and `[data-theme='dark']` selectors
+5. 3D scene reacts via `MutationObserver` on `data-theme` attribute changes
+
+### Theme Flow
+
+```
+User clicks toggle → +layout.svelte toggleTheme()
+  → sets data-theme on <html>
+  → saves to localStorage
+  → CSS variables swap instantly
+  → MutationObserver in SceneManager.js fires
+  → updateThemeColors() adjusts fog, wireframes, grid, particles
+  → MutationObserver in ProductMonoliths.svelte fires
+  → monolith wireframe colors update
+```
+
+### Adding Theme-Aware Styles
+
+Always use CSS variables. Never hardcode colors:
+```css
+/* ✓ Correct */
+color: var(--text-primary);
+background: var(--surface);
+border-color: var(--border);
+
+/* ✗ Wrong */
+color: #ffffff;
+background: rgba(255, 255, 255, 0.1);
+```
+
+## 3D Scene System
+
+A cinematic Three.js background renders behind all page content on every route.
+
+### Architecture
+
+```
++layout.svelte
+  └── <Scene />                    # Svelte lifecycle wrapper
+       └── SceneManager.js         # Core Three.js logic
+            ├── Camera (z=15)
+            ├── Renderer (alpha: true, transparent canvas)
+            ├── FogExp2 (theme-aware color + density)
+            ├── Wireframe cube (rotating, mouse-reactive)
+            ├── Inner icosahedron (counter-rotating)
+            ├── GridHelper (100×100, scroll-linked drift)
+            └── Particle system (500 dust particles)
+
++page.svelte (home only)
+  └── <ProductMonoliths />         # Three wireframe panels behind product cards
+       ├── Augmentum monolith
+       ├── Visage monolith
+       └── MrHaven monolith
+```
+
+### Key Files
+
+| File | Responsibility |
+|------|---------------|
+| `src/lib/three/Scene.svelte` | Canvas element creation, SceneManager lifecycle (mount/destroy) |
+| `src/lib/three/SceneManager.js` | Camera, renderer, scene objects, animation loop, resize/scroll/mouse handlers, theme color updates, cleanup |
+| `src/lib/three/ProductMonoliths.svelte` | Three interactive wireframe panels on home page, hover effects (tilt, glow, color), theme-aware materials |
+
+### CSS Layering
+
+The 3D canvas must remain visible behind all content. This requires:
+
+```
+Canvas:  position: fixed; z-index: -1; pointer-events: none;
+Body:    background: transparent;
+Nav:     background: transparent; backdrop-filter: blur(10px);
+Footer:  background: transparent;
+```
+
+All page sections must have transparent backgrounds. Do **not** add `background-color` to `main`, `section`, or generic `div` elements — this will occlude the 3D canvas.
+
+### Theme Color Mapping (3D)
+
+| Element | Light Mode | Dark Mode |
+|---------|-----------|-----------|
+| Fog color | `0xffffff` | `0x000000` |
+| Fog density | `0.015` | `0.02` |
+| Wireframe color | `0x000000` | `0xffffff` |
+| Grid primary | `0x888888` | `0x444444` |
+| Grid secondary | `0xcccccc` | `0x222222` |
+| Particle color | `0x000000` (opacity 0.2) | `0xffffff` (opacity 0.4) |
+| Monolith wireframe | `0x333333` | `0xffffff` |
+
+### Modifying the 3D Scene
+
+- All scene setup is in `SceneManager.js` constructor
+- Animation loop is `tick()` — called via `requestAnimationFrame`
+- Theme updates go in `updateThemeColors()` — called by the `MutationObserver`
+- Always clean up resources in `destroy()` (geometries, materials, observers, event listeners)
+- The renderer uses `alpha: true` — the CSS `background: var(--bg)` on the canvas provides the background color
 
 ## Routing
 
@@ -223,6 +338,9 @@ DNS: 4 A records (185.199.108-111.153) + www CNAME → `sovren-software.github.i
 - [ ] MrHaven SDK section on the MrHaven page (when SDK docs exist)
 - [ ] Visual convergence diagram on Ecosystem page
 - [ ] X profile update (currently MrHaven-branded)
+- [x] 3D cinematic scene — wireframe cube, grid, particles, product monoliths (2026-02-25)
+- [x] Light/dark theme toggle with persistence and 3D sync (2026-02-25)
+- [x] Theme-aware CSS variables — all hardcoded colors removed (2026-02-25)
 - [x] Waitlist capture on Augmentum OS page — mailto:hello@sovren.software (2026-02-24)
 - [x] Visage version updated to v0.2.0 (2026-02-24)
 - [x] AI agent angle surfaced on MrHaven page (2026-02-24)

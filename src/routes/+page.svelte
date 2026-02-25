@@ -113,7 +113,7 @@
     line-height: 1.0;
     color: var(--text-primary);
     text-transform: uppercase;
-    text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+    text-shadow: none;
   }
 
   .hero-sub {
@@ -172,8 +172,8 @@
   }
 
   .product-card:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--surface);
+    border-color: var(--border-glow);
   }
 
   .product-label {
@@ -190,12 +190,12 @@
     letter-spacing: 0.14em;
     color: var(--text-primary);
     text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0);
+    text-shadow: none;
     transition: text-shadow var(--transition-slow);
   }
 
   .product-card:hover .product-name {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 20px var(--border-glow);
   }
 
   .product-desc {
