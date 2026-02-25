@@ -1,8 +1,8 @@
 <svelte:head>
-  <title>Augmentum OS — Sovereign NixOS Operating System | Sovren Software</title>
-  <meta name="description" content="NixOS-based sovereign OS with declarative config, local AI inference, and hardware-verified trust. No silent updates, no telemetry. Ships Summer 2026." />
-  <meta property="og:title" content="Augmentum OS — Sovereign NixOS Operating System" />
-  <meta property="og:description" content="Your entire OS in a single reproducible config. Version-controlled, rollback-capable, answerable only to you." />
+  <title>Augmentum OS — Governance-First NixOS Operating System | Sovren Software</title>
+  <meta name="description" content="An OS with a cognitive loop that learns your system — local inference, cryptographic receipts, consent that expires at reboot. Governance built into the substrate, not bolted on top." />
+  <meta property="og:title" content="Augmentum OS — Stop Managing Your OS. Start Commanding It." />
+  <meta property="og:description" content="Local intelligence at the OS layer. Governance built into the substrate. Actions that prove they executed. Ships Summer 2026." />
   <meta property="og:url" content="https://sovren.software/augmentum" />
 </svelte:head>
 
@@ -10,20 +10,20 @@
 
   const features = [
     {
-      label: 'DECLARATIVE STATE',
-      desc: 'Your entire OS is a single reproducible config file. Every package, service, and setting — version-controlled and auditable. Roll back any change. Clone your system to new hardware in minutes.',
+      label: 'COGNITIVE LOOP',
+      desc: 'The OS observes system health, detects patterns, and surfaces recommendations — using local LLMs on your hardware, without your private data leaving your fleet. Every 5 minutes. Hourly trend analysis. This is not telemetry. It is a system that knows what it is doing.',
     },
     {
-      label: 'AI-NATIVE SERVICES',
-      desc: 'Local inference at the OS layer — not in a vendor\'s cloud. Your agents run on your hardware, load on demand, stay resident when needed, and never phone home. This is the layer that multiplies what one person can do.',
+      label: 'GOVERNANCE IS STRUCTURAL',
+      desc: 'Actions in the governance pipeline produce cryptographic receipts — hash-chained, Ed25519-signed, auditable. Every agent operates within explicitly defined capability bounds. Scoped, time-limited permits are required before any privileged operation proceeds.',
     },
     {
-      label: 'HARDWARE-VERIFIED TRUST',
-      desc: 'Cryptographic attestation from first boot. Every binary verified before execution. TPM-backed measurements ensure your system is exactly what you configured — no silent substitutions.',
+      label: 'CONSENT AS INFRASTRUCTURE',
+      desc: 'Privacy controls are encoded as sentinel files on a RAM-only filesystem. They expire on reboot — requiring active re-authorization every time the system starts. The system asks to be trusted again rather than assuming it still is. Cryptographic erasure is available on demand.',
     },
     {
-      label: 'SOVEREIGN BUILDS',
-      desc: 'No automatic updates without your explicit consent. Your system runs your schedule. Upgrade when you choose, test in isolation, and roll back if anything breaks.',
+      label: 'SOVEREIGN IDENTITY',
+      desc: 'Your Ethereum wallet signs your identity. No external identity provider. SSH key derives to age key derives to ETH address — a complete identity chain without trusting anyone else\'s infrastructure. One declarative config governs the entire fleet.',
     },
   ]
 </script>
@@ -34,33 +34,33 @@
       <span class="category">01 / OS</span>
       <h1>AUGMENTUM<br />OS.</h1>
       <p class="status">Ships Summer 2026</p>
-      <p class="tagline">The operating system built for people who refuse to be owned by their software vendor.</p>
+      <p class="tagline">Stop managing your OS. Start commanding it.</p>
     </div>
   </section>
 
   <section class="overview">
     <div class="overview-inner">
       <div class="overview-text">
-        <p>Most operating systems are designed for vendor convenience, not user control. Updates happen on someone else's schedule. Telemetry ships by default. Your configuration drifts over time until your system is an unauditable mess.</p>
-        <p>Augmentum OS is different by design. Built on NixOS, the entire system state is declared in a single configuration. Local AI inference runs at the OS layer — not in a vendor's cloud. Reproducible, version-controlled, and designed to multiply what one person can do.</p>
+        <p>Most operating systems host your programs and stay out of the way. Augmentum OS runs a persistent cognitive layer: it observes system health, detects trends, and surfaces recommendations — locally, without sending anything to a vendor. The system learns the longer it runs. This is a different category of machine.</p>
+        <p>Governance is built into the substrate, not bolted on top. Every action in the pipeline produces a cryptographic receipt. Consent is encoded as sentinel files that expire on reboot — requiring active re-authorization every time the system starts. What the system knows about you, it can provably erase on command. A unified CLI puts diagnostics, privacy controls, authentication, AI health, and governance behind a single entry point.</p>
         <p>Augmentum OS is also the integration layer for the Sovren Stack. Visage face authentication runs as a hardware-verified identity primitive at the OS level. MrHaven vault access is a first-class credential. The three products are each useful alone — together they form a complete sovereign computing platform.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
           <span class="spec-label">BASE</span>
-          <span class="spec-value">NixOS (Linux)</span>
+          <span class="spec-value">NixOS 25.05 (Warbler)</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">CONFIG</span>
-          <span class="spec-value">Declarative · Git-tracked</span>
+          <span class="spec-value">Declarative · Git-tracked · 8 hosts</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">AI LAYER</span>
-          <span class="spec-value">Local inference · On-device</span>
+          <span class="spec-value">Local inference · Fleet-distributed</span>
         </div>
         <div class="spec-row">
-          <span class="spec-label">TRUST</span>
-          <span class="spec-value">TPM2 · Secure Boot</span>
+          <span class="spec-label">GOVERNANCE</span>
+          <span class="spec-value">Cryptographic receipts · Consent-gated</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">STATUS</span>
@@ -72,7 +72,7 @@
 
   <section class="features">
     <div class="features-inner">
-      <span class="section-label">CAPABILITIES</span>
+      <span class="section-label">ARCHITECTURE</span>
       <div class="feature-grid">
         {#each features as f}
           <div class="feature-card">
@@ -87,9 +87,9 @@
   <section class="cta">
     <div class="cta-inner">
       <h2>BE NOTIFIED<br />AT LAUNCH.</h2>
-      <p>Augmentum OS ships Summer 2026. Email us to join the early access list — no marketing, just a launch notification.</p>
-      <a href="mailto:hello@sovren.software?subject=Augmentum OS Early Access" class="btn-primary">
-        REQUEST EARLY ACCESS →
+      <p>Augmentum OS ships Summer 2026. No early access. No waitlist. Email us if you want a single notification the day it launches.</p>
+      <a href="mailto:hello@sovren.software?subject=Augmentum OS Launch Notification" class="btn-primary">
+        NOTIFY ME AT LAUNCH →
       </a>
     </div>
   </section>
