@@ -7,8 +7,6 @@
 </svelte:head>
 
 <script>
-  import ProductMonoliths from '$lib/three/ProductMonoliths.svelte';
-
   const asciiArt = `      _______________
      /              /|
     /              / |
@@ -56,9 +54,6 @@
   </section>
 
   <section class="products">
-    <div class="monolith-container">
-      <ProductMonoliths {products} />
-    </div>
     <div class="product-grid">
       {#each products as p}
         <a href={p.href} class="product-card">
@@ -137,13 +132,6 @@
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     position: relative;
-  }
-
-  .monolith-container {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
-    z-index: -1;
   }
 
   .product-grid {

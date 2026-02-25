@@ -187,11 +187,7 @@ A cinematic Three.js background renders behind all page content on every route.
             ├── GridHelper (100×100, scroll-linked drift)
             └── Particle system (500 dust particles)
 
-+page.svelte (home only)
-  └── <ProductMonoliths />         # Three wireframe panels behind product cards
-       ├── Augmentum monolith
-       ├── Visage monolith
-       └── MrHaven monolith
+ProductMonoliths.svelte exists but is currently unused (removed for visual clarity).
 ```
 
 ### Key Files
@@ -200,7 +196,7 @@ A cinematic Three.js background renders behind all page content on every route.
 |------|---------------|
 | `src/lib/three/Scene.svelte` | Canvas element creation, SceneManager lifecycle (mount/destroy) |
 | `src/lib/three/SceneManager.js` | Camera, renderer, scene objects, animation loop, resize/scroll/mouse handlers, theme color updates, cleanup |
-| `src/lib/three/ProductMonoliths.svelte` | Three interactive wireframe panels on home page, hover effects (tilt, glow, color), theme-aware materials |
+| `src/lib/three/ProductMonoliths.svelte` | Interactive wireframe panels with hover effects — currently unused, removed from home page for visual clarity |
 
 ### CSS Layering
 
@@ -225,7 +221,7 @@ All page sections must have transparent backgrounds. Do **not** add `background-
 | Grid primary | `0x888888` | `0x444444` |
 | Grid secondary | `0xcccccc` | `0x222222` |
 | Particle color | `0x000000` (opacity 0.2) | `0xffffff` (opacity 0.4) |
-| Monolith wireframe | `0x333333` | `0xffffff` |
+| Monolith wireframe | `0x333333` | `0xffffff` | *(unused — monoliths removed)* |
 
 ### Modifying the 3D Scene
 

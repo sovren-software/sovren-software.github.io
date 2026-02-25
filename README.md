@@ -107,7 +107,7 @@ A full-viewport 3D background renders behind all page content:
 - **Theme-aware:** Materials, fog color/density, and particle opacity adapt to light/dark mode
 - **Lifecycle:** `Scene.svelte` mounts/unmounts the canvas; `SceneManager.js` handles the animation loop and cleanup
 
-The home page also renders `ProductMonoliths.svelte` — three interactive wireframe panels positioned behind the product cards that respond to hover with tilt, glow, and color transitions.
+`ProductMonoliths.svelte` exists as an interactive wireframe panel component but is currently unused — it was removed from the home page to reduce visual clutter.
 
 ### Shared Components
 
