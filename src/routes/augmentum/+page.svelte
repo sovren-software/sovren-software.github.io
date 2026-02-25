@@ -1,8 +1,8 @@
 <svelte:head>
-  <title>Augmentum OS — Governance-First NixOS Operating System | Sovren Software</title>
-  <meta name="description" content="An OS with a cognitive loop that learns your system — local inference, cryptographic receipts, consent that expires at reboot. Governance built into the substrate, not bolted on top." />
-  <meta property="og:title" content="Augmentum OS — Stop Managing Your OS. Start Commanding It." />
-  <meta property="og:description" content="Local intelligence at the OS layer. Governance built into the substrate. Actions that prove they executed. Ships Summer 2026." />
+  <title>Augmentum OS — A Cognitive Operating System for High-Leverage Operators | Sovren Software</title>
+  <meta name="description" content="One operator. Team-scale output. Augmentum OS is a cognitive operating system that watches, learns, and surfaces what matters — without compromising on privacy, security, or usability." />
+  <meta property="og:title" content="Augmentum OS — One Operator. Team-Scale Output." />
+  <meta property="og:description" content="A cognitive operating system for founders, operators, and high-leverage individuals. UX, privacy, and security — none sacrificed. Ships Summer 2026." />
   <meta property="og:url" content="https://sovren.software/augmentum" />
 </svelte:head>
 
@@ -10,23 +10,23 @@
   const pillars = [
     {
       num: '01',
-      label: 'COGNITIVE LOOP',
-      desc: 'The OS observes system health every 5 minutes, detects patterns hourly, and surfaces recommendations — using local LLMs on your hardware, without your private data leaving your fleet.',
+      label: 'ALWAYS WATCHING. NEVER LEAKING.',
+      desc: 'The OS observes your system continuously and surfaces what matters — using AI that runs entirely on your hardware. Nothing leaves without your explicit permission. You control the privacy dial, and you can change it at any time.',
     },
     {
       num: '02',
-      label: 'GOVERNANCE BY DESIGN',
-      desc: 'Actions in the governance pipeline produce cryptographic receipts — hash-chained, Ed25519-signed, auditable. Every agent operates within explicitly defined, time-limited capability bounds.',
+      label: 'YOU OWN THE CONSENT',
+      desc: 'Every AI feature is gated. You grant access. You revoke it. Session permissions expire when you reboot — so nothing persists without you actively choosing it. Before anything leaves your machine, the system tells you exactly what, and asks.',
     },
     {
       num: '03',
-      label: 'CONSENT AS INFRASTRUCTURE',
-      desc: 'Privacy controls are encoded as sentinel files on a RAM-only filesystem. They expire on reboot — requiring active re-authorization every time the system starts.',
+      label: 'EVERY ACTION IS RECEIPTED',
+      desc: 'Agents operate within boundaries you define. Every action is logged, signed, and auditable. You can see what happened, when, and why. Control does not end when you delegate — it follows the work.',
     },
     {
       num: '04',
-      label: 'SOVEREIGN IDENTITY',
-      desc: 'Your Ethereum wallet signs your identity. SSH key derives to age key derives to ETH address — a complete identity chain with no external provider.',
+      label: 'SECURE BY DEFAULT. USABLE BY DESIGN.',
+      desc: 'The secure path is the easy path. One command to check system status. One command to diagnose a problem. One command to change your privacy posture. Good defaults. No gotchas.',
     },
   ]
 </script>
@@ -37,16 +37,17 @@
       <span class="category">01 / OS</span>
       <h1>AUGMENTUM<br />OS.</h1>
       <p class="status">Ships Summer 2026</p>
-      <p class="tagline">Stop managing your OS. Start commanding it.</p>
+      <p class="tagline">One operator. Team-scale output.</p>
     </div>
   </section>
 
   <section class="overview">
     <div class="overview-inner">
       <div class="overview-text">
-        <p class="overview-lead">A different category of machine.</p>
-        <p class="overview-body">Most operating systems host your programs and stay out of the way. Augmentum OS runs a persistent cognitive layer — observing system health, detecting trends, surfacing recommendations — locally, on your hardware, without your private data leaving your fleet. Governance is built into the substrate: every action receipted, every agent bounded, consent that expires at reboot.</p>
-        <p class="overview-stack">Integration layer for the Sovren Stack — Visage face authentication and MrHaven vault access are first-class primitives at the OS level.</p>
+        <p class="overview-lead">A cognitive operating system.</p>
+        <p class="overview-body">Most operating systems make you choose: convenience or privacy. Ease of use or security. Augmentum OS does not accept that tradeoff.</p>
+        <p class="overview-body">It is built for founders, operators, and high-leverage individuals who need the output of a team — without surrendering control of their own machine. The system watches, learns, and surfaces what matters. You decide what it sees, what it retains, and when it acts. That clarity compounds over time.</p>
+        <p class="overview-stack">Visage face authentication and MrHaven programmable finance are first-class primitives at the OS level. The Sovren Stack runs as a unified command layer.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -55,15 +56,15 @@
         </div>
         <div class="spec-row">
           <span class="spec-label">CONFIG</span>
-          <span class="spec-value">Declarative · Git-tracked · 8 hosts</span>
+          <span class="spec-value">Declarative · Version-controlled · Rollback-capable</span>
         </div>
         <div class="spec-row">
-          <span class="spec-label">AI LAYER</span>
-          <span class="spec-value">Local inference · Fleet-distributed</span>
+          <span class="spec-label">INFERENCE</span>
+          <span class="spec-value">Runs locally · Your data stays on your hardware</span>
         </div>
         <div class="spec-row">
-          <span class="spec-label">GOVERNANCE</span>
-          <span class="spec-value">Cryptographic receipts · Consent-gated</span>
+          <span class="spec-label">CONSENT</span>
+          <span class="spec-value">Granular · Revocable · Expires on reboot</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">STATUS</span>
@@ -75,7 +76,7 @@
 
   <section class="pillars">
     <div class="pillars-inner">
-      <span class="section-label">ARCHITECTURE</span>
+      <span class="section-label">HOW IT WORKS</span>
       <div class="pillar-rows">
         {#each pillars as p}
           <div class="pillar-row">
@@ -92,8 +93,8 @@
 
   <section class="cta">
     <div class="cta-inner">
-      <h2>BE NOTIFIED<br />AT LAUNCH.</h2>
-      <p>Augmentum OS ships Summer 2026. No early access. No waitlist. Email us if you want a single notification the day it launches.</p>
+      <h2>BUILT FOR THE<br />OPERATOR.</h2>
+      <p>Augmentum OS ships Summer 2026. No early access. No waitlist. One email when it is ready — send us your address.</p>
       <a href="mailto:hello@sovren.software?subject=Augmentum OS Launch Notification" class="btn-primary">
         NOTIFY ME AT LAUNCH →
       </a>
