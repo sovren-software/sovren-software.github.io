@@ -1,29 +1,32 @@
 <svelte:head>
   <title>Visage — Linux Face Authentication via PAM | Sovren Software</title>
-  <meta name="description" content="Open source Linux face authentication via PAM. ONNX inference runs on-device — no cloud enrollment, no biometric database. Rust. MIT licensed. v0.2.0." />
-  <meta property="og:title" content="Visage — Linux Face Authentication via PAM" />
-  <meta property="og:description" content="Windows Hello for Linux. ONNX face recognition runs entirely on your hardware. No cloud enrollment. MIT licensed, written in Rust." />
+  <meta name="description" content="Open source Linux face authentication via PAM. Inference runs on-device — no cloud enrollment, no biometric database. Rust. MIT licensed. v0.2.0." />
+  <meta property="og:title" content="Visage — Your Face Is Your Key." />
+  <meta property="og:description" content="Linux face authentication that runs entirely on your hardware. No cloud enrollment. No biometric database. Open source, MIT licensed." />
   <meta property="og:url" content="https://sovren.software/visage" />
 </svelte:head>
 
 <script>
-
-  const features = [
+  const pillars = [
     {
-      label: 'LOCAL INFERENCE',
-      desc: 'ONNX face recognition model runs entirely on your hardware. No cloud enrollment. No biometric database. Your face never leaves your machine.',
+      num: '01',
+      label: 'YOUR BIOMETRICS STAY ON YOUR HARDWARE.',
+      desc: 'Face recognition runs entirely on-device. No cloud enrollment. No biometric database. Your face never leaves your machine — not during setup, not during authentication, not ever.',
     },
     {
-      label: 'PAM INTEGRATION',
-      desc: 'Drop-in replacement for any PAM-based authentication stack. Works with sudo, screen lock, and login — without modifying existing system configuration.',
+      num: '02',
+      label: 'DROPS INTO ANY LINUX AUTH STACK.',
+      desc: 'Visage is a PAM module. It works with sudo, screen lock, and login without modifying your existing system configuration. If your system supports PAM, Visage works.',
     },
     {
-      label: 'IR CAMERA SUPPORT',
-      desc: 'Native support for Windows Hello-compatible IR cameras. Liveness detection built in. Works in low light, resistant to photo-based spoofing attacks.',
+      num: '03',
+      label: 'BUILT FOR IR. RESISTANT TO SPOOFING.',
+      desc: 'Native support for Windows Hello-compatible IR cameras. Liveness detection is built in. Works in low light. Resistant to photo-based spoofing attacks.',
     },
     {
-      label: 'SUB-SECOND AUTH',
-      desc: 'Under one second on IR camera hardware with a warm daemon. The persistent daemon keeps the model resident — no cold start on every lock. Authentication finishes before your hand leaves the trackpad.',
+      num: '04',
+      label: 'UNDER ONE SECOND.',
+      desc: 'The persistent daemon keeps the model resident — no cold start on every lock. Authentication finishes before your hand leaves the trackpad.',
     },
   ]
 </script>
@@ -34,16 +37,17 @@
       <span class="category">02 / IDENTITY</span>
       <h1>VISAGE.</h1>
       <p class="status">Open source · MIT · v0.2.0</p>
-      <p class="tagline">Linux face authentication via PAM. Your face is your key — processed locally, never broadcast to the cloud.</p>
+      <p class="tagline">Your face is your key. Processed locally. Never broadcast to the cloud.</p>
     </div>
   </section>
 
   <section class="overview">
     <div class="overview-inner">
       <div class="overview-text">
-        <p>Windows Hello has worked for years on Windows. Linux users have been left out. Visage closes that gap with a native, open-source face authentication daemon that works with any PAM-compatible application.</p>
-        <p>Built in Rust for performance and safety. The ONNX inference engine keeps model weights local. No account creation. No enrollment servers. No biometric data leaving your hardware.</p>
-        <p>v0.x is MIT-licensed and works on any Linux system. v2, in active development, integrates at the Augmentum OS identity layer — your face-verified credential becomes a system-level primitive, not just a PAM module. The open/closed split is intentional: the open-source foundation earns trust; the OS-native layer delivers the full vision.</p>
+        <p class="overview-lead">Face authentication the way it should work.</p>
+        <p class="overview-body">Windows Hello has worked on Windows for years. Linux users were left out. Visage closes that gap — a native, open-source face authentication daemon built in Rust, with no external dependencies and no data leaving your hardware.</p>
+        <p class="overview-body">v0.x is MIT-licensed and works on any Linux system. v2, in active development, integrates at the Augmentum OS identity layer — your face-verified credential becomes a system-level primitive, not just a PAM module.</p>
+        <p class="overview-stack">The open/closed split is intentional. The open-source foundation earns trust. The OS-native layer delivers the full vision.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -52,7 +56,7 @@
         </div>
         <div class="spec-row">
           <span class="spec-label">INFERENCE</span>
-          <span class="spec-value">ONNX · On-device</span>
+          <span class="spec-value">On-device · No cloud</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">AUTH</span>
@@ -68,20 +72,23 @@
         </div>
         <div class="spec-row">
           <span class="spec-label">STATUS</span>
-          <span class="spec-value spec-live">Live · v0.2.0</span>
+          <span class="spec-value">Live · v0.2.0</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="features">
-    <div class="features-inner">
-      <span class="section-label">CAPABILITIES</span>
-      <div class="feature-grid">
-        {#each features as f}
-          <div class="feature-card">
-            <span class="feature-label">{f.label}</span>
-            <p class="feature-desc">{f.desc}</p>
+  <section class="pillars">
+    <div class="pillars-inner">
+      <span class="section-label">HOW IT WORKS</span>
+      <div class="pillar-rows">
+        {#each pillars as p}
+          <div class="pillar-row">
+            <div class="pillar-left">
+              <span class="pillar-num">{p.num}</span>
+              <h3 class="pillar-title">{p.label}</h3>
+            </div>
+            <p class="pillar-desc">{p.desc}</p>
           </div>
         {/each}
       </div>
@@ -105,6 +112,7 @@
 </main>
 
 <style>
+  /* ── Hero ── */
   .hero {
     min-height: calc(100vh - 60px);
     display: flex;
@@ -152,7 +160,7 @@
     letter-spacing: 0.02em;
   }
 
-  /* Overview */
+  /* ── Overview ── */
   .overview {
     background: #ffffff;
     color: #000;
@@ -172,14 +180,31 @@
   .overview-text {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
-  .overview-text p {
+  .overview-lead {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .overview-body {
     font-size: 0.9rem;
-    line-height: 1.8;
+    line-height: 1.85;
     color: #333;
     letter-spacing: 0.02em;
+  }
+
+  .overview-stack {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    color: #999;
+    letter-spacing: 0.04em;
+    padding-top: 0.25rem;
+    border-top: 1px solid #e5e5e5;
   }
 
   .overview-specs {
@@ -210,17 +235,12 @@
     text-align: right;
   }
 
-  .spec-live {
-    color: #111;
-  }
-
-  /* Features */
-  .features {
+  /* ── Pillars ── */
+  .pillars {
     padding: 6rem 2.5rem;
-    border-top: 1px solid var(--border);
   }
 
-  .features-inner {
+  .pillars-inner {
     max-width: var(--max-w);
     margin: 0 auto;
   }
@@ -234,45 +254,52 @@
     text-transform: uppercase;
   }
 
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: 1px solid var(--border);
-  }
-
-  .feature-card {
-    padding: 2.5rem;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+  .pillar-rows {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    border-top: 1px solid var(--border);
   }
 
-  .feature-card:nth-child(2n) {
-    border-right: none;
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
   }
 
-  .feature-card:nth-child(3),
-  .feature-card:nth-child(4) {
-    border-bottom: none;
+  .pillar-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .feature-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+  .pillar-num {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
     color: var(--text-muted);
+  }
+
+  .pillar-title {
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    line-height: 1.3;
     text-transform: uppercase;
+    margin: 0;
   }
 
-  .feature-desc {
-    font-size: 0.85rem;
+  .pillar-desc {
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: 1.8;
     letter-spacing: 0.02em;
+    padding-top: 0.25rem;
   }
 
-  /* CTA */
+  /* ── CTA ── */
   .cta {
     background: #fff;
     color: #000;
@@ -344,7 +371,7 @@
     color: #fff;
   }
 
-  /* Responsive */
+  /* ── Responsive ── */
   @media (max-width: 768px) {
     .hero {
       padding: 3rem 1.5rem 4rem;
@@ -359,21 +386,10 @@
       gap: 3rem;
     }
 
-    .feature-grid {
+    .pillar-row {
       grid-template-columns: 1fr;
-    }
-
-    .feature-card {
-      border-right: none;
-    }
-
-    .feature-card:nth-child(3),
-    .feature-card:nth-child(4) {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .feature-card:last-child {
-      border-bottom: none;
+      gap: 1.5rem;
+      padding: 2rem 0;
     }
   }
 </style>
