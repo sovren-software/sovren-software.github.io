@@ -1,88 +1,80 @@
 <svelte:head>
-  <title>The Manifesto — Sovren Software Ecosystem</title>
-  <meta name="description" content="Privacy is not a feature. Control is not an option. Sovereignty is the baseline. The Sovren Stack: Augmentum OS, Visage, and Mr. Haven." />
-  <meta property="og:title" content="The Manifesto — Sovren Software" />
-  <meta property="og:description" content="Three pillars. One thesis. Sovereign computing, local identity, self-custodied assets." />
+  <title>Ecosystem Manifesto — The Sovren Stack | Sovren Software</title>
+  <meta name="description" content="Privacy is not a feature. Control is not an option. Sovereignty is the baseline. The manifesto for the Sovren Software computing stack." />
+  <meta property="og:title" content="The Sovren Ecosystem Manifesto." />
+  <meta property="og:description" content="We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you." />
   <meta property="og:url" content="https://sovren.software/ecosystem" />
 </svelte:head>
 
 <script>
+  import CtaSection from '$lib/CtaSection.svelte';
 
   const pillars = [
     {
-      n: '01',
+      num: '01',
       domain: 'COMPUTING',
-      product: 'AUGMENTUM OS',
-      href: '/augmentum',
-      thesis: 'Your OS should execute your intent, not enforce someone else\'s update policy.',
-      body: 'Every system you\'ve run was designed by a vendor whose incentives diverge from yours. Telemetry, forced updates, locked-down hardware. Augmentum OS is declarative by design — your entire system state in a single file, reproducible across hardware, answerable only to you.',
+      title: 'THE MACHINE MUST BE OBEDIENT.',
+      desc: 'An operating system should do exactly what it is told, and nothing else. No telemetry, no silent updates, no background tasks you cannot kill. Your hardware is your property. The software running on it must behave like a tool, not a tenant.',
+      link: { label: 'AUGMENTUM OS →', href: '/augmentum' }
     },
     {
-      n: '02',
+      num: '02',
       domain: 'IDENTITY',
-      product: 'VISAGE',
-      href: '/visage',
-      thesis: 'Biometric data belongs to you, processed on your hardware.',
-      body: 'Every face recognition system you\'ve used sends your biometrics somewhere. Visage runs entirely on-device. No cloud enrollment. No external database. Your face authenticates you locally, via the same PAM stack that\'s been securing Linux for decades.',
+      title: 'YOU ARE NOT A ROW IN A DATABASE.',
+      desc: 'Biometrics should never leave the hardware they were captured on. Verification is a local cryptographic process, not a cloud API call. If a system requires your face to authenticate, it must prove it cannot steal it.',
+      link: { label: 'VISAGE →', href: '/visage' }
     },
     {
-      n: '03',
-      domain: 'ASSETS',
-      product: 'MR. HAVEN',
-      href: '/mrhaven',
-      thesis: 'Financial infrastructure should be programmable without requiring a custodian.',
-      body: 'Banks, brokerages, and custody services exist as intermediaries between you and your wealth. Smart contracts don\'t need them. MrHaven automates value transfer on-chain — your keys, your conditions, your beneficiaries.',
-    },
+      num: '03',
+      domain: 'CAPITAL',
+      title: 'NO HUMANS IN THE LOOP.',
+      desc: 'Assets require custody or cryptography. We choose cryptography. A programmable vault should execute rules without hesitation, without exception, and without permission from a compliance department.',
+      link: { label: 'MR. HAVEN →', href: '/mrhaven' }
+    }
   ]
 </script>
 
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <span class="category">ECOSYSTEM</span>
-      <h1>THE<br />MANIFESTO.</h1>
-      <p class="tagline">We are building the infrastructure for digital autonomy. Three layers. One thesis.</p>
+      <span class="category">COMPANY</span>
+      <h1>THE MANIFESTO.</h1>
+      <p class="tagline">We reject the premise that extraction is the default state of technology.</p>
     </div>
   </section>
 
   <section class="thesis-expanded">
-    <div class="thesis-inner">
-      <p class="thesis-lede">
-        The default state of modern technology is extraction. Your operating system reports back to its maker. Your biometrics are stored in someone else's database. Your assets move through someone else's rails.
-      </p>
-      <p class="thesis-body">
-        This is not an accident. It is the product of incentive structures that reward scale and lock-in over user control. The vendors who built these systems are not malicious — they are optimizing for their shareholders, not for you.
-      </p>
-      <p class="thesis-body">
-        We reject the premise that this is the only way. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. We are building the stack that makes it practical — and proving, in the process, that one person with the right infrastructure can outbuild what once required a team.
-      </p>
-      <p class="thesis-body">
-        Each product stands on its own. Augmentum OS runs without Visage. Visage installs on any Linux system. MrHaven works without either. But the convergence is the point: Visage identity becomes a hardware-verified OS primitive. MrHaven vaults become a first-class OS credential. The three layers compose into something no single product delivers alone.
-      </p>
-      <blockquote>
-        Privacy is not a feature.<br />
-        Control is not an option.<br />
-        Sovereignty is the baseline.
-      </blockquote>
+    <div class="thesis-inner glitch-subtle preserve-3d">
+      <p class="thesis-lede">The industry has accepted a tradeoff that was never necessary: surrender your data, your attention, and your agency in exchange for convenience.</p>
+      
+      <div class="thesis-body">
+        <p>The modern software stack treats the user as the product. Operating systems harvest telemetry. Identity providers silo your biometrics in the cloud. Financial institutions gatekeep your assets.</p>
+        
+        <blockquote>You are not the root user of your own life. You are a guest in someone else's walled garden.</blockquote>
+        
+        <p>Sovren Software exists to build the alternative. We do not believe in walled gardens. We do not believe in "trusted third parties." We believe in cryptographic guarantees, open-source foundations, and software that answers only to the person running it.</p>
+      </div>
     </div>
   </section>
 
   <section class="pillars">
     <div class="pillars-inner">
       <span class="section-label">THE THREE PILLARS</span>
+      
       {#each pillars as p}
         <div class="pillar">
           <div class="pillar-header">
-            <span class="pillar-n">{p.n}</span>
+            <span class="pillar-n">{p.num}</span>
             <span class="pillar-domain">{p.domain}</span>
           </div>
           <div class="pillar-body">
-            <p class="pillar-thesis">"{p.thesis}"</p>
-            <p class="pillar-text">{p.body}</p>
-            <a href={p.href} class="pillar-link">{p.product} →</a>
+            <h3 class="pillar-thesis">{p.title}</h3>
+            <p class="pillar-text">{p.desc}</p>
+            <a href={p.link.href} class="pillar-link">{p.link.label}</a>
           </div>
         </div>
       {/each}
+      
     </div>
   </section>
 
@@ -137,10 +129,10 @@
 
   /* Thesis expanded */
   .thesis-expanded {
-    background: var(--light-bg);
-    color: var(--light-text-primary);
+    background: transparent;
+    color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-bottom: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--border);
   }
 
   .thesis-inner {
@@ -156,18 +148,18 @@
     font-weight: var(--fw-semibold);
     line-height: var(--lh-default);
     letter-spacing: var(--ls-tight);
-    color: var(--light-text-primary);
+    color: var(--text-primary);
   }
 
   .thesis-body {
     font-size: 0.95rem;
     line-height: var(--lh-loose);
-    color: #444;
+    color: var(--text-secondary);
     letter-spacing: var(--ls-default);
   }
 
   blockquote {
-    border-left: 2px solid var(--light-text-primary);
+    border-left: 2px solid var(--text-primary);
     padding-left: var(--space-2xl);
     margin: var(--space-lg) 0;
     font-size: clamp(1rem, 2vw, 1.25rem);
@@ -265,10 +257,10 @@
 
   /* Closing */
   .closing {
-    background: var(--light-bg);
-    color: var(--light-text-primary);
+    background: transparent;
+    color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-top: 1px solid var(--light-border);
+    border-top: 1px solid var(--border);
   }
 
   .closing-inner {
@@ -288,7 +280,7 @@
 
   .closing p {
     font-size: var(--fs-body);
-    color: var(--light-text-secondary);
+    color: var(--text-secondary);
     max-width: 520px;
     line-height: var(--lh-relaxed);
     letter-spacing: var(--ls-default);
@@ -300,16 +292,18 @@
     font-size: var(--fs-btn);
     letter-spacing: var(--ls-wider);
     padding: var(--btn-pad);
-    background: var(--light-text-primary);
-    color: var(--light-bg);
+    background: var(--bg);
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
     text-decoration: none;
-    transition: opacity var(--transition-fast);
+    transition: all var(--transition-slow);
     align-self: flex-start;
     margin-top: var(--space-sm);
   }
 
   .btn-primary:hover {
-    opacity: 0.75;
+    background: var(--text-primary);
+    color: var(--bg);
   }
 
   /* Responsive */

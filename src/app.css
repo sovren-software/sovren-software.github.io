@@ -4,6 +4,7 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  font-style: normal;
 }
 
 /* ═══════════════════════════════════════════
@@ -11,70 +12,67 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  /* ── Colors: Dark mode (default) ── */
+  /* Colors - Pure Monochrome */
   --bg: #000000;
-  --surface: #080808;
-  --surface-2: #111111;
-  --border: rgba(255, 255, 255, 0.1);
+  --surface: rgba(25, 25, 25, 0.4);
+  --surface-2: rgba(40, 40, 40, 0.5);
+  --border: rgba(255, 255, 255, 0.15);
+  --border-glow: rgba(255, 255, 255, 0.8);
+
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.55);
-  --text-muted: rgba(255, 255, 255, 0.25);
-  --text-ghost: rgba(255, 255, 255, 0.12);
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.35);
+  --text-ghost: rgba(255, 255, 255, 0.15);
 
-  /* ── Colors: Light sections (inverted) ── */
-  --light-bg: #ffffff;
-  --light-border: #e5e5e5;
-  --light-text-primary: #000000;
-  --light-text-body: #333333;
-  --light-text-secondary: #555555;
-  --light-text-muted: #999999;
-  --light-text-dim: #888888;
-
-  /* ── Typography ── */
-  --font-mono: 'Geist Mono', ui-monospace, monospace;
-
-  --fs-hero: clamp(3.5rem, 11vw, 8rem);
+  /* Typography Scale */
+  --fs-hero: clamp(4rem, 12vw, 10rem);
   --fs-hero-product: clamp(4rem, 12vw, 9rem);
   --fs-hero-large: clamp(5rem, 18vw, 12rem);
+
   --fs-h2: clamp(2rem, 5vw, 4rem);
   --fs-h2-large: clamp(2.5rem, 6vw, 5rem);
-  --fs-thesis: clamp(1.75rem, 3.5vw, 3.25rem);
+  --fs-thesis: clamp(2rem, 4vw, 4rem);
+
   --fs-lead: clamp(1.3rem, 2.5vw, 1.7rem);
   --fs-tagline: clamp(0.95rem, 2vw, 1.1rem);
   --fs-pillar-title: clamp(0.95rem, 1.5vw, 1.15rem);
-  --fs-body: 0.9rem;
+
+  --fs-body: 0.95rem;
   --fs-body-sm: 0.875rem;
   --fs-body-xs: 0.85rem;
-  --fs-spec: 0.72rem;
-  --fs-label: 0.65rem;
-  --fs-label-sm: 0.62rem;
-  --fs-label-xs: 0.58rem;
-  --fs-nav: 0.65rem;
-  --fs-wordmark: 0.875rem;
-  --fs-btn: 0.7rem;
-  --fs-scroll-hint: 0.65rem;
-  --fs-footer-link: 0.68rem;
-  --fs-footer-copy: 0.6rem;
 
+  --fs-spec: 0.75rem;
+  --fs-label: 0.7rem;
+  --fs-label-sm: 0.65rem;
+  --fs-label-xs: 0.6rem;
+
+  --fs-btn: 0.75rem;
+  --fs-nav: 0.7rem;
+  --fs-wordmark: 0.9rem;
+  --fs-scroll-hint: 0.65rem;
+
+  /* Line Height */
   --lh-tight: 0.95;
-  --lh-heading: 1.05;
-  --lh-default: 1.6;
-  --lh-relaxed: 1.75;
+  --lh-heading: 1.1;
+  --lh-default: 1.5;
+  --lh-relaxed: 1.65;
   --lh-loose: 1.85;
 
-  --ls-tight: -0.01em;
+  /* Letter Spacing */
+  --ls-tight: -0.02em;
   --ls-default: 0.02em;
-  --ls-moderate: 0.04em;
+  --ls-moderate: 0.06em;
   --ls-wide: 0.1em;
   --ls-wider: 0.18em;
   --ls-widest: 0.25em;
 
+  /* Font Weight */
   --fw-normal: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* ── Spacing ── */
+  /* Spacing Scale */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 0.75rem;
@@ -85,31 +83,161 @@
   --space-4xl: 3rem;
   --space-5xl: 4rem;
   --space-6xl: 6rem;
-  --space-7xl: 7rem;
+  --space-7xl: 8rem;
 
-  --pad-section: 6rem 2.5rem;
-  --pad-section-lg: 7rem 2.5rem;
-  --pad-hero: 5rem 2.5rem;
+  /* Padding Shortcuts */
+  --pad-section: var(--space-6xl) var(--space-3xl);
+  --pad-section-lg: var(--space-7xl) var(--space-3xl);
+  --pad-hero: var(--space-5xl) var(--space-3xl);
 
-  /* ── Layout ── */
+  /* Layout */
   --max-w: 1200px;
-  --max-w-prose: 760px;
-  --max-w-body: 480px;
-  --max-w-tagline: 600px;
-  --nav-h: 60px;
+  --max-w-prose: 800px;
+  --max-w-body: 520px;
+  --max-w-tagline: 640px;
+  --nav-h: 80px;
 
-  /* ── Transitions ── */
-  --transition-fast: 0.15s;
-  --ease-default: ease;
-
-  /* ── Z-index ── */
+  /* Z-Index */
   --z-nav: 100;
+  --z-modal: 200;
 
-  /* ── Breakpoints (reference only — used in @media) ── */
-  /* --bp-mobile: 768px; */
+  /* Transitions - Heavy Easing */
+  --ease-cinematic: cubic-bezier(0.85, 0, 0.15, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.3s var(--ease-out-expo);
+  --transition-slow: 0.8s var(--ease-cinematic);
 
-  /* ── Buttons ── */
-  --btn-pad: 0.85rem 1.75rem;
+  /* Buttons */
+  --btn-pad: 1rem 2rem;
+
+  --font-mono: 'Geist Mono Variable', monospace;
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--lh-default);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+/* Hide scrollbar for cinematic feel */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Utilities */
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+/* Global components previously relying on light themes */
+.btn-primary {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  padding: var(--btn-pad);
+  border: 1px solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all var(--transition-slow);
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-slow);
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  color: var(--bg);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-secondary {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-btn);
+  letter-spacing: var(--ls-wider);
+  padding: var(--btn-pad);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all var(--transition-slow);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.05);
+}
+
+/* 3D Utility Classes */
+.preserve-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Glitch Effect */
+@keyframes textGlitch {
+  0% { transform: translate(0); opacity: 1; }
+  2% { transform: translate(-2px, 1px); opacity: 0.8; }
+  4% { transform: translate(2px, -1px); opacity: 0.9; }
+  6% { transform: translate(0); opacity: 1; }
+  100% { transform: translate(0); opacity: 1; }
+}
+
+.glitch-subtle {
+  animation: textGlitch 8s infinite var(--ease-cinematic);
 }
 
 /* ═══════════════════════════════════════════

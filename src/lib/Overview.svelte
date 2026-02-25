@@ -8,15 +8,18 @@
 </script>
 
 <section class="overview">
-  <div class="overview-inner">
+  <div class="overview-inner preserve-3d">
     <div class="overview-text">
       <p class="overview-lead">{lead}</p>
-      <slot />
+      <div class="overview-body">
+        <slot />
+      </div>
       {#if stackNote}
         <p class="overview-stack">{stackNote}</p>
       {/if}
     </div>
-    {#if specs.length}
+    
+    {#if specs.length > 0}
       <div class="overview-specs">
         {#each specs as s}
           <div class="spec-row">
@@ -31,10 +34,23 @@
 
 <style>
   .overview {
-    background: var(--light-bg);
-    color: var(--light-text-primary);
-    padding: var(--pad-section);
-    border-bottom: 1px solid var(--light-border);
+    background: transparent;
+    color: var(--text-primary);
+    padding: var(--pad-section-lg);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Cinematic ambient lighting */
+  .overview::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: -20%;
+    width: 60%; height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
   }
 
   .overview-inner {
@@ -55,40 +71,50 @@
   .overview-lead {
     font-size: var(--fs-lead);
     font-weight: var(--fw-bold);
-    letter-spacing: var(--ls-moderate);
-    line-height: 1.2;
-    color: var(--light-text-primary);
+    letter-spacing: var(--ls-tight);
+    line-height: var(--lh-default);
+    color: var(--text-primary);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
   }
 
-  .overview-text :global(p) {
+  .overview-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  :global(.overview-body p) {
     font-size: var(--fs-body);
     line-height: var(--lh-loose);
-    color: var(--light-text-body);
+    color: var(--text-secondary);
     letter-spacing: var(--ls-default);
   }
 
   .overview-stack {
-    font-size: var(--fs-body-xs);
-    line-height: 1.7;
-    color: var(--light-text-muted);
+    font-size: var(--fs-spec);
+    line-height: var(--lh-relaxed);
+    color: var(--text-muted);
     letter-spacing: var(--ls-moderate);
-    padding-top: var(--space-xs);
-    border-top: 1px solid var(--light-border);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
   }
 
   .overview-specs {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--light-border);
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
   }
 
   .spec-row {
     display: flex;
     justify-content: space-between;
-    padding: var(--space-md) 1.25rem;
-    border-bottom: 1px solid var(--light-border);
+    padding: var(--space-md) var(--space-xl);
+    border-bottom: 1px solid var(--border);
     font-size: var(--fs-spec);
     letter-spacing: var(--ls-wide);
+    font-family: var(--font-mono);
   }
 
   .spec-row:last-child {
@@ -96,22 +122,36 @@
   }
 
   .spec-label {
-    color: var(--light-text-muted);
+    color: var(--text-muted);
   }
 
   .spec-value {
-    color: #111;
+    color: var(--text-primary);
     text-align: right;
   }
 
   .spec-value.dim {
-    color: var(--light-text-dim);
+    color: var(--text-muted);
   }
 
   @media (max-width: 768px) {
+    .overview {
+      padding: var(--space-5xl) var(--space-xl);
+    }
+    
     .overview-inner {
       grid-template-columns: 1fr;
       gap: var(--space-4xl);
+    }
+    
+    .spec-row {
+      flex-direction: column;
+      gap: var(--space-sm);
+      padding: var(--space-lg) var(--space-md);
+    }
+    
+    .spec-value {
+      text-align: left;
     }
   }
 </style>

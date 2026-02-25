@@ -7,6 +7,7 @@
 </svelte:head>
 
 <script>
+  import ProductMonoliths from '$lib/three/ProductMonoliths.svelte';
 
   const asciiArt = `      _______________
      /              /|
@@ -46,9 +47,8 @@
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <pre class="ascii-art">{asciiArt}</pre>
       <div class="hero-copy">
-        <h1>THE SOVREN<br />STACK.</h1>
+        <h1 class="preserve-3d">THE SOVREN<br />STACK.</h1>
         <p class="hero-sub">Sovereign OS. Local identity. Programmable assets.</p>
       </div>
       <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
@@ -56,6 +56,9 @@
   </section>
 
   <section class="products">
+    <div class="monolith-container">
+      <ProductMonoliths {products} />
+    </div>
     <div class="product-grid">
       {#each products as p}
         <a href={p.href} class="product-card">
@@ -69,7 +72,7 @@
   </section>
 
   <section class="thesis">
-    <div class="thesis-inner">
+    <div class="thesis-inner glitch-subtle preserve-3d">
       <h2 class="thesis-statement">
         Privacy is not a feature.<br />
         Control is not an option.<br />
@@ -78,7 +81,7 @@
       </h2>
       <div class="thesis-foot">
         <p>We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you.</p>
-        <a href="/ecosystem" class="btn-manifesto">READ THE MANIFESTO</a>
+        <a href="/ecosystem" class="btn-primary">READ THE MANIFESTO</a>
       </div>
     </div>
   </section>
@@ -90,6 +93,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .hero-inner {
@@ -99,15 +103,7 @@
     text-align: center;
     gap: var(--space-3xl);
     padding: var(--space-5xl) var(--space-2xl);
-  }
-
-  .ascii-art {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    line-height: 1.45;
-    color: var(--text-muted);
-    white-space: pre;
-    user-select: none;
+    z-index: 10;
   }
 
   h1 {
@@ -117,24 +113,37 @@
     line-height: 1.0;
     color: var(--text-primary);
     text-transform: uppercase;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
   }
 
   .hero-sub {
     font-size: 0.95rem;
     color: var(--text-secondary);
-    letter-spacing: 0.06em;
+    letter-spacing: var(--ls-moderate);
+    text-transform: uppercase;
+    margin-top: var(--space-lg);
   }
 
   .scroll-hint {
     font-size: var(--fs-scroll-hint);
     letter-spacing: var(--ls-widest);
     color: var(--text-muted);
+    position: absolute;
+    bottom: var(--space-4xl);
   }
 
   /* Products */
   .products {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .monolith-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: -1;
   }
 
   .product-grid {
@@ -142,6 +151,8 @@
     grid-template-columns: repeat(3, 1fr);
     max-width: var(--max-w);
     margin: 0 auto;
+    position: relative;
+    z-index: 10;
   }
 
   .product-card {
@@ -151,8 +162,9 @@
     gap: 1.25rem;
     border-right: 1px solid var(--border);
     min-height: 400px;
-    transition: background var(--transition-fast);
+    transition: background var(--transition-slow), border-color var(--transition-slow);
     text-decoration: none;
+    background: transparent;
   }
 
   .product-card:last-child {
@@ -160,7 +172,8 @@
   }
 
   .product-card:hover {
-    background: rgba(255, 255, 255, 0.025);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   .product-label {
@@ -168,6 +181,7 @@
     letter-spacing: var(--ls-wider);
     color: var(--text-muted);
     text-transform: uppercase;
+    transition: color var(--transition-fast);
   }
 
   .product-name {
@@ -176,6 +190,12 @@
     letter-spacing: 0.14em;
     color: var(--text-primary);
     text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0);
+    transition: text-shadow var(--transition-slow);
+  }
+
+  .product-card:hover .product-name {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
   }
 
   .product-desc {
@@ -194,15 +214,27 @@
     text-transform: uppercase;
   }
 
-  .product-card:hover .product-cta {
+  .product-card:hover .product-cta,
+  .product-card:hover .product-label {
     color: var(--text-primary);
   }
 
   /* Thesis */
   .thesis {
-    background: var(--light-bg);
-    color: var(--light-text-primary);
+    background: transparent;
+    color: var(--text-primary);
     padding: var(--pad-section-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thesis::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
   }
 
   .thesis-inner {
@@ -216,6 +248,7 @@
     letter-spacing: var(--ls-tight);
     line-height: 1.25;
     margin-bottom: var(--space-5xl);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
 
   .thesis-foot {
@@ -229,30 +262,8 @@
     font-size: var(--fs-body-sm);
     line-height: var(--lh-relaxed);
     max-width: var(--max-w-body);
-    color: var(--light-text-secondary);
+    color: var(--text-secondary);
     letter-spacing: var(--ls-default);
-  }
-
-  .btn-manifesto {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--fs-btn);
-    font-weight: var(--fw-medium);
-    letter-spacing: var(--ls-wider);
-    padding: var(--btn-pad);
-    border: 1px solid var(--light-text-primary);
-    background: transparent;
-    color: var(--light-text-primary);
-    cursor: pointer;
-    transition: background var(--transition-fast), color var(--transition-fast);
-    white-space: nowrap;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .btn-manifesto:hover {
-    background: var(--light-text-primary);
-    color: var(--light-bg);
   }
 
   /* Responsive */
@@ -274,10 +285,6 @@
 
     h1 {
       font-size: clamp(2.5rem, 14vw, 4rem);
-    }
-
-    .ascii-art {
-      font-size: 0.6rem;
     }
 
     .thesis {

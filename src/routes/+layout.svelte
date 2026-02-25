@@ -1,10 +1,12 @@
 <script>
   import '../app.css';
   import Nav from '$lib/Nav.svelte';
+  import Scene from '$lib/three/Scene.svelte';
   import { page } from '$app/stores';
   import { fade } from 'svelte/transition';
 </script>
 
+<Scene />
 <Nav />
 
 {#key $page.url.pathname}
