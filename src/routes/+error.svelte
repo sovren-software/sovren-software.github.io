@@ -2,12 +2,19 @@
   <title>404 — Page Not Found | Sovren Software</title>
 </svelte:head>
 
+<script>
+  import ProductHero from '$lib/ProductHero.svelte';
+</script>
+
 <main class="error-page">
-  <div class="error-inner">
-    <span class="error-code">404</span>
-    <h1>NOT FOUND.</h1>
-    <p>This page doesn't exist.</p>
-    <a href="/" class="btn-back">← BACK TO HOME</a>
+  <ProductHero
+    category="404"
+    title="NOT<br />FOUND."
+    tagline="This page doesn't exist."
+    size="large"
+  />
+  <div class="actions">
+    <a href="/" class="btn-primary">← BACK TO HOME</a>
   </div>
 </main>
 
@@ -15,49 +22,40 @@
   .error-page {
     min-height: calc(100vh - var(--nav-h));
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
   }
-
-  .error-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xl);
-    text-align: center;
-    padding: var(--space-5xl) var(--space-2xl);
+  
+  .actions {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--space-3xl);
+    padding-bottom: var(--space-7xl);
   }
 
-  .error-code {
-    font-size: var(--fs-label);
-    letter-spacing: var(--ls-widest);
-    color: var(--text-muted);
-  }
-
-  h1 {
-    font-size: clamp(3rem, 10vw, 7rem);
-    font-weight: var(--fw-bold);
-    letter-spacing: 0.08em;
-    line-height: 1.0;
-  }
-
-  p {
-    font-size: var(--fs-body-xs);
-    color: var(--text-secondary);
-    letter-spacing: var(--ls-moderate);
-  }
-
-  .btn-back {
+  .btn-primary {
     display: inline-block;
-    font-size: var(--fs-label);
+    font-family: var(--font-mono);
+    font-size: var(--fs-btn);
     letter-spacing: var(--ls-wider);
-    color: var(--text-muted);
+    padding: var(--btn-pad);
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
     text-decoration: none;
-    margin-top: var(--space-sm);
-    transition: color var(--transition-fast);
+    transition: all var(--transition-slow);
   }
 
-  .btn-back:hover {
-    color: var(--text-primary);
+  .btn-primary:hover {
+    background: var(--text-primary);
+    color: var(--bg);
+  }
+
+  @media (max-width: 768px) {
+    .actions {
+      padding: 0 var(--space-xl);
+      padding-bottom: var(--space-5xl);
+    }
   }
 </style>

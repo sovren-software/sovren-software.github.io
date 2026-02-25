@@ -30,6 +30,6 @@
     height: 100vh;
     z-index: -1;
     pointer-events: none;
-    background: #000000;
+    background: var(--bg);
   }
 </style>

@@ -45,7 +45,7 @@
       
       // Wireframe
       const material = new THREE.LineBasicMaterial({ 
-        color: 0x555555,
+        color: 0xcccccc, // Lighter grey for white background
         transparent: true,
         opacity: 0.8
       });
@@ -151,7 +151,7 @@
         });
         
         // Color transition
-        const targetColor = isHovered ? new THREE.Color(0xffffff) : new THREE.Color(0x555555);
+        const targetColor = isHovered ? new THREE.Color(0x000000) : new THREE.Color(0xcccccc);
         gsap.to(m.material.color, {
           r: targetColor.r,
           g: targetColor.g,
@@ -172,7 +172,7 @@
       m.isHovered = false;
       gsap.to(m.group.rotation, { x: 0, y: 0, duration: 0.8 });
       gsap.to(m.group.position, { z: 0, duration: 0.8 });
-      gsap.to(m.material.color, { r: 0.33, g: 0.33, b: 0.33, duration: 0.5 });
+      gsap.to(m.material.color, { r: 0.8, g: 0.8, b: 0.8, duration: 0.5 });
     });
   }
 

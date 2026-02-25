@@ -16,7 +16,7 @@ export class SceneManager {
     this.height = window.innerHeight;
 
     this.scene = new THREE.Scene();
-    this.scene.fog = new THREE.FogExp2(0x000000, 0.02);
+    this.scene.fog = new THREE.FogExp2(0xffffff, 0.02); // White fog for light theme
 
     this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 0.1, 1000);
     // Camera starts pulled back a bit
@@ -59,7 +59,7 @@ export class SceneManager {
     
     // Custom shader material for the bloom/glow effect on wireframe
     this.cubeMaterial = new THREE.LineBasicMaterial({
-      color: 0xffffff,
+      color: 0x000000, // Black lines for light theme
       transparent: true,
       opacity: 0.6,
       depthWrite: false,
@@ -73,7 +73,7 @@ export class SceneManager {
     const innerGeo = new THREE.OctahedronGeometry(2);
     const innerEdges = new THREE.EdgesGeometry(innerGeo);
     this.innerShape = new THREE.LineSegments(innerEdges, new THREE.LineBasicMaterial({
-      color: 0xffffff,
+      color: 0x000000, // Black lines for light theme
       transparent: true,
       opacity: 0.2,
       depthWrite: false
@@ -81,7 +81,7 @@ export class SceneManager {
     this.cube.add(this.innerShape);
 
     // 2. Background 3D grid plane extending into infinity
-    const gridHelper = new THREE.GridHelper(100, 100, 0x333333, 0x111111);
+    const gridHelper = new THREE.GridHelper(100, 100, 0xcccccc, 0xeeeeee); // Light grid
     gridHelper.position.y = -5;
     gridHelper.position.z = -10;
     this.scene.add(gridHelper);
@@ -97,10 +97,10 @@ export class SceneManager {
     particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     const particleMat = new THREE.PointsMaterial({
       size: 0.05,
-      color: 0xffffff,
+      color: 0x000000, // Black particles for light theme
       transparent: true,
-      opacity: 0.4,
-      blending: THREE.AdditiveBlending
+      opacity: 0.2,
+      blending: THREE.NormalBlending
     });
     this.particles = new THREE.Points(particleGeo, particleMat);
     this.scene.add(this.particles);
