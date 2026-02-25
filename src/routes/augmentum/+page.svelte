@@ -7,23 +7,26 @@
 </svelte:head>
 
 <script>
-
-  const features = [
+  const pillars = [
     {
+      num: '01',
       label: 'COGNITIVE LOOP',
-      desc: 'The OS observes system health, detects patterns, and surfaces recommendations — using local LLMs on your hardware, without your private data leaving your fleet. Every 5 minutes. Hourly trend analysis. This is not telemetry. It is a system that knows what it is doing.',
+      desc: 'The OS observes system health every 5 minutes, detects patterns hourly, and surfaces recommendations — using local LLMs on your hardware, without your private data leaving your fleet.',
     },
     {
-      label: 'GOVERNANCE IS STRUCTURAL',
-      desc: 'Actions in the governance pipeline produce cryptographic receipts — hash-chained, Ed25519-signed, auditable. Every agent operates within explicitly defined capability bounds. Scoped, time-limited permits are required before any privileged operation proceeds.',
+      num: '02',
+      label: 'GOVERNANCE BY DESIGN',
+      desc: 'Actions in the governance pipeline produce cryptographic receipts — hash-chained, Ed25519-signed, auditable. Every agent operates within explicitly defined, time-limited capability bounds.',
     },
     {
+      num: '03',
       label: 'CONSENT AS INFRASTRUCTURE',
-      desc: 'Privacy controls are encoded as sentinel files on a RAM-only filesystem. They expire on reboot — requiring active re-authorization every time the system starts. The system asks to be trusted again rather than assuming it still is. Cryptographic erasure is available on demand.',
+      desc: 'Privacy controls are encoded as sentinel files on a RAM-only filesystem. They expire on reboot — requiring active re-authorization every time the system starts.',
     },
     {
+      num: '04',
       label: 'SOVEREIGN IDENTITY',
-      desc: 'Your Ethereum wallet signs your identity. No external identity provider. SSH key derives to age key derives to ETH address — a complete identity chain without trusting anyone else\'s infrastructure. One declarative config governs the entire fleet.',
+      desc: 'Your Ethereum wallet signs your identity. SSH key derives to age key derives to ETH address — a complete identity chain with no external provider.',
     },
   ]
 </script>
@@ -41,9 +44,9 @@
   <section class="overview">
     <div class="overview-inner">
       <div class="overview-text">
-        <p>Most operating systems host your programs and stay out of the way. Augmentum OS runs a persistent cognitive layer: it observes system health, detects trends, and surfaces recommendations — locally, without sending anything to a vendor. The system learns the longer it runs. This is a different category of machine.</p>
-        <p>Governance is built into the substrate, not bolted on top. Every action in the pipeline produces a cryptographic receipt. Consent is encoded as sentinel files that expire on reboot — requiring active re-authorization every time the system starts. What the system knows about you, it can provably erase on command. A unified CLI puts diagnostics, privacy controls, authentication, AI health, and governance behind a single entry point.</p>
-        <p>Augmentum OS is also the integration layer for the Sovren Stack. Visage face authentication runs as a hardware-verified identity primitive at the OS level. MrHaven vault access is a first-class credential. The three products are each useful alone — together they form a complete sovereign computing platform.</p>
+        <p class="overview-lead">A different category of machine.</p>
+        <p class="overview-body">Most operating systems host your programs and stay out of the way. Augmentum OS runs a persistent cognitive layer — observing system health, detecting trends, surfacing recommendations — locally, on your hardware, without your private data leaving your fleet. Governance is built into the substrate: every action receipted, every agent bounded, consent that expires at reboot.</p>
+        <p class="overview-stack">Integration layer for the Sovren Stack — Visage face authentication and MrHaven vault access are first-class primitives at the OS level.</p>
       </div>
       <div class="overview-specs">
         <div class="spec-row">
@@ -70,14 +73,17 @@
     </div>
   </section>
 
-  <section class="features">
-    <div class="features-inner">
+  <section class="pillars">
+    <div class="pillars-inner">
       <span class="section-label">ARCHITECTURE</span>
-      <div class="feature-grid">
-        {#each features as f}
-          <div class="feature-card">
-            <span class="feature-label">{f.label}</span>
-            <p class="feature-desc">{f.desc}</p>
+      <div class="pillar-rows">
+        {#each pillars as p}
+          <div class="pillar-row">
+            <div class="pillar-left">
+              <span class="pillar-num">{p.num}</span>
+              <h3 class="pillar-title">{p.label}</h3>
+            </div>
+            <p class="pillar-desc">{p.desc}</p>
           </div>
         {/each}
       </div>
@@ -96,6 +102,7 @@
 </main>
 
 <style>
+  /* ── Hero ── */
   .hero {
     min-height: calc(100vh - 60px);
     display: flex;
@@ -143,7 +150,7 @@
     letter-spacing: 0.02em;
   }
 
-  /* Overview */
+  /* ── Overview ── */
   .overview {
     background: #ffffff;
     color: #000;
@@ -163,14 +170,31 @@
   .overview-text {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
-  .overview-text p {
+  .overview-lead {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .overview-body {
     font-size: 0.9rem;
-    line-height: 1.8;
+    line-height: 1.85;
     color: #333;
     letter-spacing: 0.02em;
+  }
+
+  .overview-stack {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    color: #999;
+    letter-spacing: 0.04em;
+    padding-top: 0.25rem;
+    border-top: 1px solid #e5e5e5;
   }
 
   .overview-specs {
@@ -205,13 +229,12 @@
     color: #888;
   }
 
-  /* Features */
-  .features {
+  /* ── Architecture pillars ── */
+  .pillars {
     padding: 6rem 2.5rem;
-    border-top: 1px solid var(--border);
   }
 
-  .features-inner {
+  .pillars-inner {
     max-width: var(--max-w);
     margin: 0 auto;
   }
@@ -225,45 +248,52 @@
     text-transform: uppercase;
   }
 
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: 1px solid var(--border);
-  }
-
-  .feature-card {
-    padding: 2.5rem;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+  .pillar-rows {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    border-top: 1px solid var(--border);
   }
 
-  .feature-card:nth-child(2n) {
-    border-right: none;
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
   }
 
-  .feature-card:nth-child(3),
-  .feature-card:nth-child(4) {
-    border-bottom: none;
+  .pillar-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .feature-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
+  .pillar-num {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
     color: var(--text-muted);
+  }
+
+  .pillar-title {
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    line-height: 1.3;
     text-transform: uppercase;
+    margin: 0;
   }
 
-  .feature-desc {
-    font-size: 0.85rem;
+  .pillar-desc {
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: 1.8;
     letter-spacing: 0.02em;
+    padding-top: 0.25rem;
   }
 
-  /* CTA */
+  /* ── CTA ── */
   .cta {
     background: #fff;
     color: #000;
@@ -312,7 +342,7 @@
     opacity: 0.75;
   }
 
-  /* Responsive */
+  /* ── Responsive ── */
   @media (max-width: 768px) {
     .hero {
       padding: 3rem 1.5rem 4rem;
@@ -327,21 +357,10 @@
       gap: 3rem;
     }
 
-    .feature-grid {
+    .pillar-row {
       grid-template-columns: 1fr;
-    }
-
-    .feature-card {
-      border-right: none;
-    }
-
-    .feature-card:nth-child(3),
-    .feature-card:nth-child(4) {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .feature-card:last-child {
-      border-bottom: none;
+      gap: 1.5rem;
+      padding: 2rem 0;
     }
   }
 </style>
