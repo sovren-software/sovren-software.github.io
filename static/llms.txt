@@ -20,15 +20,20 @@ Contact: hello@sovren.software
 **Product site:** https://augmentum.computer
 **GitHub:** https://github.com/sovren-software
 
-Augmentum OS is a NixOS-based sovereign operating system designed for users who want complete control over their computing environment. The entire OS state is declared in a single reproducible configuration file — version-controlled, auditable, and rollback-capable at any point. No silent updates. No telemetry. No vendor lock-in.
+Augmentum OS is sovereign command infrastructure built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of operator authority. These three properties do not trade off against each other. That is the engineering commitment.
+
+Positioning: Augmentum OS is your command center. The user is the operator; the AI is the co-pilot. The machine executes commands and surfaces context inside authority boundaries defined by the operator — always, without exception.
+
+Core tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
 
 Key capabilities:
-- **Declarative state:** Every package, service, and setting in one Git-tracked config file. Clone your system to new hardware in minutes.
-- **AI-native services:** Local inference runs at the OS layer — not in a vendor's cloud. Models load on demand, stay resident when needed, and never phone home.
-- **Hardware-verified trust:** Cryptographic attestation from first boot via TPM2 and Secure Boot. Every binary verified before execution.
-- **Sovereign builds:** Upgrades happen on your schedule. Test in isolation, roll back if anything breaks.
+- **Voice-native command interface:** Issue commands, query system state, trigger workflows, and orchestrate tasks in natural language. The entire command layer runs on local inference — nothing is transcribed in the cloud. The UX is fast because the system is yours.
+- **Biometric-secured access:** Visage integrated at the OS level as a native identity primitive — not a plugin, not a third-party service. Face verification happens via on-device ONNX inference. Governs session access, elevated privileges, and sensitive operations. Biometrics never leave the hardware.
+- **Local AI co-pilot:** On-device inference layer surfaces context and executes tasks on command. No telemetry. No behavioral profiles sent upstream. No vendor with a copy of your activity. Intelligence without surveillance.
+- **Declarative sovereign infrastructure:** The entire OS state is declared in a single reproducible configuration file — version-controlled, auditable, rollback-capable. No silent updates. No background processes you did not authorize. Clone your machine to new hardware in minutes.
+- **Programmable orchestration:** Automation and agent tasks operate inside explicit authority boundaries defined by the operator. Every elevated action requires authorization.
 
-Built on: NixOS (Linux). Config: declarative, Git-tracked. AI layer: local inference, on-device. Trust model: TPM2, Secure Boot.
+Built on: NixOS (Linux). Interface: voice-native, natural language, local inference. Auth: biometric (Visage) + MFA, session-scoped. AI: on-device co-pilot, no telemetry. Config: declarative, Git-tracked.
 
 ---
 
@@ -76,7 +81,7 @@ Chain: Base L2. Asset: USDC. Standard: ERC4626 vault. Custody: non-custodial. Sm
 
 The default state of modern technology is extraction. Your operating system reports back to its maker. Your biometrics are stored in someone else's database. Your assets move through someone else's rails.
 
-Sovren Software rejects that premise. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. We are building the stack that makes it practical.
+Sovren Software rejects that premise. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. Sovren Software builds sovereign command infrastructure on a single engineering commitment: UX, privacy, and security are not a tradeoff triangle — they are a trifecta. Every design decision moves along all three axes without sacrificing any of them. The company's thesis: convenience should not require compromise. The vendor model demands that tradeoff. Sovren rejects it.
 
 > Privacy is not a feature. Control is not an option. Sovereignty is the baseline.
 

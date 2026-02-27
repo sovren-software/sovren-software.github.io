@@ -1,12 +1,12 @@
 <svelte:head>
   <title>Ecosystem Manifesto — The Sovren Stack | Sovren Software</title>
-  <meta name="description" content="Privacy is not a feature. Control is not an option. Sovereignty is the baseline. The manifesto for the Sovren Software computing stack." />
+  <meta name="description" content="Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default. The manifesto behind Sovren Software's sovereign command infrastructure." />
   <link rel="canonical" href="https://sovren.software/ecosystem" />
-  <meta property="og:title" content="The Sovren Ecosystem Manifesto." />
-  <meta property="og:description" content="We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you." />
+  <meta property="og:title" content="The Sovren Manifesto. Command Your Infrastructure." />
+  <meta property="og:description" content="We build sovereign infrastructure for operators who refuse to be tenants. Compute, identity, and capital — under a single chain of command." />
   <meta property="og:url" content="https://sovren.software/ecosystem" />
-  <meta name="twitter:title" content="The Sovren Ecosystem Manifesto." />
-  <meta name="twitter:description" content="We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you." />
+  <meta name="twitter:title" content="The Sovren Manifesto. Command Your Infrastructure." />
+  <meta name="twitter:description" content="We build sovereign infrastructure for operators who refuse to be tenants. Compute, identity, and capital — under a single chain of command." />
 </svelte:head>
 
 <script>
@@ -14,8 +14,8 @@
     {
       num: '01',
       domain: 'COMPUTING',
-      title: 'THE MACHINE MUST BE OBEDIENT.',
-      desc: 'An operating system should do exactly what it is told, and nothing else. No telemetry, no silent updates, no background tasks you cannot kill. Your hardware is your property. The software running on it must behave like a tool, not a tenant.',
+      title: 'THE MACHINE IS A COMMAND CENTER, NOT A SUBSCRIPTION.',
+      desc: 'An operating system that serves the vendor is not yours. Augmentum OS is built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of your authority. Voice-native interface. Local AI co-pilot. Biometric-secured sessions. Declarative NixOS substrate. None of these properties trade off against the others. That is the point.',
       link: { label: 'AUGMENTUM OS →', href: '/augmentum' }
     },
     {
@@ -46,14 +46,14 @@
 
   <section class="thesis-expanded">
     <div class="thesis-inner glitch-subtle preserve-3d">
-      <p class="thesis-lede">The industry has accepted a tradeoff that was never necessary: surrender your data, your attention, and your agency in exchange for convenience.</p>
+      <p class="thesis-lede">The industry convinced you that convenience requires compromise. That good UX means accepting telemetry. That strong security means sacrificing usability. That privacy is a premium feature. None of that is true. It is just what the vendor model requires.</p>
 
       <div class="thesis-body">
-        <p>The modern software stack treats the user as the product. Operating systems harvest telemetry. Identity providers silo your biometrics in the cloud. Financial institutions gatekeep your assets.</p>
+        <p>Your operating system is a managed endpoint in someone else's deployment. Your identity lives in a database you do not control. Your assets are held by institutions that decide when you can access them. At every layer of the stack, a vendor inserted themselves between you and your own infrastructure — and called it a service.</p>
 
-        <blockquote>You are not the root user of your own life. You are a guest in someone else's walled garden.</blockquote>
+        <blockquote>You are not the root user of your own life. You are a tenant. Sovren Software exists to change that.</blockquote>
 
-        <p>Sovren Software exists to build the alternative. We do not believe in walled gardens. We do not believe in "trusted third parties." We believe in cryptographic guarantees, open-source foundations, and software that answers only to the person running it.</p>
+        <p>We build infrastructure on a single engineering commitment: UX, privacy, and security are not a tradeoff triangle. They are a trifecta. Every design decision moves along all three axes without sacrificing any of them. A command center you actually want to use. An identity layer that cannot be stolen. A capital layer no one else can touch. The stack is sovereign because it was built to be — not because sovereignty was bolted on after the fact.</p>
       </div>
     </div>
   </section>
@@ -81,8 +81,8 @@
 
   <section class="closing">
     <div class="closing-inner">
-      <h2>WE BUILD<br />THE ALTERNATIVE.</h2>
-      <p>The Sovren Stack covers computing, identity, and assets. Each product stands alone. Together — Augmentum OS as the substrate, Visage as the identity primitive, MrHaven as the capital layer — they form the infrastructure for one person to operate at the scale of a team.</p>
+      <h2>ONE OPERATOR.<br />TOTAL AUTHORITY.</h2>
+      <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Augmentum OS is the command center — voice-native, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
       <a href="/" class="btn-primary">EXPLORE THE STACK →</a>
     </div>
   </section>

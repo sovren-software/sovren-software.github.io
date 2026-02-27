@@ -286,13 +286,18 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 
 ### Home
 - Hero H1: `THE SOVREN STACK.`
-- Hero sub: `Sovereign OS. Local identity. Programmable assets.`
-- Thesis statement: "Privacy is not a feature. Control is not an option. Sovereignty is the baseline..."
-- Thesis body: "We build tools for those who want more of themselves — more capacity, more control, more surface area."
+- Hero sub: `Sovereign compute. Local identity. Programmable capital.`
+- Thesis statement: "Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default."
+- Thesis body: "We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise."
 
 ### Augmentum OS
-- Tagline: "The operating system built for people who refuse to be owned by their software vendor."
-- Key angle: AI-native OS layer multiplies what one person can do
+- Tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
+- Hero lead: "Your command center. Built without compromise."
+- CTA title: "BUILT WITHOUT COMPROMISE."
+- Core framing: The trifecta — UX, privacy, and security are not a tradeoff triangle, they are a self-reinforcing loop. Each pillar strengthens the others.
+- Operator framing: User is the operator, AI is the co-pilot. Chain of command has exactly one link.
+- Key capabilities (in order): voice-native command interface (local inference, no cloud transcription), biometric-secured access (Visage as native OS primitive, on-device ONNX), local AI co-pilot (no telemetry, no profiles), declarative NixOS stack (one config, version-controlled, rollback-capable)
+- Avoid: "cognitive OS", "always watching", "watches and learns" framing — replaced with operator/co-pilot model
 - Status: Ships Summer 2026
 
 ### Visage
@@ -306,8 +311,12 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 - Status: Live on Base mainnet
 
 ### Ecosystem (Manifesto)
-- Frame: extraction is the default state → we reject that premise → one person with the right stack outbuilds a team
-- Closing: "The Sovren Stack...form the infrastructure for one person to operate at the scale of a team."
+- Opening lede: Convenience should not require compromise — that is what the vendor model requires, not what engineering requires
+- Blockquote: "You are not the root user of your own life. You are a tenant. Sovren Software exists to change that."
+- Core thesis: UX, privacy, and security are a trifecta — not a tradeoff triangle. Every engineering decision moves along all three axes.
+- Computing pillar: "THE MACHINE IS A COMMAND CENTER, NOT A SUBSCRIPTION."
+- Closing H2: "ONE OPERATOR. TOTAL AUTHORITY."
+- Closing body: Full stack description with trifecta commitment stated explicitly
 
 ## Deploy Process
 

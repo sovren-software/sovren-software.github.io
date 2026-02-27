@@ -1,12 +1,12 @@
 <svelte:head>
-  <title>Sovren Software — Sovereign Computing Stack</title>
-  <meta name="description" content="Sovereign OS. Local identity. Programmable assets. Augmentum OS, Visage, and Mr. Haven — computing, identity, and finance fully under your control." />
+  <title>Sovren Software — Sovereign Command Infrastructure</title>
+  <meta name="description" content="Sovereign command infrastructure for the high-leverage operator. Augmentum OS, Visage, and Mr. Haven — compute, identity, and capital. UX, privacy, and security — none sacrificed." />
   <link rel="canonical" href="https://sovren.software/" />
-  <meta property="og:title" content="Sovren Software — Sovereign Computing Stack" />
-  <meta property="og:description" content="Sovereign OS. Local identity. Programmable assets. The stack for people who refuse to be owned by their software vendor." />
+  <meta property="og:title" content="Sovren Software — Sovereign Command Infrastructure" />
+  <meta property="og:description" content="Sovereign command infrastructure for the high-leverage operator. Compute, identity, and capital — UX, privacy, and security without compromise." />
   <meta property="og:url" content="https://sovren.software/" />
-  <meta name="twitter:title" content="Sovren Software — Sovereign Computing Stack" />
-  <meta name="twitter:description" content="Sovereign OS. Local identity. Programmable assets. The stack for people who refuse to be owned by their software vendor." />
+  <meta name="twitter:title" content="Sovren Software — Sovereign Command Infrastructure" />
+  <meta name="twitter:description" content="Sovereign command infrastructure for the high-leverage operator. Compute, identity, and capital — UX, privacy, and security without compromise." />
 </svelte:head>
 
 <script>
@@ -16,7 +16,7 @@
       category: 'OS',
       name: 'AUGMENTUM OS',
       href: '/augmentum',
-      description: 'Declarative NixOS system. Your entire OS in a single reproducible config — version-controlled, rollback-capable, answerable only to you. No silent updates. No telemetry.',
+      description: 'Voice-native command interface. Biometric-secured access. Local AI co-pilot. Declarative NixOS substrate. UX, privacy, and security — none sacrificed.',
     },
     {
       number: '02',
@@ -40,7 +40,7 @@
     <div class="hero-inner">
       <div class="hero-copy">
         <h1 class="preserve-3d">THE SOVREN<br />STACK.</h1>
-        <p class="hero-sub">Sovereign OS. Local identity. Programmable assets.</p>
+        <p class="hero-sub">Sovereign compute. Local identity. Programmable capital.</p>
       </div>
       <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
     </div>
@@ -64,12 +64,12 @@
     <div class="thesis-inner glitch-subtle preserve-3d">
       <h2 class="thesis-statement">
         Privacy is not a feature.<br />
-        Control is not an option.<br />
-        Sovereignty is the baseline for the<br />
-        future of digital existence.
+        Security is not a tradeoff.<br />
+        Sovereignty is the only<br />
+        acceptable default.
       </h2>
       <div class="thesis-foot">
-        <p>We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you.</p>
+        <p>We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise.</p>
         <a href="/ecosystem" class="btn-primary">READ THE MANIFESTO</a>
       </div>
     </div>
