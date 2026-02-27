@@ -19,22 +19,22 @@
     {
       num: '01',
       label: 'LOCK IT. SET THE RULES.',
-      desc: 'Deposit USDC into a smart contract. Set a time-based schedule, an unlock date, or a recurring release. The contract enforces the rules — no humans in the loop, no approval required.',
+      desc: 'Deposit USDC. Set a time-based schedule, an unlock date, or a recurring release. The contract enforces the rules — no humans in the loop, no approval required, no exceptions.',
     },
     {
       num: '02',
       label: 'IF YOU GO DARK, IT STILL EXECUTES.',
-      desc: 'Set an inactivity threshold: if you go offline for X days, funds transfer automatically. An on-chain dead man\'s switch for the assets that matter most.',
+      desc: 'Set an inactivity threshold. If you go offline for X days, funds transfer automatically to your named beneficiary. An on-chain dead man\'s switch for the assets that matter most.',
     },
     {
       num: '03',
       label: 'BUILT FOR AGENTS, NOT JUST HUMANS.',
-      desc: 'Autonomous agents can hold funds, trigger transfers, and execute plans with the same non-custodial guarantees as any human user. No API key. No service account. The contract enforces the rules regardless of who calls it.',
+      desc: 'Autonomous agents can hold funds, trigger transfers, and execute plans — same non-custodial guarantees as any human. No API key. No service account. The contract enforces rules regardless of who calls it.',
     },
     {
       num: '04',
       label: 'SDK — COMING SOON.',
-      desc: 'A developer SDK for integrating MrHaven vaults directly into applications and autonomous agent workflows. Programmatic vault creation, condition setting, and beneficiary management without touching the UI.',
+      desc: 'Programmatic vault creation, condition setting, and beneficiary management — without touching the UI. Direct integration into applications and autonomous agent workflows.',
     },
   ]
 
@@ -62,8 +62,8 @@
     {specs}
     stackNote="Integrates with <a href='/augmentum'>Augmentum OS</a> as part of the Sovren Stack — programmable finance at the OS level. <a href='/visage'>Visage</a> identity is a first-class primitive."
   >
-    <p>Traditional financial institutions hold your assets on your behalf. They decide when you can access them, who can receive them, and under what conditions. MrHaven removes them from the equation entirely.</p>
-    <p>Deployed on Base L2, MrHaven is a set of auditable smart contracts. Deposit USDC, define conditions, name beneficiaries — or designate autonomous agents as authorized recipients. The contract handles execution: autonomously, verifiably, permanently.</p>
+    <p>Traditional institutions hold your assets on your behalf. They decide when you access them, who can receive them, and under what conditions. Mr. Haven removes them from the equation entirely.</p>
+    <p>Deposit USDC. Define conditions. Name beneficiaries — or designate autonomous agents as recipients. The contract handles execution: autonomously, verifiably, permanently. No custodian. No intermediary. No exceptions.</p>
   </Overview>
 
   <PillarList {pillars} />

@@ -51,7 +51,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-5xl);
-    padding: var(--space-4xl) 0;
+    padding: var(--space-3xl) 0;
     border-bottom: 1px solid var(--border);
     align-items: start;
   }
@@ -81,9 +81,10 @@
   .pillar-desc {
     font-size: var(--fs-body-sm);
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: var(--lh-relaxed);
     letter-spacing: var(--ls-default);
     padding-top: var(--space-xs);
+    max-width: var(--max-w-body);
   }
 
   @media (max-width: 768px) {

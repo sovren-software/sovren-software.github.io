@@ -19,22 +19,22 @@
     {
       num: '01',
       label: 'YOUR BIOMETRICS STAY ON YOUR HARDWARE.',
-      desc: 'Face recognition runs entirely on-device. No cloud enrollment. No biometric database. Your face never leaves your machine — not during setup, not during authentication, not ever.',
+      desc: 'Face recognition runs entirely on-device. No cloud enrollment. No biometric database. Your face never leaves your machine — not during setup, not during auth, not ever.',
     },
     {
       num: '02',
       label: 'DROPS INTO ANY LINUX AUTH STACK.',
-      desc: 'Visage is a PAM module. It works with sudo, screen lock, and login without modifying your existing system configuration. If your system supports PAM, Visage works.',
+      desc: 'Visage is a PAM module. Drop it into sudo, screen lock, or login without touching your existing config. If your system supports PAM, Visage works.',
     },
     {
       num: '03',
       label: 'BUILT FOR IR. RESISTANT TO SPOOFING.',
-      desc: 'Native support for Windows Hello-compatible IR cameras. Liveness detection is built in. Works in low light. Resistant to photo-based spoofing attacks.',
+      desc: 'Native support for Windows Hello-compatible IR cameras. Liveness detection is built in. Works in low light. A photo does not unlock your machine.',
     },
     {
       num: '04',
       label: 'UNDER ONE SECOND.',
-      desc: 'The persistent daemon keeps the model resident — no cold start on every lock. Authentication finishes before your hand leaves the trackpad.',
+      desc: 'The persistent daemon keeps the model resident in memory. No cold start on every auth. Authentication completes before your hand leaves the trackpad.',
     },
   ]
 
@@ -62,8 +62,8 @@
     {specs}
     stackNote="Visage ships as a native identity primitive in <a href='/augmentum'>Augmentum OS</a>. It also integrates with <a href='/mrhaven'>Mr. Haven</a> for biometric-gated asset access."
   >
-    <p>Windows Hello has worked on Windows for years. Linux users were left out. Visage closes that gap — a native, open-source face authentication daemon built in Rust, with no external dependencies and no data leaving your hardware.</p>
-    <p>v0.x is MIT-licensed and works on any Linux system. v2, in active development, integrates at the Augmentum OS identity layer — your face-verified credential becomes a system-level primitive, not just a PAM module.</p>
+    <p>Windows Hello has worked on Windows for years. Linux users were left out. Visage closes that gap — open-source, built in Rust, no external dependencies, no data leaving your hardware.</p>
+    <p>The current release is MIT-licensed and runs on any PAM-compatible Linux system. The next version integrates natively into Augmentum OS — your face-verified credential becomes a system-level primitive, not a PAM module bolted on from outside.</p>
   </Overview>
 
   <PillarList {pillars} />

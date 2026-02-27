@@ -19,22 +19,22 @@
     {
       num: '01',
       label: 'COMMAND THE MACHINE. DON\'T NEGOTIATE WITH IT.',
-      desc: 'Augmentum OS is built around a single principle: you are the operator, the system is the co-pilot. Issue commands by voice. Query your environment in natural language. Trigger workflows, interrogate processes, orchestrate tasks — the interface adapts to how you think. The entire command layer runs on local inference. Nothing is transcribed in the cloud. The UX is fast because the system is yours.',
+      desc: 'You are the operator. The system is the co-pilot. Issue commands by voice, query your environment in natural language, trigger workflows — the interface adapts to how you think. The entire command layer runs on local inference. Nothing is sent to a cloud for transcription. The UX is fast because the system answers only to you.',
     },
     {
       num: '02',
       label: 'PRIVACY IS WHAT MAKES REAL CAPABILITY POSSIBLE.',
-      desc: 'A system that phones home cannot be trusted as a command center. Augmentum\'s AI co-pilot runs entirely on your hardware — no telemetry, no behavioral profiles, no vendor with a copy of your activity. This is not a privacy feature bolted on after the fact. The architecture is local-first because local-first is the only way to give you genuine control. Intelligence without surveillance is not a tradeoff. It is the design.',
+      desc: 'A system that phones home is not a command center. It is a managed endpoint. The AI co-pilot runs entirely on your hardware — no telemetry, no behavioral profiles, no vendor copy of your activity. Local-first is not a privacy feature. It is the architecture. Intelligence without surveillance is the design.',
     },
     {
       num: '03',
       label: 'SECURITY IS THE PERIMETER OF YOUR AUTHORITY.',
-      desc: 'Access to your command infrastructure is governed by biometric authentication — Visage integrated at the OS level as a native primitive, not a plugin. Face verification happens via on-device ONNX inference. Your face never leaves your hardware. Sessions are scoped, privileges are gated, and every elevated action requires explicit authorization. Weak authentication is a hole in your perimeter. Augmentum does not have one.',
+      desc: 'Access is governed by biometric authentication — Visage at the OS level, not a plugin. Face verification runs on-device via ONNX inference. Your biometrics never leave your hardware. Sessions are scoped. Privileges are gated. Every elevated action requires explicit authorization. Weak auth is a hole in your perimeter. Augmentum does not have one.',
     },
     {
       num: '04',
       label: 'THE STACK IS YOURS. FULLY AND WITHOUT EXCEPTION.',
-      desc: 'The entire OS state is declared in a single reproducible configuration — version-controlled, auditable, rollback-capable. No silent updates. No background processes you did not authorize. No vendor lock-in. Clone your machine to new hardware in minutes. Every package, service, and setting answers to your config file. If you did not write it, it does not run.',
+      desc: 'The entire OS state lives in one reproducible config — version-controlled, auditable, rollback-capable. No silent updates. No unauthorized background processes. Clone your machine to new hardware in minutes. Every package, service, and setting answers to your config file. If you did not write it, it does not run.',
     },
   ]
 
@@ -61,8 +61,9 @@
     {specs}
     stackNote="<a href='/visage'>Visage</a> biometric authentication runs as a native OS primitive — not an app, not a plugin, not a third-party service. <a href='/mrhaven'>Mr. Haven</a> programmable asset control is wired directly into the operator layer. The full Sovren Stack is unified sovereign infrastructure."
   >
-    <p>Every operating system makes an implicit promise about who it serves. Most serve the vendor: they harvest telemetry, enforce update schedules you did not choose, and treat your machine as a managed endpoint in someone else's deployment. Augmentum OS makes a different promise.</p>
-    <p>It is your command center. The interface is voice-native — you speak, the system responds, all inference runs locally. The access layer is biometric — your face, verified on-device, governs your sessions. The AI co-pilot surfaces context and executes tasks inside boundaries you define, with no data leaving the machine. And the entire OS is declarative — one config file, version-controlled, reproducible on any hardware. UX, privacy, and security do not trade off against each other here. Each one reinforces the others. That is the engineering commitment.</p>
+    <p>Most operating systems serve the vendor. They harvest telemetry, push updates on their schedule, and treat your machine as a managed endpoint. Augmentum OS is built on the opposite premise.</p>
+    <p>The interface is voice-native — speak a command, the system responds, all inference runs locally. Access is biometric — your face, verified on-device, governs your sessions. The AI co-pilot surfaces context and executes tasks inside boundaries you define, with no data leaving the machine. The entire OS is one declarative config — version-controlled, reproducible, rollback-capable.</p>
+    <p>UX, privacy, and security do not trade off against each other. Each one reinforces the others. That is the engineering commitment.</p>
   </Overview>
 
   <PillarList {pillars} />

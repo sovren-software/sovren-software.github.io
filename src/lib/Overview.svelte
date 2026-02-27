@@ -73,22 +73,30 @@
     font-size: var(--fs-lead);
     font-weight: var(--fw-bold);
     letter-spacing: var(--ls-tight);
-    line-height: var(--lh-default);
+    line-height: var(--lh-heading);
     color: var(--text-primary);
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border);
   }
 
   .overview-body {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
   }
 
   :global(.overview-body p) {
-    font-size: var(--fs-body);
-    line-height: var(--lh-loose);
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-relaxed);
     color: var(--text-secondary);
     letter-spacing: var(--ls-default);
+    max-width: var(--max-w-body);
+  }
+
+  :global(.overview-body strong) {
+    color: var(--text-primary);
+    font-weight: var(--fw-semibold);
   }
 
   .overview-stack {
