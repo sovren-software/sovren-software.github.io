@@ -14,7 +14,7 @@
   import Overview from '$lib/Overview.svelte';
   import PillarList from '$lib/PillarList.svelte';
   import CtaSection from '$lib/CtaSection.svelte';
-  import { AUGMENTUM_SIGNUP_URL, HAS_EMBED_SIGNUP } from '$lib/marketing';
+  import { AUGMENTUM_SIGNUP_URL } from '$lib/marketing';
 
   const pillars = [
     {
@@ -77,25 +77,9 @@
         sovereign stack.
       </p>
 
-      {#if HAS_EMBED_SIGNUP}
-        <div class="signup-shell">
-          <iframe
-            src={AUGMENTUM_SIGNUP_URL}
-            title="Augmentum OS launch briefing signup"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-
-        <div class="launch-links">
-          <a class="btn-secondary" href={AUGMENTUM_SIGNUP_URL} target="_blank" rel="noreferrer">OPEN FORM IN NEW TAB</a>
-        </div>
-      {:else}
-        <div class="launch-links">
-          <a class="btn-primary" href={AUGMENTUM_SIGNUP_URL}>NOTIFY ME AT LAUNCH →</a>
-        </div>
-        <p class="launch-fallback">Form embedding is unavailable in this environment. Use the direct signup link above.</p>
-      {/if}
+      <div class="launch-links">
+        <a class="btn-primary" href={AUGMENTUM_SIGNUP_URL} target="_blank" rel="noreferrer">GET THE BRIEFING →</a>
+      </div>
 
       <p class="launch-note">Double opt-in enabled. Unsubscribe anytime.</p>
     </div>
@@ -145,20 +129,6 @@
     color: var(--text-secondary);
   }
 
-  .signup-shell {
-    border: 1px solid var(--border);
-    background: var(--surface);
-    backdrop-filter: blur(6px);
-    overflow: hidden;
-  }
-
-  .signup-shell iframe {
-    width: 100%;
-    min-height: clamp(620px, 78vh, 820px);
-    border: none;
-    background: transparent;
-  }
-
   .launch-links {
     display: flex;
     gap: var(--space-lg);
@@ -172,19 +142,9 @@
     text-transform: uppercase;
   }
 
-  .launch-fallback {
-    color: var(--text-muted);
-    font-size: var(--fs-body-xs);
-    max-width: none;
-  }
-
   @media (max-width: 768px) {
     .launch-briefing {
       padding: var(--space-5xl) var(--space-xl);
-    }
-
-    .signup-shell iframe {
-      min-height: 760px;
     }
   }
 </style>
