@@ -15,6 +15,25 @@
   import PillarList from '$lib/PillarList.svelte';
   import CtaSection from '$lib/CtaSection.svelte';
 
+  const BREVO_ACTION = 'https://f4c90f0b.sibforms.com/serve/MUIFAAbBH-WyHvhepdhs6G8ul1wze6MjoVvTKJ8hy6wQ2pt2zfKhS72lm7K5SfgHHreybw_QGra18wfbFENLUX33U10YYUe1aPoQOEePElxdHbiM2uGL0Sdsei-N34xBCkoktWbqbtQe1cMW95PLNJ4gd9cZ_YonM0j3W1TrUXhliIJyTXuJ7u4B8pL9aH8uFVKQbzNfUWpWw_ovuA==';
+  let email = '';
+  let state = 'idle'; // idle | loading | success | error
+
+  async function subscribe(e) {
+    e.preventDefault();
+    state = 'loading';
+    try {
+      const body = new FormData();
+      body.append('EMAIL', email);
+      body.append('email_address_check', '');
+      body.append('locale', 'en');
+      await fetch(BREVO_ACTION, { method: 'POST', body, mode: 'no-cors' });
+      state = 'success';
+    } catch {
+      state = 'error';
+    }
+  }
+
   const pillars = [
     {
       num: '01',
@@ -76,14 +95,21 @@
         sovereign stack.
       </p>
 
-      <form class="brevo-form" method="POST" action="https://f4c90f0b.sibforms.com/serve/MUIFAAbBH-WyHvhepdhs6G8ul1wze6MjoVvTKJ8hy6wQ2pt2zfKhS72lm7K5SfgHHreybw_QGra18wfbFENLUX33U10YYUe1aPoQOEePElxdHbiM2uGL0Sdsei-N34xBCkoktWbqbtQe1cMW95PLNJ4gd9cZ_YonM0j3W1TrUXhliIJyTXuJ7u4B8pL9aH8uFVKQbzNfUWpWw_ovuA==">
-        <div class="brevo-field-row">
-          <input class="brevo-input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required />
-          <button class="btn-primary brevo-submit" type="submit">SUBSCRIBE →</button>
-        </div>
-        <input type="text" name="email_address_check" value="" style="display:none" />
-        <input type="hidden" name="locale" value="en" />
-      </form>
+      {#if state === 'success'}
+        <p class="brevo-success">CONFIRMED. CHECK YOUR INBOX FOR THE OPT-IN EMAIL.</p>
+      {:else}
+        <form class="brevo-form" on:submit={subscribe}>
+          <div class="brevo-field-row">
+            <input class="brevo-input" type="email" bind:value={email} autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required />
+            <button class="btn-primary brevo-submit" type="submit" disabled={state === 'loading'}>
+              {state === 'loading' ? 'SENDING...' : 'SUBSCRIBE →'}
+            </button>
+          </div>
+          {#if state === 'error'}
+            <p class="brevo-error">SUBMISSION FAILED. PLEASE TRY AGAIN.</p>
+          {/if}
+        </form>
+      {/if}
 
       <p class="launch-note">Double opt-in enabled. Unsubscribe anytime.</p>
     </div>
@@ -177,6 +203,20 @@
 
   .brevo-submit {
     white-space: nowrap;
+  }
+
+  .brevo-success {
+    font-size: var(--fs-body-sm);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+
+  .brevo-error {
+    font-size: var(--fs-body-xs);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--text-secondary);
   }
 
   @media (max-width: 768px) {
