@@ -14,7 +14,6 @@
   import Overview from '$lib/Overview.svelte';
   import PillarList from '$lib/PillarList.svelte';
   import CtaSection from '$lib/CtaSection.svelte';
-  import { AUGMENTUM_SIGNUP_URL } from '$lib/marketing';
 
   const pillars = [
     {
