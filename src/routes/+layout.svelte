@@ -30,11 +30,12 @@
   }
 </script>
 
+<a href="#main-content" class="skip-nav">Skip to main content</a>
 <Scene />
 <Nav {theme} onToggleTheme={toggleTheme} />
 
 {#key $page.url.pathname}
-  <div in:fade={{ duration: 150, delay: 50 }} out:fade={{ duration: 100 }}>
+  <div id="main-content" in:fade={{ duration: 150, delay: 50 }} out:fade={{ duration: 100 }}>
     <slot />
   </div>
 {/key}
@@ -43,7 +44,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <a href="/" class="footer-wordmark">SOVREN</a>
-      <nav class="footer-nav">
+      <nav class="footer-nav" aria-label="Footer">
         <div class="footer-col">
           <span class="col-label">PRODUCTS</span>
           <a href="/augmentum">AUGMENTUM</a>
@@ -72,6 +73,26 @@
 </footer>
 
 <style>
+  .skip-nav {
+    position: absolute;
+    top: -100%;
+    left: var(--space-lg);
+    z-index: calc(var(--z-nav) + 10);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--text-primary);
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: top 0.1s;
+  }
+
+  .skip-nav:focus {
+    top: var(--space-sm);
+  }
+
   footer {
     background: transparent;
     border-top: 1px solid var(--border);

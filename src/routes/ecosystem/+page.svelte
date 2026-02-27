@@ -1,14 +1,15 @@
 <svelte:head>
   <title>Ecosystem Manifesto — The Sovren Stack | Sovren Software</title>
   <meta name="description" content="Privacy is not a feature. Control is not an option. Sovereignty is the baseline. The manifesto for the Sovren Software computing stack." />
+  <link rel="canonical" href="https://sovren.software/ecosystem" />
   <meta property="og:title" content="The Sovren Ecosystem Manifesto." />
   <meta property="og:description" content="We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you." />
   <meta property="og:url" content="https://sovren.software/ecosystem" />
+  <meta name="twitter:title" content="The Sovren Ecosystem Manifesto." />
+  <meta name="twitter:description" content="We build tools for those who want more of themselves — more capacity, more control, more surface area. The stack is open, inspectable, and answerable only to you." />
 </svelte:head>
 
 <script>
-  import CtaSection from '$lib/CtaSection.svelte';
-
   const pillars = [
     {
       num: '01',
@@ -46,12 +47,12 @@
   <section class="thesis-expanded">
     <div class="thesis-inner glitch-subtle preserve-3d">
       <p class="thesis-lede">The industry has accepted a tradeoff that was never necessary: surrender your data, your attention, and your agency in exchange for convenience.</p>
-      
+
       <div class="thesis-body">
         <p>The modern software stack treats the user as the product. Operating systems harvest telemetry. Identity providers silo your biometrics in the cloud. Financial institutions gatekeep your assets.</p>
-        
+
         <blockquote>You are not the root user of your own life. You are a guest in someone else's walled garden.</blockquote>
-        
+
         <p>Sovren Software exists to build the alternative. We do not believe in walled gardens. We do not believe in "trusted third parties." We believe in cryptographic guarantees, open-source foundations, and software that answers only to the person running it.</p>
       </div>
     </div>
@@ -60,7 +61,7 @@
   <section class="pillars">
     <div class="pillars-inner">
       <span class="section-label">THE THREE PILLARS</span>
-      
+
       {#each pillars as p}
         <div class="pillar">
           <div class="pillar-header">
@@ -74,7 +75,7 @@
           </div>
         </div>
       {/each}
-      
+
     </div>
   </section>
 

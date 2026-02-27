@@ -41,9 +41,13 @@ npm install
 npm run dev          # http://localhost:5173
 npm run build        # static output → dist/
 npm run preview      # preview production build
+npm run check        # svelte-check type validation
+npm run lint         # ESLint
+npm run format       # Prettier
+npm run generate-og  # regenerate static/og-image.png
 ```
 
-**Requirements:** Node.js 18+
+**Requirements:** Node.js 20+ (see `.nvmrc`)
 
 ---
 
@@ -74,11 +78,23 @@ src/
 │   └── ecosystem/+page.svelte       # Ecosystem manifesto page
 static/
 ├── CNAME                            # GitHub Pages custom domain
+├── _headers                         # Security headers (Cloudflare Pages / reference for CF Transform Rules)
 ├── fonts/GeistMono-Variable.woff2   # Self-hosted font
+├── favicon.ico                      # 32×32 ICO
+├── favicon.svg                      # SVG favicon (wireframe cube mark)
+├── favicon-32x32.png                # 32×32 PNG
+├── favicon-16x16.png                # 16×16 PNG
+├── apple-touch-icon.png             # 180×180 for iOS
+├── icon-192.png                     # PWA icon
+├── icon-512.png                     # PWA icon
+├── manifest.webmanifest             # Web app manifest (PWA)
+├── og-image.png                     # 1200×630 OG image (Geist Mono rendered via Satori)
 ├── robots.txt                       # Crawler access rules
-├── sitemap.xml                      # All routes for search engines
+├── sitemap.xml                      # All routes with lastmod dates
 ├── llms.txt                         # AI crawler context file
 └── BingSiteAuth.xml                 # Bing Webmaster verification
+scripts/
+└── generate-og.js                   # OG image generator (Satori + Resvg, uses Geist Mono TTF)
 ```
 
 ---
@@ -102,10 +118,12 @@ All colors use CSS custom properties — no hardcoded color values in components
 A full-viewport 3D background renders behind all page content:
 
 - **Canvas:** `position: fixed`, `z-index: -1`, `pointer-events: none` — sits behind all UI
-- **Elements:** Rotating wireframe cube, inner icosahedron, infinite grid, volumetric dust particles
+- **Elements:** Rotating wireframe cube, inner octahedron, infinite grid, volumetric dust particles
 - **Interaction:** Mouse parallax on cube rotation, scroll-linked grid drift
 - **Theme-aware:** Materials, fog color/density, and particle opacity adapt to light/dark mode
 - **Lifecycle:** `Scene.svelte` mounts/unmounts the canvas; `SceneManager.js` handles the animation loop and cleanup
+- **Accessibility:** Animations fully disabled when `prefers-reduced-motion: reduce` is set — checked at runtime and via CSS media query
+- **Memory:** `destroy()` correctly removes all event listeners using stored bound references, disposes all Three.js geometries and materials
 
 `ProductMonoliths.svelte` exists as an interactive wireframe panel component but is currently unused — it was removed from the home page to reduce visual clutter.
 
@@ -137,6 +155,8 @@ Rules: one typeface only, no color for emphasis (use weight/spacing), all values
 ## Deployment
 
 ```bash
+npm run check        # must pass before pushing
+npm run lint         # must pass before pushing
 npm run build        # verify build passes
 git push             # GitHub Actions auto-deploys from main
 ```
@@ -144,17 +164,36 @@ git push             # GitHub Actions auto-deploys from main
 - Output: `dist/` directory (static adapter)
 - DNS: 4 GitHub Pages A records + `www` CNAME → `sovren-software.github.io`, proxied via Cloudflare
 - `static/CNAME` contains `sovren.software` — do not delete
+- CI runs `check → lint → build` in sequence before deploying
+
+### Security Headers
+
+GitHub Pages cannot set HTTP response headers. Security is enforced at two levels:
+
+1. **Browser-level (active now):** `Content-Security-Policy`, `Referrer-Policy`, and `X-Content-Type-Options` are set via `<meta http-equiv>` in `app.html`
+2. **CDN-level (manual):** `X-Frame-Options`, `HSTS`, `COOP`, `CORP`, and `Permissions-Policy` must be configured as Cloudflare Transform Rules — see `SECURITY.md` for exact steps
+
+The `static/_headers` file is the authoritative record of all required headers and will be auto-enforced if the site ever migrates to Cloudflare Pages.
 
 ---
 
 ## SEO & AI Discoverability
 
-- `app.html` — JSON-LD structured data (Organization + WebSite schemas)
-- Each page — `<svelte:head>` with unique title, description, and Open Graph meta
+- `app.html` — JSON-LD structured data (Organization + WebSite schemas), favicon suite, manifest, OG/Twitter defaults
+- Each page — `<svelte:head>` with unique title, description, Open Graph meta, Twitter Card tags, and canonical URL
+- `static/og-image.png` — 1200×630 social preview image rendered with actual Geist Mono font via Satori
 - `static/llms.txt` — full product descriptions for AI crawlers (ChatGPT, Perplexity, Claude)
-- `static/sitemap.xml` — all 5 routes
+- `static/sitemap.xml` — all 5 routes with `<lastmod>` dates
 - Cloudflare proxy prevents GitHub/Fastly from blocking AI crawler IPs
 - Bing Webmaster Tools verified
+
+## Code Quality
+
+- **Linting:** ESLint with `eslint-plugin-svelte` — run via `npm run lint`
+- **Type checking:** `svelte-check` — run via `npm run check`
+- **Formatting:** Prettier with `prettier-plugin-svelte` — run via `npm run format`
+- **CI:** GitHub Actions runs `check → lint → build` on every push to `main`
+- **Dependencies:** Dependabot configured for weekly npm dependency PRs
 
 ---
 
@@ -163,3 +202,9 @@ git push             # GitHub Actions auto-deploys from main
 [VS Code](https://code.visualstudio.com/) + [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 
 For AI-assisted development, see `CLAUDE.md` for the full design system reference, copy guidelines, and product context.
+
+## License
+
+Proprietary — © 2025–2026 Sovren Software. All rights reserved. See `LICENSE`.
+
+Exception: [Visage](https://github.com/sovren-software/visage) is MIT-licensed and open source.

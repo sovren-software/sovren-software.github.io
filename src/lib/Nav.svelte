@@ -13,7 +13,7 @@
   }
 </script>
 
-<nav>
+<nav aria-label="Primary">
   <div class="nav-inner">
     <a href="/" class="wordmark" on:click={close}>SOVREN</a>
 

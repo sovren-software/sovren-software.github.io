@@ -1,4 +1,5 @@
 <script>
+  // @ts-nocheck
   import { onMount, onDestroy } from 'svelte';
   import * as THREE from 'three';
   import { browser } from '$app/environment';

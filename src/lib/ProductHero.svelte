@@ -16,7 +16,8 @@
     {#if category}
       <span class="category">{category}</span>
     {/if}
-    <h1>{@html title}</h1>
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+    <h1 class="hero-title size-{size}">{@html title}</h1>
     {#if status}
       <p class="status">{status}</p>
     {/if}

@@ -15,10 +15,11 @@
         <slot />
       </div>
       {#if stackNote}
-        <p class="overview-stack">{stackNote}</p>
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+        <p class="overview-stack">{@html stackNote}</p>
       {/if}
     </div>
-    
+
     {#if specs.length > 0}
       <div class="overview-specs">
         {#each specs as s}
@@ -138,18 +139,18 @@
     .overview {
       padding: var(--space-5xl) var(--space-xl);
     }
-    
+
     .overview-inner {
       grid-template-columns: 1fr;
       gap: var(--space-4xl);
     }
-    
+
     .spec-row {
       flex-direction: column;
       gap: var(--space-sm);
       padding: var(--space-lg) var(--space-md);
     }
-    
+
     .spec-value {
       text-align: left;
     }

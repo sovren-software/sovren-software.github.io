@@ -1,22 +1,15 @@
 <svelte:head>
   <title>Sovren Software — Sovereign Computing Stack</title>
   <meta name="description" content="Sovereign OS. Local identity. Programmable assets. Augmentum OS, Visage, and Mr. Haven — computing, identity, and finance fully under your control." />
+  <link rel="canonical" href="https://sovren.software/" />
   <meta property="og:title" content="Sovren Software — Sovereign Computing Stack" />
   <meta property="og:description" content="Sovereign OS. Local identity. Programmable assets. The stack for people who refuse to be owned by their software vendor." />
   <meta property="og:url" content="https://sovren.software/" />
+  <meta name="twitter:title" content="Sovren Software — Sovereign Computing Stack" />
+  <meta name="twitter:description" content="Sovereign OS. Local identity. Programmable assets. The stack for people who refuse to be owned by their software vendor." />
 </svelte:head>
 
 <script>
-  const asciiArt = `      _______________
-     /              /|
-    /              / |
-   /______________/  |
-   |  __________  |  |
-   | |          | |  |
-   | |  [S.S.]  | | /
-   | |__________| |/
-   |______________|`
-
   const products = [
     {
       number: '01',
@@ -53,7 +46,8 @@
     </div>
   </section>
 
-  <section class="products">
+  <section class="products" aria-labelledby="products-heading">
+    <h2 id="products-heading" class="sr-only">Products</h2>
     <div class="product-grid">
       {#each products as p}
         <a href={p.href} class="product-card">
@@ -252,6 +246,18 @@
     max-width: var(--max-w-body);
     color: var(--text-secondary);
     letter-spacing: var(--ls-default);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   /* Responsive */

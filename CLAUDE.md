@@ -95,18 +95,18 @@ The site uses a `data-theme` attribute on `<html>` to switch between light and d
 | `--space-4xl` | 3rem |
 | `--space-5xl` | 4rem |
 | `--space-6xl` | 6rem |
-| `--space-7xl` | 7rem |
+| `--space-7xl` | 8rem |
 
-**Section padding:** `--pad-section` (6rem 2.5rem), `--pad-section-lg` (7rem 2.5rem), `--pad-hero` (5rem 2.5rem)
+**Section padding:** `--pad-section` (6rem 2.5rem), `--pad-section-lg` (8rem 2.5rem), `--pad-hero` (5rem 2.5rem)
 
 ### Layout
 
 ```
 --max-w: 1200px           /* Container max-width */
---max-w-prose: 760px      /* Prose blocks (manifesto) */
---max-w-body: 480px       /* Body paragraphs */
---max-w-tagline: 600px    /* Tagline blocks */
---nav-h: 60px             /* Navigation height */
+--max-w-prose: 800px      /* Prose blocks (manifesto) */
+--max-w-body: 520px       /* Body paragraphs */
+--max-w-tagline: 640px    /* Tagline blocks */
+--nav-h: 80px             /* Navigation height */
 --z-nav: 100              /* Navigation z-index */
 ```
 
@@ -183,7 +183,7 @@ A cinematic Three.js background renders behind all page content on every route.
             ├── Renderer (alpha: true, transparent canvas)
             ├── FogExp2 (theme-aware color + density)
             ├── Wireframe cube (rotating, mouse-reactive)
-            ├── Inner icosahedron (counter-rotating)
+            ├── Inner octahedron (counter-rotating)
             ├── GridHelper (100×100, scroll-linked drift)
             └── Particle system (500 dust particles)
 
@@ -221,7 +221,7 @@ All page sections must have transparent backgrounds. Do **not** add `background-
 | Grid primary | `0x888888` | `0x444444` |
 | Grid secondary | `0xcccccc` | `0x222222` |
 | Particle color | `0x000000` (opacity 0.2) | `0xffffff` (opacity 0.4) |
-| Monolith wireframe | `0x333333` | `0xffffff` | *(unused — monoliths removed)* |
+| Monolith wireframe | `0x333333` | `0xffffff` | *(unused — ProductMonoliths removed)* |
 
 ### Modifying the 3D Scene
 
@@ -298,7 +298,7 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 ### Visage
 - Tagline: "Linux face authentication via PAM. Your face is your key — processed locally, never broadcast to the cloud."
 - Key angle: Open source identity layer; integrates natively with Augmentum OS
-- Status: Live · v0.1.0 · MIT
+- **Status:** Live · v0.2.0 · MIT
 
 ### MrHaven
 - Tagline: "Programmable asset control for humans and autonomous agents — no custodian, no intermediary, no exceptions."
@@ -312,13 +312,34 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 ## Deploy Process
 
 ```bash
+npm run check        # svelte-check — must pass
+npm run lint         # ESLint — must pass
 npm run build        # verify build passes before pushing
 git push             # GitHub Actions auto-deploys from main branch
 ```
 
+CI pipeline runs `check → lint → build` in sequence. All three must pass before deployment.
+
 CNAME file at `static/CNAME` contains `sovren.software`. Do not delete it.
 
 DNS: 4 A records (185.199.108-111.153) + www CNAME → `sovren-software.github.io`. All proxied through Cloudflare.
+
+### Security Headers
+
+Two-level enforcement on GitHub Pages + Cloudflare:
+- **Active (meta):** CSP, Referrer-Policy, X-Content-Type-Options via `<meta http-equiv>` in `app.html`
+- **Requires Cloudflare dashboard:** X-Frame-Options, HSTS, COOP, CORP, Permissions-Policy — see `SECURITY.md`
+- `static/_headers` is authoritative source; auto-enforced if migrated to Cloudflare Pages
+
+### OG Image
+
+The social preview image (`static/og-image.png`) is generated via Satori using Geist Mono TTF:
+
+```bash
+npm run generate-og  # rewrites static/og-image.png
+```
+
+Script is at `scripts/generate-og.js`. Run it after any brand or copy changes that should be reflected in social previews.
 
 ## Known Limitations
 
@@ -334,6 +355,32 @@ DNS: 4 A records (185.199.108-111.153) + www CNAME → `sovren-software.github.i
 - [ ] MrHaven SDK section on the MrHaven page (when SDK docs exist)
 - [ ] Visual convergence diagram on Ecosystem page
 - [ ] X profile update (currently MrHaven-branded)
+- [ ] Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
+- [x] Favicon suite — SVG, ICO, PNGs, apple-touch-icon (2026-02-26)
+- [x] Web app manifest + PWA metadata (2026-02-26)
+- [x] OG image 1200×630 with Geist Mono via Satori — `npm run generate-og` (2026-02-26)
+- [x] Open Graph + Twitter Card tags on all pages (2026-02-26)
+- [x] Canonical URLs on all pages (2026-02-26)
+- [x] Security headers — meta-level CSP, Referrer-Policy, X-Content-Type-Options (2026-02-26)
+- [x] Skip navigation link + `id="main-content"` target (WCAG 2.4.1) (2026-02-26)
+- [x] `aria-label` on primary nav and footer nav landmarks (2026-02-26)
+- [x] `prefers-reduced-motion` — global CSS rule + SceneManager runtime check (2026-02-26)
+- [x] SceneManager memory leak fixed — stored bound handler refs in destroy() (2026-02-26)
+- [x] SceneManager GPU memory — geometry/material disposal on destroy (2026-02-26)
+- [x] SceneManager powerPreference changed to "default" (2026-02-26)
+- [x] ESLint + Prettier + svelte-check configured — `lint`, `check`, `format` scripts (2026-02-26)
+- [x] CI pipeline updated — check + lint run before build (2026-02-26)
+- [x] Dependabot weekly npm updates configured (2026-02-26)
+- [x] LICENSE file added — proprietary, all rights reserved (2026-02-26)
+- [x] CHANGELOG.md added (2026-02-26)
+- [x] SECURITY.md added with exact Cloudflare Transform Rules (2026-02-26)
+- [x] Internal cross-linking — stackNote product mentions converted to anchor links (2026-02-26)
+- [x] Font preload in app.html (2026-02-26)
+- [x] `--fs-footer-link` and `--fs-footer-copy` tokens defined (live bug fix) (2026-02-26)
+- [x] Sitemap lastmod dates added (2026-02-26)
+- [x] llms.txt — Visage version corrected, aegis-os dead link removed (2026-02-26)
+- [x] Heading hierarchy fixed — sr-only h2 + aria-labelledby on products section (2026-02-26)
+- [x] 404 error page — meta description + noindex added (2026-02-26)
 - [x] 3D cinematic scene — wireframe cube, grid, particles, product monoliths (2026-02-25)
 - [x] Light/dark theme toggle with persistence and 3D sync (2026-02-25)
 - [x] Theme-aware CSS variables — all hardcoded colors removed (2026-02-25)

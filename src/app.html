@@ -4,6 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Font preload -->
+    <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <!-- Security (meta-enforced; complements Cloudflare response headers) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Default OG / Twitter fallbacks (overridden per-page) -->
+    <meta property="og:site_name" content="Sovren Software" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://sovren.software/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sovren Software — Sovereign Computing Stack" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sovren_software" />
+    <meta name="twitter:image" content="https://sovren.software/og-image.png" />
+    <meta name="twitter:image:alt" content="Sovren Software — Sovereign Computing Stack" />
+
     <!-- JSON-LD: Organization (all pages) -->
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Organization","name":"Sovren Software","url":"https://sovren.software","description":"Sovereign computing infrastructure — tools for computing, identity, and assets fully under user control.","email":"hello@sovren.software","sameAs":["https://github.com/sovren-software","https://twitter.com/sovren_software"],"knowsAbout":["NixOS","Linux","face authentication","PAM","ONNX","Rust","smart contracts","Base L2","non-custodial finance","sovereign computing"]}

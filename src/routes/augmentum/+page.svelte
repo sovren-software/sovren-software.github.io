@@ -1,9 +1,12 @@
 <svelte:head>
   <title>Augmentum OS — A Cognitive Operating System for High-Leverage Operators | Sovren Software</title>
   <meta name="description" content="One operator. Team-scale output. Augmentum OS is a cognitive operating system that watches, learns, and surfaces what matters — without compromising on privacy, security, or usability." />
+  <link rel="canonical" href="https://sovren.software/augmentum" />
   <meta property="og:title" content="Augmentum OS — One Operator. Team-Scale Output." />
   <meta property="og:description" content="A cognitive operating system for founders, operators, and high-leverage individuals. UX, privacy, and security — none sacrificed. Ships Summer 2026." />
   <meta property="og:url" content="https://sovren.software/augmentum" />
+  <meta name="twitter:title" content="Augmentum OS — One Operator. Team-Scale Output." />
+  <meta name="twitter:description" content="A cognitive operating system for founders, operators, and high-leverage individuals. UX, privacy, and security — none sacrificed. Ships Summer 2026." />
 </svelte:head>
 
 <script>
@@ -55,7 +58,7 @@
   <Overview
     lead="A cognitive operating system."
     {specs}
-    stackNote="Visage face authentication and MrHaven programmable finance are first-class primitives at the OS level. The Sovren Stack runs as a unified command layer."
+    stackNote="<a href='/visage'>Visage</a> face authentication and <a href='/mrhaven'>Mr. Haven</a> programmable finance are first-class primitives at the OS level. The Sovren Stack runs as a unified command layer."
   >
     <p>Most operating systems make you choose: convenience or privacy. Ease of use or security. Augmentum OS does not accept that tradeoff.</p>
     <p>It is built for founders, operators, and high-leverage individuals who need the output of a team — without surrendering control of their own machine. The system watches, learns, and surfaces what matters. You decide what it sees, what it retains, and when it acts. That clarity compounds over time.</p>

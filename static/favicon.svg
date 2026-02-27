@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" fill="#000000"/>
+  <!-- Wireframe cube mark -->
+  <!-- Front face -->
+  <polyline points="6,20 6,10 16,5 26,10 26,20 16,25 6,20" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+  <!-- Back top edge -->
+  <line x1="16" y1="5" x2="16" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <!-- Right back edge -->
+  <line x1="26" y1="10" x2="16" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <!-- Left back edge -->
+  <line x1="6" y1="10" x2="16" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <!-- Bottom back vertex lines -->
+  <line x1="16" y1="25" x2="16" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <line x1="26" y1="20" x2="16" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+  <line x1="6" y1="20" x2="16" y2="15" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+</svg>

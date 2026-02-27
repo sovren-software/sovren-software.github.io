@@ -1,9 +1,12 @@
 <svelte:head>
   <title>Mr. Haven — Non-Custodial USDC Time Vault on Base L2 | Sovren Software</title>
   <meta name="description" content="Programmable non-custodial USDC vault on Base L2. Set conditions, name beneficiaries, designate autonomous agents. No custodian. No intermediary. Live on mainnet." />
+  <link rel="canonical" href="https://sovren.software/mrhaven" />
   <meta property="og:title" content="Mr. Haven — Your Assets. Your Rules." />
   <meta property="og:description" content="Programmable asset control for humans and autonomous agents. Your keys, your conditions, your beneficiaries. Smart contract only. SDK coming soon." />
   <meta property="og:url" content="https://sovren.software/mrhaven" />
+  <meta name="twitter:title" content="Mr. Haven — Your Assets. Your Rules." />
+  <meta name="twitter:description" content="Programmable asset control for humans and autonomous agents. Your keys, your conditions, your beneficiaries. Smart contract only. SDK coming soon." />
 </svelte:head>
 
 <script>
@@ -57,7 +60,7 @@
   <Overview
     lead="Your assets. Your rules. No one else in the room."
     {specs}
-    stackNote="Integrates with Augmentum OS as part of the Sovren Stack — programmable finance at the OS level."
+    stackNote="Integrates with <a href='/augmentum'>Augmentum OS</a> as part of the Sovren Stack — programmable finance at the OS level. <a href='/visage'>Visage</a> identity is a first-class primitive."
   >
     <p>Traditional financial institutions hold your assets on your behalf. They decide when you can access them, who can receive them, and under what conditions. MrHaven removes them from the equation entirely.</p>
     <p>Deployed on Base L2, MrHaven is a set of auditable smart contracts. Deposit USDC, define conditions, name beneficiaries — or designate autonomous agents as authorized recipients. The contract handles execution: autonomously, verifiably, permanently.</p>

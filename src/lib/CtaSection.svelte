@@ -9,16 +9,17 @@
 
 <section class="cta">
   <div class="cta-inner preserve-3d">
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     <h2 class="glitch-subtle">{@html title}</h2>
     <p>{body}</p>
-    
+
     {#if actions.length > 0}
       <div class="cta-links">
         {#each actions as a}
-          <a 
-            href={a.href} 
-            class={a.style === 'secondary' ? 'btn-secondary' : 'btn-primary'} 
-            target={a.external ? '_blank' : undefined} 
+          <a
+            href={a.href}
+            class={a.style === 'secondary' ? 'btn-secondary' : 'btn-primary'}
+            target={a.external ? '_blank' : undefined}
             rel={a.external ? 'noreferrer' : undefined}
           >
             {a.label}

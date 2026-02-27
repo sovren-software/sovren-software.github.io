@@ -18,7 +18,7 @@ Contact: hello@sovren.software
 **Status:** Ships Summer 2026
 **URL:** https://sovren.software/augmentum
 **Product site:** https://augmentum.computer
-**GitHub:** https://github.com/sovren-software/aegis-os
+**GitHub:** https://github.com/sovren-software
 
 Augmentum OS is a NixOS-based sovereign operating system designed for users who want complete control over their computing environment. The entire OS state is declared in a single reproducible configuration file — version-controlled, auditable, and rollback-capable at any point. No silent updates. No telemetry. No vendor lock-in.
 
@@ -35,7 +35,7 @@ Built on: NixOS (Linux). Config: declarative, Git-tracked. AI layer: local infer
 ### Visage
 
 **Category:** Identity / Authentication
-**Status:** Live — v0.1.0
+**Status:** Live — v0.2.0
 **URL:** https://sovren.software/visage
 **GitHub:** https://github.com/sovren-software/visage
 **License:** MIT (open source)

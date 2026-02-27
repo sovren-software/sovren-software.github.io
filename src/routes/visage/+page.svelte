@@ -1,9 +1,12 @@
 <svelte:head>
   <title>Visage — Linux Face Authentication via PAM | Sovren Software</title>
   <meta name="description" content="Open source Linux face authentication via PAM. Inference runs on-device — no cloud enrollment, no biometric database. Rust. MIT licensed. v0.2.0." />
+  <link rel="canonical" href="https://sovren.software/visage" />
   <meta property="og:title" content="Visage — Your Face Is Your Key." />
   <meta property="og:description" content="Linux face authentication that runs entirely on your hardware. No cloud enrollment. No biometric database. Open source, MIT licensed." />
   <meta property="og:url" content="https://sovren.software/visage" />
+  <meta name="twitter:title" content="Visage — Your Face Is Your Key." />
+  <meta name="twitter:description" content="Linux face authentication that runs entirely on your hardware. No cloud enrollment. No biometric database. Open source, MIT licensed." />
 </svelte:head>
 
 <script>
@@ -49,15 +52,15 @@
   <ProductHero
     category="02 / IDENTITY"
     title="VISAGE."
-    status="Open source · MIT · v0.2.0"
+    status="Open source · MIT"
     tagline="Your face is your key. Processed locally. Never broadcast to the cloud."
     size="large"
   />
 
   <Overview
-    lead="Face authentication the way it should work."
+    lead="Your face is your key — processed locally, never broadcast."
     {specs}
-    stackNote="The open/closed split is intentional. The open-source foundation earns trust. The OS-native layer delivers the full vision."
+    stackNote="Visage ships as a native identity primitive in <a href='/augmentum'>Augmentum OS</a>. It also integrates with <a href='/mrhaven'>Mr. Haven</a> for biometric-gated asset access."
   >
     <p>Windows Hello has worked on Windows for years. Linux users were left out. Visage closes that gap — a native, open-source face authentication daemon built in Rust, with no external dependencies and no data leaving your hardware.</p>
     <p>v0.x is MIT-licensed and works on any Linux system. v2, in active development, integrates at the Augmentum OS identity layer — your face-verified credential becomes a system-level primitive, not just a PAM module.</p>

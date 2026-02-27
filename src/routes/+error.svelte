@@ -1,5 +1,7 @@
 <svelte:head>
   <title>404 — Page Not Found | Sovren Software</title>
+  <meta name="description" content="The page you were looking for doesn't exist. Return to the Sovren Software home page." />
+  <meta name="robots" content="noindex" />
 </svelte:head>
 
 <script>
@@ -25,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
   }
-  
+
   .actions {
     max-width: var(--max-w);
     margin: 0 auto;

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#000000"/>
+
+  <!-- Grid lines (perspective) -->
+  <g stroke="#222222" stroke-width="1" opacity="0.8">
+    <!-- Horizontal lines receding -->
+    <line x1="0" y1="630" x2="1200" y2="480"/>
+    <line x1="0" y1="630" x2="1200" y2="510"/>
+    <line x1="0" y1="630" x2="1200" y2="540"/>
+    <!-- Vertical grid lines from vanishing point -->
+    <line x1="600" y1="200" x2="0" y2="630"/>
+    <line x1="600" y1="200" x2="200" y2="630"/>
+    <line x1="600" y1="200" x2="400" y2="630"/>
+    <line x1="600" y1="200" x2="600" y2="630"/>
+    <line x1="600" y1="200" x2="800" y2="630"/>
+    <line x1="600" y1="200" x2="1000" y2="630"/>
+    <line x1="600" y1="200" x2="1200" y2="630"/>
+  </g>
+
+  <!-- Wireframe cube — centered left of text -->
+  <g transform="translate(180, 200)" stroke="#ffffff" stroke-width="2" fill="none" stroke-linejoin="round">
+    <!-- Front face -->
+    <rect x="0" y="30" width="120" height="120" stroke="#ffffff" stroke-width="2"/>
+    <!-- Top face -->
+    <polygon points="0,30 40,0 160,0 120,30" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <!-- Right face -->
+    <polygon points="120,30 160,0 160,120 120,150" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <!-- Inner edges (depth) -->
+    <line x1="0" y1="30" x2="40" y2="0" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <line x1="120" y1="30" x2="160" y2="0" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <line x1="120" y1="150" x2="160" y2="120" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <line x1="40" y1="0" x2="160" y2="0" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <line x1="160" y1="0" x2="160" y2="120" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="420" y="295" font-family="monospace" font-size="88" font-weight="700" fill="#ffffff" letter-spacing="12">SOVREN</text>
+
+  <!-- Tagline -->
+  <text x="422" y="355" font-family="monospace" font-size="18" font-weight="400" fill="rgba(255,255,255,0.45)" letter-spacing="6">SOVEREIGN COMPUTING STACK</text>
+
+  <!-- Three product labels -->
+  <g font-family="monospace" font-size="13" fill="rgba(255,255,255,0.3)" letter-spacing="3">
+    <text x="422" y="430">OS · IDENTITY · FINANCE</text>
+  </g>
+
+  <!-- Bottom border line -->
+  <line x1="60" y1="565" x2="1140" y2="565" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- Domain -->
+  <text x="60" y="596" font-family="monospace" font-size="13" fill="rgba(255,255,255,0.25)" letter-spacing="3">SOVREN.SOFTWARE</text>
+</svg>
