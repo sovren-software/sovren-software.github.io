@@ -14,6 +14,7 @@
   import Overview from '$lib/Overview.svelte';
   import PillarList from '$lib/PillarList.svelte';
   import CtaSection from '$lib/CtaSection.svelte';
+  import { AUGMENTUM_SIGNUP_URL, HAS_EMBED_SIGNUP } from '$lib/marketing';
 
   const pillars = [
     {
@@ -68,9 +69,122 @@
 
   <PillarList {pillars} />
 
+  <section class="launch-briefing" id="launch-briefing">
+    <div class="launch-inner preserve-3d">
+      <h2 class="glitch-subtle">GET THE<br />LAUNCH BRIEFING.</h2>
+      <p>
+        One operational briefing when Augmentum OS goes live, then occasional high-signal updates across the
+        sovereign stack.
+      </p>
+
+      {#if HAS_EMBED_SIGNUP}
+        <div class="signup-shell">
+          <iframe
+            src={AUGMENTUM_SIGNUP_URL}
+            title="Augmentum OS launch briefing signup"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="launch-links">
+          <a class="btn-secondary" href={AUGMENTUM_SIGNUP_URL} target="_blank" rel="noreferrer">OPEN FORM IN NEW TAB</a>
+        </div>
+      {:else}
+        <div class="launch-links">
+          <a class="btn-primary" href={AUGMENTUM_SIGNUP_URL}>NOTIFY ME AT LAUNCH →</a>
+        </div>
+        <p class="launch-fallback">Form embedding is unavailable in this environment. Use the direct signup link above.</p>
+      {/if}
+
+      <p class="launch-note">Double opt-in enabled. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
   <CtaSection
-    title="BUILT WITHOUT<br />COMPROMISE."
-    body="Augmentum OS ships Summer 2026. One email when it is ready — send us your address."
-    actions={[{ label: 'NOTIFY ME AT LAUNCH →', href: 'mailto:hello@sovren.software?subject=Augmentum OS Launch Notification' }]}
+    title="BUILD SOVEREIGNLY."
+    body="Augmentum OS, Visage, and MrHaven are designed as one command layer. Read the operating thesis behind the stack."
+    actions={[
+      { label: 'READ THE MANIFESTO →', href: '/ecosystem' },
+      { label: 'EXPLORE VISAGE →', href: '/visage', style: 'secondary' },
+    ]}
   />
 </main>
+
+<style>
+  .launch-briefing {
+    background: transparent;
+    color: var(--text-primary);
+    padding: var(--pad-section-lg);
+    border-top: 1px solid var(--border);
+    position: relative;
+    scroll-margin-top: calc(var(--nav-h) + var(--space-xl));
+  }
+
+  .launch-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .launch-briefing h2 {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-wide);
+    line-height: var(--lh-heading);
+    text-transform: uppercase;
+  }
+
+  .launch-briefing p {
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-relaxed);
+    letter-spacing: var(--ls-default);
+    max-width: var(--max-w-body);
+    color: var(--text-secondary);
+  }
+
+  .signup-shell {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+  }
+
+  .signup-shell iframe {
+    width: 100%;
+    min-height: clamp(620px, 78vh, 820px);
+    border: none;
+    background: transparent;
+  }
+
+  .launch-links {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .launch-note {
+    color: var(--text-muted);
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+  }
+
+  .launch-fallback {
+    color: var(--text-muted);
+    font-size: var(--fs-body-xs);
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    .launch-briefing {
+      padding: var(--space-5xl) var(--space-xl);
+    }
+
+    .signup-shell iframe {
+      min-height: 760px;
+    }
+  }
+</style>

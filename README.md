@@ -197,6 +197,78 @@ The `static/_headers` file is the authoritative record of all required headers a
 
 ---
 
+## Email Signup + Funnel (Brevo)
+
+The site now routes the Augmentum CTA through a configurable marketing URL in `src/lib/marketing.js`.
+
+### 1) Wire the signup link
+
+Edit `src/lib/marketing.js` and set:
+
+```js
+export const BREVO_SIGNUP_URL = '__SET_BREVO_SIGNUP_URL__';
+```
+
+to your Brevo hosted signup form URL (example format: `https://xxxx.sibforms.com/serve/...`).
+
+If not set, the CTA falls back to `mailto:` so the button still functions.
+
+### 2) Brevo dashboard setup (minimal)
+
+1. Create list: `MAIN_NEWSLETTER`
+2. Create a sign-up form (Marketing → Forms)
+3. Enable double opt-in
+4. Set destination list to `MAIN_NEWSLETTER`
+5. Copy hosted form URL into `src/lib/marketing.js`
+6. Create automation: trigger on contact added to `MAIN_NEWSLETTER`
+7. Add one email step (delay 1–2 minutes), then activate
+
+### 2.5) Phase 2 cohesive UX behavior
+
+- The Augmentum page now includes a native launch briefing section with an embedded Brevo form iframe.
+- If the signup URL is not an embeddable `http(s)` URL, the page automatically falls back to a direct CTA link.
+- The closing CTA now routes users deeper into the ecosystem (`/ecosystem` + `/visage`) to avoid duplicate signup prompts.
+
+### 3) Single welcome email template (v1)
+
+Use this as the first and only automation email for now:
+
+**Subject:** Welcome to Sovren — launch briefing subscribed  
+**Preview:** You are in. We will send one launch briefing and occasional high-signal updates.
+
+**Body:**
+
+```text
+You are subscribed to the Sovren launch briefing.
+
+What you should expect:
+- One operational briefing when Augmentum OS goes live
+- Occasional high-signal updates across the Sovren Stack (OS, identity, programmable finance)
+- No spam. No feed noise. No growth-hack sequences.
+
+Why this exists:
+Sovren builds software for operators who want leverage without surrendering control.
+Privacy is not a feature. Sovereignty is the baseline.
+
+Explore the stack:
+- Augmentum OS: https://sovren.software/augmentum
+- Visage: https://sovren.software/visage
+- MrHaven: https://sovren.software/mrhaven
+
+— Sovren Software
+https://sovren.software
+```
+
+### 4) Verification checklist
+
+1. Open `/augmentum` and verify the launch briefing section renders.
+2. Confirm iframe form loads (or fallback button appears if embed unavailable).
+3. Submit a test email and confirm contact lands in `MAIN_NEWSLETTER`.
+4. Confirm the single welcome automation email is sent.
+5. Confirm `/ecosystem` and `/visage` links in final CTA work.
+
+---
+
 ## IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
