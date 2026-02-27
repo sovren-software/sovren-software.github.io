@@ -18,7 +18,7 @@
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.53.0",
+    "@sveltejs/kit": "^2.53.3",
     "eslint": "^9.0.0",
     "eslint-plugin-svelte": "^2.46.0",
     "globals": "^15.0.0",
