@@ -19,12 +19,12 @@
     {
       num: '01',
       label: 'COMMAND THE MACHINE. DON\'T NEGOTIATE WITH IT.',
-      desc: 'You are the operator. The system is the co-pilot. Issue commands by voice, query your environment in natural language, trigger workflows — the interface adapts to how you think. The entire command layer runs on local inference. Nothing is sent to a cloud for transcription. The UX is fast because the system answers only to you.',
+      desc: 'You are the operator. The system is the co-pilot. Issue commands by voice, query your environment in natural language, trigger workflows — the interface adapts to how you think. Local inference runs by default. Cloud inference is available when you choose it. Nothing leaves your machine without explicit authorization.',
     },
     {
       num: '02',
       label: 'PRIVACY IS WHAT MAKES REAL CAPABILITY POSSIBLE.',
-      desc: 'A system that phones home is not a command center. It is a managed endpoint. The AI co-pilot runs entirely on your hardware — no telemetry, no behavioral profiles, no vendor copy of your activity. Local-first is not a privacy feature. It is the architecture. Intelligence without surveillance is the design.',
+      desc: 'A system that phones home is not a command center. It is a managed endpoint. Local inference is the default — no telemetry collected by us. Your operational data belongs to you. Intelligence without surveillance is the design.',
     },
     {
       num: '03',
@@ -42,7 +42,7 @@
     { label: 'BASE', value: 'NixOS — declarative, version-controlled, rollback-capable' },
     { label: 'INTERFACE', value: 'Voice-native · Natural language command layer · Local inference' },
     { label: 'AUTHENTICATION', value: 'Biometric (Visage) · MFA · Session-scoped privileges' },
-    { label: 'AI LAYER', value: 'On-device co-pilot · No telemetry · No cloud dependency' },
+    { label: 'AI LAYER', value: 'Local-first by default · Optional cloud inference · Your telemetry, your data' },
     { label: 'ORCHESTRATION', value: 'Programmable automation · Explicit agent authority boundaries' },
     { label: 'STATUS', value: 'Ships Summer 2026', dim: true },
   ]
@@ -62,7 +62,7 @@
     stackNote="<a href='/visage'>Visage</a> biometric authentication runs as a native OS primitive — not an app, not a plugin, not a third-party service. <a href='/mrhaven'>Mr. Haven</a> programmable asset control is wired directly into the operator layer. The full Sovren Stack is unified sovereign infrastructure."
   >
     <p>Most operating systems serve the vendor. They harvest telemetry, push updates on their schedule, and treat your machine as a managed endpoint. Augmentum OS is built on the opposite premise.</p>
-    <p>The interface is voice-native — speak a command, the system responds, all inference runs locally. Access is biometric — your face, verified on-device, governs your sessions. The AI co-pilot surfaces context and executes tasks inside boundaries you define, with no data leaving the machine. The entire OS is one declarative config — version-controlled, reproducible, rollback-capable.</p>
+    <p>The interface is voice-native — speak a command, the system responds, local inference by default with optional cloud when you need it. Access is biometric — your face, verified on-device, governs your sessions. The AI co-pilot surfaces context and executes tasks inside boundaries you define; your operational data stays yours. The entire OS is one declarative config — version-controlled, reproducible, rollback-capable.</p>
     <p>UX, privacy, and security do not trade off against each other. Each one reinforces the others. That is the engineering commitment.</p>
   </Overview>
 
