@@ -40,3 +40,19 @@ jobs:
     steps:
       - uses: actions/deploy-pages@v4
         id: deployment
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for CDN propagation
+        run: sleep 15
+
+      - name: Verify site is live
+        run: |
+          STATUS=$(curl -sI -o /dev/null -w "%{http_code}" https://sovren.software/)
+          echo "sovren.software returned HTTP $STATUS"
+          if [ "$STATUS" -ne 200 ]; then
+            echo "::error::Site returned $STATUS — expected 200. Check Pages config and custom domain."
+            exit 1
+          fi
