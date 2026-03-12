@@ -60,7 +60,7 @@
   <Overview
     lead="Your assets. Your rules. No one else in the room."
     {specs}
-    stackNote="Integrates with <a href='/augmentum'>Augmentum OS</a> as part of the Sovren Stack — programmable finance at the OS level. <a href='/visage'>Visage</a> identity is a first-class primitive."
+    stackNote="Integrates with <a href='/esver'>Esver OS</a> as part of the Sovren Stack — programmable finance at the OS level. <a href='/visage'>Visage</a> identity is a first-class primitive."
   >
     <p>Traditional institutions hold your assets on your behalf. They decide when you access them, who can receive them, and under what conditions. Mr. Haven removes them from the equation entirely.</p>
     <p>Deposit USDC. Define conditions. Name beneficiaries — or designate autonomous agents as recipients. The contract handles execution: autonomously, verifiably, permanently. No custodian. No intermediary. No exceptions.</p>

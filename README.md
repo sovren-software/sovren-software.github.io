@@ -12,7 +12,7 @@ The Sovren Stack is three products that together give individuals full-stack dig
 
 | Product | Layer | Status |
 |---------|-------|--------|
-| **Augmentum OS** | Computing — declarative NixOS system | Ships Summer 2026 |
+| **Esver OS** | Computing — declarative NixOS system | Ships Summer 2026 |
 | **Visage** | Identity — local face auth via PAM + ONNX | Live · v0.2.0 · MIT |
 | **MrHaven** | Finance — non-custodial USDC time vault on Base L2 | Live on mainnet |
 
@@ -72,7 +72,7 @@ src/
 │   ├── +layout.js                   # Prerender flag (static site generation)
 │   ├── +page.svelte                 # Home page: hero, product grid, thesis
 │   ├── +error.svelte                # 404 error page
-│   ├── augmentum/+page.svelte       # Augmentum OS product page
+│   ├── esver/+page.svelte       # Esver OS product page
 │   ├── visage/+page.svelte          # Visage product page
 │   ├── mrhaven/+page.svelte         # MrHaven product page
 │   └── ecosystem/+page.svelte       # Ecosystem manifesto page
@@ -129,7 +129,7 @@ A full-viewport 3D background renders behind all page content:
 
 ### Shared Components
 
-Product pages (Augmentum, Visage, MrHaven) share four components with zero local CSS:
+Product pages (Esver, Visage, MrHaven) share four components with zero local CSS:
 
 | Component | Props | Purpose |
 |-----------|-------|---------|
@@ -199,7 +199,7 @@ The `static/_headers` file is the authoritative record of all required headers a
 
 ## Email Signup + Funnel (Brevo)
 
-The site now routes the Augmentum CTA through a configurable marketing URL in `src/lib/marketing.js`.
+The site now routes the Esver CTA through a configurable marketing URL in `src/lib/marketing.js`.
 
 ### 1) Wire the signup link
 
@@ -225,7 +225,7 @@ If not set, the CTA falls back to `mailto:` so the button still functions.
 
 ### 2.5) Phase 2 cohesive UX behavior
 
-- The Augmentum page now includes a native launch briefing section with an embedded Brevo form iframe.
+- The Esver page now includes a native launch briefing section with an embedded Brevo form iframe.
 - If the signup URL is not an embeddable `http(s)` URL, the page automatically falls back to a direct CTA link.
 - The closing CTA now routes users deeper into the ecosystem (`/ecosystem` + `/visage`) to avoid duplicate signup prompts.
 
@@ -242,7 +242,7 @@ Use this as the first and only automation email for now:
 You are subscribed to the Sovren launch briefing.
 
 What you should expect:
-- One operational briefing when Augmentum OS goes live
+- One operational briefing when Esver OS goes live
 - Occasional high-signal updates across the Sovren Stack (OS, identity, programmable finance)
 - No spam. No feed noise. No growth-hack sequences.
 
@@ -251,7 +251,7 @@ Sovren builds software for operators who want leverage without surrendering cont
 Privacy is not a feature. Sovereignty is the baseline.
 
 Explore the stack:
-- Augmentum OS: https://sovren.software/augmentum
+- Esver OS: https://sovren.software/esver
 - Visage: https://sovren.software/visage
 - MrHaven: https://sovren.software/mrhaven
 
@@ -261,7 +261,7 @@ https://sovren.software
 
 ### 4) Verification checklist
 
-1. Open `/augmentum` and verify the launch briefing section renders.
+1. Open `/esver` and verify the launch briefing section renders.
 2. Confirm iframe form loads (or fallback button appears if embed unavailable).
 3. Submit a test email and confirm contact lands in `MAIN_NEWSLETTER`.
 4. Confirm the single welcome automation email is sent.

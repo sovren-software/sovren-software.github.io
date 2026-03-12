@@ -56,7 +56,7 @@ The site uses a `data-theme` attribute on `<html>` to switch between light and d
 | Token | Size | Usage |
 |-------|------|-------|
 | `--fs-hero` | clamp(3.5rem, 11vw, 8rem) | Home hero H1 |
-| `--fs-hero-product` | clamp(4rem, 12vw, 9rem) | Product hero H1 (Augmentum) |
+| `--fs-hero-product` | clamp(4rem, 12vw, 9rem) | Product hero H1 (Esver) |
 | `--fs-hero-large` | clamp(5rem, 18vw, 12rem) | Product hero H1 (Visage, MrHaven) |
 | `--fs-h2` | clamp(2rem, 5vw, 4rem) | CTA section headings |
 | `--fs-h2-large` | clamp(2.5rem, 6vw, 5rem) | Ecosystem closing H2 |
@@ -238,7 +238,7 @@ SvelteKit file-based routing. All routes prerendered via `+layout.js` (`export c
 | URL | File |
 |---|---|
 | `/` | `src/routes/+page.svelte` |
-| `/augmentum` | `src/routes/augmentum/+page.svelte` |
+| `/esver` | `src/routes/esver/+page.svelte` |
 | `/visage` | `src/routes/visage/+page.svelte` |
 | `/mrhaven` | `src/routes/mrhaven/+page.svelte` |
 | `/ecosystem` | `src/routes/ecosystem/+page.svelte` |
@@ -271,9 +271,9 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 
 ## Copy Philosophy
 
-**The Sovren Stack is the umbrella.** It is not a product — it is the collection of three products: Augmentum OS (computing), Visage (identity), MrHaven (finance). The hero sub on the home page describes all three layers, not any individual product.
+**The Sovren Stack is the umbrella.** It is not a product — it is the collection of three products: Esver OS (computing), Visage (identity), MrHaven (finance). The hero sub on the home page describes all three layers, not any individual product.
 
-**The x10 thesis lives on individual product pages.** "The infrastructure that multiplies what one person can do" belongs to Augmentum OS. The stack-level copy describes what the stack IS (three layers), not what any one layer does.
+**The x10 thesis lives on individual product pages.** "The infrastructure that multiplies what one person can do" belongs to Esver OS. The stack-level copy describes what the stack IS (three layers), not what any one layer does.
 
 **Thesis hierarchy:**
 1. Stack level (Home, Ecosystem): sovereignty across OS + identity + finance
@@ -290,7 +290,7 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 - Thesis statement: "Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default."
 - Thesis body: "We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise."
 
-### Augmentum OS
+### Esver OS
 - Tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
 - Hero lead: "Your command center. Built without compromise."
 - CTA title: "BUILT WITHOUT COMPROMISE."
@@ -302,7 +302,7 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 
 ### Visage
 - Tagline: "Linux face authentication via PAM. Your face is your key — processed locally, never broadcast to the cloud."
-- Key angle: Open source identity layer; integrates natively with Augmentum OS
+- Key angle: Open source identity layer; integrates natively with Esver OS
 - **Status:** Live · v0.2.0 · MIT
 
 ### MrHaven
@@ -353,13 +353,22 @@ Script is at `scripts/generate-og.js`. Run it after any brand or copy changes th
 ## Known Limitations
 
 - No blog platform for the content launch strategy (teaser article, X thread)
-- `augmentum.computer` has no landing page yet (CTA now uses mailto:hello@sovren.software)
+- `esver.computer` has no standalone landing page — product page lives at `sovren.software/esver`
 - MrHaven SDK not yet documented on the site (removed SDK mention from CTA until ready)
-- No visual that shows the three products converging (convergence story is text-only, now stronger)
+- No visual that shows the three products converging (convergence story is text-only)
+- `sovren.software/augmentum` redirect is client-side only (static adapter limitation) — not a
+  server-side 301. `<meta refresh>` + canonical tag signal the redirect to crawlers; link equity
+  transfer is best-effort.
+- OG image (`static/og-image.png`) not yet regenerated after Esver rename — run `npm run generate-og`
+- `augmentum.computer` → `esver.computer` DNS redirect not yet configured (Namecheap/Cloudflare)
+- Brevo welcome email template still references Augmentum OS in body text — update in Brevo dashboard
 
 ## Remaining Work
 
-- [ ] `augmentum.computer` holding page or redirect
+- [ ] Regenerate OG image after rename: `npm run generate-og`
+- [ ] DNS forwarding: `augmentum.computer` → `esver.computer` (Namecheap or Cloudflare forwarding)
+- [ ] Build standalone `esver.computer` product landing page
+- [ ] Update Brevo welcome email template body text (Augmentum OS → Esver OS)
 - [ ] Blog/article platform for the two-article launch sequence
 - [ ] MrHaven SDK section on the MrHaven page (when SDK docs exist)
 - [ ] Visual convergence diagram on Ecosystem page
@@ -393,8 +402,8 @@ Script is at `scripts/generate-og.js`. Run it after any brand or copy changes th
 - [x] 3D cinematic scene — wireframe cube, grid, particles, product monoliths (2026-02-25)
 - [x] Light/dark theme toggle with persistence and 3D sync (2026-02-25)
 - [x] Theme-aware CSS variables — all hardcoded colors removed (2026-02-25)
-- [x] Waitlist capture on Augmentum OS page — mailto:hello@sovren.software (2026-02-24)
+- [x] Waitlist capture on Esver OS page — mailto:hello@sovren.software (2026-02-24)
 - [x] Visage version updated to v0.2.0 (2026-02-24)
 - [x] AI agent angle surfaced on MrHaven page (2026-02-24)
-- [x] Convergence story strengthened across Augmentum OS, Ecosystem pages (2026-02-24)
-- [x] Visage v2/Augmentum OS integration callout added (2026-02-24)
+- [x] Convergence story strengthened across Esver OS, Ecosystem pages (2026-02-24)
+- [x] Visage v2/Esver OS integration callout added (2026-02-24)

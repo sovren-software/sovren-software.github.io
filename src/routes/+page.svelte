@@ -1,6 +1,6 @@
 <svelte:head>
   <title>Sovren Software — Sovereign Command Infrastructure</title>
-  <meta name="description" content="Sovereign command infrastructure for the high-leverage operator. Augmentum OS, Visage, and Mr. Haven — compute, identity, and capital. UX, privacy, and security — none sacrificed." />
+  <meta name="description" content="Sovereign command infrastructure for the high-leverage operator. Esver OS, Visage, and Mr. Haven — compute, identity, and capital. UX, privacy, and security — none sacrificed." />
   <link rel="canonical" href="https://sovren.software/" />
   <meta property="og:title" content="Sovren Software — Sovereign Command Infrastructure" />
   <meta property="og:description" content="Sovereign command infrastructure for the high-leverage operator. Compute, identity, and capital — UX, privacy, and security without compromise." />
@@ -14,8 +14,8 @@
     {
       number: '01',
       category: 'OS',
-      name: 'AUGMENTUM OS',
-      href: '/augmentum',
+      name: 'ESVER OS',
+      href: '/esver',
       description: 'Voice-native command interface. Biometric-secured access. Local AI co-pilot. Declarative NixOS substrate. UX, privacy, and security — none sacrificed.',
     },
     {

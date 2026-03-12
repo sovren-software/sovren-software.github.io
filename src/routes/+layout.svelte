@@ -47,7 +47,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <div class="footer-col">
           <span class="col-label">PRODUCTS</span>
-          <a href="/augmentum">AUGMENTUM</a>
+          <a href="/esver">ESVER</a>
           <a href="/visage">VISAGE</a>
           <a href="/mrhaven">MR. HAVEN</a>
         </div>
@@ -61,7 +61,7 @@
           <a href="https://twitter.com/sovren_software" target="_blank" rel="noreferrer">TWITTER</a>
           <a href="https://github.com/sovren-software" target="_blank" rel="noreferrer">GITHUB</a>
           <a href="https://mrhaven.io" target="_blank" rel="noreferrer">MRHAVEN.IO</a>
-          <a href="https://augmentum.computer" target="_blank" rel="noreferrer">AUGMENTUM.COMPUTER</a>
+          <a href="https://esver.computer" target="_blank" rel="noreferrer">ESVER.COMPUTER</a>
         </div>
       </nav>
     </div>

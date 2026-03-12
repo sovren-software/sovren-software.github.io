@@ -4,6 +4,61 @@ All notable changes to the Sovren Software website are documented here.
 
 ---
 
+## [1.1.0] — 2026-03-12
+
+### Changed — Product Rename: Augmentum OS → Esver OS
+
+**Rationale:** Esver OS is the decided brand name for Sovren Software's commercial Linux
+distribution (previously Augmentum OS). Esver behaves as a class noun ("an Esver"), maps
+to the governed-augmentation thesis, has zero software trademark conflicts in Classes 9/42,
+and was selected over Cantis after comparative evaluation. Domains acquired:
+`esver.computer` (primary), `getesver.com`, `esver.dev`.
+
+**Trade-offs accepted:**
+- `/augmentum` URL must redirect to `/esver` — inbound links from prior social/email
+  traffic will follow the redirect rather than land directly.
+- OG image and social preview assets still read "Augmentum" in cached previews until
+  `npm run generate-og` is run and social platforms re-crawl.
+- `augmentum.computer` domain (separately owned) still has no redirect pointing to
+  `esver.computer` — requires DNS config outside this repo.
+
+**Known limitations post-rename:**
+- `esver.computer` has no dedicated product landing page yet — the product page lives
+  at `sovren.software/esver`. A standalone `esver.computer` site is pending.
+- OG image (`static/og-image.png`) not yet regenerated — still shows Augmentum branding.
+  Run `npm run generate-og` to update.
+- `augmentum.computer` → `esver.computer` redirect requires Namecheap/Cloudflare DNS
+  forwarding setup — out of scope for this repo.
+- `sovren.software/augmentum` redirect uses client-side `goto()` + `<meta refresh>` —
+  not a server-side 301 (static adapter limitation). SEO crawlers will follow the
+  `<meta refresh>` and canonical tag; link equity transfer is best-effort.
+
+**Files changed:**
+- `src/routes/augmentum/` → `src/routes/esver/` (route renamed)
+- `src/routes/augmentum/+page.svelte` (NEW — redirect to `/esver`)
+- `src/routes/esver/+page.svelte` — all copy, meta tags, title, hero, pillars
+- `src/routes/+page.svelte` — home product card name + href
+- `src/routes/+layout.svelte` — footer nav link + external domain link
+- `src/routes/ecosystem/+page.svelte` — manifesto pillar, links, closing body
+- `src/routes/mrhaven/+page.svelte` — stack note cross-reference
+- `src/routes/visage/+page.svelte` — stack note + body cross-references
+- `src/lib/Nav.svelte` — nav link label + href
+- `src/lib/marketing.js` — variable names + mailto subject line
+- `static/sitemap.xml` — URL + lastmod date updated
+- `static/llms.txt` — full AI-crawler product description updated
+- `README.md` — product table, project structure, copy reference
+- `CLAUDE.md` — routes table, copy reference, known limitations, remaining work
+
+### Remaining Work
+
+- [ ] Regenerate OG image: `npm run generate-og` (still shows Augmentum branding)
+- [ ] DNS forwarding: `augmentum.computer` → `esver.computer` (Namecheap/Cloudflare)
+- [ ] Build standalone `esver.computer` product landing page
+- [ ] Update Brevo welcome email template (references Augmentum OS in body text)
+- [ ] Update X/Twitter profile (currently MrHaven-branded, not Esver)
+
+---
+
 ## [1.0.0] — 2026-02-26
 
 ### Added

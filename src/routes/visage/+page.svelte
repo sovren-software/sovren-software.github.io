@@ -60,10 +60,10 @@
   <Overview
     lead="Your face is your key — processed locally, never broadcast."
     {specs}
-    stackNote="Visage ships as a native identity primitive in <a href='/augmentum'>Augmentum OS</a>. It also integrates with <a href='/mrhaven'>Mr. Haven</a> for biometric-gated asset access."
+    stackNote="Visage ships as a native identity primitive in <a href='/esver'>Esver OS</a>. It also integrates with <a href='/mrhaven'>Mr. Haven</a> for biometric-gated asset access."
   >
     <p>Windows Hello has worked on Windows for years. Linux users were left out. Visage closes that gap — open-source, built in Rust, no external dependencies, no data leaving your hardware.</p>
-    <p>The current release is MIT-licensed and runs on any PAM-compatible Linux system. The next version integrates natively into Augmentum OS — your face-verified credential becomes a system-level primitive, not a PAM module bolted on from outside.</p>
+    <p>The current release is MIT-licensed and runs on any PAM-compatible Linux system. The next version integrates natively into Esver OS — your face-verified credential becomes a system-level primitive, not a PAM module bolted on from outside.</p>
   </Overview>
 
   <PillarList {pillars} />

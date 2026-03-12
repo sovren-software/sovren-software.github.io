@@ -33,7 +33,7 @@
     </div>
 
     <div class="nav-links" class:open={menuOpen}>
-      <a href="/augmentum" on:click={close} class:active={isActive('/augmentum')}>AUGMENTUM</a>
+      <a href="/esver" on:click={close} class:active={isActive('/esver')}>ESVER</a>
       <a href="/visage" on:click={close} class:active={isActive('/visage')}>VISAGE</a>
       <a href="/mrhaven" on:click={close} class:active={isActive('/mrhaven')}>MR. HAVEN</a>
       <a href="/ecosystem" on:click={close} class:active={isActive('/ecosystem')}>ECOSYSTEM</a>

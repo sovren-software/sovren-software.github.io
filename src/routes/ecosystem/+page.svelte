@@ -15,8 +15,8 @@
       num: '01',
       domain: 'COMPUTING',
       title: 'THE MACHINE IS A COMMAND CENTER, NOT A SUBSCRIPTION.',
-      desc: 'An operating system that serves the vendor is not yours. Augmentum OS is built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of your authority. Voice-native interface. Local AI co-pilot. Biometric-secured sessions. Declarative NixOS substrate. None of these properties trade off against the others. That is the point.',
-      link: { label: 'AUGMENTUM OS →', href: '/augmentum' }
+      desc: 'An operating system that serves the vendor is not yours. Esver OS is built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of your authority. Voice-native interface. Local AI co-pilot. Biometric-secured sessions. Declarative NixOS substrate. None of these properties trade off against the others. That is the point.',
+      link: { label: 'ESVER OS →', href: '/esver' }
     },
     {
       num: '02',
@@ -82,7 +82,7 @@
   <section class="closing">
     <div class="closing-inner">
       <h2>ONE OPERATOR.<br />TOTAL AUTHORITY.</h2>
-      <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Augmentum OS is the command center — voice-native, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
+      <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Esver OS is the command center — voice-native, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
       <a href="/" class="btn-primary">EXPLORE THE STACK →</a>
     </div>
   </section>

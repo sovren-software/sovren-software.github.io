@@ -12,17 +12,17 @@ Contact: hello@sovren.software
 
 ## Products
 
-### Augmentum OS
+### Esver OS
 
 **Category:** Operating System / Sovereign Computing
 **Status:** Ships Summer 2026
-**URL:** https://sovren.software/augmentum
-**Product site:** https://augmentum.computer
+**URL:** https://sovren.software/esver
+**Product site:** https://esver.computer
 **GitHub:** https://github.com/sovren-software
 
-Augmentum OS is sovereign command infrastructure built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of operator authority. These three properties do not trade off against each other. That is the engineering commitment.
+Esver OS is sovereign command infrastructure built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of operator authority. These three properties do not trade off against each other. That is the engineering commitment.
 
-Positioning: Augmentum OS is your command center. The user is the operator; the AI is the co-pilot. The machine executes commands and surfaces context inside authority boundaries defined by the operator — always, without exception.
+Positioning: Esver OS is your command center. The user is the operator; the AI is the co-pilot. The machine executes commands and surfaces context inside authority boundaries defined by the operator — always, without exception.
 
 Core tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
 
@@ -53,7 +53,7 @@ Key capabilities:
 - **IR camera support:** Native support for Windows Hello-compatible IR cameras. Liveness detection built in. Resistant to photo-based spoofing attacks.
 - **Sub-second authentication:** Under one second on warm starts. Persistent daemon keeps the model resident — faster than typing a password.
 
-Built in Rust. Auth: PAM module. Camera: RGB + IR via V4L2. Inference: ONNX, on-device. Ships standalone; integrates natively with Augmentum OS.
+Built in Rust. Auth: PAM module. Camera: RGB + IR via V4L2. Inference: ONNX, on-device. Ships standalone; integrates natively with Esver OS.
 
 ---
 
@@ -91,7 +91,7 @@ Sovren Software rejects that premise. Computing can be sovereign. Identity can b
 
 - **Founded:** 2025
 - **Structure:** Independent software company
-- **Open source:** Visage (MIT). Augmentum OS (private, planned open source). Mr. Haven (auditable smart contracts).
+- **Open source:** Visage (MIT). Esver OS (private, planned open source). Mr. Haven (auditable smart contracts).
 - **GitHub:** https://github.com/sovren-software
 - **Twitter/X:** https://twitter.com/sovren_software
 - **Email:** hello@sovren.software
