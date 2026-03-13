@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" fill="none">
+  <style>text { text-decoration: none !important; }</style>
+  <rect width="1500" height="500" fill="#000000"/>
+
+  <!-- Dense perspective grid — fills the bottom half -->
+  <g stroke="#ffffff" stroke-width="0.5" opacity="0.10">
+    <!-- Horizontal receding lines -->
+    <line x1="0" y1="500" x2="1500" y2="320"/>
+    <line x1="0" y1="500" x2="1500" y2="350"/>
+    <line x1="0" y1="500" x2="1500" y2="380"/>
+    <line x1="0" y1="500" x2="1500" y2="410"/>
+    <line x1="0" y1="500" x2="1500" y2="440"/>
+    <line x1="0" y1="500" x2="1500" y2="470"/>
+    <!-- Radial lines from vanishing point -->
+    <line x1="750" y1="180" x2="-200" y2="500"/>
+    <line x1="750" y1="180" x2="0" y2="500"/>
+    <line x1="750" y1="180" x2="150" y2="500"/>
+    <line x1="750" y1="180" x2="300" y2="500"/>
+    <line x1="750" y1="180" x2="450" y2="500"/>
+    <line x1="750" y1="180" x2="600" y2="500"/>
+    <line x1="750" y1="180" x2="750" y2="500"/>
+    <line x1="750" y1="180" x2="900" y2="500"/>
+    <line x1="750" y1="180" x2="1050" y2="500"/>
+    <line x1="750" y1="180" x2="1200" y2="500"/>
+    <line x1="750" y1="180" x2="1350" y2="500"/>
+    <line x1="750" y1="180" x2="1500" y2="500"/>
+    <line x1="750" y1="180" x2="1700" y2="500"/>
+  </g>
+
+  <!-- Large wireframe cube — center-right, dominant visual -->
+  <g transform="translate(680, 60)" stroke="#ffffff" fill="none" stroke-linejoin="round">
+    <!-- Front face -->
+    <rect x="0" y="50" width="200" height="200" stroke-width="1.8" opacity="0.9"/>
+    <!-- Top face -->
+    <polygon points="0,50 70,0 270,0 200,50" stroke-width="1.8" opacity="0.9"/>
+    <!-- Right face -->
+    <polygon points="200,50 270,0 270,200 200,250" stroke-width="1.8" opacity="0.9"/>
+    <!-- Inner depth edges -->
+    <line x1="0" y1="250" x2="70" y2="200" stroke-width="1" opacity="0.2"/>
+    <line x1="70" y1="0" x2="70" y2="200" stroke-width="1" opacity="0.2"/>
+    <line x1="0" y1="250" x2="0" y2="50" stroke-width="1" opacity="0.0"/>
+    <line x1="70" y1="200" x2="270" y2="200" stroke-width="1" opacity="0.2"/>
+    <!-- Cross-face diagonals for wireframe depth -->
+    <line x1="0" y1="50" x2="200" y2="250" stroke-width="0.5" opacity="0.07"/>
+    <line x1="200" y1="50" x2="0" y2="250" stroke-width="0.5" opacity="0.07"/>
+    <line x1="200" y1="50" x2="270" y2="200" stroke-width="0.5" opacity="0.07"/>
+    <line x1="270" y1="0" x2="200" y2="250" stroke-width="0.5" opacity="0.07"/>
+  </g>
+
+  <!-- Connection lines from cube to product labels -->
+  <g stroke="#ffffff" stroke-width="0.75" opacity="0.25">
+    <!-- Line from cube bottom-left to Esver label -->
+    <line x1="680" y1="310" x2="100" y2="310"/>
+    <!-- Line from cube top to Visage label -->
+    <line x1="815" y1="60" x2="815" y2="30"/>
+    <!-- Line from cube right to Mr Haven label -->
+    <line x1="950" y1="185" x2="1100" y2="185"/>
+  </g>
+
+  <!-- Node dots at connection points -->
+  <g fill="#ffffff">
+    <circle cx="680" cy="310" r="3" opacity="0.6"/>
+    <circle cx="950" cy="185" r="3" opacity="0.6"/>
+    <circle cx="815" cy="60" r="3" opacity="0.6"/>
+  </g>
+
+  <!-- ═══ LEFT COLUMN: Esver OS ═══ -->
+  <g font-family="monospace">
+    <!-- Section number -->
+    <text x="100" y="145" font-size="11" font-weight="400" fill="rgba(255,255,255,0.45)" letter-spacing="3">01</text>
+    <!-- Product name -->
+    <text x="100" y="175" font-size="24" font-weight="700" fill="#ffffff" letter-spacing="4">ESVER OS</text>
+    <!-- Description -->
+    <text x="100" y="205" font-size="12" font-weight="400" fill="rgba(255,255,255,0.65)" letter-spacing="2">FLEET OS. VOICE-NATIVE.</text>
+    <text x="100" y="225" font-size="12" font-weight="400" fill="rgba(255,255,255,0.65)" letter-spacing="2">AI-NATIVE. DECLARATIVE.</text>
+    <!-- Status -->
+    <text x="100" y="260" font-size="10" font-weight="400" fill="rgba(255,255,255,0.35)" letter-spacing="2">SHIPS SUMMER 2026</text>
+  </g>
+
+  <!-- ═══ RIGHT COLUMN: Mr Haven ═══ -->
+  <g font-family="monospace">
+    <text x="1100" y="105" font-size="11" font-weight="400" fill="rgba(255,255,255,0.45)" letter-spacing="3">03</text>
+    <text x="1100" y="135" font-size="24" font-weight="700" fill="#ffffff" letter-spacing="4">MR HAVEN</text>
+    <text x="1100" y="165" font-size="12" font-weight="400" fill="rgba(255,255,255,0.65)" letter-spacing="2">NON-CUSTODIAL USDC VAULTS.</text>
+    <text x="1100" y="185" font-size="12" font-weight="400" fill="rgba(255,255,255,0.65)" letter-spacing="2">PROGRAMMABLE. ON-CHAIN.</text>
+    <text x="1100" y="220" font-size="10" font-weight="400" fill="rgba(255,255,255,0.35)" letter-spacing="2">LIVE ON BASE</text>
+  </g>
+
+  <!-- ═══ TOP CENTER: Visage ═══ -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="815" y="22" font-size="12" font-weight="600" fill="rgba(255,255,255,0.50)" letter-spacing="3">02  VISAGE</text>
+    <text x="815" y="42" font-size="10" font-weight="400" fill="rgba(255,255,255,0.35)" letter-spacing="2">FACE AUTH FOR LINUX  /  OPEN SOURCE  /  v0.2.0</text>
+  </g>
+
+  <!-- ═══ BOTTOM: Thesis bar ═══ -->
+  <!-- Horizontal rule -->
+  <line x1="0" y1="410" x2="1500" y2="410" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <g font-family="monospace">
+    <!-- Thesis statement — centered -->
+    <text x="750" y="452" font-size="14" font-weight="500" fill="rgba(255,255,255,0.70)" letter-spacing="6" text-anchor="middle" style="text-decoration:none;color:inherit;">SOVEREIGN COMPUTE. LOCAL IDENTITY. PROGRAMMABLE CAPITAL.</text>
+
+    <!-- Domain — bottom right -->
+    <text x="1380" y="485" font-size="10" font-weight="400" fill="rgba(255,255,255,0.30)" letter-spacing="3" text-anchor="end">SOVREN.SOFTWARE</text>
+
+    <!-- Wordmark — bottom left -->
+    <text x="100" y="485" font-size="10" font-weight="600" fill="rgba(255,255,255,0.30)" letter-spacing="5">SOVREN</text>
+  </g>
+
+  <!-- Scattered depth particles -->
+  <g fill="#ffffff">
+    <circle cx="50" cy="80" r="1.2" opacity="0.08"/>
+    <circle cx="200" cy="400" r="1" opacity="0.06"/>
+    <circle cx="450" cy="120" r="0.8" opacity="0.1"/>
+    <circle cx="550" cy="350" r="1.5" opacity="0.05"/>
+    <circle cx="1250" cy="300" r="1" opacity="0.08"/>
+    <circle cx="1350" cy="400" r="0.8" opacity="0.06"/>
+    <circle cx="1450" cy="80" r="1.2" opacity="0.1"/>
+    <circle cx="400" cy="450" r="0.7" opacity="0.07"/>
+    <circle cx="600" cy="50" r="1" opacity="0.06"/>
+    <circle cx="1000" cy="380" r="1.3" opacity="0.05"/>
+    <circle cx="300" cy="300" r="0.9" opacity="0.08"/>
+    <circle cx="1400" cy="250" r="0.8" opacity="0.07"/>
+    <circle cx="50" cy="350" r="1" opacity="0.05"/>
+    <circle cx="1200" cy="450" r="0.7" opacity="0.06"/>
+  </g>
+
+  <!-- HUD-style corner marks -->
+  <g stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none">
+    <!-- Top-left corner -->
+    <polyline points="20,40 20,20 40,20"/>
+    <!-- Top-right corner -->
+    <polyline points="1460,20 1480,20 1480,40"/>
+    <!-- Bottom-right corner -->
+    <polyline points="1480,460 1480,480 1460,480"/>
+    <!-- Bottom-left corner (subtle — profile pic overlaps here) -->
+    <polyline points="40,480 20,480 20,460"/>
+  </g>
+</svg>
