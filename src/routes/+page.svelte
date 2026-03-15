@@ -45,34 +45,17 @@
 
 <main>
   <section class="hero">
-    <!-- Schematic decorations -->
-    <div class="hero-margin-left">
-      <span class="margin-tick"></span>
-      <span class="margin-tick"></span>
-      <span class="margin-tick"></span>
-      <span class="margin-coord">X:0</span>
-    </div>
-    <div class="hero-margin-right">
-      <span class="margin-coord">Y:0</span>
-      <span class="margin-tick"></span>
-      <span class="margin-tick"></span>
-      <span class="margin-tick"></span>
-    </div>
-    <div class="hero-vline"></div>
-
-    <div class="hero-inner">
-      <div class="hero-glyph-center">
-        <HeroGlyph id="sovren" />
-      </div>
+    <div class="hero-split">
       <div class="hero-frame panel--strong">
         <span class="hero-label hero-label--left">// 001</span>
         <span class="hero-label hero-label--right">V1.0</span>
-        <div class="hero-copy">
-          <h1>THE SOVREN<br />STACK.</h1>
-          <p class="hero-sub">&gt; Sovereign compute. Local identity. Programmable capital.</p>
-        </div>
+        <h1>THE SOVREN<br />STACK.</h1>
+        <p class="hero-sub">&gt; Sovereign compute. Local identity. Programmable capital.</p>
+        <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
       </div>
-      <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
+      <div class="hero-glyph">
+        <HeroGlyph id="sovren" />
+      </div>
     </div>
   </section>
 
@@ -139,97 +122,30 @@
     min-height: calc(100vh - var(--nav-h));
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: var(--space-5xl) var(--space-3xl);
     background: var(--bg);
-    overflow: hidden;
   }
 
-  /* Schematic margin decorations */
-  .hero-margin-left,
-  .hero-margin-right {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  .hero-split {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
     align-items: center;
   }
 
-  .hero-margin-left {
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .hero-margin-right {
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .margin-tick {
-    width: 12px;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .margin-coord {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--text-ghost);
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
-    font-family: var(--font-mono);
-  }
-
-  .hero-glyph-center {
-    flex: 1;
+  .hero-glyph {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-3xl) 0;
-  }
-
-  .hero-vline {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      var(--border) 10%,
-      var(--border) 25%,
-      transparent 38%,
-      transparent 70%,
-      var(--border) 85%,
-      transparent 100%
-    );
-    opacity: 0.4;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0;
-    padding: 0 var(--space-2xl) var(--space-3xl);
-    z-index: 2;
-    position: relative;
-    width: 100%;
-    max-width: var(--max-w);
-    flex: 1;
   }
 
   .hero-frame {
     position: relative;
     border: var(--panel-border-strong);
-    padding: var(--space-5xl) var(--space-4xl);
-    width: 100%;
+    padding: var(--space-4xl) var(--space-3xl);
     background: var(--bg);
   }
 
@@ -277,8 +193,7 @@
     font-size: var(--fs-label-xs);
     letter-spacing: var(--ls-ultra);
     color: var(--text-muted);
-    position: absolute;
-    bottom: var(--space-4xl);
+    margin-top: var(--space-2xl);
   }
 
   /* Section Rule Decorator */
@@ -496,10 +411,16 @@
 
   /* Responsive */
   @media (max-width: 768px) {
-    .hero-margin-left,
-    .hero-margin-right,
-    .hero-vline {
-      display: none;
+    .hero-split {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-glyph {
+      order: -1;
+    }
+
+    .hero-frame {
+      padding: var(--space-3xl) var(--space-xl);
     }
 
     .stack-vis-annotations,
@@ -523,10 +444,6 @@
 
     h1 {
       font-size: clamp(2.5rem, 14vw, 4rem);
-    }
-
-    .hero-frame {
-      padding: var(--space-3xl) var(--space-xl);
     }
 
     .thesis {

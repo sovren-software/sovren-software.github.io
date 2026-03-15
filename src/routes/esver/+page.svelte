@@ -1,12 +1,12 @@
 <svelte:head>
-  <title>Esver OS — Sovereign Command Infrastructure | Sovren Software</title>
-  <meta name="description" content="Esver OS is your command center. Voice-native interface. Biometric-secured access. Local AI co-pilot. UX, privacy, and security — none sacrificed. Ships Summer 2026." />
+  <title>Esver OS — Talk to Your Machine | Sovren Software</title>
+  <meta name="description" content="Talk to your OS. It listens, it acts, nothing leaves your machine. Voice-native commands, face unlock, local AI co-pilot, one-file system config. Ships Summer 2026." />
   <link rel="canonical" href="https://sovren.software/esver" />
-  <meta property="og:title" content="Esver OS — One Operator. Total Authority." />
-  <meta property="og:description" content="Voice-native command interface. Biometric-secured sessions. Local AI co-pilot. UX, privacy, and security — none sacrificed. Sovereign infrastructure for high-leverage operators." />
+  <meta property="og:title" content="Esver OS — Talk to Your Machine." />
+  <meta property="og:description" content="Voice-native commands. Face unlock. Local AI co-pilot. One config file = your whole OS. No telemetry. No cloud. Ships Summer 2026." />
   <meta property="og:url" content="https://sovren.software/esver" />
-  <meta name="twitter:title" content="Esver OS — One Operator. Total Authority." />
-  <meta name="twitter:description" content="Voice-native command interface. Biometric-secured sessions. Local AI co-pilot. UX, privacy, and security — none sacrificed. Sovereign infrastructure for high-leverage operators." />
+  <meta name="twitter:title" content="Esver OS — Talk to Your Machine." />
+  <meta name="twitter:description" content="Voice-native commands. Face unlock. Local AI co-pilot. One config file = your whole OS. No telemetry. No cloud. Ships Summer 2026." />
 </svelte:head>
 
 <script>
@@ -37,33 +37,33 @@
   const pillars = [
     {
       num: '01',
-      label: 'COMMAND THE MACHINE. DON\'T NEGOTIATE WITH IT.',
-      desc: 'You are the operator. The system is the co-pilot. Issue commands by voice, query your environment in natural language, trigger workflows — the interface adapts to how you think. Local inference runs by default. Cloud inference is available when you choose it. Nothing leaves your machine without explicit authorization.',
+      label: 'SPEAK. IT ACTS.',
+      desc: 'The interface is voice-native. Local inference. Sub-second. Nothing transcribed in the cloud.',
     },
     {
       num: '02',
-      label: 'PRIVACY IS WHAT MAKES REAL CAPABILITY POSSIBLE.',
-      desc: 'A system that phones home is not a command center. It is a managed endpoint. Local inference is the default — no telemetry collected by us. Your operational data belongs to you. Intelligence without surveillance is the design.',
+      label: 'SECURITY AT EVERY LAYER.',
+      desc: 'Biometric identity. Session-scoped privileges. Per-action authorization. Full-stack, not bolted on.',
     },
     {
       num: '03',
-      label: 'SECURITY IS THE PERIMETER OF YOUR AUTHORITY.',
-      desc: 'Access is governed by biometric authentication — Visage at the OS level, not a plugin. Face verification runs on-device via ONNX inference. Your biometrics never leave your hardware. Sessions are scoped. Privileges are gated. Every elevated action requires explicit authorization. Weak auth is a hole in your perimeter. Esver does not have one.',
+      label: 'ONE CONFIG. ENTIRE OS.',
+      desc: 'Declarative. Version-controlled. Rollback in seconds. Clone to new hardware in minutes.',
     },
     {
       num: '04',
-      label: 'THE STACK IS YOURS. FULLY AND WITHOUT EXCEPTION.',
-      desc: 'The entire OS state lives in one reproducible config — version-controlled, auditable, rollback-capable. No silent updates. No unauthorized background processes. Clone your machine to new hardware in minutes. Every package, service, and setting answers to your config file. If you did not write it, it does not run.',
+      label: 'YOUR AI. YOUR DATA.',
+      desc: 'Local co-pilot. Zero telemetry. Cloud when you choose it. The default is silence.',
     },
   ]
 
   const specs = [
-    { label: 'BASE', value: 'NixOS — declarative, version-controlled, rollback-capable' },
-    { label: 'INTERFACE', value: 'Voice-native · Natural language command layer · Local inference' },
-    { label: 'AUTHENTICATION', value: 'Biometric (Visage) · MFA · Session-scoped privileges' },
-    { label: 'AI LAYER', value: 'Local-first by default · Optional cloud inference · Your telemetry, your data' },
-    { label: 'ORCHESTRATION', value: 'Programmable automation · Explicit agent authority boundaries' },
-    { label: 'STATUS', value: 'Ships Summer 2026', dim: true },
+    { label: 'BASE', value: 'NixOS' },
+    { label: 'VOICE', value: 'Local inference · Sub-second' },
+    { label: 'AUTH', value: 'Visage · MFA · Session-scoped' },
+    { label: 'AI', value: 'Local-first · Zero telemetry' },
+    { label: 'CONFIG', value: 'One file · Git-tracked' },
+    { label: 'STATUS', value: 'Summer 2026', dim: true },
   ]
 </script>
 
@@ -72,18 +72,17 @@
     category="01 / OS"
     title="ESVER<br />OS."
     status="Ships Summer 2026"
-    tagline="One operator. Total authority. UX, privacy, and security — none sacrificed."
+    tagline="Speak. It acts. Nothing leaves the machine."
     glyphId="esver"
   />
 
   <Overview
-    lead="Your command center. Built without compromise."
+    lead="Talk to your machine. It listens."
     {specs}
-    stackNote="<a href='/visage'>Visage</a> biometric authentication runs as a native OS primitive — not an app, not a plugin, not a third-party service. <a href='/mrhaven'>Mr. Haven</a> programmable asset control is wired directly into the operator layer. The full Sovren Stack is unified sovereign infrastructure."
+    stackNote="Part of the <a href='/ecosystem'>Sovren Stack</a>. <a href='/visage'>Visage</a> identity and <a href='/mrhaven'>Mr. Haven</a> finance are native layers — not integrations."
   >
-    <p>Most operating systems serve the vendor. They harvest telemetry, push updates on their schedule, and treat your machine as a managed endpoint. Esver OS is built on the opposite premise.</p>
-    <p>The interface is voice-native — speak a command, the system responds, local inference by default with optional cloud when you need it. Access is biometric — your face, verified on-device, governs your sessions. The AI co-pilot surfaces context and executes tasks inside boundaries you define; your operational data stays yours. The entire OS is one declarative config — version-controlled, reproducible, rollback-capable.</p>
-    <p>UX, privacy, and security do not trade off against each other. Each one reinforces the others. That is the engineering commitment.</p>
+    <p>Say what you need. The system handles the rest — local inference, no round-trip to someone else's server. The architecture underneath is deep, but the surface is simple: speak, and it acts.</p>
+    <p>Everything is sovereign by default. Your config, your data, your keys. Nothing phones home. Nothing runs without your authorization.</p>
   </Overview>
 
   <PillarList {pillars} />
@@ -91,10 +90,9 @@
   <section class="launch-briefing" id="launch-briefing">
     <div class="launch-inner">
       <div class="launch-panel panel--strong">
-        <h2>GET THE<br />LAUNCH BRIEFING.</h2>
+        <h2>GET THE<br />LAUNCH SIGNAL.</h2>
         <p>
-          One operational briefing when Esver OS goes live, then occasional high-signal updates across the
-          sovereign stack.
+          One email when it ships. Occasional updates. No noise.
         </p>
 
         {#if state === 'success'}
@@ -119,8 +117,8 @@
   </section>
 
   <CtaSection
-    title="BUILD SOVEREIGNLY."
-    body="Esver OS, Visage, and MrHaven are designed as one command layer. Read the operating thesis behind the stack."
+    title="YOUR MACHINE.<br />YOUR RULES."
+    body="Esver OS is one layer of a three-layer sovereign stack. Read the thesis."
     actions={[
       { label: 'READ THE CODEX →', href: '/ecosystem' },
       { label: 'EXPLORE VISAGE →', href: '/visage', style: 'secondary' },

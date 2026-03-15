@@ -61,52 +61,88 @@
   </svg>
 
 {:else if id === 'esver'}
-  <svg viewBox="0 0 500 420" fill="none" class="glyph glyph--drift">
+  <!-- Magicite crystal — Esper essence, Ethereum-esque diamond -->
+  <svg viewBox="0 0 400 520" fill="none" class="glyph glyph--drift">
     <defs>
       <filter id="glow-e" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feGaussianBlur stdDeviation="6" result="blur" />
         <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
       </filter>
+      <filter id="glow-e-soft" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="12" result="blur" />
+        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+      <linearGradient id="crystal-fill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.06" />
+        <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.12" />
+        <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.03" />
+      </linearGradient>
     </defs>
 
-    <!-- Monitor frame -->
-    <rect x="80" y="40" width="340" height="260" rx="0" stroke="var(--text-primary)" stroke-width="2" opacity="0.35" />
-    <rect x="92" y="52" width="316" height="236" rx="0" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.2" />
+    <!-- Ambient glow behind crystal -->
+    <ellipse cx="200" cy="220" rx="80" ry="120" fill="var(--accent)" opacity="0.04" filter="url(#glow-e-soft)" />
 
-    <!-- Command lines -->
-    <line x1="112" y1="82" x2="148" y2="82" stroke="var(--accent)" stroke-width="1.5" opacity="0.6" filter="url(#glow-e)" />
-    <line x1="155" y1="82" x2="290" y2="82" stroke="var(--text-primary)" stroke-width="1" opacity="0.2" />
-    <line x1="112" y1="105" x2="148" y2="105" stroke="var(--accent)" stroke-width="1.5" opacity="0.5" filter="url(#glow-e)" />
-    <line x1="155" y1="105" x2="320" y2="105" stroke="var(--text-primary)" stroke-width="1" opacity="0.2" />
-    <line x1="112" y1="128" x2="148" y2="128" stroke="var(--accent)" stroke-width="1.5" opacity="0.45" />
-    <line x1="155" y1="128" x2="270" y2="128" stroke="var(--text-primary)" stroke-width="1" opacity="0.15" />
-    <line x1="112" y1="151" x2="148" y2="151" stroke="var(--accent)" stroke-width="1.5" opacity="0.35" />
-    <line x1="155" y1="151" x2="245" y2="151" stroke="var(--text-primary)" stroke-width="1" opacity="0.12" />
-    <line x1="112" y1="174" x2="148" y2="174" stroke="var(--accent)" stroke-width="1.5" opacity="0.3" />
-    <line x1="155" y1="174" x2="220" y2="174" stroke="var(--text-primary)" stroke-width="1" opacity="0.1" />
+    <!-- Outer energy ring — slow rotate -->
+    <g class="spin-slow" style="transform-origin:200px 220px">
+      <circle cx="200" cy="220" r="180" stroke="var(--accent)" stroke-width="0.5" opacity="0.12" stroke-dasharray="3 8" />
+    </g>
+    <g class="spin-slow-reverse" style="transform-origin:200px 220px">
+      <circle cx="200" cy="220" r="155" stroke="var(--accent)" stroke-width="0.5" opacity="0.08" stroke-dasharray="2 12" />
+    </g>
 
-    <!-- Cursor -->
-    <rect x="112" y="198" width="10" height="16" fill="var(--accent)" opacity="0.5" class="blink" />
+    <!-- Crystal body — upper half (Ethereum-esque) -->
+    <polygon points="200,30 310,200 200,260 90,200" fill="url(#crystal-fill)" stroke="var(--accent)" stroke-width="1.5" opacity="0.5" />
+    <!-- Crystal body — lower half -->
+    <polygon points="200,260 310,200 200,430 90,200" fill="url(#crystal-fill)" stroke="var(--accent)" stroke-width="1.5" opacity="0.45" />
 
-    <!-- Status bar -->
-    <line x1="92" y1="260" x2="408" y2="260" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.2" />
-    <circle cx="108" cy="275" r="4" fill="var(--accent)" opacity="0.6" class="pulse" filter="url(#glow-e)" />
-    <line x1="120" y1="275" x2="210" y2="275" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.15" />
+    <!-- Inner facet — upper -->
+    <polygon points="200,65 280,195 200,240 120,195" stroke="var(--accent)" stroke-width="0.75" opacity="0.3" fill="none" />
+    <!-- Inner facet — lower -->
+    <polygon points="200,240 280,195 200,395 120,195" stroke="var(--accent)" stroke-width="0.75" opacity="0.25" fill="none" />
 
-    <!-- Stand -->
-    <line x1="250" y1="300" x2="250" y2="345" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.3" />
-    <line x1="195" y1="345" x2="305" y2="345" stroke="var(--text-primary)" stroke-width="2" opacity="0.35" />
+    <!-- Center horizontal line (the "waist") -->
+    <line x1="90" y1="200" x2="310" y2="200" stroke="var(--accent)" stroke-width="1.5" opacity="0.4" />
 
-    <!-- Voice waves -->
-    <path d="M345,365 Q380,342 345,320" stroke="var(--accent)" stroke-width="1" opacity="0.3" fill="none" class="pulse" />
-    <path d="M355,375 Q400,342 355,310" stroke="var(--accent)" stroke-width="1" opacity="0.2" fill="none" class="pulse-delay" />
-    <path d="M365,385 Q420,342 365,300" stroke="var(--accent)" stroke-width="1" opacity="0.12" fill="none" />
+    <!-- Vertical axis -->
+    <line x1="200" y1="30" x2="200" y2="430" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
 
-    <!-- Shield -->
-    <path d="M155,355 L155,385 Q155,402 175,410 Q195,402 195,385 L195,355 Z" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
-    <line x1="175" y1="370" x2="175" y2="390" stroke="var(--accent)" stroke-width="0.75" opacity="0.3" />
+    <!-- Upper facet lines (left) -->
+    <line x1="200" y1="30" x2="90" y2="200" stroke="var(--accent)" stroke-width="0.5" opacity="0.2" />
+    <line x1="200" y1="65" x2="120" y2="195" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
+    <!-- Upper facet lines (right) -->
+    <line x1="200" y1="30" x2="310" y2="200" stroke="var(--accent)" stroke-width="0.5" opacity="0.2" />
+    <line x1="200" y1="65" x2="280" y2="195" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
 
-    <text x="250" y="405" text-anchor="middle" class="glyph-label">ESPER_LINK: BOUND</text>
+    <!-- Cross facet lines -->
+    <line x1="145" y1="115" x2="255" y2="115" stroke="var(--accent)" stroke-width="0.5" opacity="0.1" />
+    <line x1="120" y1="155" x2="280" y2="155" stroke="var(--accent)" stroke-width="0.5" opacity="0.08" />
+    <line x1="120" y1="280" x2="280" y2="280" stroke="var(--accent)" stroke-width="0.5" opacity="0.06" />
+    <line x1="150" y1="340" x2="250" y2="340" stroke="var(--accent)" stroke-width="0.5" opacity="0.05" />
+
+    <!-- Core glow — pulsing -->
+    <circle cx="200" cy="200" r="18" fill="var(--accent)" opacity="0.15" filter="url(#glow-e)" class="pulse" />
+    <circle cx="200" cy="200" r="8" fill="var(--accent)" opacity="0.4" filter="url(#glow-e)" class="pulse" />
+    <circle cx="200" cy="200" r="3" fill="var(--accent)" opacity="0.8" />
+
+    <!-- Energy radiating lines -->
+    <line x1="60" y1="200" x2="85" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.25" class="pulse" />
+    <line x1="315" y1="200" x2="340" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.25" class="pulse" />
+    <line x1="200" y1="0" x2="200" y2="22" stroke="var(--accent)" stroke-width="1" opacity="0.2" class="pulse-delay" />
+    <line x1="200" y1="438" x2="200" y2="460" stroke="var(--accent)" stroke-width="1" opacity="0.15" class="pulse-delay" />
+
+    <!-- Diagonal energy rays -->
+    <line x1="75" y1="100" x2="108" y2="125" stroke="var(--accent)" stroke-width="0.75" opacity="0.1" stroke-dasharray="2 4" />
+    <line x1="325" y1="100" x2="292" y2="125" stroke="var(--accent)" stroke-width="0.75" opacity="0.1" stroke-dasharray="2 4" />
+    <line x1="75" y1="320" x2="108" y2="295" stroke="var(--accent)" stroke-width="0.75" opacity="0.08" stroke-dasharray="2 4" />
+    <line x1="325" y1="320" x2="292" y2="295" stroke="var(--accent)" stroke-width="0.75" opacity="0.08" stroke-dasharray="2 4" />
+
+    <!-- Small orbiting data points -->
+    <circle cx="145" cy="115" r="2" fill="var(--accent)" opacity="0.4" class="pulse" />
+    <circle cx="255" cy="115" r="2" fill="var(--accent)" opacity="0.4" class="pulse-delay" />
+    <circle cx="145" cy="305" r="2" fill="var(--accent)" opacity="0.3" class="pulse-delay" />
+    <circle cx="255" cy="305" r="2" fill="var(--accent)" opacity="0.3" class="pulse" />
+
+    <text x="200" y="490" text-anchor="middle" class="glyph-label">MAGICITE_CORE: ACTIVE</text>
   </svg>
 
 {:else if id === 'visage'}

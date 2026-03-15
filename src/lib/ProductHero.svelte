@@ -15,24 +15,26 @@
   import HeroGlyph from '$lib/HeroGlyph.svelte';
 </script>
 
-<section class="hero" class:large={size === 'large'}>
-  {#if glyphId}
-    <div class="hero-glyph">
-      <HeroGlyph id={glyphId} />
+<section class="hero" class:large={size === 'large'} class:has-glyph={glyphId}>
+  <div class="hero-split">
+    <div class="hero-text panel--strong">
+      {#if category}
+        <span class="category">{category}</span>
+        <div class="category-rule"></div>
+      {/if}
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+      <h1 class="hero-title size-{size}">{@html title}</h1>
+      {#if status}
+        <span class="tag tag--accent">{status}</span>
+      {/if}
+      {#if tagline}
+        <p class="tagline">{tagline}</p>
+      {/if}
     </div>
-  {/if}
-  <div class="hero-inner panel--strong">
-    {#if category}
-      <span class="category">{category}</span>
-      <div class="category-rule"></div>
-    {/if}
-    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-    <h1 class="hero-title size-{size}">{@html title}</h1>
-    {#if status}
-      <span class="tag tag--accent">{status}</span>
-    {/if}
-    {#if tagline}
-      <p class="tagline">{tagline}</p>
+    {#if glyphId}
+      <div class="hero-glyph">
+        <HeroGlyph id={glyphId} />
+      </div>
     {/if}
   </div>
 </section>
@@ -41,32 +43,38 @@
   .hero {
     min-height: calc(100vh - var(--nav-h));
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: var(--pad-hero);
+    align-items: center;
+    padding: var(--space-5xl) var(--space-3xl);
     background: var(--bg);
     border-bottom: var(--panel-border-strong);
-    position: relative;
-    overflow: hidden;
   }
 
-  .hero-glyph {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-3xl) var(--space-2xl) 0;
-  }
-
-  .hero-inner {
+  .hero-split {
     max-width: var(--max-w);
     margin: 0 auto;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+
+  .hero:not(.has-glyph) .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text {
     padding: var(--panel-pad);
     border: var(--panel-border-strong);
+    background: var(--bg);
     position: relative;
     z-index: 1;
-    background: var(--bg);
+  }
+
+  .hero-glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .category {
@@ -108,15 +116,19 @@
 
   @media (max-width: 768px) {
     .hero {
-      padding: var(--space-4xl) var(--space-xl) var(--space-5xl);
+      padding: var(--space-4xl) var(--space-xl);
     }
 
-    .hero-inner {
+    .hero-split {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-text {
       padding: var(--space-xl);
     }
 
     .hero-glyph {
-      padding: var(--space-xl) var(--space-xl) 0;
+      order: -1;
     }
 
     h1 {

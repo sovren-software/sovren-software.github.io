@@ -45,15 +45,15 @@
 
 <main>
   <section class="hero">
-    <div class="hero-glyph-zone">
-      <HeroGlyph id="codex" />
-    </div>
-    <div class="hero-inner">
+    <div class="hero-split">
       <div class="hero-frame panel--strong">
         <span class="category">DOCTRINE</span>
         <div class="category-rule"></div>
         <h1>THE CODEX.</h1>
         <p class="tagline">We reject the premise that extraction is the default state of technology.</p>
+      </div>
+      <div class="hero-glyph">
+        <HeroGlyph id="codex" />
       </div>
     </div>
   </section>
@@ -112,29 +112,26 @@
   .hero {
     min-height: calc(100vh - var(--nav-h));
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: var(--pad-hero);
+    align-items: center;
+    padding: var(--space-5xl) var(--space-3xl);
     background: var(--bg);
     border-bottom: var(--panel-border-strong);
-    position: relative;
-    overflow: hidden;
   }
 
-  .hero-glyph-zone {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-3xl) var(--space-2xl) 0;
-  }
-
-  .hero-inner {
+  .hero-split {
     max-width: var(--max-w);
     margin: 0 auto;
     width: 100%;
-    position: relative;
-    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+
+  .hero-glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-frame {
@@ -355,7 +352,15 @@
   /* Responsive */
   @media (max-width: 768px) {
     .hero {
-      padding: var(--space-4xl) var(--space-xl) var(--space-5xl);
+      padding: var(--space-4xl) var(--space-xl);
+    }
+
+    .hero-split {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-glyph {
+      order: -1;
     }
 
     .hero-frame {
