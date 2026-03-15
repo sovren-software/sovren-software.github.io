@@ -10,6 +10,9 @@
 </svelte:head>
 
 <script>
+  import TrifectaDiagram from '$lib/TrifectaDiagram.svelte';
+  import { reveal } from '$lib/reveal.js';
+
   const pillars = [
     {
       num: '01',
@@ -58,6 +61,11 @@
 
         <p>We build infrastructure on a single engineering commitment: UX, privacy, and security are not a tradeoff triangle. They are a trifecta. Every design decision moves along all three axes without sacrificing any of them. A command center you actually want to use. An identity layer that cannot be stolen. A capital layer no one else can touch. The stack is sovereign because it was built to be — not because sovereignty was bolted on after the fact.</p>
       </div>
+
+      <div class="trifecta-vis reveal" use:reveal>
+        <span class="panel-header">// THE TRIFECTA</span>
+        <TrifectaDiagram />
+      </div>
     </div>
   </section>
 
@@ -66,7 +74,7 @@
       <span class="section-label">// THE THREE PILLARS</span>
 
       {#each pillars as p}
-        <div class="pillar panel">
+        <div class="pillar panel reveal" use:reveal>
           <div class="pillar-header">
             <span class="pillar-n">{p.num}</span>
             <span class="pillar-domain tag--accent">{p.domain}</span>
@@ -83,7 +91,7 @@
   </section>
 
   <section class="closing">
-    <div class="closing-inner panel--strong">
+    <div class="closing-inner panel--strong reveal" use:reveal>
       <h2>ONE OPERATOR.<br />TOTAL AUTHORITY.</h2>
       <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Esver OS is the command center — voice-native, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
       <a href="/" class="btn-primary">EXPLORE THE STACK →</a>
@@ -174,6 +182,15 @@
     line-height: var(--lh-loose);
     color: var(--text-secondary);
     letter-spacing: var(--ls-default);
+  }
+
+  .trifecta-vis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+    padding-top: var(--space-2xl);
+    border-top: var(--panel-border);
   }
 
   blockquote {

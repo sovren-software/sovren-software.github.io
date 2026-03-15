@@ -10,6 +10,9 @@
 </svelte:head>
 
 <script>
+  import StackDiagram from '$lib/StackDiagram.svelte';
+  import { reveal } from '$lib/reveal.js';
+
   const products = [
     {
       number: '01',
@@ -53,8 +56,8 @@
   <section class="products" aria-labelledby="products-heading">
     <h2 id="products-heading" class="sr-only">Products</h2>
     <div class="product-grid">
-      {#each products as p}
-        <a href={p.href} class="product-card">
+      {#each products as p, i}
+        <a href={p.href} class="product-card reveal reveal-delay-{i + 1}" use:reveal>
           <span class="product-num">{p.number}</span>
           <span class="product-label tag">{p.category}</span>
           <h3 class="product-name">{p.name}</h3>
@@ -65,8 +68,15 @@
     </div>
   </section>
 
-  <section class="thesis">
-    <div class="thesis-inner panel--strong">
+  <section class="stack-vis" use:reveal>
+    <div class="stack-vis-inner reveal">
+      <span class="panel-header">// ARCHITECTURE</span>
+      <StackDiagram />
+    </div>
+  </section>
+
+  <section class="thesis" use:reveal>
+    <div class="thesis-inner panel--strong reveal">
       <div class="panel-header">// DOCTRINE</div>
       <h2 class="thesis-statement">
         Privacy is not a feature.<br />
@@ -232,6 +242,22 @@
 
   .product-card:hover .product-cta {
     color: var(--accent);
+  }
+
+  /* Stack Visualization */
+  .stack-vis {
+    background: var(--bg);
+    padding: var(--space-5xl) var(--space-3xl);
+    border-bottom: var(--panel-border);
+  }
+
+  .stack-vis-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3xl);
   }
 
   /* Thesis */

@@ -27,22 +27,22 @@
 }
 
 [data-theme='dark'] {
-  /* Colors — Schematic Magitek Dark Theme (placeholder) */
+  /* Colors — Schematic Magitek Dark Theme */
   --bg: #141210;
   --bg-alt: #1A1816;
   --surface: #1E1C1A;
   --surface-2: #242220;
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.25);
+  --border: rgba(232, 228, 223, 0.10);
+  --border-strong: rgba(232, 228, 223, 0.22);
 
   --text-primary: #E8E4DF;
-  --text-secondary: rgba(232, 228, 223, 0.65);
-  --text-muted: rgba(232, 228, 223, 0.35);
-  --text-ghost: rgba(232, 228, 223, 0.15);
+  --text-secondary: rgba(232, 228, 223, 0.60);
+  --text-muted: rgba(232, 228, 223, 0.32);
+  --text-ghost: rgba(232, 228, 223, 0.14);
 
   --accent: #A99ADB;
-  --accent-light: #8B7EC8;
-  --accent-surface: rgba(169, 154, 219, 0.1);
+  --accent-light: #C4B9E8;
+  --accent-surface: rgba(169, 154, 219, 0.08);
 }
 
 :root {
@@ -298,6 +298,37 @@ a {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-surface);
+}
+
+/* Motion System — Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* Line draw animation for SVG edges */
+@keyframes lineDraw {
+  from { stroke-dashoffset: var(--line-length, 400); }
+  to { stroke-dashoffset: 0; }
+}
+
+.line-draw {
+  stroke-dasharray: var(--line-length, 400);
+  stroke-dashoffset: var(--line-length, 400);
+}
+
+.line-draw.visible {
+  animation: lineDraw 1.2s var(--ease-out-expo) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

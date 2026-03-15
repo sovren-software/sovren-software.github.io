@@ -4,8 +4,8 @@
   "description": "Sovereign OS. Local identity. Programmable assets.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#F0EDE8",
+  "theme_color": "#F0EDE8",
   "icons": [
     {
       "src": "/icon-192.png",

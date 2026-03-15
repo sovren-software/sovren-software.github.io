@@ -4,6 +4,8 @@
 
 Sovren Software is an independent software company building open, inspectable tools across three domains: sovereign operating systems, local biometric identity, and non-custodial asset management. Everything is designed to run on hardware you own, answer only to you, and never route control through a third party.
 
+The site uses a "schematic magitek" visual language: warm bone backgrounds, panel-framed layouts, thin border rules, sparse violet accents, and a technical dossier aesthetic built entirely with Geist Mono.
+
 Website: https://sovren.software
 GitHub: https://github.com/sovren-software
 Contact: hello@sovren.software

@@ -10,6 +10,16 @@ const root = resolve(__dirname, '..');
 const fontRegular = readFileSync(resolve(root, 'node_modules/geist/dist/fonts/geist-mono/GeistMono-Regular.ttf'));
 const fontBold = readFileSync(resolve(root, 'node_modules/geist/dist/fonts/geist-mono/GeistMono-Medium.ttf'));
 
+// Schematic Magitek palette
+const bone = '#F0EDE8';
+const boneAlt = '#E8E4DF';
+const charcoal = '#1A1A1A';
+const violet = '#8B7EC8';
+const borderLight = 'rgba(0,0,0,0.12)';
+const borderStrong = 'rgba(0,0,0,0.25)';
+const textMuted = 'rgba(26,26,26,0.35)';
+const textGhost = 'rgba(26,26,26,0.15)';
+
 const svg = await satori(
   {
     type: 'div',
@@ -19,97 +29,99 @@ const svg = await satori(
         flexDirection: 'column',
         width: '1200px',
         height: '630px',
-        background: '#000000',
+        background: bone,
         padding: '0',
         position: 'relative',
         fontFamily: 'Geist Mono',
       },
       children: [
-        // Grid lines — horizontal
+        // Outer panel border
         {
           type: 'div',
           props: {
             style: {
               position: 'absolute',
-              bottom: '0',
+              top: '40px',
+              left: '40px',
+              right: '40px',
+              bottom: '40px',
+              border: `1px solid ${borderStrong}`,
+              display: 'flex',
+            },
+          },
+        },
+        // Horizontal grid lines
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: '0',
               left: '0',
               right: '0',
-              height: '220px',
+              bottom: '0',
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'flex-end',
               overflow: 'hidden',
             },
-            children: [160, 120, 90, 60].map((bottom) => ({
+            children: [200, 350, 490].map((y) => ({
               type: 'div',
               props: {
                 style: {
                   position: 'absolute',
-                  bottom: `${bottom}px`,
-                  left: '0',
-                  right: '0',
+                  top: `${y}px`,
+                  left: '40px',
+                  right: '40px',
                   height: '1px',
-                  background: 'rgba(255,255,255,0.06)',
+                  background: borderLight,
                 },
               },
             })),
           },
         },
-        // Left accent bar
+        // Left vertical accent line (violet)
         {
           type: 'div',
           props: {
             style: {
               position: 'absolute',
-              left: '60px',
-              top: '60px',
-              bottom: '60px',
-              width: '1px',
-              background: 'rgba(255,255,255,0.1)',
-            },
-          },
-        },
-        // Wireframe cube (SVG-in-Satori not supported — using box geometry)
-        {
-          type: 'div',
-          props: {
-            style: {
-              position: 'absolute',
-              top: '60px',
               left: '80px',
-              width: '160px',
-              height: '160px',
-              border: '1.5px solid rgba(255,255,255,0.9)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              top: '40px',
+              bottom: '40px',
+              width: '2px',
+              background: violet,
+              opacity: '0.4',
             },
-            children: [
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    width: '100px',
-                    height: '100px',
-                    border: '1px solid rgba(255,255,255,0.3)',
-                    transform: 'rotate(15deg)',
-                  },
-                },
-              },
-            ],
           },
         },
-        // Top-left label
+        // Top-left label: // 001
         {
           type: 'div',
           props: {
             style: {
               position: 'absolute',
-              top: '68px',
-              left: '260px',
-              color: 'rgba(255,255,255,0.3)',
-              fontSize: '11px',
-              letterSpacing: '4px',
+              top: '56px',
+              left: '100px',
+              color: textMuted,
+              fontSize: '10px',
+              letterSpacing: '6px',
+              textTransform: 'uppercase',
+              fontFamily: 'Geist Mono',
+            },
+            children: '// 001',
+          },
+        },
+        // Top-right label: SOVREN SOFTWARE
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: '56px',
+              right: '60px',
+              color: textGhost,
+              fontSize: '10px',
+              letterSpacing: '6px',
               textTransform: 'uppercase',
               fontFamily: 'Geist Mono',
             },
@@ -122,8 +134,8 @@ const svg = await satori(
           props: {
             style: {
               position: 'absolute',
-              top: '200px',
-              left: '80px',
+              top: '120px',
+              left: '100px',
               right: '80px',
               display: 'flex',
               flexDirection: 'column',
@@ -134,7 +146,7 @@ const svg = await satori(
                 type: 'div',
                 props: {
                   style: {
-                    color: '#ffffff',
+                    color: charcoal,
                     fontSize: '120px',
                     fontWeight: '700',
                     letterSpacing: '-2px',
@@ -148,7 +160,7 @@ const svg = await satori(
                 type: 'div',
                 props: {
                   style: {
-                    color: 'rgba(255,255,255,0.15)',
+                    color: textGhost,
                     fontSize: '120px',
                     fontWeight: '700',
                     letterSpacing: '-2px',
@@ -156,7 +168,7 @@ const svg = await satori(
                     fontFamily: 'Geist Mono',
                     marginTop: '-8px',
                   },
-                  children: 'SOFTWARE',
+                  children: 'STACK.',
                 },
               },
             ],
@@ -169,14 +181,14 @@ const svg = await satori(
             style: {
               position: 'absolute',
               bottom: '100px',
-              left: '80px',
-              color: 'rgba(255,255,255,0.4)',
-              fontSize: '14px',
-              letterSpacing: '6px',
+              left: '100px',
+              color: textMuted,
+              fontSize: '13px',
+              letterSpacing: '5px',
               textTransform: 'uppercase',
               fontFamily: 'Geist Mono',
             },
-            children: 'SOVEREIGN OS  ·  LOCAL IDENTITY  ·  PROGRAMMABLE ASSETS',
+            children: '> SOVEREIGN COMPUTE  ·  LOCAL IDENTITY  ·  PROGRAMMABLE CAPITAL',
           },
         },
         // Bottom domain
@@ -185,31 +197,32 @@ const svg = await satori(
           props: {
             style: {
               position: 'absolute',
-              bottom: '60px',
-              left: '80px',
-              color: 'rgba(255,255,255,0.18)',
-              fontSize: '11px',
-              letterSpacing: '3px',
+              bottom: '56px',
+              left: '100px',
+              color: textGhost,
+              fontSize: '10px',
+              letterSpacing: '4px',
               fontFamily: 'Geist Mono',
             },
             children: 'SOVREN.SOFTWARE',
           },
         },
-        // Right column product list
+        // Right column product list with violet numbers
         {
           type: 'div',
           props: {
             style: {
               position: 'absolute',
-              top: '60px',
-              right: '80px',
+              top: '56px',
+              right: '60px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '16px',
+              gap: '14px',
               alignItems: 'flex-end',
+              marginTop: '60px',
             },
             children: [
-              { label: '01', name: 'AUGMENTUM OS' },
+              { label: '01', name: 'ESVER OS' },
               { label: '02', name: 'VISAGE' },
               { label: '03', name: 'MR. HAVEN' },
             ].map(({ label, name }) => ({
@@ -225,7 +238,7 @@ const svg = await satori(
                     type: 'div',
                     props: {
                       style: {
-                        color: 'rgba(255,255,255,0.2)',
+                        color: violet,
                         fontSize: '10px',
                         letterSpacing: '2px',
                         fontFamily: 'Geist Mono',
@@ -237,8 +250,8 @@ const svg = await satori(
                     type: 'div',
                     props: {
                       style: {
-                        color: 'rgba(255,255,255,0.5)',
-                        fontSize: '13px',
+                        color: textMuted,
+                        fontSize: '12px',
                         letterSpacing: '3px',
                         fontFamily: 'Geist Mono',
                       },
@@ -248,6 +261,53 @@ const svg = await satori(
                 ],
               },
             })),
+          },
+        },
+        // Status bar at bottom
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              bottom: '0',
+              left: '0',
+              right: '0',
+              height: '36px',
+              background: boneAlt,
+              borderTop: `1px solid ${borderLight}`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '0 60px',
+            },
+            children: [
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    color: textMuted,
+                    fontSize: '9px',
+                    letterSpacing: '3px',
+                    fontFamily: 'Geist Mono',
+                    textTransform: 'uppercase',
+                  },
+                  children: 'SOVREN_SOFTWARE // V1.0',
+                },
+              },
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    color: textMuted,
+                    fontSize: '9px',
+                    letterSpacing: '3px',
+                    fontFamily: 'Geist Mono',
+                    textTransform: 'uppercase',
+                  },
+                  children: '© 2026',
+                },
+              },
+            ],
           },
         },
       ],
