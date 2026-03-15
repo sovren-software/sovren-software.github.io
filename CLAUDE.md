@@ -302,35 +302,31 @@ Script is at `scripts/generate-og.js`. Run it after any brand or copy changes th
 - `esver.computer` has no standalone landing page — product page lives at `sovren.software/esver`
 - MrHaven SDK not yet documented on the site (removed SDK mention from CTA until ready)
 - No visual that shows the three products converging (convergence story is text-only)
-- OG image (`static/og-image.png`) not yet regenerated after schematic magitek redesign — run `npm run generate-og`
 - `augmentum.computer` → `esver.computer` DNS redirect not yet configured (Namecheap/Cloudflare)
 - Brevo welcome email template still references Augmentum OS in body text — update in Brevo dashboard
-- Dark mode tokens present but unpolished — light-mode first
 
 ## Remaining Work
 
-### Redesign — Next Session
-- [ ] Schematic SVG diagrams (system architecture, trifecta, signal paths)
-- [ ] Line-based icon/glyph system
-- [ ] Dark mode polish (token tuning, visual QA)
-- [ ] Motion system (line tracing, reveal animations)
-- [ ] Regenerate OG image with new colors: `npm run generate-og`
-
-### Pre-Existing
+### External / Blocked (cannot complete from this repo)
 - [ ] DNS forwarding: `augmentum.computer` → `esver.computer` (Namecheap or Cloudflare forwarding)
 - [ ] Build standalone `esver.computer` product landing page
 - [ ] Update Brevo welcome email template body text (Augmentum OS → Esver OS)
 - [ ] Blog/article platform for the two-article launch sequence
 - [ ] MrHaven SDK section on the MrHaven page (when SDK docs exist)
-- [ ] Visual convergence diagram on Ecosystem page
 - [ ] X profile update (currently MrHaven-branded)
 - [ ] Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
 
 ### Completed
 - [x] Schematic magitek editorial redesign — full visual system rewrite (2026-03-15)
 - [x] Three.js + GSAP removed, panel/tag system added, violet accent (2026-03-15)
-- [x] StatusBar component added (2026-03-15)
-- [x] Nav restyled: solid bg, // separators, SYS:LIGHT/SYS:DARK, violet active (2026-03-15)
+- [x] StatusBar component, Nav restyled (2026-03-15)
+- [x] SVG diagrams: StackDiagram + TrifectaDiagram (2026-03-15)
+- [x] Line-based icon/glyph system: Icon.svelte with 9 glyphs (2026-03-15)
+- [x] Dark mode polish: refined token tuning (2026-03-15)
+- [x] Motion system: reveal.js + CSS scroll reveals (2026-03-15)
+- [x] OG image regenerated with schematic magitek palette (2026-03-15)
+- [x] Visual convergence diagram on homepage (2026-03-15)
+- [x] manifest.webmanifest theme-color updated (2026-03-15)
 - [x] Favicon suite, Web app manifest, OG image (2026-02-26)
 - [x] Open Graph + Twitter Card + Canonical URLs on all pages (2026-02-26)
 - [x] Security headers, skip-nav, aria-labels, prefers-reduced-motion (2026-02-26)

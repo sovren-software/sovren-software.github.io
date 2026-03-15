@@ -11,12 +11,14 @@
 
 <script>
   import StackDiagram from '$lib/StackDiagram.svelte';
+  import Icon from '$lib/Icon.svelte';
   import { reveal } from '$lib/reveal.js';
 
   const products = [
     {
       number: '01',
       category: 'OS',
+      icon: 'compute',
       name: 'ESVER OS',
       href: '/esver',
       description: 'Voice-native command interface. Biometric-secured access. Local AI co-pilot. Declarative NixOS substrate. UX, privacy, and security — none sacrificed.',
@@ -24,6 +26,7 @@
     {
       number: '02',
       category: 'IDENTITY',
+      icon: 'identity',
       name: 'VISAGE',
       href: '/visage',
       description: 'Linux face authentication via PAM. ONNX inference runs entirely on-device — no cloud enrollment, no biometric database. Open source, MIT licensed.',
@@ -31,6 +34,7 @@
     {
       number: '03',
       category: 'FINANCE',
+      icon: 'capital',
       name: 'MR. HAVEN',
       href: '/mrhaven',
       description: 'Non-custodial USDC time vault on Base L2. Set conditions, name beneficiaries, define schedules — or designate autonomous agents as recipients. Smart contract executes regardless of who holds the keys.',
@@ -58,7 +62,10 @@
     <div class="product-grid">
       {#each products as p, i}
         <a href={p.href} class="product-card reveal reveal-delay-{i + 1}" use:reveal>
-          <span class="product-num">{p.number}</span>
+          <div class="product-top">
+            <span class="product-num">{p.number}</span>
+            <span class="product-icon"><Icon name={p.icon} size={18} /></span>
+          </div>
           <span class="product-label tag">{p.category}</span>
           <h3 class="product-name">{p.name}</h3>
           <p class="product-desc">{p.description}</p>
@@ -206,9 +213,24 @@
     background: var(--accent-surface);
   }
 
+  .product-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .product-num {
     font-size: var(--fs-label);
     letter-spacing: var(--ls-wider);
+    color: var(--accent);
+  }
+
+  .product-icon {
+    color: var(--text-ghost);
+    transition: color var(--transition-fast);
+  }
+
+  .product-card:hover .product-icon {
     color: var(--accent);
   }
 

@@ -11,12 +11,14 @@
 
 <script>
   import TrifectaDiagram from '$lib/TrifectaDiagram.svelte';
+  import Icon from '$lib/Icon.svelte';
   import { reveal } from '$lib/reveal.js';
 
   const pillars = [
     {
       num: '01',
       domain: 'COMPUTING',
+      icon: 'compute',
       title: 'THE MACHINE IS A COMMAND CENTER, NOT A SUBSCRIPTION.',
       desc: 'An operating system that serves the vendor is not yours. Esver OS is built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of your authority. Voice-native interface. Local AI co-pilot. Biometric-secured sessions. Declarative NixOS substrate. None of these properties trade off against the others. That is the point.',
       link: { label: 'ESVER OS →', href: '/esver' }
@@ -24,6 +26,7 @@
     {
       num: '02',
       domain: 'IDENTITY',
+      icon: 'identity',
       title: 'YOU ARE NOT A ROW IN A DATABASE.',
       desc: 'Biometrics should never leave the hardware they were captured on. Verification is a local cryptographic process, not a cloud API call. If a system requires your face to authenticate, it must prove it cannot steal it.',
       link: { label: 'VISAGE →', href: '/visage' }
@@ -31,6 +34,7 @@
     {
       num: '03',
       domain: 'CAPITAL',
+      icon: 'capital',
       title: 'NO HUMANS IN THE LOOP.',
       desc: 'Assets require custody or cryptography. We choose cryptography. A programmable vault should execute rules without hesitation, without exception, and without permission from a compliance department.',
       link: { label: 'MR. HAVEN →', href: '/mrhaven' }
@@ -77,6 +81,7 @@
         <div class="pillar panel reveal" use:reveal>
           <div class="pillar-header">
             <span class="pillar-n">{p.num}</span>
+            <span class="pillar-icon"><Icon name={p.icon} size={24} /></span>
             <span class="pillar-domain tag--accent">{p.domain}</span>
           </div>
           <div class="pillar-body">
@@ -247,6 +252,11 @@
     font-size: var(--fs-label);
     letter-spacing: var(--ls-wider);
     color: var(--accent);
+  }
+
+  .pillar-icon {
+    color: var(--accent);
+    opacity: 0.5;
   }
 
   .pillar-domain {
