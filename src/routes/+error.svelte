@@ -32,31 +32,13 @@
     max-width: var(--max-w);
     margin: 0 auto;
     width: 100%;
-    padding: 0 var(--space-3xl);
+    padding: var(--space-2xl) var(--space-3xl);
     padding-bottom: var(--space-7xl);
-  }
-
-  .btn-primary {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--fs-btn);
-    letter-spacing: var(--ls-wider);
-    padding: var(--btn-pad);
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    text-decoration: none;
-    transition: all var(--transition-slow);
-  }
-
-  .btn-primary:hover {
-    background: var(--text-primary);
-    color: var(--bg);
   }
 
   @media (max-width: 768px) {
     .actions {
-      padding: 0 var(--space-xl);
+      padding: var(--space-2xl) var(--space-xl);
       padding-bottom: var(--space-5xl);
     }
   }

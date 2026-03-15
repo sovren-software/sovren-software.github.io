@@ -8,26 +8,31 @@
 </script>
 
 <section class="overview">
-  <div class="overview-inner preserve-3d">
+  <div class="overview-inner">
     <div class="overview-text">
       <p class="overview-lead">{lead}</p>
       <div class="overview-body">
         <slot />
       </div>
       {#if stackNote}
-        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-        <p class="overview-stack">{@html stackNote}</p>
+        <div class="stack-note panel--alt">
+          <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+          <p class="overview-stack">{@html stackNote}</p>
+        </div>
       {/if}
     </div>
 
     {#if specs.length > 0}
-      <div class="overview-specs">
-        {#each specs as s}
-          <div class="spec-row">
-            <span class="spec-label">{s.label}</span>
-            <span class="spec-value" class:dim={s.dim}>{s.value}</span>
-          </div>
-        {/each}
+      <div class="specs-panel">
+        <div class="panel-header">// SPECIFICATIONS</div>
+        <div class="overview-specs">
+          {#each specs as s}
+            <div class="spec-row">
+              <span class="spec-label">{s.label}</span>
+              <span class="spec-value" class:dim={s.dim}>{s.value}</span>
+            </div>
+          {/each}
+        </div>
       </div>
     {/if}
   </div>
@@ -35,23 +40,10 @@
 
 <style>
   .overview {
-    background: transparent;
+    background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Cinematic ambient lighting */
-  .overview::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: -20%;
-    width: 60%; height: 100%;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: -1;
+    border-bottom: var(--panel-border);
   }
 
   .overview-inner {
@@ -75,9 +67,8 @@
     letter-spacing: var(--ls-tight);
     line-height: var(--lh-heading);
     color: var(--text-primary);
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     padding-bottom: var(--space-xl);
-    border-bottom: 1px solid var(--border);
+    border-bottom: var(--panel-border);
   }
 
   .overview-body {
@@ -99,28 +90,43 @@
     font-weight: var(--fw-semibold);
   }
 
+  .stack-note {
+    background: var(--bg-alt);
+    padding: var(--space-lg);
+    border: var(--panel-border);
+  }
+
   .overview-stack {
     font-size: var(--fs-spec);
     line-height: var(--lh-relaxed);
     color: var(--text-muted);
     letter-spacing: var(--ls-moderate);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--border);
+  }
+
+  .specs-panel {
+    border: var(--panel-border-strong);
+  }
+
+  .panel-header {
+    font-size: var(--fs-label-sm);
+    letter-spacing: var(--ls-ultra);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: var(--space-md) var(--space-xl);
+    border-bottom: var(--panel-border);
+    background: var(--bg-alt);
   }
 
   .overview-specs {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(10px);
   }
 
   .spec-row {
     display: flex;
     justify-content: space-between;
     padding: var(--space-md) var(--space-xl);
-    border-bottom: 1px solid var(--border);
+    border-bottom: var(--panel-border);
     font-size: var(--fs-spec);
     letter-spacing: var(--ls-wide);
     font-family: var(--font-mono);

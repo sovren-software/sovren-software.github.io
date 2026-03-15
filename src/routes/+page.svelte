@@ -38,9 +38,13 @@
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-copy">
-        <h1 class="preserve-3d">THE SOVREN<br />STACK.</h1>
-        <p class="hero-sub">Sovereign compute. Local identity. Programmable capital.</p>
+      <div class="hero-frame panel--strong">
+        <span class="hero-label hero-label--left">// 001</span>
+        <span class="hero-label hero-label--right">V1.0</span>
+        <div class="hero-copy">
+          <h1>THE SOVREN<br />STACK.</h1>
+          <p class="hero-sub">&gt; Sovereign compute. Local identity. Programmable capital.</p>
+        </div>
       </div>
       <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
     </div>
@@ -51,7 +55,8 @@
     <div class="product-grid">
       {#each products as p}
         <a href={p.href} class="product-card">
-          <span class="product-label">{p.number} / {p.category}</span>
+          <span class="product-num">{p.number}</span>
+          <span class="product-label tag">{p.category}</span>
           <h3 class="product-name">{p.name}</h3>
           <p class="product-desc">{p.description}</p>
           <span class="product-cta">LEARN MORE →</span>
@@ -61,7 +66,8 @@
   </section>
 
   <section class="thesis">
-    <div class="thesis-inner glitch-subtle preserve-3d">
+    <div class="thesis-inner panel--strong">
+      <div class="panel-header">// DOCTRINE</div>
       <h2 class="thesis-statement">
         Privacy is not a feature.<br />
         Security is not a tradeoff.<br />
@@ -83,6 +89,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    background: var(--bg);
   }
 
   .hero-inner {
@@ -93,6 +100,39 @@
     gap: var(--space-3xl);
     padding: var(--space-5xl) var(--space-2xl);
     z-index: 10;
+    width: 100%;
+    max-width: var(--max-w);
+  }
+
+  .hero-frame {
+    position: relative;
+    border: var(--panel-border-strong);
+    padding: var(--space-5xl) var(--space-4xl);
+    width: 100%;
+  }
+
+  .hero-label {
+    position: absolute;
+    top: var(--space-lg);
+    font-size: var(--fs-label-xs);
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
+    text-transform: uppercase;
+  }
+
+  .hero-label--left {
+    left: var(--space-xl);
+  }
+
+  .hero-label--right {
+    right: var(--space-xl);
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
   }
 
   h1 {
@@ -102,7 +142,6 @@
     line-height: 1.0;
     color: var(--text-primary);
     text-transform: uppercase;
-    text-shadow: none;
   }
 
   .hero-sub {
@@ -110,12 +149,11 @@
     color: var(--text-secondary);
     letter-spacing: var(--ls-moderate);
     text-transform: uppercase;
-    margin-top: var(--space-lg);
   }
 
   .scroll-hint {
-    font-size: var(--fs-scroll-hint);
-    letter-spacing: var(--ls-widest);
+    font-size: var(--fs-label-xs);
+    letter-spacing: var(--ls-ultra);
     color: var(--text-muted);
     position: absolute;
     bottom: var(--space-4xl);
@@ -123,9 +161,10 @@
 
   /* Products */
   .products {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-top: var(--panel-border-strong);
+    border-bottom: var(--panel-border-strong);
     position: relative;
+    background: var(--bg);
   }
 
   .product-grid {
@@ -142,9 +181,9 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    border-right: 1px solid var(--border);
+    border-right: var(--panel-border);
     min-height: 400px;
-    transition: background var(--transition-slow), border-color var(--transition-slow);
+    transition: background var(--transition-slow);
     text-decoration: none;
     background: transparent;
   }
@@ -154,16 +193,17 @@
   }
 
   .product-card:hover {
-    background: var(--surface);
-    border-color: var(--border-glow);
+    background: var(--accent-surface);
+  }
+
+  .product-num {
+    font-size: var(--fs-label);
+    letter-spacing: var(--ls-wider);
+    color: var(--accent);
   }
 
   .product-label {
-    font-size: var(--fs-label);
-    letter-spacing: var(--ls-wider);
-    color: var(--text-muted);
-    text-transform: uppercase;
-    transition: color var(--transition-fast);
+    align-self: flex-start;
   }
 
   .product-name {
@@ -172,12 +212,6 @@
     letter-spacing: 0.14em;
     color: var(--text-primary);
     text-transform: uppercase;
-    text-shadow: none;
-    transition: text-shadow var(--transition-slow);
-  }
-
-  .product-card:hover .product-name {
-    text-shadow: 0 0 20px var(--border-glow);
   }
 
   .product-desc {
@@ -196,32 +230,22 @@
     text-transform: uppercase;
   }
 
-  .product-card:hover .product-cta,
-  .product-card:hover .product-label {
-    color: var(--text-primary);
+  .product-card:hover .product-cta {
+    color: var(--accent);
   }
 
   /* Thesis */
   .thesis {
-    background: transparent;
+    background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .thesis::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: -1;
   }
 
   .thesis-inner {
     max-width: var(--max-w);
     margin: 0 auto;
+    border: var(--panel-border-strong);
+    padding: var(--panel-pad);
   }
 
   .thesis-statement {
@@ -230,7 +254,6 @@
     letter-spacing: var(--ls-tight);
     line-height: 1.25;
     margin-bottom: var(--space-5xl);
-    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
 
   .thesis-foot {
@@ -248,18 +271,6 @@
     letter-spacing: var(--ls-default);
   }
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     .product-grid {
@@ -268,7 +279,7 @@
 
     .product-card {
       border-right: none;
-      border-bottom: 1px solid var(--border);
+      border-bottom: var(--panel-border);
       min-height: auto;
       padding: var(--space-2xl) var(--space-xl);
     }
@@ -281,8 +292,16 @@
       font-size: clamp(2.5rem, 14vw, 4rem);
     }
 
+    .hero-frame {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
     .thesis {
       padding: var(--space-5xl) var(--space-xl);
+    }
+
+    .thesis-inner {
+      padding: var(--space-xl);
     }
 
     .thesis-foot {

@@ -88,30 +88,32 @@
   <PillarList {pillars} />
 
   <section class="launch-briefing" id="launch-briefing">
-    <div class="launch-inner preserve-3d">
-      <h2 class="glitch-subtle">GET THE<br />LAUNCH BRIEFING.</h2>
-      <p>
-        One operational briefing when Esver OS goes live, then occasional high-signal updates across the
-        sovereign stack.
-      </p>
+    <div class="launch-inner">
+      <div class="launch-panel panel--strong">
+        <h2>GET THE<br />LAUNCH BRIEFING.</h2>
+        <p>
+          One operational briefing when Esver OS goes live, then occasional high-signal updates across the
+          sovereign stack.
+        </p>
 
-      {#if state === 'success'}
-        <p class="brevo-success">CONFIRMED. CHECK YOUR INBOX FOR THE OPT-IN EMAIL.</p>
-      {:else}
-        <form class="brevo-form" on:submit={subscribe}>
-          <div class="brevo-field-row">
-            <input class="brevo-input" type="email" bind:value={email} autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required />
-            <button class="btn-primary brevo-submit" type="submit" disabled={state === 'loading'}>
-              {state === 'loading' ? 'SENDING...' : 'SUBSCRIBE →'}
-            </button>
-          </div>
-          {#if state === 'error'}
-            <p class="brevo-error">SUBMISSION FAILED. PLEASE TRY AGAIN.</p>
-          {/if}
-        </form>
-      {/if}
+        {#if state === 'success'}
+          <span class="tag tag--accent">CONFIRMED — CHECK YOUR INBOX FOR THE OPT-IN EMAIL</span>
+        {:else}
+          <form class="brevo-form" on:submit={subscribe}>
+            <div class="brevo-field-row">
+              <input class="brevo-input" type="email" bind:value={email} autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required />
+              <button class="btn-primary brevo-submit" type="submit" disabled={state === 'loading'}>
+                {state === 'loading' ? 'SENDING...' : 'SUBSCRIBE →'}
+              </button>
+            </div>
+            {#if state === 'error'}
+              <span class="tag">SUBMISSION FAILED — PLEASE TRY AGAIN</span>
+            {/if}
+          </form>
+        {/if}
 
-      <p class="launch-note">Double opt-in enabled. Unsubscribe anytime.</p>
+        <p class="launch-note">Double opt-in enabled. Unsubscribe anytime.</p>
+      </div>
     </div>
   </section>
 
@@ -127,10 +129,10 @@
 
 <style>
   .launch-briefing {
-    background: transparent;
+    background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-top: 1px solid var(--border);
+    border-top: var(--panel-border);
     position: relative;
     scroll-margin-top: calc(var(--nav-h) + var(--space-xl));
   }
@@ -138,6 +140,11 @@
   .launch-inner {
     max-width: var(--max-w);
     margin: 0 auto;
+  }
+
+  .launch-panel {
+    border: var(--panel-border-strong);
+    padding: var(--panel-pad);
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
@@ -183,14 +190,14 @@
     flex: 1;
     min-width: 0;
     background: transparent;
-    border: 1px solid var(--border);
+    border: var(--panel-border);
     color: var(--text-primary);
     font-family: var(--font-mono);
     font-size: var(--fs-body-sm);
     letter-spacing: var(--ls-wider);
     padding: 0.75rem 1rem;
     outline: none;
-    transition: border-color 0.15s;
+    transition: border-color var(--transition-fast);
   }
 
   .brevo-input::placeholder {
@@ -198,30 +205,20 @@
   }
 
   .brevo-input:focus {
-    border-color: var(--text-primary);
+    border-color: var(--accent);
   }
 
   .brevo-submit {
     white-space: nowrap;
   }
 
-  .brevo-success {
-    font-size: var(--fs-body-sm);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
-    color: var(--text-primary);
-  }
-
-  .brevo-error {
-    font-size: var(--fs-body-xs);
-    letter-spacing: var(--ls-wider);
-    text-transform: uppercase;
-    color: var(--text-secondary);
-  }
-
   @media (max-width: 768px) {
     .launch-briefing {
       padding: var(--space-5xl) var(--space-xl);
+    }
+
+    .launch-panel {
+      padding: var(--space-xl);
     }
 
     .brevo-field-row {

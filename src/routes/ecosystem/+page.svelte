@@ -38,14 +38,17 @@
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <span class="category">COMPANY</span>
-      <h1>THE MANIFESTO.</h1>
-      <p class="tagline">We reject the premise that extraction is the default state of technology.</p>
+      <div class="hero-frame panel--strong">
+        <span class="category">COMPANY</span>
+        <div class="category-rule"></div>
+        <h1>THE MANIFESTO.</h1>
+        <p class="tagline">We reject the premise that extraction is the default state of technology.</p>
+      </div>
     </div>
   </section>
 
   <section class="thesis-expanded">
-    <div class="thesis-inner glitch-subtle preserve-3d">
+    <div class="thesis-inner panel">
       <p class="thesis-lede">The industry convinced you that convenience requires compromise. That good UX means accepting telemetry. That strong security means sacrificing usability. That privacy is a premium feature. None of that is true. It is just what the vendor model requires.</p>
 
       <div class="thesis-body">
@@ -60,13 +63,13 @@
 
   <section class="pillars">
     <div class="pillars-inner">
-      <span class="section-label">THE THREE PILLARS</span>
+      <span class="section-label">// THE THREE PILLARS</span>
 
       {#each pillars as p}
-        <div class="pillar">
+        <div class="pillar panel">
           <div class="pillar-header">
             <span class="pillar-n">{p.num}</span>
-            <span class="pillar-domain">{p.domain}</span>
+            <span class="pillar-domain tag--accent">{p.domain}</span>
           </div>
           <div class="pillar-body">
             <h3 class="pillar-thesis">{p.title}</h3>
@@ -80,7 +83,7 @@
   </section>
 
   <section class="closing">
-    <div class="closing-inner">
+    <div class="closing-inner panel--strong">
       <h2>ONE OPERATOR.<br />TOTAL AUTHORITY.</h2>
       <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Esver OS is the command center — voice-native, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
       <a href="/" class="btn-primary">EXPLORE THE STACK →</a>
@@ -94,7 +97,8 @@
     display: flex;
     align-items: flex-end;
     padding: var(--pad-hero);
-    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    border-bottom: var(--panel-border-strong);
   }
 
   .hero-inner {
@@ -103,13 +107,24 @@
     width: 100%;
   }
 
+  .hero-frame {
+    border: var(--panel-border-strong);
+    padding: var(--panel-pad);
+  }
+
   .category {
     display: block;
     font-size: var(--fs-label);
-    letter-spacing: var(--ls-wider);
+    letter-spacing: var(--ls-ultra);
     color: var(--text-muted);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-lg);
     text-transform: uppercase;
+  }
+
+  .category-rule {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: var(--space-2xl);
   }
 
   h1 {
@@ -130,10 +145,10 @@
 
   /* Thesis expanded */
   .thesis-expanded {
-    background: transparent;
+    background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-bottom: 1px solid var(--border);
+    border-bottom: var(--panel-border);
   }
 
   .thesis-inner {
@@ -142,6 +157,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
+    border: var(--panel-border);
+    padding: var(--panel-pad);
   }
 
   .thesis-lede {
@@ -160,32 +177,37 @@
   }
 
   blockquote {
-    border-left: 2px solid var(--text-primary);
-    padding-left: var(--space-2xl);
+    border-left: 3px solid var(--accent);
+    padding: var(--space-lg) var(--space-2xl);
     margin: var(--space-lg) 0;
     font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: var(--fw-semibold);
     line-height: 1.7;
     letter-spacing: 0.01em;
+    background: var(--accent-surface);
   }
 
   /* Pillars */
   .pillars {
     padding: var(--pad-section);
-    border-top: 1px solid var(--border);
+    border-top: var(--panel-border);
+    background: var(--bg);
   }
 
   .pillars-inner {
     max-width: var(--max-w);
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
   }
 
   .section-label {
     display: block;
     font-size: var(--fs-label-sm);
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
-    margin-bottom: var(--space-4xl);
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
+    margin-bottom: var(--space-3xl);
     text-transform: uppercase;
   }
 
@@ -193,12 +215,8 @@
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: var(--space-5xl);
-    padding: var(--space-4xl) 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .pillar:last-child {
-    border-bottom: 1px solid var(--border);
+    padding: var(--space-3xl) var(--panel-pad);
+    border: var(--panel-border);
   }
 
   .pillar-header {
@@ -211,14 +229,14 @@
   .pillar-n {
     font-size: var(--fs-label);
     letter-spacing: var(--ls-wider);
-    color: var(--text-muted);
+    color: var(--accent);
   }
 
   .pillar-domain {
     font-size: var(--fs-btn);
     font-weight: var(--fw-bold);
     letter-spacing: 0.16em;
-    color: var(--text-secondary);
+    color: var(--accent);
   }
 
   .pillar-body {
@@ -253,15 +271,15 @@
   }
 
   .pillar-link:hover {
-    color: var(--text-primary);
+    color: var(--accent);
   }
 
   /* Closing */
   .closing {
-    background: transparent;
+    background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-top: 1px solid var(--border);
+    border-top: var(--panel-border);
   }
 
   .closing-inner {
@@ -270,6 +288,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
+    border: var(--panel-border-strong);
+    padding: var(--panel-pad);
   }
 
   .closing h2 {
@@ -287,30 +307,14 @@
     letter-spacing: var(--ls-default);
   }
 
-  .btn-primary {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--fs-btn);
-    letter-spacing: var(--ls-wider);
-    padding: var(--btn-pad);
-    background: var(--bg);
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    text-decoration: none;
-    transition: all var(--transition-slow);
-    align-self: flex-start;
-    margin-top: var(--space-sm);
-  }
-
-  .btn-primary:hover {
-    background: var(--text-primary);
-    color: var(--bg);
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     .hero {
       padding: var(--space-4xl) var(--space-xl) var(--space-5xl);
+    }
+
+    .hero-frame {
+      padding: var(--space-xl);
     }
 
     h1 {
@@ -320,6 +324,15 @@
     .pillar {
       grid-template-columns: 1fr;
       gap: var(--space-xl);
+      padding: var(--space-xl);
+    }
+
+    .thesis-inner {
+      padding: var(--space-xl);
+    }
+
+    .closing-inner {
+      padding: var(--space-xl);
     }
   }
 </style>

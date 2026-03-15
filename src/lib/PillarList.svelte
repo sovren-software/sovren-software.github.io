@@ -7,10 +7,10 @@
 
 <section class="pillars">
   <div class="pillars-inner">
-    <span class="section-label">{label}</span>
+    <span class="section-label">// {label}</span>
     <div class="pillar-rows">
       {#each pillars as p}
-        <div class="pillar-row">
+        <div class="pillar-row panel">
           <div class="pillar-left">
             <span class="pillar-num">{p.num}</span>
             <h3 class="pillar-title">{p.label}</h3>
@@ -25,6 +25,7 @@
 <style>
   .pillars {
     padding: var(--pad-section);
+    background: var(--bg);
   }
 
   .pillars-inner {
@@ -35,8 +36,8 @@
   .section-label {
     display: block;
     font-size: var(--fs-label-sm);
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
     margin-bottom: var(--space-4xl);
     text-transform: uppercase;
   }
@@ -44,15 +45,15 @@
   .pillar-rows {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--border);
+    gap: var(--space-lg);
   }
 
   .pillar-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-5xl);
-    padding: var(--space-3xl) 0;
-    border-bottom: 1px solid var(--border);
+    padding: var(--space-2xl);
+    border: var(--panel-border);
     align-items: start;
   }
 
@@ -64,8 +65,14 @@
 
   .pillar-num {
     font-size: var(--fs-label-sm);
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
+    letter-spacing: var(--ls-wider);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--accent);
   }
 
   .pillar-title {
@@ -91,7 +98,7 @@
     .pillar-row {
       grid-template-columns: 1fr;
       gap: var(--space-xl);
-      padding: var(--space-2xl) 0;
+      padding: var(--space-xl);
     }
   }
 </style>

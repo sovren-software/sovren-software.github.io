@@ -17,9 +17,20 @@
   <div class="nav-inner">
     <a href="/" class="wordmark" on:click={close}>SOVREN</a>
 
+    <div class="nav-links" class:open={menuOpen}>
+      <span class="sep">//</span>
+      <a href="/esver" on:click={close} class:active={isActive('/esver')}>ESVER</a>
+      <span class="sep">//</span>
+      <a href="/visage" on:click={close} class:active={isActive('/visage')}>VISAGE</a>
+      <span class="sep">//</span>
+      <a href="/mrhaven" on:click={close} class:active={isActive('/mrhaven')}>MR_HAVEN</a>
+      <span class="sep">//</span>
+      <a href="/ecosystem" on:click={close} class:active={isActive('/ecosystem')}>ECOSYSTEM</a>
+    </div>
+
     <div class="nav-actions">
       <button class="theme-toggle" on:click={onToggleTheme} aria-label="Toggle theme">
-        {theme === 'light' ? '[ DARK ]' : '[ LIGHT ]'}
+        {theme === 'light' ? 'SYS:DARK' : 'SYS:LIGHT'}
       </button>
 
       <button
@@ -31,13 +42,6 @@
         {menuOpen ? '[ CLOSE ]' : '[ MENU ]'}
       </button>
     </div>
-
-    <div class="nav-links" class:open={menuOpen}>
-      <a href="/esver" on:click={close} class:active={isActive('/esver')}>ESVER</a>
-      <a href="/visage" on:click={close} class:active={isActive('/visage')}>VISAGE</a>
-      <a href="/mrhaven" on:click={close} class:active={isActive('/mrhaven')}>MR. HAVEN</a>
-      <a href="/ecosystem" on:click={close} class:active={isActive('/ecosystem')}>ECOSYSTEM</a>
-    </div>
   </div>
 </nav>
 
@@ -46,9 +50,8 @@
     position: sticky;
     top: 0;
     z-index: var(--z-nav);
-    background: transparent;
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(10px);
+    background: var(--bg);
+    border-bottom: var(--panel-border);
   }
 
   .nav-inner {
@@ -77,24 +80,32 @@
 
   .theme-toggle {
     background: none;
-    border: none;
+    border: 1px solid var(--border);
     color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: var(--fs-label);
     letter-spacing: var(--ls-wider);
     cursor: pointer;
-    transition: color var(--transition-fast);
-    padding: var(--space-xs);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+    padding: var(--space-xs) var(--space-sm);
   }
 
   .theme-toggle:hover {
-    color: var(--text-primary);
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .nav-links {
     display: flex;
-    gap: var(--space-3xl);
+    gap: var(--space-lg);
     align-items: center;
+  }
+
+  .sep {
+    color: var(--text-ghost);
+    font-size: var(--fs-label);
+    letter-spacing: 0;
+    user-select: none;
   }
 
   .nav-links a {
@@ -104,11 +115,17 @@
     text-decoration: none;
     text-transform: uppercase;
     transition: color var(--transition-fast);
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
   }
 
-  .nav-links a:hover,
-  .nav-links a.active {
+  .nav-links a:hover {
     color: var(--text-primary);
+  }
+
+  .nav-links a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
   }
 
   .hamburger {
@@ -135,7 +152,8 @@
       left: 0;
       right: 0;
       background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      border: var(--panel-border-strong);
+      border-top: none;
       flex-direction: column;
       align-items: flex-start;
       padding: var(--space-xl) var(--space-3xl);
@@ -146,8 +164,13 @@
       display: flex;
     }
 
+    .sep {
+      display: none;
+    }
+
     .nav-links a {
       font-size: 0.75rem;
+      border-bottom: none;
     }
   }
 </style>

@@ -8,9 +8,9 @@
 </script>
 
 <section class="cta">
-  <div class="cta-inner preserve-3d">
+  <div class="cta-inner panel--strong">
     <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-    <h2 class="glitch-subtle">{@html title}</h2>
+    <h2>{@html title}</h2>
     <p>{body}</p>
 
     {#if actions.length > 0}
@@ -32,23 +32,10 @@
 
 <style>
   .cta {
-    background: transparent;
+    background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
-    border-top: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Cinematic light bleed from bottom */
-  .cta::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 30vh;
-    background: linear-gradient(to top, rgba(255,255,255,0.03), transparent);
-    pointer-events: none;
-    z-index: -1;
+    border-top: var(--panel-border);
   }
 
   .cta-inner {
@@ -57,6 +44,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
+    padding: var(--panel-pad);
+    border: var(--panel-border-strong);
   }
 
   .cta h2 {
@@ -65,7 +54,6 @@
     letter-spacing: var(--ls-wide);
     line-height: var(--lh-heading);
     text-transform: uppercase;
-    text-shadow: 0 0 30px rgba(255,255,255,0.1);
   }
 
   .cta p {
@@ -86,6 +74,10 @@
   @media (max-width: 768px) {
     .cta {
       padding: var(--space-5xl) var(--space-xl);
+    }
+
+    .cta-inner {
+      padding: var(--space-xl);
     }
   }
 </style>

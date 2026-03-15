@@ -7,77 +7,95 @@ Marketing site for Sovren Software at `sovren.software`.
 ## Stack
 
 - **Framework**: SvelteKit 2.x + `@sveltejs/adapter-static` (prerendered static site)
-- **3D Scene**: Three.js 0.183 (wireframe cube, grid, particles, product monoliths)
-- **Animation**: GSAP 3.x
 - **Font**: Geist Mono Variable (self-hosted, `static/fonts/GeistMono-Variable.woff2`)
 - **Build**: Vite 7.x
 - **Deploy**: GitHub Actions → `sovren-software.github.io`, CNAME `sovren.software`
 - **CDN**: Cloudflare proxy in front of GitHub Pages (enables crawler access, hides Fastly)
 - **Search**: Bing Webmaster Tools verified, sitemap submitted
 
-## Design System
+Note: Three.js and GSAP were removed in the schematic magitek redesign (2026-03-15). No 3D scene or animation library.
 
-Centralized in `src/app.css` with 60+ design tokens. All styles reference tokens — no magic numbers in components.
+## Design System — Schematic Magitek
+
+Visual language: schematic command design with restrained magitek undertones. Warm bone backgrounds, panel-framed layouts, thin border rules, sparse violet accents, and a technical dossier aesthetic.
+
+Centralized in `src/app.css` with 70+ design tokens. All styles reference tokens — no magic numbers in components.
 
 ### Colors
 
-The site uses a `data-theme` attribute on `<html>` to switch between light and dark mode. CSS custom properties swap automatically.
+The site uses a `data-theme` attribute on `<html>` to switch between light and dark mode. CSS custom properties swap automatically. **Light-mode first** — dark mode tokens are present but unpolished.
 
 **Light mode (default — `:root` / `[data-theme='light']`):**
 ```
---bg: #ffffff
---surface: rgba(230,230,230,0.4)
---surface-2: rgba(210,210,210,0.5)
---border: rgba(0,0,0,0.15)
---border-glow: rgba(0,0,0,0.8)
---text-primary: #000000
---text-secondary: rgba(0,0,0,0.65)
---text-muted: rgba(0,0,0,0.35)
---text-ghost: rgba(0,0,0,0.15)
+--bg: #F0EDE8             (warm bone)
+--bg-alt: #E8E4DF         (darker bone for alternating panels)
+--surface: #FFFFFF         (white panel surface)
+--surface-2: #F7F5F2      (off-white surface)
+--border: rgba(0,0,0,0.12)        (thin rules)
+--border-strong: rgba(0,0,0,0.25)  (panel frames)
+--text-primary: #1A1A1A            (charcoal)
+--text-secondary: rgba(26,26,26,0.65)
+--text-muted: rgba(26,26,26,0.35)
+--text-ghost: rgba(26,26,26,0.15)
+--accent: #8B7EC8                  (soft violet)
+--accent-light: #A99ADB           (lighter violet)
+--accent-surface: rgba(139,126,200,0.08) (violet tint)
 ```
 
-**Dark mode (`[data-theme='dark']`):**
+**Dark mode (`[data-theme='dark']`) — placeholder:**
 ```
---bg: #000000
---surface: rgba(25,25,25,0.4)
---surface-2: rgba(40,40,40,0.5)
---border: rgba(255,255,255,0.15)
---border-glow: rgba(255,255,255,0.8)
---text-primary: #ffffff
---text-secondary: rgba(255,255,255,0.65)
---text-muted: rgba(255,255,255,0.35)
---text-ghost: rgba(255,255,255,0.15)
+--bg: #141210
+--bg-alt: #1A1816
+--accent: #A99ADB
+(rest follows inverse pattern)
 ```
 
-**Important:** Both themes are pure monochrome. No accent colors, no brand colors. Emphasis is achieved through weight and spacing, never color.
+### Panel System
+
+The panel system provides the technical dossier framing:
+```css
+.panel        { border: var(--panel-border); padding: var(--panel-pad); }
+.panel--strong { border: var(--panel-border-strong); }
+.panel--alt   { background: var(--bg-alt); }
+.panel-header { fs: label-sm, ls: ultra, uppercase, border-bottom, muted }
+```
+
+### Tag System
+
+Inline metadata badges:
+```css
+.tag          { inline-block, fs: label-sm, ls: wider, uppercase, bordered }
+.tag--accent  { border-color + color: var(--accent) }
+```
 
 ### Typography
 
 | Token | Size | Usage |
 |-------|------|-------|
-| `--fs-hero` | clamp(3.5rem, 11vw, 8rem) | Home hero H1 |
+| `--fs-hero` | clamp(4rem, 12vw, 10rem) | Home hero H1 |
 | `--fs-hero-product` | clamp(4rem, 12vw, 9rem) | Product hero H1 (Esver) |
 | `--fs-hero-large` | clamp(5rem, 18vw, 12rem) | Product hero H1 (Visage, MrHaven) |
 | `--fs-h2` | clamp(2rem, 5vw, 4rem) | CTA section headings |
 | `--fs-h2-large` | clamp(2.5rem, 6vw, 5rem) | Ecosystem closing H2 |
-| `--fs-thesis` | clamp(1.75rem, 3.5vw, 3.25rem) | Home thesis statement |
+| `--fs-thesis` | clamp(2rem, 4vw, 4rem) | Home thesis statement |
 | `--fs-lead` | clamp(1.3rem, 2.5vw, 1.7rem) | Overview lead paragraph |
 | `--fs-tagline` | clamp(0.95rem, 2vw, 1.1rem) | Hero taglines |
 | `--fs-pillar-title` | clamp(0.95rem, 1.5vw, 1.15rem) | Pillar labels |
-| `--fs-body` | 0.9rem | Body text |
+| `--fs-body` | 0.95rem | Body text |
 | `--fs-body-sm` | 0.875rem | Compact body |
 | `--fs-body-xs` | 0.85rem | Footnotes, small text |
-| `--fs-spec` | 0.72rem | Spec table values |
-| `--fs-label` | 0.65rem | Category labels |
-| `--fs-label-sm` | 0.62rem | Section labels |
-| `--fs-label-xs` | 0.58rem | Footer column labels |
-| `--fs-btn` | 0.7rem | Buttons |
-| `--fs-nav` | 0.65rem | Navigation links |
-| `--fs-wordmark` | 0.875rem | Logo/wordmark |
+| `--fs-spec` | 0.75rem | Spec table values |
+| `--fs-label` | 0.7rem | Category labels |
+| `--fs-label-sm` | 0.65rem | Section labels |
+| `--fs-label-xs` | 0.6rem | Footer column labels, status bar |
+| `--fs-label-lg` | 0.8rem | Large labels |
+| `--fs-btn` | 0.75rem | Buttons |
+| `--fs-nav` | 0.7rem | Navigation links |
+| `--fs-wordmark` | 0.9rem | Logo/wordmark |
 
 **Line-height tokens:** `--lh-tight`, `--lh-heading`, `--lh-default`, `--lh-relaxed`, `--lh-loose`
 
-**Letter-spacing tokens:** `--ls-tight`, `--ls-default`, `--ls-moderate`, `--ls-wide`, `--ls-wider`, `--ls-widest`
+**Letter-spacing tokens:** `--ls-tight`, `--ls-default`, `--ls-moderate`, `--ls-wide`, `--ls-wider`, `--ls-widest`, `--ls-ultra` (0.35em)
 
 **Font-weight tokens:** `--fw-normal`, `--fw-medium`, `--fw-semibold`, `--fw-bold`
 
@@ -106,7 +124,8 @@ The site uses a `data-theme` attribute on `<html>` to switch between light and d
 --max-w-prose: 800px      /* Prose blocks (manifesto) */
 --max-w-body: 520px       /* Body paragraphs */
 --max-w-tagline: 640px    /* Tagline blocks */
---nav-h: 80px             /* Navigation height */
+--nav-h: 60px             /* Navigation height */
+--status-bar-h: 36px      /* Bottom status bar */
 --z-nav: 100              /* Navigation z-index */
 ```
 
@@ -116,19 +135,24 @@ Reusable Svelte components in `src/lib/`:
 
 | Component | Props | Purpose |
 |-----------|-------|---------|
-| `ProductHero.svelte` | title, category, status, tagline, size | Product page hero section |
-| `Overview.svelte` | lead, specs[], stackNote, slot | White-background overview with spec table |
-| `PillarList.svelte` | label, pillars[] | Numbered feature list ("HOW IT WORKS") |
-| `CtaSection.svelte` | title, body, actions[] | White-background CTA with buttons |
+| `ProductHero.svelte` | title, category, status, tagline, size | Panel-framed product hero with category rule |
+| `Overview.svelte` | lead, specs[], stackNote, slot | Overview with `// SPECIFICATIONS` panel header |
+| `PillarList.svelte` | label, pillars[] | Panel-bordered pillars with violet number badges |
+| `CtaSection.svelte` | title, body, actions[] | Panel-framed CTA section |
+| `StatusBar.svelte` | (none) | Bottom status bar: version, operational status, copyright |
+| `Nav.svelte` | theme, onToggleTheme | Top nav with `//` separators, `SYS:LIGHT`/`SYS:DARK` toggle |
 
-**Product pages** use all four components with zero local CSS. **Home/Ecosystem** retain unique layouts but use design tokens throughout.
+**Product pages** use all four main components with zero local CSS (except Esver's launch briefing form). **Home/Ecosystem** retain unique layouts but use design tokens and panel classes throughout.
 
 ### Rules
 
 - Never add a second typeface
-- Never use color for emphasis — use weight and letter-spacing only
-- All color values must use theme-aware CSS variables — never hardcode `rgba(255,...)` or `rgba(0,...)`
+- Violet accent (`--accent`) is used sparingly: active nav state, pillar numbers, tags, blockquote borders, hover states, status dot
+- All color values must use theme-aware CSS variables — never hardcode colors
 - All transitions: `var(--transition-fast)` (0.15s) or `var(--transition-slow)` (0.4s)
+- All sections have opaque `var(--bg)` backgrounds (no transparent backgrounds)
+- Panel borders use `var(--panel-border)` or `var(--panel-border-strong)` — not raw border declarations
+- Section labels use `// PREFIX` format (e.g., `// SPECIFICATIONS`, `// DOCTRINE`, `// THE THREE PILLARS`)
 
 ## Theme System
 
@@ -140,7 +164,6 @@ Light/dark mode toggle with persistence and system preference fallback.
 2. On mount: checks `localStorage('theme')` → falls back to `prefers-color-scheme` → defaults to light
 3. Sets `document.documentElement.setAttribute('data-theme', theme)`
 4. CSS variables in `app.css` swap via `:root` / `[data-theme='light']` and `[data-theme='dark']` selectors
-5. 3D scene reacts via `MutationObserver` on `data-theme` attribute changes
 
 ### Theme Flow
 
@@ -148,88 +171,24 @@ Light/dark mode toggle with persistence and system preference fallback.
 User clicks toggle → +layout.svelte toggleTheme()
   → sets data-theme on <html>
   → saves to localStorage
-  → CSS variables swap instantly
-  → MutationObserver in SceneManager.js fires
-  → updateThemeColors() adjusts fog, wireframes, grid, particles
-  → MutationObserver in ProductMonoliths.svelte fires
-  → monolith wireframe colors update
+  → CSS variables swap instantly (all tokens theme-aware)
 ```
 
 ### Adding Theme-Aware Styles
 
 Always use CSS variables. Never hardcode colors:
 ```css
-/* ✓ Correct */
+/* Correct */
 color: var(--text-primary);
 background: var(--surface);
 border-color: var(--border);
+border: var(--panel-border);
 
-/* ✗ Wrong */
+/* Wrong */
 color: #ffffff;
 background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(0,0,0,0.12);
 ```
-
-## 3D Scene System
-
-A cinematic Three.js background renders behind all page content on every route.
-
-### Architecture
-
-```
-+layout.svelte
-  └── <Scene />                    # Svelte lifecycle wrapper
-       └── SceneManager.js         # Core Three.js logic
-            ├── Camera (z=15)
-            ├── Renderer (alpha: true, transparent canvas)
-            ├── FogExp2 (theme-aware color + density)
-            ├── Wireframe cube (rotating, mouse-reactive)
-            ├── Inner octahedron (counter-rotating)
-            ├── GridHelper (100×100, scroll-linked drift)
-            └── Particle system (500 dust particles)
-
-ProductMonoliths.svelte exists but is currently unused (removed for visual clarity).
-```
-
-### Key Files
-
-| File | Responsibility |
-|------|---------------|
-| `src/lib/three/Scene.svelte` | Canvas element creation, SceneManager lifecycle (mount/destroy) |
-| `src/lib/three/SceneManager.js` | Camera, renderer, scene objects, animation loop, resize/scroll/mouse handlers, theme color updates, cleanup |
-| `src/lib/three/ProductMonoliths.svelte` | Interactive wireframe panels with hover effects — currently unused, removed from home page for visual clarity |
-
-### CSS Layering
-
-The 3D canvas must remain visible behind all content. This requires:
-
-```
-Canvas:  position: fixed; z-index: -1; pointer-events: none;
-Body:    background: transparent;
-Nav:     background: transparent; backdrop-filter: blur(10px);
-Footer:  background: transparent;
-```
-
-All page sections must have transparent backgrounds. Do **not** add `background-color` to `main`, `section`, or generic `div` elements — this will occlude the 3D canvas.
-
-### Theme Color Mapping (3D)
-
-| Element | Light Mode | Dark Mode |
-|---------|-----------|-----------|
-| Fog color | `0xffffff` | `0x000000` |
-| Fog density | `0.015` | `0.02` |
-| Wireframe color | `0x000000` | `0xffffff` |
-| Grid primary | `0x888888` | `0x444444` |
-| Grid secondary | `0xcccccc` | `0x222222` |
-| Particle color | `0x000000` (opacity 0.2) | `0xffffff` (opacity 0.4) |
-| Monolith wireframe | `0x333333` | `0xffffff` | *(unused — ProductMonoliths removed)* |
-
-### Modifying the 3D Scene
-
-- All scene setup is in `SceneManager.js` constructor
-- Animation loop is `tick()` — called via `requestAnimationFrame`
-- Theme updates go in `updateThemeColors()` — called by the `MutationObserver`
-- Always clean up resources in `destroy()` (geometries, materials, observers, event listeners)
-- The renderer uses `alpha: true` — the CSS `background: var(--bg)` on the canvas provides the background color
 
 ## Routing
 
@@ -286,37 +245,26 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 
 ### Home
 - Hero H1: `THE SOVREN STACK.`
-- Hero sub: `Sovereign compute. Local identity. Programmable capital.`
-- Thesis statement: "Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default."
-- Thesis body: "We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise."
+- Hero sub: `> Sovereign compute. Local identity. Programmable capital.`
+- Hero frame labels: `// 001` (top-left), `V1.0` (top-right)
+- Thesis panel header: `// DOCTRINE`
 
 ### Esver OS
 - Tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
 - Hero lead: "Your command center. Built without compromise."
 - CTA title: "BUILT WITHOUT COMPROMISE."
-- Core framing: The trifecta — UX, privacy, and security are not a tradeoff triangle, they are a self-reinforcing loop. Each pillar strengthens the others.
-- Operator framing: User is the operator, AI is the co-pilot. Chain of command has exactly one link.
-- Key capabilities (in order): voice-native command interface (local inference, no cloud transcription), biometric-secured access (Visage as native OS primitive, on-device ONNX), local AI co-pilot (no telemetry, no profiles), declarative NixOS stack (one config, version-controlled, rollback-capable)
-- Avoid: "cognitive OS", "always watching", "watches and learns" framing — replaced with operator/co-pilot model
+- Avoid: "cognitive OS", "always watching", "watches and learns" framing
 - Status: Ships Summer 2026
 
 ### Visage
-- Tagline: "Linux face authentication via PAM. Your face is your key — processed locally, never broadcast to the cloud."
-- Key angle: Open source identity layer; integrates natively with Esver OS
 - **Status:** Live · v0.2.0 · MIT
 
 ### MrHaven
-- Tagline: "Programmable asset control for humans and autonomous agents — no custodian, no intermediary, no exceptions."
-- Key angle: Protocol designed for humans AND AI agents as users
 - Status: Live on Base mainnet
 
 ### Ecosystem (Manifesto)
-- Opening lede: Convenience should not require compromise — that is what the vendor model requires, not what engineering requires
-- Blockquote: "You are not the root user of your own life. You are a tenant. Sovren Software exists to change that."
-- Core thesis: UX, privacy, and security are a trifecta — not a tradeoff triangle. Every engineering decision moves along all three axes.
-- Computing pillar: "THE MACHINE IS A COMMAND CENTER, NOT A SUBSCRIPTION."
+- Blockquote styled with violet left border + accent-surface background
 - Closing H2: "ONE OPERATOR. TOTAL AUTHORITY."
-- Closing body: Full stack description with trifecta commitment stated explicitly
 
 ## Deploy Process
 
@@ -342,8 +290,6 @@ Two-level enforcement on GitHub Pages + Cloudflare:
 
 ### OG Image
 
-The social preview image (`static/og-image.png`) is generated via Satori using Geist Mono TTF:
-
 ```bash
 npm run generate-og  # rewrites static/og-image.png
 ```
@@ -356,16 +302,21 @@ Script is at `scripts/generate-og.js`. Run it after any brand or copy changes th
 - `esver.computer` has no standalone landing page — product page lives at `sovren.software/esver`
 - MrHaven SDK not yet documented on the site (removed SDK mention from CTA until ready)
 - No visual that shows the three products converging (convergence story is text-only)
-- `sovren.software/augmentum` redirect is client-side only (static adapter limitation) — not a
-  server-side 301. `<meta refresh>` + canonical tag signal the redirect to crawlers; link equity
-  transfer is best-effort.
-- OG image (`static/og-image.png`) not yet regenerated after Esver rename — run `npm run generate-og`
+- OG image (`static/og-image.png`) not yet regenerated after schematic magitek redesign — run `npm run generate-og`
 - `augmentum.computer` → `esver.computer` DNS redirect not yet configured (Namecheap/Cloudflare)
 - Brevo welcome email template still references Augmentum OS in body text — update in Brevo dashboard
+- Dark mode tokens present but unpolished — light-mode first
 
 ## Remaining Work
 
-- [ ] Regenerate OG image after rename: `npm run generate-og`
+### Redesign — Next Session
+- [ ] Schematic SVG diagrams (system architecture, trifecta, signal paths)
+- [ ] Line-based icon/glyph system
+- [ ] Dark mode polish (token tuning, visual QA)
+- [ ] Motion system (line tracing, reveal animations)
+- [ ] Regenerate OG image with new colors: `npm run generate-og`
+
+### Pre-Existing
 - [ ] DNS forwarding: `augmentum.computer` → `esver.computer` (Namecheap or Cloudflare forwarding)
 - [ ] Build standalone `esver.computer` product landing page
 - [ ] Update Brevo welcome email template body text (Augmentum OS → Esver OS)
@@ -374,36 +325,16 @@ Script is at `scripts/generate-og.js`. Run it after any brand or copy changes th
 - [ ] Visual convergence diagram on Ecosystem page
 - [ ] X profile update (currently MrHaven-branded)
 - [ ] Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
-- [x] Favicon suite — SVG, ICO, PNGs, apple-touch-icon (2026-02-26)
-- [x] Web app manifest + PWA metadata (2026-02-26)
-- [x] OG image 1200×630 with Geist Mono via Satori — `npm run generate-og` (2026-02-26)
-- [x] Open Graph + Twitter Card tags on all pages (2026-02-26)
-- [x] Canonical URLs on all pages (2026-02-26)
-- [x] Security headers — meta-level CSP, Referrer-Policy, X-Content-Type-Options (2026-02-26)
-- [x] Skip navigation link + `id="main-content"` target (WCAG 2.4.1) (2026-02-26)
-- [x] `aria-label` on primary nav and footer nav landmarks (2026-02-26)
-- [x] `prefers-reduced-motion` — global CSS rule + SceneManager runtime check (2026-02-26)
-- [x] SceneManager memory leak fixed — stored bound handler refs in destroy() (2026-02-26)
-- [x] SceneManager GPU memory — geometry/material disposal on destroy (2026-02-26)
-- [x] SceneManager powerPreference changed to "default" (2026-02-26)
-- [x] ESLint + Prettier + svelte-check configured — `lint`, `check`, `format` scripts (2026-02-26)
-- [x] CI pipeline updated — check + lint run before build (2026-02-26)
-- [x] Dependabot weekly npm updates configured (2026-02-26)
-- [x] LICENSE file added — proprietary, all rights reserved (2026-02-26)
-- [x] CHANGELOG.md added (2026-02-26)
-- [x] SECURITY.md added with exact Cloudflare Transform Rules (2026-02-26)
-- [x] Internal cross-linking — stackNote product mentions converted to anchor links (2026-02-26)
-- [x] Font preload in app.html (2026-02-26)
-- [x] `--fs-footer-link` and `--fs-footer-copy` tokens defined (live bug fix) (2026-02-26)
-- [x] Sitemap lastmod dates added (2026-02-26)
-- [x] llms.txt — Visage version corrected, aegis-os dead link removed (2026-02-26)
-- [x] Heading hierarchy fixed — sr-only h2 + aria-labelledby on products section (2026-02-26)
-- [x] 404 error page — meta description + noindex added (2026-02-26)
-- [x] 3D cinematic scene — wireframe cube, grid, particles, product monoliths (2026-02-25)
-- [x] Light/dark theme toggle with persistence and 3D sync (2026-02-25)
-- [x] Theme-aware CSS variables — all hardcoded colors removed (2026-02-25)
-- [x] Waitlist capture on Esver OS page — mailto:hello@sovren.software (2026-02-24)
-- [x] Visage version updated to v0.2.0 (2026-02-24)
-- [x] AI agent angle surfaced on MrHaven page (2026-02-24)
-- [x] Convergence story strengthened across Esver OS, Ecosystem pages (2026-02-24)
-- [x] Visage v2/Esver OS integration callout added (2026-02-24)
+
+### Completed
+- [x] Schematic magitek editorial redesign — full visual system rewrite (2026-03-15)
+- [x] Three.js + GSAP removed, panel/tag system added, violet accent (2026-03-15)
+- [x] StatusBar component added (2026-03-15)
+- [x] Nav restyled: solid bg, // separators, SYS:LIGHT/SYS:DARK, violet active (2026-03-15)
+- [x] Favicon suite, Web app manifest, OG image (2026-02-26)
+- [x] Open Graph + Twitter Card + Canonical URLs on all pages (2026-02-26)
+- [x] Security headers, skip-nav, aria-labels, prefers-reduced-motion (2026-02-26)
+- [x] ESLint + Prettier + svelte-check, CI pipeline, Dependabot (2026-02-26)
+- [x] LICENSE, CHANGELOG, SECURITY.md (2026-02-26)
+- [x] Light/dark theme toggle with persistence (2026-02-25)
+- [x] Waitlist capture on Esver OS page (2026-02-24)

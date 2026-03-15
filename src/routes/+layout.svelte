@@ -1,7 +1,7 @@
 <script>
   import '../app.css';
   import Nav from '$lib/Nav.svelte';
-  import Scene from '$lib/three/Scene.svelte';
+  import StatusBar from '$lib/StatusBar.svelte';
   import { page } from '$app/stores';
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
@@ -31,7 +31,6 @@
 </script>
 
 <a href="#main-content" class="skip-nav">Skip to main content</a>
-<Scene />
 <Nav {theme} onToggleTheme={toggleTheme} />
 
 {#key $page.url.pathname}
@@ -46,18 +45,18 @@
       <a href="/" class="footer-wordmark">SOVREN</a>
       <nav class="footer-nav" aria-label="Footer">
         <div class="footer-col">
-          <span class="col-label">PRODUCTS</span>
+          <span class="col-label">// PRODUCTS</span>
           <a href="/esver">ESVER</a>
           <a href="/visage">VISAGE</a>
           <a href="/mrhaven">MR. HAVEN</a>
         </div>
         <div class="footer-col">
-          <span class="col-label">COMPANY</span>
+          <span class="col-label">// COMPANY</span>
           <a href="/ecosystem">ECOSYSTEM</a>
           <a href="mailto:hello@sovren.software">CONTACT</a>
         </div>
         <div class="footer-col">
-          <span class="col-label">EXTERNAL</span>
+          <span class="col-label">// EXTERNAL</span>
           <a href="https://twitter.com/sovren_software" target="_blank" rel="noreferrer">TWITTER</a>
           <a href="https://github.com/sovren-software" target="_blank" rel="noreferrer">GITHUB</a>
           <a href="https://mrhaven.io" target="_blank" rel="noreferrer">MRHAVEN.IO</a>
@@ -65,12 +64,15 @@
         </div>
       </nav>
     </div>
+    <div class="footer-rule"></div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 SOVREN SOFTWARE</span>
       <span class="footer-copy muted">BUILT FOR AUTONOMY.</span>
     </div>
   </div>
 </footer>
+
+<StatusBar />
 
 <style>
   .skip-nav {
@@ -94,8 +96,8 @@
   }
 
   footer {
-    background: transparent;
-    border-top: 1px solid var(--border);
+    background: var(--bg);
+    border-top: var(--panel-border-strong);
     padding: var(--space-5xl) var(--space-3xl) var(--space-4xl);
   }
 
@@ -104,7 +106,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--space-4xl);
+    gap: var(--space-3xl);
   }
 
   .footer-top {
@@ -132,13 +134,16 @@
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
+    border-left: var(--panel-border);
+    padding-left: var(--space-xl);
   }
 
   .col-label {
     font-size: var(--fs-label-xs);
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
     margin-bottom: var(--space-xs);
+    text-transform: uppercase;
   }
 
   .footer-col a {
@@ -150,7 +155,12 @@
   }
 
   .footer-col a:hover {
-    color: var(--text-primary);
+    color: var(--accent);
+  }
+
+  .footer-rule {
+    height: 1px;
+    background: var(--border);
   }
 
   .footer-bottom {
@@ -173,6 +183,11 @@
   @media (max-width: 768px) {
     .footer-nav {
       gap: var(--space-3xl);
+    }
+
+    .footer-col {
+      border-left: none;
+      padding-left: 0;
     }
   }
 </style>
