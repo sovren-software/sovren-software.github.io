@@ -52,7 +52,7 @@
         </div>
         <div class="footer-col">
           <span class="col-label">// COMPANY</span>
-          <a href="/ecosystem">ECOSYSTEM</a>
+          <a href="/ecosystem">CODEX</a>
           <a href="mailto:hello@sovren.software">CONTACT</a>
         </div>
         <div class="footer-col">

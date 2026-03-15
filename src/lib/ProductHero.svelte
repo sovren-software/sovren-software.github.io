@@ -9,9 +9,18 @@
   export let tagline = undefined;
   /** @type {'default'|'large'} */
   export let size = 'default';
+  /** @type {string|undefined} */
+  export let glyphId = undefined;
+
+  import HeroGlyph from '$lib/HeroGlyph.svelte';
 </script>
 
 <section class="hero" class:large={size === 'large'}>
+  {#if glyphId}
+    <div class="hero-glyph">
+      <HeroGlyph id={glyphId} />
+    </div>
+  {/if}
   <div class="hero-inner panel--strong">
     {#if category}
       <span class="category">{category}</span>
@@ -32,10 +41,21 @@
   .hero {
     min-height: calc(100vh - var(--nav-h));
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: var(--pad-hero);
     background: var(--bg);
     border-bottom: var(--panel-border-strong);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glyph {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl) var(--space-2xl) 0;
   }
 
   .hero-inner {
@@ -44,6 +64,9 @@
     width: 100%;
     padding: var(--panel-pad);
     border: var(--panel-border-strong);
+    position: relative;
+    z-index: 1;
+    background: var(--bg);
   }
 
   .category {
@@ -90,6 +113,10 @@
 
     .hero-inner {
       padding: var(--space-xl);
+    }
+
+    .hero-glyph {
+      padding: var(--space-xl) var(--space-xl) 0;
     }
 
     h1 {

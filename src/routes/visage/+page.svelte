@@ -55,6 +55,7 @@
     status="Open source · MIT"
     tagline="Your face is your key. Processed locally. Never broadcast to the cloud."
     size="large"
+    glyphId="visage"
   />
 
   <Overview

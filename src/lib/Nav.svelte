@@ -25,7 +25,7 @@
       <span class="sep">//</span>
       <a href="/mrhaven" on:click={close} class:active={isActive('/mrhaven')}>MR_HAVEN</a>
       <span class="sep">//</span>
-      <a href="/ecosystem" on:click={close} class:active={isActive('/ecosystem')}>ECOSYSTEM</a>
+      <a href="/ecosystem" on:click={close} class:active={isActive('/ecosystem')}>CODEX</a>
     </div>
 
     <div class="nav-actions">

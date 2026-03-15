@@ -11,6 +11,7 @@
 
 <script>
   import StackDiagram from '$lib/StackDiagram.svelte';
+  import HeroGlyph from '$lib/HeroGlyph.svelte';
   import Icon from '$lib/Icon.svelte';
   import { reveal } from '$lib/reveal.js';
 
@@ -44,7 +45,25 @@
 
 <main>
   <section class="hero">
+    <!-- Schematic decorations -->
+    <div class="hero-margin-left">
+      <span class="margin-tick"></span>
+      <span class="margin-tick"></span>
+      <span class="margin-tick"></span>
+      <span class="margin-coord">X:0</span>
+    </div>
+    <div class="hero-margin-right">
+      <span class="margin-coord">Y:0</span>
+      <span class="margin-tick"></span>
+      <span class="margin-tick"></span>
+      <span class="margin-tick"></span>
+    </div>
+    <div class="hero-vline"></div>
+
     <div class="hero-inner">
+      <div class="hero-glyph-center">
+        <HeroGlyph id="sovren" />
+      </div>
       <div class="hero-frame panel--strong">
         <span class="hero-label hero-label--left">// 001</span>
         <span class="hero-label hero-label--right">V1.0</span>
@@ -58,6 +77,11 @@
   </section>
 
   <section class="products" aria-labelledby="products-heading">
+    <div class="section-rule">
+      <span class="rule-label">// PRODUCTS</span>
+      <span class="rule-line"></span>
+      <span class="rule-marker">+</span>
+    </div>
     <h2 id="products-heading" class="sr-only">Products</h2>
     <div class="product-grid">
       {#each products as p, i}
@@ -75,15 +99,26 @@
     </div>
   </section>
 
-  <section class="stack-vis" use:reveal>
-    <div class="stack-vis-inner reveal">
-      <span class="panel-header">// ARCHITECTURE</span>
-      <StackDiagram />
+  <section class="stack-vis">
+    <div class="stack-vis-inner reveal panel" use:reveal>
+      <div class="panel-header">// ARCHITECTURE</div>
+      <div class="stack-vis-body">
+        <div class="stack-vis-annotations">
+          <span class="anno">COMPUTE</span>
+          <span class="anno">IDENTITY</span>
+          <span class="anno">CAPITAL</span>
+        </div>
+        <StackDiagram />
+        <div class="stack-vis-legend">
+          <span class="legend-item"><span class="legend-dot"></span> CONVERGENCE POINT</span>
+          <span class="legend-item">--- SIGNAL PATH</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="thesis" use:reveal>
-    <div class="thesis-inner panel--strong reveal">
+  <section class="thesis">
+    <div class="thesis-inner panel--strong reveal" use:reveal>
       <div class="panel-header">// DOCTRINE</div>
       <h2 class="thesis-statement">
         Privacy is not a feature.<br />
@@ -93,7 +128,7 @@
       </h2>
       <div class="thesis-foot">
         <p>We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise.</p>
-        <a href="/ecosystem" class="btn-primary">READ THE MANIFESTO</a>
+        <a href="/ecosystem" class="btn-primary">READ THE CODEX</a>
       </div>
     </div>
   </section>
@@ -107,6 +142,73 @@
     justify-content: center;
     position: relative;
     background: var(--bg);
+    overflow: hidden;
+  }
+
+  /* Schematic margin decorations */
+  .hero-margin-left,
+  .hero-margin-right {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .hero-margin-left {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero-margin-right {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .margin-tick {
+    width: 12px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .margin-coord {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-ghost);
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-family: var(--font-mono);
+  }
+
+  .hero-glyph-center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl) 0;
+  }
+
+  .hero-vline {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--border) 10%,
+      var(--border) 25%,
+      transparent 38%,
+      transparent 70%,
+      var(--border) 85%,
+      transparent 100%
+    );
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: none;
   }
 
   .hero-inner {
@@ -114,11 +216,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: var(--space-3xl);
-    padding: var(--space-5xl) var(--space-2xl);
-    z-index: 10;
+    gap: 0;
+    padding: 0 var(--space-2xl) var(--space-3xl);
+    z-index: 2;
+    position: relative;
     width: 100%;
     max-width: var(--max-w);
+    flex: 1;
   }
 
   .hero-frame {
@@ -126,6 +230,7 @@
     border: var(--panel-border-strong);
     padding: var(--space-5xl) var(--space-4xl);
     width: 100%;
+    background: var(--bg);
   }
 
   .hero-label {
@@ -174,6 +279,36 @@
     color: var(--text-muted);
     position: absolute;
     bottom: var(--space-4xl);
+  }
+
+  /* Section Rule Decorator */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-3xl);
+  }
+
+  .rule-label {
+    font-size: var(--fs-label-xs);
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .rule-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .rule-marker {
+    font-size: var(--fs-label);
+    color: var(--accent);
+    opacity: 0.4;
   }
 
   /* Products */
@@ -270,16 +405,56 @@
   .stack-vis {
     background: var(--bg);
     padding: var(--space-5xl) var(--space-3xl);
-    border-bottom: var(--panel-border);
   }
 
   .stack-vis-inner {
-    max-width: var(--max-w);
+    max-width: 680px;
     margin: 0 auto;
+  }
+
+  .stack-vis-body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .stack-vis-annotations {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .anno {
+    font-size: 9px;
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
+    text-transform: uppercase;
+  }
+
+  .stack-vis-legend {
+    display: flex;
     gap: var(--space-3xl);
+    justify-content: center;
+  }
+
+  .legend-item {
+    font-size: 9px;
+    letter-spacing: var(--ls-wider);
+    color: var(--text-ghost);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .legend-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
   }
 
   /* Thesis */
@@ -321,6 +496,16 @@
 
   /* Responsive */
   @media (max-width: 768px) {
+    .hero-margin-left,
+    .hero-margin-right,
+    .hero-vline {
+      display: none;
+    }
+
+    .stack-vis-annotations,
+    .stack-vis-legend {
+      display: none;
+    }
     .product-grid {
       grid-template-columns: 1fr;
     }

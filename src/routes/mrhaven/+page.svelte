@@ -55,6 +55,7 @@
     status="Live on Base L2"
     tagline="Programmable asset control for humans and autonomous agents. No custodian, no intermediary, no exceptions."
     size="large"
+    glyphId="mrhaven"
   />
 
   <Overview

@@ -73,6 +73,7 @@
     title="ESVER<br />OS."
     status="Ships Summer 2026"
     tagline="One operator. Total authority. UX, privacy, and security — none sacrificed."
+    glyphId="esver"
   />
 
   <Overview
@@ -121,7 +122,7 @@
     title="BUILD SOVEREIGNLY."
     body="Esver OS, Visage, and MrHaven are designed as one command layer. Read the operating thesis behind the stack."
     actions={[
-      { label: 'READ THE MANIFESTO →', href: '/ecosystem' },
+      { label: 'READ THE CODEX →', href: '/ecosystem' },
       { label: 'EXPLORE VISAGE →', href: '/visage', style: 'secondary' },
     ]}
   />

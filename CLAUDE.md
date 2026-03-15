@@ -235,7 +235,7 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 **The x10 thesis lives on individual product pages.** "The infrastructure that multiplies what one person can do" belongs to Esver OS. The stack-level copy describes what the stack IS (three layers), not what any one layer does.
 
 **Thesis hierarchy:**
-1. Stack level (Home, Ecosystem): sovereignty across OS + identity + finance
+1. Stack level (Home, Codex): sovereignty across OS + identity + finance
 2. Product level: each product surfaces the founder-as-proof / capability-multiplication angle
 3. Feature level: technical specifics, no thesis language needed
 
@@ -262,9 +262,12 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 ### MrHaven
 - Status: Live on Base mainnet
 
-### Ecosystem (Manifesto)
+### Codex (was Ecosystem/Manifesto)
+- Page title: "THE CODEX." (category: DOCTRINE)
+- Nav link text: "CODEX" (URL remains `/ecosystem`)
 - Blockquote styled with violet left border + accent-surface background
 - Closing H2: "ONE OPERATOR. TOTAL AUTHORITY."
+- Hero glyph: open grimoire with trifecta triangle + esper crystal
 
 ## Deploy Process
 
@@ -296,14 +299,45 @@ npm run generate-og  # rewrites static/og-image.png
 
 Script is at `scripts/generate-og.js`. Run it after any brand or copy changes that should be reflected in social previews.
 
-## Known Limitations
+## Design Decisions (2026-03-15 Redesign)
 
-- No blog platform for the content launch strategy (teaser article, X thread)
-- `esver.computer` has no standalone landing page — product page lives at `sovren.software/esver`
-- MrHaven SDK not yet documented on the site (removed SDK mention from CTA until ready)
-- No visual that shows the three products converging (convergence story is text-only)
-- `augmentum.computer` → `esver.computer` DNS redirect not yet configured (Namecheap/Cloudflare)
-- Brevo welcome email template still references Augmentum OS in body text — update in Brevo dashboard
+### Rationale
+The original site was pure monochrome (black/white) with a Three.js 3D wireframe background. The creative brief called for "schematic command design with restrained magitek undertones" — warm bone, panel-framed, sparse violet accents, technical dossier aesthetic. The 3D scene was heavy (~570 lines JS, Three.js + GSAP deps) and the monochrome palette felt generic. The redesign replaces runtime 3D with lightweight CSS/SVG artwork.
+
+### Trade-offs
+- **Removed Three.js/GSAP** → lost the cinematic 3D parallax feel, gained ~200KB bundle reduction, eliminated GPU overhead, removed the transparent-background constraint that blocked opaque panel layouts
+- **Renamed "Manifesto" → "Codex"** → aligns with magitek/FF6 flavor, URL stays `/ecosystem` for backward compat (not renamed to avoid breaking indexed URLs)
+- **SVG glyphs over raster art** → infinitely scalable, theme-aware (uses CSS vars), tiny file size, but limited to geometric/schematic styles — no photographic or painted artwork
+- **CSS animations over JS** → zero bundle cost, respects `prefers-reduced-motion`, but limited to simple transforms (rotate, translate, opacity) — no physics or interaction
+- **Light-mode first** → dark mode tokens exist and work but haven't been visually QA'd against the new glyphs/panels in a real browser session
+
+### Expected Benefits
+- Faster load (no Three.js/GSAP), better Lighthouse scores
+- Distinctive visual identity (the schematic magitek look is unique in the sovereign computing space)
+- Fully theme-aware artwork (glyphs use CSS vars, swap with dark mode)
+- Accessible (all animations respect reduced-motion, all glyphs have aria-hidden, all SVGs are decorative)
+
+### Known Limitations
+- Dark mode not visually QA'd — tokens present, glyph opacities may need per-theme tuning
+- No blog platform for content launch strategy
+- `esver.computer` has no standalone landing page
+- MrHaven SDK not yet documented
+- OG image uses static bone palette — no dark mode variant
+- Glyph animations are CSS-only — no scroll-linked parallax or mouse interaction
+- `AsciiArt.svelte` and `EsperCrystal.svelte` are created but unused (superseded by HeroGlyph approach) — candidates for cleanup
+- Favicon SVG still uses old black design — should be updated to match new palette
+
+### Component Inventory (new in redesign)
+| Component | Purpose | Status |
+|-----------|---------|--------|
+| `HeroGlyph.svelte` | Animated SVG line-art per product hero | Active, 5 variants |
+| `Icon.svelte` | 9 thin-line SVG icon glyphs | Active |
+| `StatusBar.svelte` | Bottom status bar | Active |
+| `StackDiagram.svelte` | Three-product convergence diagram | Active (homepage) |
+| `TrifectaDiagram.svelte` | UX/Privacy/Security triangle | Active (codex page) |
+| `reveal.js` | IntersectionObserver scroll reveal action | Active |
+| `AsciiArt.svelte` | ASCII text art blocks | Unused — superseded by HeroGlyph |
+| `EsperCrystal.svelte` | Crystal SVG decorative element | Unused — superseded by HeroGlyph |
 
 ## Backlog (external systems — not actionable from this repo)
 
@@ -315,22 +349,17 @@ These require access to external dashboards, registrars, or depend on work that 
 - MrHaven SDK section on the MrHaven page (blocked on SDK docs)
 - X profile update (currently MrHaven-branded)
 - Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
+- Clean up unused components (AsciiArt.svelte, EsperCrystal.svelte)
+- Update favicon SVG to match new palette
+- Dark mode visual QA session (glyphs, panels, dot grid)
 
 ### Completed
+- [x] Animated SVG hero glyphs with glow + motion (2026-03-15)
+- [x] Rename "Manifesto" → "Codex" across nav, footer, pages, meta tags (2026-03-15)
 - [x] Schematic magitek editorial redesign — full visual system rewrite (2026-03-15)
 - [x] Three.js + GSAP removed, panel/tag system added, violet accent (2026-03-15)
-- [x] StatusBar component, Nav restyled (2026-03-15)
-- [x] SVG diagrams: StackDiagram + TrifectaDiagram (2026-03-15)
-- [x] Line-based icon/glyph system: Icon.svelte with 9 glyphs (2026-03-15)
-- [x] Dark mode polish: refined token tuning (2026-03-15)
-- [x] Motion system: reveal.js + CSS scroll reveals (2026-03-15)
-- [x] OG image regenerated with schematic magitek palette (2026-03-15)
-- [x] Visual convergence diagram on homepage (2026-03-15)
-- [x] manifest.webmanifest theme-color updated (2026-03-15)
-- [x] Favicon suite, Web app manifest, OG image (2026-02-26)
-- [x] Open Graph + Twitter Card + Canonical URLs on all pages (2026-02-26)
-- [x] Security headers, skip-nav, aria-labels, prefers-reduced-motion (2026-02-26)
-- [x] ESLint + Prettier + svelte-check, CI pipeline, Dependabot (2026-02-26)
-- [x] LICENSE, CHANGELOG, SECURITY.md (2026-02-26)
+- [x] StatusBar, Nav restyle, dot-grid bg, corner brackets, section rules (2026-03-15)
+- [x] SVG diagrams, icon system, dark mode polish, motion system, OG image (2026-03-15)
+- [x] Favicon suite, OG tags, security headers, a11y, CI pipeline (2026-02-26)
 - [x] Light/dark theme toggle with persistence (2026-02-25)
 - [x] Waitlist capture on Esver OS page (2026-02-24)

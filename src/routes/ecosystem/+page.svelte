@@ -1,16 +1,17 @@
 <svelte:head>
-  <title>Ecosystem Manifesto — The Sovren Stack | Sovren Software</title>
-  <meta name="description" content="Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default. The manifesto behind Sovren Software's sovereign command infrastructure." />
+  <title>The Codex — Sovren Stack Doctrine | Sovren Software</title>
+  <meta name="description" content="Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default. The codex behind Sovren Software's sovereign command infrastructure." />
   <link rel="canonical" href="https://sovren.software/ecosystem" />
-  <meta property="og:title" content="The Sovren Manifesto. Command Your Infrastructure." />
+  <meta property="og:title" content="The Sovren Codex. Command Your Infrastructure." />
   <meta property="og:description" content="We build sovereign infrastructure for operators who refuse to be tenants. Compute, identity, and capital — under a single chain of command." />
   <meta property="og:url" content="https://sovren.software/ecosystem" />
-  <meta name="twitter:title" content="The Sovren Manifesto. Command Your Infrastructure." />
+  <meta name="twitter:title" content="The Sovren Codex. Command Your Infrastructure." />
   <meta name="twitter:description" content="We build sovereign infrastructure for operators who refuse to be tenants. Compute, identity, and capital — under a single chain of command." />
 </svelte:head>
 
 <script>
   import TrifectaDiagram from '$lib/TrifectaDiagram.svelte';
+  import HeroGlyph from '$lib/HeroGlyph.svelte';
   import Icon from '$lib/Icon.svelte';
   import { reveal } from '$lib/reveal.js';
 
@@ -44,11 +45,14 @@
 
 <main>
   <section class="hero">
+    <div class="hero-glyph-zone">
+      <HeroGlyph id="codex" />
+    </div>
     <div class="hero-inner">
       <div class="hero-frame panel--strong">
-        <span class="category">COMPANY</span>
+        <span class="category">DOCTRINE</span>
         <div class="category-rule"></div>
-        <h1>THE MANIFESTO.</h1>
+        <h1>THE CODEX.</h1>
         <p class="tagline">We reject the premise that extraction is the default state of technology.</p>
       </div>
     </div>
@@ -108,21 +112,35 @@
   .hero {
     min-height: calc(100vh - var(--nav-h));
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: var(--pad-hero);
     background: var(--bg);
     border-bottom: var(--panel-border-strong);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glyph-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl) var(--space-2xl) 0;
   }
 
   .hero-inner {
     max-width: var(--max-w);
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-frame {
     border: var(--panel-border-strong);
     padding: var(--panel-pad);
+    background: var(--bg);
   }
 
   .category {
