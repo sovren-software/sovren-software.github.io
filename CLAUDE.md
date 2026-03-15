@@ -305,16 +305,16 @@ Script is at `scripts/generate-og.js`. Run it after any brand or copy changes th
 - `augmentum.computer` → `esver.computer` DNS redirect not yet configured (Namecheap/Cloudflare)
 - Brevo welcome email template still references Augmentum OS in body text — update in Brevo dashboard
 
-## Remaining Work
+## Backlog (external systems — not actionable from this repo)
 
-### External / Blocked (cannot complete from this repo)
-- [ ] DNS forwarding: `augmentum.computer` → `esver.computer` (Namecheap or Cloudflare forwarding)
-- [ ] Build standalone `esver.computer` product landing page
-- [ ] Update Brevo welcome email template body text (Augmentum OS → Esver OS)
-- [ ] Blog/article platform for the two-article launch sequence
-- [ ] MrHaven SDK section on the MrHaven page (when SDK docs exist)
-- [ ] X profile update (currently MrHaven-branded)
-- [ ] Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
+These require access to external dashboards, registrars, or depend on work that doesn't exist yet:
+- DNS forwarding: `augmentum.computer` → `esver.computer` (Namecheap or Cloudflare)
+- Build standalone `esver.computer` product landing page
+- Update Brevo welcome email template body text (Augmentum OS → Esver OS)
+- Blog/article platform for the two-article launch sequence
+- MrHaven SDK section on the MrHaven page (blocked on SDK docs)
+- X profile update (currently MrHaven-branded)
+- Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
 
 ### Completed
 - [x] Schematic magitek editorial redesign — full visual system rewrite (2026-03-15)
