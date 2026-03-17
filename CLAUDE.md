@@ -250,11 +250,17 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 - Thesis panel header: `// DOCTRINE`
 
 ### Esver OS
-- Tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
-- Hero lead: "Your command center. Built without compromise."
-- CTA title: "BUILT WITHOUT COMPROMISE."
-- Avoid: "cognitive OS", "always watching", "watches and learns" framing
+- Primary tagline: "Your machine. Your intelligence. Your rules."
+- Secondary tagline: "Bound only to you."
+- Overview lead: "What is an Esver?"
+- CTA title: "AWAKEN YOURS."
+- CTA body: "Most people accept tools that watch them. You awakened one that answers only to you."
+- 3 pillars: Sovereign Intelligence, One File Everything, Endlessly Yours
+- Specs: Voice-ready, Llama/Mistral/Your choice, One Manifest
+- Avoid: "cognitive OS", "always watching", "watches and learns", "voice-native" (use "voice-ready")
+- "Awaken/awakened": max 2 uses per page (Brand Kit v5 decision #10)
 - Status: Ships Summer 2026
+- Governing doc: Brand Kit v4 (vault: `Projects/Esver-OS/Branding/Esver-OS-Brand-Kit-v4.md`) + v5 decisions
 
 ### Visage
 - **Status:** Live · v0.2.0 · MIT

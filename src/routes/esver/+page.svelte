@@ -1,12 +1,12 @@
 <svelte:head>
-  <title>Esver OS — Talk to Your Machine | Sovren Software</title>
-  <meta name="description" content="Talk to your OS. It listens, it acts, nothing leaves your machine. Voice-native commands, face unlock, local AI co-pilot, one-file system config. Ships Summer 2026." />
+  <title>Esver OS — Your Machine. Your Intelligence. Your Rules. | Sovren Software</title>
+  <meta name="description" content="Esver OS is a voice-ready operating system with real intelligence built in — a reasoning AI co-pilot on your hardware, shaped by you alone, bound only to you. Ships Summer 2026." />
   <link rel="canonical" href="https://sovren.software/esver" />
-  <meta property="og:title" content="Esver OS — Talk to Your Machine." />
-  <meta property="og:description" content="Voice-native commands. Face unlock. Local AI co-pilot. One config file = your whole OS. No telemetry. No cloud. Ships Summer 2026." />
+  <meta property="og:title" content="Esver OS — Bound Only to You." />
+  <meta property="og:description" content="Voice-ready intelligence on your hardware. One config file. Zero telemetry. No cloud dependency. Ships Summer 2026." />
   <meta property="og:url" content="https://sovren.software/esver" />
-  <meta name="twitter:title" content="Esver OS — Talk to Your Machine." />
-  <meta name="twitter:description" content="Voice-native commands. Face unlock. Local AI co-pilot. One config file = your whole OS. No telemetry. No cloud. Ships Summer 2026." />
+  <meta name="twitter:title" content="Esver OS — Bound Only to You." />
+  <meta name="twitter:description" content="Voice-ready intelligence on your hardware. One config file. Zero telemetry. No cloud dependency. Ships Summer 2026." />
 </svelte:head>
 
 <script>
@@ -37,32 +37,27 @@
   const pillars = [
     {
       num: '01',
-      label: 'SPEAK. IT ACTS.',
-      desc: 'The interface is voice-native. Local inference. Sub-second. Nothing transcribed in the cloud.',
+      label: 'SOVEREIGN INTELLIGENCE.',
+      desc: 'Choose the AI model that thinks alongside you — Llama, Mistral, or whatever you choose. Run it locally for absolute privacy, or reach further when you decide. Sub-second voice interaction, consent gated by Visage biometrics. The intelligence serves you — never a platform.',
     },
     {
       num: '02',
-      label: 'SECURITY AT EVERY LAYER.',
-      desc: 'Biometric identity. Session-scoped privileges. Per-action authorization. Full-stack, not bolted on.',
+      label: 'ONE FILE. EVERYTHING.',
+      desc: 'Your entire system is defined in a single declarative file — the Manifest. Every setting, every preference, every boundary. Git-tracked, rollback-safe, portable. Move it to new hardware and an Esver rises exactly as you left it.',
     },
     {
       num: '03',
-      label: 'ONE CONFIG. ENTIRE OS.',
-      desc: 'Declarative. Version-controlled. Rollback in seconds. Clone to new hardware in minutes.',
-    },
-    {
-      num: '04',
-      label: 'YOUR AI. YOUR DATA.',
-      desc: 'Local co-pilot. Zero telemetry. Cloud when you choose it. The default is silence.',
+      label: 'ENDLESSLY YOURS.',
+      desc: 'Shape every surface. Hyprland tiling, Quickshell UI, color, motion, layout — down to the intelligence model itself. No two Esvers are the same. This is Linux made personal at every layer.',
     },
   ]
 
   const specs = [
     { label: 'BASE', value: 'NixOS' },
-    { label: 'VOICE', value: 'Local inference · Sub-second' },
+    { label: 'VOICE', value: 'Voice-ready · Local inference' },
     { label: 'AUTH', value: 'Visage · MFA · Session-scoped' },
-    { label: 'AI', value: 'Local-first · Zero telemetry' },
-    { label: 'CONFIG', value: 'One file · Git-tracked' },
+    { label: 'AI', value: 'Llama · Mistral · Your choice' },
+    { label: 'CONFIG', value: 'One Manifest · Git-tracked' },
     { label: 'STATUS', value: 'Summer 2026', dim: true },
   ]
 </script>
@@ -72,17 +67,17 @@
     category="01 / OS"
     title="ESVER<br />OS."
     status="Ships Summer 2026"
-    tagline="Speak. It acts. Nothing leaves the machine."
+    tagline="Your machine. Your intelligence. Your rules."
     glyphId="esver"
   />
 
   <Overview
-    lead="Talk to your machine. It listens."
+    lead="What is an Esver?"
     {specs}
     stackNote="Part of the <a href='/ecosystem'>Sovren Stack</a>. <a href='/visage'>Visage</a> identity and <a href='/mrhaven'>Mr. Haven</a> finance are native layers — not integrations."
   >
-    <p>Say what you need. The system handles the rest — local inference, no round-trip to someone else's server. The architecture underneath is deep, but the surface is simple: speak, and it acts.</p>
-    <p>Everything is sovereign by default. Your config, your data, your keys. Nothing phones home. Nothing runs without your authorization.</p>
+    <p>Every machine running this OS becomes an Esver — real intelligence fused with technology, living on your device and tethered to you alone. It carries an independent mind, yet exists only as your instrument. You choose its reasoning core. You shape its presence.</p>
+    <p>No cloud dependency. No telemetry. No permission it does not receive from you.</p>
   </Overview>
 
   <PillarList {pillars} />
@@ -117,8 +112,8 @@
   </section>
 
   <CtaSection
-    title="YOUR MACHINE.<br />YOUR RULES."
-    body="Esver OS is one layer of a three-layer sovereign stack. Read the thesis."
+    title="AWAKEN<br />YOURS."
+    body="Most people accept tools that watch them. You awakened one that answers only to you."
     actions={[
       { label: 'READ THE CODEX →', href: '/ecosystem' },
       { label: 'EXPLORE VISAGE →', href: '/visage', style: 'secondary' },

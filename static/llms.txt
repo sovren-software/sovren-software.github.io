@@ -35,7 +35,7 @@ Key capabilities:
 - **Declarative sovereign infrastructure:** The entire OS state is declared in a single reproducible configuration file — version-controlled, auditable, rollback-capable. No silent updates. No background processes you did not authorize. Clone your machine to new hardware in minutes.
 - **Programmable orchestration:** Automation and agent tasks operate inside explicit authority boundaries defined by the operator. Every elevated action requires authorization.
 
-Built on: NixOS (Linux). Interface: voice-native, natural language, local inference. Auth: biometric (Visage) + MFA, session-scoped. AI: on-device co-pilot, no telemetry. Config: declarative, Git-tracked.
+Built on: NixOS (Linux). Interface: voice-ready, natural language, local inference. Auth: biometric (Visage) + MFA, session-scoped. AI: on-device co-pilot, no telemetry. Config: declarative, Git-tracked.
 
 ---
 
