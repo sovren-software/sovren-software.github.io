@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sovren — Color System v3</title>
+  <style>
+    @font-face {
+      font-family: 'Geist Mono';
+      src: url('../static/fonts/GeistMono-Variable.woff2') format('woff2');
+      font-weight: 100 900;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Geist Mono', monospace; background: #111; color: #999; padding: 2rem 2rem 6rem; max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7EC8; font-weight: 400; margin-bottom: 0.25rem; }
+    .subtitle { font-size: 0.65rem; color: #555; letter-spacing: 0.1em; margin-bottom: 2.5rem; }
+    h2 { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; font-weight: 400; margin: 3.5rem 0 1.25rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
+    p.note { font-size: 0.7rem; color: #666; margin-bottom: 1.5rem; line-height: 1.9; }
+    .accent-text { color: #A99ADB; }
+    .peak-text { color: #B8ABE6; }
+
+    /* Swatch systems */
+    .token-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
+    .token-col { border: 1px solid #222; overflow: hidden; }
+    .token-col .col-header { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.6rem 1rem; }
+    .swatch-row { display: flex; }
+    .swatch { flex: 1; padding: 1rem 0.6rem; font-size: 0.45rem; letter-spacing: 0.06em; line-height: 1.7; text-align: center; }
+    .swatch .name { font-weight: 600; margin-bottom: 2px; }
+
+    /* Page mockups */
+    .mockup { border: 1px solid #222; overflow: hidden; margin-bottom: 1rem; }
+    .mockup-label { font-size: 0.5rem; color: #444; letter-spacing: 0.1em; padding: 0.4rem 1rem; background: #111; text-align: right; }
+
+    /* Mockup nav */
+    .m-nav { display: flex; align-items: center; padding: 0 2rem; height: 52px; }
+    .m-nav .logo { display: flex; align-items: center; gap: 8px; }
+    .m-nav .logo svg { width: 18px; height: 18px; }
+    .m-nav .logo span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; }
+    .m-nav .spacer { flex: 1; }
+    .m-nav .link { font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; margin-left: 1.5rem; }
+
+    /* Mockup hero */
+    .m-hero { padding: 4rem 2rem 3rem; }
+    .m-hero .frame { border: 1px solid; padding: 2rem; }
+    .m-hero .frame-label { font-size: 0.45rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; justify-content: space-between; }
+    .m-hero h3 { font-size: 2.5rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 0.75rem; }
+    .m-hero .sub { font-size: 0.7rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .m-hero .cta { display: inline-block; padding: 0.6rem 1.5rem; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: inherit; cursor: pointer; border: none; }
+    .m-hero .scroll { font-size: 0.5rem; letter-spacing: 0.12em; margin-top: 2rem; }
+
+    /* Mockup section */
+    .m-section { padding: 3rem 2rem; }
+    .m-section .section-label { font-size: 0.45rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .m-section .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .m-section .pillar { border: 1px solid; padding: 1.25rem; }
+    .m-section .pillar .num { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .m-section .pillar .title { font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem; }
+    .m-section .pillar .body { font-size: 0.55rem; line-height: 1.7; }
+
+    /* Peak state study */
+    .peak-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .peak-card { padding: 2rem; text-align: center; border: 1px solid #222; }
+    .peak-card .btn { display: inline-block; padding: 0.7rem 2rem; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: inherit; margin-top: 1rem; }
+    .peak-card .label { font-size: 0.5rem; letter-spacing: 0.1em; margin-top: 1rem; }
+    .peak-card .hex { font-size: 0.45rem; opacity: 0.5; }
+
+    /* Text warmth comparison */
+    .text-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid #222; }
+    .text-sample { padding: 2rem; }
+    .text-sample .heading { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
+    .text-sample .body { font-size: 0.7rem; line-height: 1.8; margin-bottom: 0.5rem; }
+    .text-sample .meta { font-size: 0.45rem; letter-spacing: 0.1em; opacity: 0.4; margin-top: 1rem; }
+
+    /* Emotional arc */
+    .arc-row { display: flex; gap: 0; border: 1px solid #222; overflow: hidden; }
+    .arc-step { flex: 1; padding: 1.5rem; text-align: center; }
+    .arc-step .level { font-size: 0.45rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .arc-step .demo { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .arc-step .token { font-size: 0.4rem; opacity: 0.4; letter-spacing: 0.08em; }
+
+    .philosophy { background: #161318; border: 1px solid rgba(139,126,200,0.1); padding: 2rem; font-size: 0.7rem; line-height: 2.2; color: #888; }
+    .philosophy strong { color: #bbb; }
+    .philosophy em { color: #A99ADB; font-style: normal; }
+  </style>
+</head>
+<body>
+
+  <h1>Sovren Color System</h1>
+  <div class="subtitle">v3 — violet atmosphere + peak state + warm text</div>
+
+  <!-- ============================================================ -->
+  <h2>// 01. The Emotional Arc</h2>
+  <p class="note">
+    The brand has one emotional register right now: calm. But the copy has an arc —<br>
+    quiet environment → declarative authority → <em class="accent-text">awakening moment</em>.<br>
+    The palette should mirror this. Three accent levels, not one.
+  </p>
+
+  <div class="arc-row" style="margin-bottom: 0.5rem;">
+    <div class="arc-step" style="background:#1A1721;">
+      <div class="level" style="color:#666;">Environment</div>
+      <div class="demo" style="color:rgba(234,231,227,0.4);">// SPECIFICATIONS</div>
+      <div class="demo" style="color:rgba(234,231,227,0.4);">borders · labels · muted UI</div>
+      <div class="token" style="color:#666;">rgba(accent, 0.12)</div>
+    </div>
+    <div class="arc-step" style="background:#1A1721;">
+      <div class="level" style="color:#A99ADB;">Accent</div>
+      <div class="demo" style="color:#A99ADB;">Esver OS</div>
+      <div class="demo" style="color:#A99ADB;">active nav · pillar numbers · tags</div>
+      <div class="token" style="color:#666;">#A99ADB / #8B7EC8</div>
+    </div>
+    <div class="arc-step" style="background:#1A1721;">
+      <div class="level" style="color:#B8ABE6;">Peak</div>
+      <div class="demo" style="color:#B8ABE6;">AWAKEN YOURS.</div>
+      <div class="demo" style="color:#B8ABE6;">CTA · boot text · first moment</div>
+      <div class="token" style="color:#666;">#B8ABE6 / #9D8FD6</div>
+    </div>
+  </div>
+  <div class="arc-row">
+    <div class="arc-step" style="background:#F0EDE8;">
+      <div class="level" style="color:#999;">Environment</div>
+      <div class="demo" style="color:rgba(26,26,26,0.25);">// SPECIFICATIONS</div>
+      <div class="token" style="color:#aaa;">rgba(black, 0.12)</div>
+    </div>
+    <div class="arc-step" style="background:#F0EDE8;">
+      <div class="level" style="color:#8B7EC8;">Accent</div>
+      <div class="demo" style="color:#8B7EC8;">Esver OS</div>
+      <div class="token" style="color:#aaa;">#8B7EC8</div>
+    </div>
+    <div class="arc-step" style="background:#F0EDE8;">
+      <div class="level" style="color:#9D8FD6;">Peak</div>
+      <div class="demo" style="color:#9D8FD6; font-size:0.75rem;">AWAKEN YOURS.</div>
+      <div class="token" style="color:#aaa;">#9D8FD6</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 02. Peak State — CTA Button Study</h2>
+  <p class="note">
+    "Awaken yours." is not a nav link. It's the moment of commitment. The peak accent<br>
+    should feel like the environment <em class="accent-text">focusing</em> — not louder, but <em class="accent-text">clearer</em>.
+  </p>
+
+  <div class="peak-grid">
+    <!-- Light mode CTAs -->
+    <div class="peak-card" style="background:#F0EDE8; color:#1A1A1A;">
+      <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.04em;">AWAKEN YOURS.</div>
+      <div class="btn" style="background:#8B7EC8; color:#fff;">Awaken yours</div>
+      <div class="label">Standard accent</div>
+      <div class="hex">#8B7EC8 on bone</div>
+    </div>
+    <div class="peak-card" style="background:#F0EDE8; color:#1A1A1A;">
+      <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.04em;">AWAKEN YOURS.</div>
+      <div class="btn" style="background:#9D8FD6; color:#fff;">Awaken yours</div>
+      <div class="label" style="color:#9D8FD6;">Peak accent</div>
+      <div class="hex">#9D8FD6 on bone</div>
+    </div>
+    <div class="peak-card" style="background:#F0EDE8; color:#1A1A1A;">
+      <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.04em;">AWAKEN YOURS.</div>
+      <div class="btn" style="background:transparent; color:#9D8FD6; border:1px solid #9D8FD6;">Awaken yours</div>
+      <div class="label" style="color:#9D8FD6;">Peak ghost</div>
+      <div class="hex">#9D8FD6 outline on bone</div>
+    </div>
+    <!-- Dark mode CTAs -->
+    <div class="peak-card" style="background:#1A1721; color:#EAE7E3;">
+      <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.04em;">AWAKEN YOURS.</div>
+      <div class="btn" style="background:#A99ADB; color:#1A1721;">Awaken yours</div>
+      <div class="label" style="color:#A99ADB;">Standard accent</div>
+      <div class="hex">#A99ADB on violet-black</div>
+    </div>
+    <div class="peak-card" style="background:#1A1721; color:#EAE7E3;">
+      <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.04em;">AWAKEN YOURS.</div>
+      <div class="btn" style="background:#B8ABE6; color:#1A1721;">Awaken yours</div>
+      <div class="label" style="color:#B8ABE6;">Peak accent</div>
+      <div class="hex">#B8ABE6 on violet-black</div>
+    </div>
+    <div class="peak-card" style="background:#1A1721; color:#EAE7E3;">
+      <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.04em;">AWAKEN YOURS.</div>
+      <div class="btn" style="background:transparent; color:#B8ABE6; border:1px solid #B8ABE6;">Awaken yours</div>
+      <div class="label" style="color:#B8ABE6;">Peak ghost</div>
+      <div class="hex">#B8ABE6 outline on violet-black</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 03. Text Warmth — Dark Mode</h2>
+  <p class="note">
+    The words should feel human in both modes. Violet belongs in the <em class="accent-text">environment</em><br>
+    (bg, borders, accents), but the text itself should carry the bone's warmth — even on dark.
+  </p>
+
+  <div class="text-compare">
+    <div class="text-sample" style="background:#1A1721;">
+      <div class="heading" style="color:#E8E5EF;">THE SOVREN STACK.</div>
+      <div class="body" style="color:rgba(232,229,239,0.65);">Sovereign compute. Local identity. Programmable capital.</div>
+      <div style="font-size:0.6rem; color:#A99ADB;">[ SCROLL TO EXPLORE ]</div>
+      <div class="meta" style="color:#666;">Cool violet white — #E8E5EF<br>feels ethereal, sci-fi dashboard</div>
+    </div>
+    <div class="text-sample" style="background:#1A1721; border-left:1px solid #2A2633; border-right:1px solid #2A2633;">
+      <div class="heading" style="color:#EAE7E3;">THE SOVREN STACK.</div>
+      <div class="body" style="color:rgba(234,231,227,0.65);">Sovereign compute. Local identity. Programmable capital.</div>
+      <div style="font-size:0.6rem; color:#A99ADB;">[ SCROLL TO EXPLORE ]</div>
+      <div class="meta" style="color:#666;">Warm off-white — #EAE7E3<br>grounded, human, dossier-like</div>
+    </div>
+    <div class="text-sample" style="background:#1A1721;">
+      <div class="heading" style="color:#FFFFFF;">THE SOVREN STACK.</div>
+      <div class="body" style="color:rgba(255,255,255,0.65);">Sovereign compute. Local identity. Programmable capital.</div>
+      <div style="font-size:0.6rem; color:#A99ADB;">[ SCROLL TO EXPLORE ]</div>
+      <div class="meta" style="color:#666;">Pure white — #FFFFFF<br>clinical, high-contrast, generic</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 04. Full Token System</h2>
+
+  <div class="token-grid">
+    <div class="token-col">
+      <div class="col-header" style="background:#F0EDE8; color:#1A1A1A;">Light — The Captain's Desk</div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#F0EDE8; color:#888;"><div class="name">bg</div>#F0EDE8</div>
+        <div class="swatch" style="background:#E8E4DF; color:#888;"><div class="name">bg-alt</div>#E8E4DF</div>
+        <div class="swatch" style="background:#FFFFFF; color:#999;"><div class="name">surface</div>#FFFFFF</div>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#F0EDE8; color:#1A1A1A;"><div class="name">text</div>#1A1A1A</div>
+        <div class="swatch" style="background:#F0EDE8; color:rgba(26,26,26,0.5);"><div class="name">text-muted</div>black/0.5</div>
+        <div class="swatch" style="background:#F0EDE8; color:rgba(26,26,26,0.25);"><div class="name">text-ghost</div>black/0.25</div>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#F0EDE8; color:#8B7EC8;"><div class="name">accent</div>#8B7EC8</div>
+        <div class="swatch" style="background:#F0EDE8; color:#9D8FD6;"><div class="name">accent-peak</div>#9D8FD6</div>
+        <div class="swatch" style="background:rgba(139,126,200,0.08); color:#8B7EC8; margin:0 4px;"><div class="name">accent-surface</div>violet/0.08</div>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#F0EDE8; border-bottom:2px solid rgba(0,0,0,0.12); color:#999;"><div class="name">border</div>black/0.12</div>
+        <div class="swatch" style="background:#F0EDE8; border-bottom:2px solid rgba(0,0,0,0.25); color:#999;"><div class="name">border-strong</div>black/0.25</div>
+        <div class="swatch" style="background:#F0EDE8; border-bottom:2px solid #8B7EC8; color:#999;"><div class="name">border-accent</div>#8B7EC8</div>
+      </div>
+    </div>
+
+    <div class="token-col">
+      <div class="col-header" style="background:#1A1721; color:#EAE7E3;">Dark — Inside the Machine</div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#1A1721; color:#888;"><div class="name">bg</div>#1A1721</div>
+        <div class="swatch" style="background:#211E2A; color:#888;"><div class="name">bg-alt</div>#211E2A</div>
+        <div class="swatch" style="background:#2A2633; color:#999;"><div class="name">surface</div>#2A2633</div>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#1A1721; color:#EAE7E3;"><div class="name">text</div>#EAE7E3</div>
+        <div class="swatch" style="background:#1A1721; color:rgba(234,231,227,0.5);"><div class="name">text-muted</div>warm/0.5</div>
+        <div class="swatch" style="background:#1A1721; color:rgba(234,231,227,0.25);"><div class="name">text-ghost</div>warm/0.25</div>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#1A1721; color:#A99ADB;"><div class="name">accent</div>#A99ADB</div>
+        <div class="swatch" style="background:#1A1721; color:#B8ABE6;"><div class="name">accent-peak</div>#B8ABE6</div>
+        <div class="swatch" style="background:rgba(169,154,219,0.08); color:#A99ADB; margin:0 4px;"><div class="name">accent-surface</div>violet/0.08</div>
+      </div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#1A1721; border-bottom:2px solid rgba(169,154,219,0.12); color:#666;"><div class="name">border</div>violet/0.12</div>
+        <div class="swatch" style="background:#1A1721; border-bottom:2px solid rgba(169,154,219,0.25); color:#666;"><div class="name">border-strong</div>violet/0.25</div>
+        <div class="swatch" style="background:#1A1721; border-bottom:2px solid #A99ADB; color:#666;"><div class="name">border-accent</div>#A99ADB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 05. Page Mockup — Light (The Captain's Desk)</h2>
+
+  <div class="mockup">
+    <div class="m-nav" style="background:#F0EDE8; color:#1A1A1A; border-bottom:1px solid rgba(0,0,0,0.08);">
+      <div class="logo">
+        <svg viewBox="0 0 512 512" width="18" height="18">
+          <g fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linecap="butt">
+            <line x1="256" y1="56" x2="429.21" y2="356" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="429.21" y1="356" x2="82.79" y2="356" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="82.79" y1="356" x2="256" y2="56" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="429.21" y1="156" x2="256" y2="456" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="256" y1="456" x2="82.79" y2="156" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="82.79" y1="156" x2="429.21" y2="156" stroke-dasharray="218.94 24 103.47"/>
+          </g>
+          <polygon points="256,56 429.21,156 429.21,356 256,456 82.79,356 82.79,156" fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linejoin="miter"/>
+          <g fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linecap="butt">
+            <line x1="298.74" y1="130.01" x2="328.75" y2="181.97"/>
+            <line x1="343.75" y1="356" x2="283.74" y2="356"/>
+            <line x1="125.53" y1="281.99" x2="155.54" y2="230.03"/>
+            <line x1="386.47" y1="230.01" x2="356.46" y2="281.97"/>
+            <line x1="213.26" y1="381.99" x2="183.25" y2="330.03"/>
+            <line x1="168.25" y1="156" x2="228.26" y2="156"/>
+          </g>
+        </svg>
+        <span style="color:#1A1A1A;">SOVREN</span>
+      </div>
+      <span class="spacer"></span>
+      <span class="link" style="color:#8B7EC8;">Esver</span>
+      <span class="link" style="color:rgba(26,26,26,0.45);">Visage</span>
+      <span class="link" style="color:rgba(26,26,26,0.45);">MrHaven</span>
+      <span class="link" style="color:rgba(26,26,26,0.45);">Codex</span>
+    </div>
+    <div class="m-hero" style="background:#F0EDE8; color:#1A1A1A;">
+      <div class="frame" style="border-color:rgba(0,0,0,0.15);">
+        <div class="frame-label" style="color:rgba(26,26,26,0.25);"><span>// 001</span><span>V1.0</span></div>
+        <h3>THE SOVREN<br>STACK.</h3>
+        <div class="sub" style="color:rgba(26,26,26,0.55);">> Sovereign compute. Local identity. Programmable capital.</div>
+        <div class="cta" style="background:#9D8FD6; color:#fff;">Awaken yours</div>
+        <div class="scroll" style="color:rgba(26,26,26,0.25);">[ SCROLL TO EXPLORE ]</div>
+      </div>
+    </div>
+    <div class="m-section" style="background:#E8E4DF; color:#1A1A1A;">
+      <div class="section-label" style="color:rgba(26,26,26,0.3);">// THE THREE PILLARS</div>
+      <div class="pillars">
+        <div class="pillar" style="border-color:rgba(0,0,0,0.12);">
+          <div class="num" style="color:#8B7EC8;">01</div>
+          <div class="title">Sovereign Intelligence</div>
+          <div class="body" style="color:rgba(26,26,26,0.6);">Choose the AI model that thinks alongside you. Run it locally for absolute privacy.</div>
+        </div>
+        <div class="pillar" style="border-color:rgba(0,0,0,0.12);">
+          <div class="num" style="color:#8B7EC8;">02</div>
+          <div class="title">One File. Everything.</div>
+          <div class="body" style="color:rgba(26,26,26,0.6);">Your entire system defined in a single Manifest. Git-tracked, rollback-safe, portable.</div>
+        </div>
+        <div class="pillar" style="border-color:rgba(0,0,0,0.12);">
+          <div class="num" style="color:#8B7EC8;">03</div>
+          <div class="title">Endlessly Yours</div>
+          <div class="body" style="color:rgba(26,26,26,0.6);">Shape every surface. No two Esvers are the same. Linux made personal at every layer.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup-label">LIGHT — warm bone, charcoal text, peak CTA</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 06. Page Mockup — Dark (Inside the Machine)</h2>
+
+  <div class="mockup">
+    <div class="m-nav" style="background:#1A1721; color:#EAE7E3; border-bottom:1px solid rgba(169,154,219,0.08);">
+      <div class="logo">
+        <svg viewBox="0 0 512 512" width="18" height="18">
+          <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+            <line x1="256" y1="56" x2="429.21" y2="356" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="429.21" y1="356" x2="82.79" y2="356" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="82.79" y1="356" x2="256" y2="56" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="429.21" y1="156" x2="256" y2="456" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="256" y1="456" x2="82.79" y2="156" stroke-dasharray="218.94 24 103.47"/>
+            <line x1="82.79" y1="156" x2="429.21" y2="156" stroke-dasharray="218.94 24 103.47"/>
+          </g>
+          <polygon points="256,56 429.21,156 429.21,356 256,456 82.79,356 82.79,156" fill="none" stroke="#A99ADB" stroke-width="16" stroke-linejoin="miter"/>
+          <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+            <line x1="298.74" y1="130.01" x2="328.75" y2="181.97"/>
+            <line x1="343.75" y1="356" x2="283.74" y2="356"/>
+            <line x1="125.53" y1="281.99" x2="155.54" y2="230.03"/>
+            <line x1="386.47" y1="230.01" x2="356.46" y2="281.97"/>
+            <line x1="213.26" y1="381.99" x2="183.25" y2="330.03"/>
+            <line x1="168.25" y1="156" x2="228.26" y2="156"/>
+          </g>
+        </svg>
+        <span>SOVREN</span>
+      </div>
+      <span class="spacer"></span>
+      <span class="link" style="color:#A99ADB;">Esver</span>
+      <span class="link" style="color:rgba(234,231,227,0.35);">Visage</span>
+      <span class="link" style="color:rgba(234,231,227,0.35);">MrHaven</span>
+      <span class="link" style="color:rgba(234,231,227,0.35);">Codex</span>
+    </div>
+    <div class="m-hero" style="background:#1A1721; color:#EAE7E3;">
+      <div class="frame" style="border-color:rgba(169,154,219,0.15);">
+        <div class="frame-label" style="color:rgba(234,231,227,0.2);"><span>// 001</span><span>V1.0</span></div>
+        <h3>THE SOVREN<br>STACK.</h3>
+        <div class="sub" style="color:rgba(234,231,227,0.45);">> Sovereign compute. Local identity. Programmable capital.</div>
+        <div class="cta" style="background:#B8ABE6; color:#1A1721;">Awaken yours</div>
+        <div class="scroll" style="color:rgba(234,231,227,0.2);">[ SCROLL TO EXPLORE ]</div>
+      </div>
+    </div>
+    <div class="m-section" style="background:#211E2A; color:#EAE7E3;">
+      <div class="section-label" style="color:rgba(234,231,227,0.2);">// THE THREE PILLARS</div>
+      <div class="pillars">
+        <div class="pillar" style="border-color:rgba(169,154,219,0.12);">
+          <div class="num" style="color:#A99ADB;">01</div>
+          <div class="title">Sovereign Intelligence</div>
+          <div class="body" style="color:rgba(234,231,227,0.5);">Choose the AI model that thinks alongside you. Run it locally for absolute privacy.</div>
+        </div>
+        <div class="pillar" style="border-color:rgba(169,154,219,0.12);">
+          <div class="num" style="color:#A99ADB;">02</div>
+          <div class="title">One File. Everything.</div>
+          <div class="body" style="color:rgba(234,231,227,0.5);">Your entire system defined in a single Manifest. Git-tracked, rollback-safe, portable.</div>
+        </div>
+        <div class="pillar" style="border-color:rgba(169,154,219,0.12);">
+          <div class="num" style="color:#A99ADB;">03</div>
+          <div class="title">Endlessly Yours</div>
+          <div class="body" style="color:rgba(234,231,227,0.5);">Shape every surface. No two Esvers are the same. Linux made personal at every layer.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup-label">DARK — violet-black, warm off-white text, peak CTA</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 07. Why These Colors</h2>
+
+  <div class="philosophy">
+    <strong>Violet</strong> sits between red (human warmth) and blue (technology). It <em>is</em> the Magitek fusion — intelligence fused with the machine, not bolted on. Historically the dye of sovereignty: expensive, rare, reserved for rulers. Not aggressive like red. Not obedient like blue. The color of authority that doesn't need to raise its voice.<br><br>
+
+    <strong>Warm bone</strong> reads as parchment, vellum, classified document. The Captain's desk. Not sterile white (corporate, institutional) or cool gray (generic SaaS). Warm enough to feel human. Old enough to feel authoritative. The paper a Manifest would be written on if it were physical.<br><br>
+
+    <strong>Violet-black</strong> is the dark mode insight: the accent hue <em>becomes the substrate</em>. You're not reading a dossier anymore — you're inside the machine. The intelligence isn't painted on the surface; it <em>is</em> the environment. This mirrors the Esver philosophy: the AI isn't an app you open, it's the OS you inhabit.<br><br>
+
+    <strong>Warm off-white text</strong> (#EAE7E3) carries the bone's humanity into dark mode. The violet lives in the environment (bg, borders, accents), but the <em>words</em> stay warm — because a human wrote them. Even inside the machine, the Captain's voice is grounded, not ethereal.<br><br>
+
+    <strong>The peak state</strong> exists because the brand has an arc. "Most people accept tools that watch them" is calm observation. "Awaken yours" is a moment of commitment. The peak accent (#9D8FD6 light / #B8ABE6 dark) is not louder — it is <em>focused</em>. Used only where the whisper becomes a declaration: CTA buttons, the boot sequence, the awakening. Restraint makes it matter.<br><br>
+
+    <strong>The principle:</strong> In light mode, <em>warmth</em> connects surface to accent. In dark mode, the <em>accent hue itself</em> connects surface to accent. Both modes feel like the same brand because violet isn't decoration. It's the atmosphere sovereignty lives in.
+  </div>
+
+</body>
+</html>

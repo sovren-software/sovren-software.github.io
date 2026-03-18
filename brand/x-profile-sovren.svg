@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- X profile picture — @sovren_software
+       400x400, circle-cropped by X. Mark centered with padding. -->
+  <rect width="400" height="400" fill="#1A1721"/>
+
+  <!-- Mark centered at (200,200), scaled to fit circle crop (R~160) -->
+  <g transform="translate(200,200) scale(0.625)">
+    <!-- Under layer: hexagram with gaps -->
+    <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+      <line x1="0" y1="-200" x2="173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="100" x2="-173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="100" x2="0" y2="-200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="-100" x2="0" y2="200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="0" y1="200" x2="-173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="-100" x2="173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+    </g>
+    <!-- Outer hexagon -->
+    <polygon points="0,-200 173.21,-100 173.21,100 0,200 -173.21,100 -173.21,-100"
+             fill="none" stroke="#A99ADB" stroke-width="16"
+             stroke-linejoin="miter" stroke-miterlimit="4"/>
+    <!-- Over segments -->
+    <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+      <line x1="42.74" y1="-125.99" x2="72.75" y2="-74.03"/>
+      <line x1="87.75" y1="100" x2="27.74" y2="100"/>
+      <line x1="-130.47" y1="25.99" x2="-100.46" y2="-25.97"/>
+      <line x1="130.47" y1="-25.99" x2="100.46" y2="25.97"/>
+      <line x1="-42.74" y1="125.99" x2="-72.75" y2="74.03"/>
+      <line x1="-87.75" y1="-100" x2="-27.74" y2="-100"/>
+    </g>
+  </g>
+</svg>

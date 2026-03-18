@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <!-- X banner — @TheCesarCross
+       1500x500. Safe zone: avoid bottom-left 200x200 (profile pic overlap). -->
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Geist Mono';
+        src: url('../static/fonts/GeistMono-Variable.woff2') format('woff2');
+      }
+      text { font-family: 'Geist Mono', 'SF Mono', 'Fira Code', monospace; }
+    </style>
+  </defs>
+
+  <!-- Background — warm bone (founder = the Captain's desk, light mode) -->
+  <rect width="1500" height="500" fill="#F0EDE8"/>
+
+  <!-- Subtle dot grid -->
+  <g fill="rgba(0,0,0,0.03)">
+    <pattern id="dots2" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8"/>
+    </pattern>
+    <rect width="1500" height="500" fill="url(#dots2)"/>
+  </g>
+
+  <!-- Large watermark mark, right side -->
+  <g transform="translate(1100,250) scale(0.55)" opacity="0.045">
+    <g fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linecap="butt">
+      <line x1="0" y1="-200" x2="173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="100" x2="-173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="100" x2="0" y2="-200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="-100" x2="0" y2="200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="0" y1="200" x2="-173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="-100" x2="173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+    </g>
+    <polygon points="0,-200 173.21,-100 173.21,100 0,200 -173.21,100 -173.21,-100"
+             fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linejoin="miter"/>
+    <g fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linecap="butt">
+      <line x1="42.74" y1="-125.99" x2="72.75" y2="-74.03"/>
+      <line x1="87.75" y1="100" x2="27.74" y2="100"/>
+      <line x1="-130.47" y1="25.99" x2="-100.46" y2="-25.97"/>
+      <line x1="130.47" y1="-25.99" x2="100.46" y2="25.97"/>
+      <line x1="-42.74" y1="125.99" x2="-72.75" y2="74.03"/>
+      <line x1="-87.75" y1="-100" x2="-27.74" y2="-100"/>
+    </g>
+  </g>
+
+  <!-- Frame lines -->
+  <line x1="370" y1="155" x2="1050" y2="155" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+  <line x1="370" y1="345" x2="1050" y2="345" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+
+  <!-- Corner brackets -->
+  <g stroke="rgba(0,0,0,0.08)" stroke-width="1" fill="none">
+    <polyline points="355,165 355,155 365,155"/>
+    <polyline points="1055,155 1065,155 1065,165"/>
+    <polyline points="355,335 355,345 365,345"/>
+    <polyline points="1055,345 1065,345 1065,335"/>
+  </g>
+
+  <!-- Frame label -->
+  <text x="370" y="148" fill="rgba(26,26,26,0.2)" font-size="7.5" letter-spacing="2.5">// 001</text>
+  <text x="1050" y="148" fill="rgba(26,26,26,0.2)" font-size="7.5" letter-spacing="2.5" text-anchor="end">FOUNDER</text>
+
+  <!-- Main headline -->
+  <text x="370" y="230" fill="#1A1A1A" font-size="48" font-weight="700" letter-spacing="3">THE SOVREN STACK.</text>
+
+  <!-- Subtitle -->
+  <text x="370" y="270" fill="rgba(26,26,26,0.4)" font-size="12" letter-spacing="2.5">> SOVEREIGN COMPUTE. LOCAL IDENTITY. PROGRAMMABLE CAPITAL.</text>
+
+  <!-- Products row -->
+  <g font-size="9" letter-spacing="2">
+    <text x="370" y="315" fill="#8B7EC8">ESVER OS</text>
+    <text x="500" y="315" fill="rgba(26,26,26,0.2)">·</text>
+    <text x="520" y="315" fill="#8B7EC8">VISAGE</text>
+    <text x="610" y="315" fill="rgba(26,26,26,0.2)">·</text>
+    <text x="630" y="315" fill="#8B7EC8">MR HAVEN</text>
+  </g>
+
+  <!-- Bottom-right -->
+  <text x="1050" y="460" fill="rgba(26,26,26,0.12)" font-size="8.5" letter-spacing="2" text-anchor="end">SOVREN.SOFTWARE</text>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <!-- X banner — @sovren_software
+       1500x500. Safe zone: avoid bottom-left 200x200 (profile pic overlap). -->
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Geist Mono';
+        src: url('../static/fonts/GeistMono-Variable.woff2') format('woff2');
+      }
+      text { font-family: 'Geist Mono', 'SF Mono', 'Fira Code', monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="#1A1721"/>
+
+  <!-- Subtle dot grid pattern -->
+  <g fill="rgba(169,154,219,0.06)">
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8"/>
+    </pattern>
+    <rect width="1500" height="500" fill="url(#dots)"/>
+  </g>
+
+  <!-- Large watermark mark, right side, subtle -->
+  <g transform="translate(1150,250) scale(0.45)" opacity="0.06">
+    <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+      <line x1="0" y1="-200" x2="173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="100" x2="-173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="100" x2="0" y2="-200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="-100" x2="0" y2="200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="0" y1="200" x2="-173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="-100" x2="173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+    </g>
+    <polygon points="0,-200 173.21,-100 173.21,100 0,200 -173.21,100 -173.21,-100"
+             fill="none" stroke="#A99ADB" stroke-width="16" stroke-linejoin="miter"/>
+    <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+      <line x1="42.74" y1="-125.99" x2="72.75" y2="-74.03"/>
+      <line x1="87.75" y1="100" x2="27.74" y2="100"/>
+      <line x1="-130.47" y1="25.99" x2="-100.46" y2="-25.97"/>
+      <line x1="130.47" y1="-25.99" x2="100.46" y2="25.97"/>
+      <line x1="-42.74" y1="125.99" x2="-72.75" y2="74.03"/>
+      <line x1="-87.75" y1="-100" x2="-27.74" y2="-100"/>
+    </g>
+  </g>
+
+  <!-- Small mark, left-center -->
+  <g transform="translate(340,195) scale(0.14)">
+    <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+      <line x1="0" y1="-200" x2="173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="100" x2="-173.21" y2="100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="100" x2="0" y2="-200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="173.21" y1="-100" x2="0" y2="200" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="0" y1="200" x2="-173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+      <line x1="-173.21" y1="-100" x2="173.21" y2="-100" stroke-dasharray="218.94 24 103.47"/>
+    </g>
+    <polygon points="0,-200 173.21,-100 173.21,100 0,200 -173.21,100 -173.21,-100"
+             fill="none" stroke="#A99ADB" stroke-width="16" stroke-linejoin="miter"/>
+    <g fill="none" stroke="#A99ADB" stroke-width="16" stroke-linecap="butt">
+      <line x1="42.74" y1="-125.99" x2="72.75" y2="-74.03"/>
+      <line x1="87.75" y1="100" x2="27.74" y2="100"/>
+      <line x1="-130.47" y1="25.99" x2="-100.46" y2="-25.97"/>
+      <line x1="130.47" y1="-25.99" x2="100.46" y2="25.97"/>
+      <line x1="-42.74" y1="125.99" x2="-72.75" y2="74.03"/>
+      <line x1="-87.75" y1="-100" x2="-27.74" y2="-100"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="370" y="202" fill="#EAE7E3" font-size="22" font-weight="600" letter-spacing="4">SOVREN SOFTWARE</text>
+
+  <!-- Tagline -->
+  <text x="340" y="245" fill="rgba(234,231,227,0.35)" font-size="11" letter-spacing="2.5">SOVEREIGN COMPUTE. LOCAL IDENTITY. PROGRAMMABLE CAPITAL.</text>
+
+  <!-- Product labels -->
+  <g font-size="9.5" letter-spacing="2">
+    <!-- Esver OS -->
+    <text x="340" y="310" fill="#A99ADB">01</text>
+    <text x="370" y="310" fill="rgba(234,231,227,0.5)">ESVER OS</text>
+    <text x="340" y="325" fill="rgba(234,231,227,0.2)" font-size="8" letter-spacing="1.5">VOICE-READY OS · SHIPS SUMMER 2026</text>
+
+    <!-- Visage -->
+    <text x="620" y="310" fill="#A99ADB">02</text>
+    <text x="650" y="310" fill="rgba(234,231,227,0.5)">VISAGE</text>
+    <text x="620" y="325" fill="rgba(234,231,227,0.2)" font-size="8" letter-spacing="1.5">FACE AUTH · OPEN SOURCE · LIVE</text>
+
+    <!-- MrHaven -->
+    <text x="880" y="310" fill="#A99ADB">03</text>
+    <text x="910" y="310" fill="rgba(234,231,227,0.5)">MR HAVEN</text>
+    <text x="880" y="325" fill="rgba(234,231,227,0.2)" font-size="8" letter-spacing="1.5">USDC TIME VAULTS · BASE L2 · LIVE</text>
+  </g>
+
+  <!-- Thin frame lines -->
+  <line x1="340" y1="265" x2="1100" y2="265" stroke="rgba(169,154,219,0.12)" stroke-width="1"/>
+  <line x1="340" y1="285" x2="1100" y2="285" stroke="rgba(169,154,219,0.08)" stroke-width="1"/>
+
+  <!-- Section label -->
+  <text x="340" y="278" fill="rgba(234,231,227,0.15)" font-size="8" letter-spacing="2.5">// THE STACK</text>
+
+  <!-- Bottom-right URL -->
+  <text x="1100" y="460" fill="rgba(234,231,227,0.15)" font-size="8.5" letter-spacing="2" text-anchor="end">SOVREN.SOFTWARE</text>
+
+  <!-- Top-right version tag -->
+  <text x="1100" y="55" fill="rgba(234,231,227,0.1)" font-size="7.5" letter-spacing="2" text-anchor="end">V3.0 // 2026</text>
+
+  <!-- Corner brackets (top-left, schematic feel) -->
+  <g stroke="rgba(169,154,219,0.12)" stroke-width="1" fill="none">
+    <polyline points="320,160 320,150 330,150"/>
+    <polyline points="1120,150 1130,150 1130,160"/>
+    <polyline points="320,345 320,355 330,355"/>
+    <polyline points="1120,355 1130,355 1130,345"/>
+  </g>
+</svg>

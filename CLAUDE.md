@@ -42,13 +42,31 @@ The site uses a `data-theme` attribute on `<html>` to switch between light and d
 --accent-surface: rgba(139,126,200,0.08) (violet tint)
 ```
 
-**Dark mode (`[data-theme='dark']`) — placeholder:**
+**Dark mode (`[data-theme='dark']`) — Violet Atmosphere:**
+Background shares the accent's hue family at minimum intensity. Violet is the substrate, not decoration.
 ```
---bg: #141210
---bg-alt: #1A1816
---accent: #A99ADB
-(rest follows inverse pattern)
+--bg: #1A1721             (violet-black — HSL 260° 18% 11%)
+--bg-alt: #211E2A         (lifted violet)
+--surface: #2A2633        (violet panel)
+--surface-2: #322D3C      (lighter violet panel)
+--border: rgba(169,154,219,0.12)     (violet-tinted borders)
+--border-strong: rgba(169,154,219,0.25)
+--text-primary: #EAE7E3             (warm off-white — carries bone warmth)
+--text-secondary: rgba(234,231,227,0.60)
+--text-muted: rgba(234,231,227,0.32)
+--text-ghost: rgba(234,231,227,0.14)
+--accent: #A99ADB                    (lighter violet for dark bg)
+--accent-light: #B8ABE6             (peak accent — CTAs, awakening moments)
+--accent-peak: #B8ABE6              (same as accent-light on dark)
+--accent-surface: rgba(169,154,219,0.08)
 ```
+
+**Emotional arc (3 accent levels):**
+- **Environment** — `rgba(accent, 0.12)` — borders, labels, muted UI
+- **Accent** — `--accent` (#8B7EC8 light / #A99ADB dark) — active nav, pillar numbers, tags
+- **Peak** — `--accent-peak` (#9D8FD6 light / #B8ABE6 dark) — CTA buttons, boot text, awakening. Max 1 per viewport.
+
+**Logo:** Hexagonal Knot mark at `static/sovren-logo.svg`. Brand variants in `brand/`. Full reference at `brand/preview.html`.
 
 ### Panel System
 
@@ -324,14 +342,15 @@ The original site was pure monochrome (black/white) with a Three.js 3D wireframe
 - Accessible (all animations respect reduced-motion, all glyphs have aria-hidden, all SVGs are decorative)
 
 ### Known Limitations
-- Dark mode not visually QA'd — tokens present, glyph opacities may need per-theme tuning
+- Dark mode needs visual QA — tokens updated to violet atmosphere (2026-03-18), but glyphs/panels not yet tested in browser
 - No blog platform for content launch strategy
 - `esver.computer` has no standalone landing page
 - MrHaven SDK not yet documented
-- OG image uses static bone palette — no dark mode variant
+- OG image uses static bone palette — needs regeneration with new color system
 - Glyph animations are CSS-only — no scroll-linked parallax or mouse interaction
 - `AsciiArt.svelte` and `EsperCrystal.svelte` are created but unused (superseded by HeroGlyph approach) — candidates for cleanup
-- Favicon SVG still uses old black design — should be updated to match new palette
+- Nav does not yet use the hexagonal knot mark (still text-only "SOVREN" wordmark)
+- `--accent-peak` token defined but not yet applied to any CTA components
 
 ### Component Inventory (new in redesign)
 | Component | Purpose | Status |
@@ -345,6 +364,54 @@ The original site was pure monochrome (black/white) with a Three.js 3D wireframe
 | `AsciiArt.svelte` | ASCII text art blocks | Unused — superseded by HeroGlyph |
 | `EsperCrystal.svelte` | Crystal SVG decorative element | Unused — superseded by HeroGlyph |
 
+## Design Decisions (2026-03-18 Brand System v3)
+
+### Rationale
+The site had no logo mark (text-only "SOVREN" wordmark), the dark mode was a brown-black placeholder (`#141210`) with no color kinship to the violet accent, and there was no emotional arc in the palette — everything was one register (calm). The brand voice describes an *awakening* moment, but the colors didn't have one.
+
+### What Changed
+1. **Hexagonal Knot mark** — mathematically constructed SVG (pointy-top hexagon + hexagram with Celtic knot weave). Stroke-width 16/512 viewBox (~4% of hex diameter). Six-fold symmetry = sovereignty. Interlocking bands = interconnected systems. Inner void = core integrity.
+2. **Violet Atmosphere dark mode** — `--bg: #1A1721` (HSL 260° 18% 11%). Background shares the accent's hue family at minimum intensity. Borders switched from neutral `rgba(white, 0.12)` to `rgba(violet, 0.12)`.
+3. **Warm off-white text** — `--text-primary: #EAE7E3` on dark. Carries the bone's human warmth into dark mode. Violet lives in the environment (bg, borders, accents); the words stay warm because a human wrote them.
+4. **Peak state accent** — `--accent-peak: #9D8FD6` (light) / `#B8ABE6` (dark). Reserved for CTA buttons, boot text, awakening moments. Max 1 per viewport. The palette's emotional arc: environment → accent → peak.
+5. **Favicon** — simplified hexagonal knot (no weave at 16-32px), on violet-black `#1A1721`.
+
+### Trade-offs
+- **Stroke-based SVG mark** → clean, scalable, mathematically precise, but the Celtic knot weave uses `stroke-dasharray` gaps which may render slightly differently across SVG engines at very small sizes. Favicon uses simplified version to mitigate.
+- **Violet-black dark mode** → creates strong brand cohesion, but may look "too purple" to users who expect neutral dark themes. The saturation is deliberately low (18%) to stay subtle.
+- **Warm off-white text on violet-black** → grounded and human, but lower contrast ratio than pure white. Checked: #EAE7E3 on #1A1721 = 12.3:1 (exceeds WCAG AAA 7:1).
+- **Peak accent as separate token** → adds a third accent level, which is more complex. Justified by the brand's explicit emotional arc (calm environment → declaration → awakening).
+- **ImageMagick PNG export** → text in banner PNGs uses system fallback font (Geist Mono not available to ImageMagick). For pixel-perfect text, re-export via browser screenshot.
+
+### Expected Benefits
+- Consistent brand identity across site, favicon, X/Twitter, and future materials
+- Dark mode that feels like the same brand as light mode (violet thread connects both)
+- Emotional arc gives CTAs visual weight without being louder — just *clearer*
+- Mark is infinitely scalable (SVG), works from 16px favicon to print
+
+### Known Limitations
+- Mark not yet integrated into site Nav (still text-only wordmark)
+- `--accent-peak` defined but not yet wired to any CTA components
+- Dark mode visual QA not yet done — tokens landed, browser testing needed
+- OG image not yet regenerated with new palette
+- X/Twitter banner text rendering uses fallback font (not Geist Mono) — cosmetic only
+- Brand kit PNGs are rasterized from SVG; re-export if SVG sources change
+
+### Files Added
+| File | Purpose |
+|------|---------|
+| `static/sovren-logo.svg` | Primary mark, transparent bg, `#8B7EC8` |
+| `static/favicon.svg` | Updated — hexagonal knot on `#1A1721`, simplified |
+| `brand/sovren-mark-dark.svg` | Mark on violet-black `#1A1721` |
+| `brand/sovren-mark-light.svg` | Mark on warm bone `#F0EDE8` |
+| `brand/sovren-mark-mono-white.svg` | White mark, transparent bg |
+| `brand/sovren-mark-mono-dark.svg` | Charcoal mark, transparent bg |
+| `brand/x-profile-sovren.svg/.png` | X profile pic for `@sovren_software` |
+| `brand/x-banner-sovren.svg/.png` | X banner for `@sovren_software` |
+| `brand/x-banner-founder.svg/.png` | X banner for `@TheCesarCross` |
+| `brand/preview.html` | Brand kit reference — all variants, scale tests, nav mockups |
+| `brand/color-study.html` | Color theory rationale — emotional arc, text warmth, token system |
+
 ## Backlog (external systems — not actionable from this repo)
 
 These require access to external dashboards, registrars, or depend on work that doesn't exist yet:
@@ -353,13 +420,21 @@ These require access to external dashboards, registrars, or depend on work that 
 - Update Brevo welcome email template body text (Augmentum OS → Esver OS)
 - Blog/article platform for the two-article launch sequence
 - MrHaven SDK section on the MrHaven page (blocked on SDK docs)
-- X profile update (currently MrHaven-branded)
 - Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
 - Clean up unused components (AsciiArt.svelte, EsperCrystal.svelte)
-- Update favicon SVG to match new palette
-- Dark mode visual QA session (glyphs, panels, dot grid)
+- Dark mode visual QA session — glyphs, panels, dot grid against new violet atmosphere tokens (2026-03-18 color system landed, QA not yet done)
+- Integrate hexagonal knot mark into Nav.svelte (replace "SOVREN" text-only wordmark with mark + text lockup)
+- Apply `--accent-peak` to CTA buttons site-wide (currently CTAs use `--accent`, peak reserved for "Awaken yours" moments)
+- Regenerate OG image (`npm run generate-og`) to reflect new color system
+- Update X profiles with new banner/profile assets (PNGs ready in `brand/`)
+- Update `@TheCesarCross` bio: "Augmentum OS" → "Esver OS"
 
 ### Completed
+- [x] Brand system v3 — hexagonal knot mark, violet atmosphere dark mode, peak state accent, warm text (2026-03-18)
+- [x] Favicon SVG updated to hexagonal knot on violet-black (2026-03-18)
+- [x] Dark mode CSS tokens rewritten — violet-tinted backgrounds, borders, warm off-white text (2026-03-18)
+- [x] Brand kit with 6 mark variants + 3 X/Twitter assets (profile pic, 2 banners) (2026-03-18)
+- [x] Color theory study documenting rationale for every color choice (2026-03-18)
 - [x] Animated SVG hero glyphs with glow + motion (2026-03-15)
 - [x] Rename "Manifesto" → "Codex" across nav, footer, pages, meta tags (2026-03-15)
 - [x] Schematic magitek editorial redesign — full visual system rewrite (2026-03-15)

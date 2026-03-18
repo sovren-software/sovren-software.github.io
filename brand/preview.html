@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sovren Software — Brand Kit v3</title>
+  <style>
+    @font-face {
+      font-family: 'Geist Mono';
+      src: url('../static/fonts/GeistMono-Variable.woff2') format('woff2');
+      font-weight: 100 900;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Geist Mono', monospace; background: #111; color: #999; padding: 2rem 2rem 6rem; max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7EC8; font-weight: 400; margin-bottom: 0.25rem; }
+    .subtitle { font-size: 0.6rem; color: #555; letter-spacing: 0.1em; margin-bottom: 2.5rem; }
+    h2 { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; font-weight: 400; margin: 3.5rem 0 1.25rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; }
+    .note { font-size: 0.65rem; color: #666; margin-bottom: 1.25rem; line-height: 1.8; }
+
+    /* Mark grid */
+    .mark-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .mark-card { border: 1px solid #222; padding: 2rem; text-align: center; }
+    .mark-card img, .mark-card svg { max-width: 140px; height: 140px; margin: 0 auto; display: block; }
+    .mark-card p { font-size: 0.5rem; color: #666; margin-top: 1rem; letter-spacing: 0.08em; line-height: 1.5; }
+
+    /* Scale row */
+    .scale-row { display: flex; align-items: flex-end; gap: 2rem; flex-wrap: wrap; padding: 2rem; border: 1px solid #222; }
+    .scale-row .item { text-align: center; }
+    .scale-row .item p { font-size: 0.45rem; color: #555; margin-top: 4px; letter-spacing: 0.05em; }
+
+    /* Token system */
+    .token-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .token-col { border: 1px solid #222; overflow: hidden; }
+    .token-col .col-head { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.6rem 1rem; }
+    .sw-row { display: flex; }
+    .sw { flex: 1; padding: 0.9rem 0.5rem; font-size: 0.42rem; letter-spacing: 0.06em; line-height: 1.6; text-align: center; }
+    .sw .n { font-weight: 600; margin-bottom: 1px; }
+
+    /* Emotional arc */
+    .arc { display: flex; gap: 0; border: 1px solid #222; overflow: hidden; margin-bottom: 0.5rem; }
+    .arc-s { flex: 1; padding: 1.25rem; text-align: center; }
+    .arc-s .lv { font-size: 0.42rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .arc-s .dm { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+    .arc-s .tk { font-size: 0.38rem; opacity: 0.4; letter-spacing: 0.06em; }
+
+    /* Nav mockup */
+    .nav-m { display: flex; align-items: center; padding: 0 1.5rem; height: 52px; border: 1px solid #222; margin-bottom: 0.5rem; }
+    .nav-m .logo { display: flex; align-items: center; gap: 8px; }
+    .nav-m .logo svg { width: 18px; height: 18px; }
+    .nav-m .logo span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; }
+    .nav-m .sp { flex: 1; }
+    .nav-m .lk { font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; margin-left: 1.25rem; }
+
+    /* CTA study */
+    .cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .cta-card { padding: 1.75rem; text-align: center; border: 1px solid #222; }
+    .cta-card .btn { display: inline-block; padding: 0.6rem 1.75rem; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: inherit; margin-top: 0.75rem; }
+    .cta-card .meta { font-size: 0.42rem; letter-spacing: 0.08em; margin-top: 0.75rem; opacity: 0.4; }
+
+    /* Construction */
+    .ref { background: #161318; border: 1px solid rgba(139,126,200,0.08); padding: 1.5rem; font-size: 0.65rem; line-height: 2; color: #777; }
+    .ref strong { color: #aaa; }
+
+    /* Inline mark SVG snippet (reused everywhere) */
+    .inline-mark { fill: none; stroke-width: 16; stroke-linecap: butt; }
+  </style>
+</head>
+<body>
+
+  <h1>Sovren Software — Brand Kit</h1>
+  <div class="subtitle">v3 — hexagonal knot mark · violet atmosphere · peak state · warm text</div>
+
+  <!-- ============================================================ -->
+  <h2>// 01. The Mark</h2>
+  <p class="note">
+    Hexagonal Knot — regular hexagon (pointy-top) with interwoven hexagram. Celtic knot weave at 6 crossings.<br>
+    Stroke weight: 16/512 viewBox (~4% of hex diameter). Scalable from 16px favicon to print.
+  </p>
+
+  <div class="mark-grid">
+    <div class="mark-card" style="background:#1A1721;">
+      <img src="sovren-mark-dark.svg" alt="Mark on dark">
+      <p>ON DARK<br>#A99ADB on #1A1721 (violet-black)</p>
+    </div>
+    <div class="mark-card" style="background:#F0EDE8;">
+      <img src="sovren-mark-light.svg" alt="Mark on light">
+      <p>ON LIGHT<br>#8B7EC8 on #F0EDE8 (warm bone)</p>
+    </div>
+    <div class="mark-card" style="background:#1A1721;">
+      <img src="sovren-mark-mono-white.svg" alt="Mono white">
+      <p>MONO WHITE<br>#FFFFFF — dark contexts</p>
+    </div>
+    <div class="mark-card" style="background:#F0EDE8;">
+      <img src="sovren-mark-mono-dark.svg" alt="Mono dark">
+      <p>MONO DARK<br>#1A1A1A — light contexts</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 02. Scale Test</h2>
+
+  <div class="scale-row" style="background:#1A1721;">
+    <div class="item"><img src="sovren-mark-dark.svg" width="200" height="200"><p>200</p></div>
+    <div class="item"><img src="sovren-mark-dark.svg" width="128" height="128"><p>128</p></div>
+    <div class="item"><img src="sovren-mark-dark.svg" width="64" height="64"><p>64</p></div>
+    <div class="item"><img src="sovren-mark-dark.svg" width="32" height="32"><p>32</p></div>
+    <div class="item"><img src="sovren-mark-dark.svg" width="16" height="16"><p>16</p></div>
+    <div class="item" style="margin-left:1rem; padding-left:1rem; border-left:1px solid #2A2633;">
+      <img src="../static/favicon.svg" width="48" height="48"><p>favicon 48</p>
+    </div>
+    <div class="item">
+      <img src="../static/favicon.svg" width="32" height="32"><p>favicon 32</p>
+    </div>
+    <div class="item">
+      <img src="../static/favicon.svg" width="16" height="16"><p>favicon 16</p>
+    </div>
+  </div>
+  <div class="scale-row" style="background:#F0EDE8; margin-top:0.5rem;">
+    <div class="item"><img src="sovren-mark-light.svg" width="200" height="200"><p style="color:#aaa;">200</p></div>
+    <div class="item"><img src="sovren-mark-light.svg" width="128" height="128"><p style="color:#aaa;">128</p></div>
+    <div class="item"><img src="sovren-mark-light.svg" width="64" height="64"><p style="color:#aaa;">64</p></div>
+    <div class="item"><img src="sovren-mark-light.svg" width="32" height="32"><p style="color:#aaa;">32</p></div>
+    <div class="item"><img src="sovren-mark-light.svg" width="16" height="16"><p style="color:#aaa;">16</p></div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 03. Nav Integration</h2>
+
+  <div class="nav-m" style="background:#F0EDE8; color:#1A1A1A; border-color:rgba(0,0,0,0.08);">
+    <div class="logo">
+      <img src="../static/sovren-logo.svg" width="18" height="18" alt="">
+      <span style="color:#1A1A1A;">SOVREN</span>
+    </div>
+    <span class="sp"></span>
+    <span class="lk" style="color:#8B7EC8;">Esver</span>
+    <span class="lk" style="color:rgba(26,26,26,0.4);">Visage</span>
+    <span class="lk" style="color:rgba(26,26,26,0.4);">MrHaven</span>
+    <span class="lk" style="color:rgba(26,26,26,0.4);">Codex</span>
+    <span class="lk" style="border:1px solid rgba(26,26,26,0.15); padding:3px 8px; color:rgba(26,26,26,0.4);">SYS:DARK</span>
+  </div>
+  <div class="nav-m" style="background:#1A1721; color:#EAE7E3; border-color:rgba(169,154,219,0.08);">
+    <div class="logo">
+      <img src="sovren-mark-mono-white.svg" width="18" height="18" alt="" style="opacity:0.85;">
+      <span>SOVREN</span>
+    </div>
+    <span class="sp"></span>
+    <span class="lk" style="color:#A99ADB;">Esver</span>
+    <span class="lk" style="color:rgba(234,231,227,0.35);">Visage</span>
+    <span class="lk" style="color:rgba(234,231,227,0.35);">MrHaven</span>
+    <span class="lk" style="color:rgba(234,231,227,0.35);">Codex</span>
+    <span class="lk" style="border:1px solid rgba(169,154,219,0.15); padding:3px 8px; color:rgba(234,231,227,0.35);">SYS:LIGHT</span>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 04. Color System</h2>
+  <p class="note">
+    Light mode: warmth connects surface to accent (parchment + violet = the Captain's desk).<br>
+    Dark mode: the accent hue IS the substrate (violet-black = inside the machine).
+  </p>
+
+  <div class="token-pair">
+    <div class="token-col">
+      <div class="col-head" style="background:#F0EDE8; color:#1A1A1A;">Light — The Captain's Desk</div>
+      <div class="sw-row">
+        <div class="sw" style="background:#F0EDE8; color:#888;"><div class="n">bg</div>#F0EDE8</div>
+        <div class="sw" style="background:#E8E4DF; color:#888;"><div class="n">bg-alt</div>#E8E4DF</div>
+        <div class="sw" style="background:#FFFFFF; color:#999;"><div class="n">surface</div>#FFFFFF</div>
+      </div>
+      <div class="sw-row">
+        <div class="sw" style="background:#F0EDE8; color:#1A1A1A;"><div class="n">text</div>#1A1A1A</div>
+        <div class="sw" style="background:#F0EDE8; color:rgba(26,26,26,0.5);"><div class="n">text-muted</div>black/0.5</div>
+        <div class="sw" style="background:#F0EDE8; color:rgba(26,26,26,0.25);"><div class="n">text-ghost</div>black/0.25</div>
+      </div>
+      <div class="sw-row">
+        <div class="sw" style="background:#F0EDE8; color:#8B7EC8;"><div class="n">accent</div>#8B7EC8</div>
+        <div class="sw" style="background:#F0EDE8; color:#9D8FD6;"><div class="n">accent-peak</div>#9D8FD6</div>
+        <div class="sw" style="background:rgba(139,126,200,0.08); color:#8B7EC8;"><div class="n">accent-surface</div>violet/0.08</div>
+      </div>
+      <div class="sw-row">
+        <div class="sw" style="background:#F0EDE8; border-bottom:2px solid rgba(0,0,0,0.12); color:#aaa;"><div class="n">border</div>black/0.12</div>
+        <div class="sw" style="background:#F0EDE8; border-bottom:2px solid rgba(0,0,0,0.25); color:#aaa;"><div class="n">border-strong</div>black/0.25</div>
+        <div class="sw" style="background:#F0EDE8; border-bottom:2px solid #8B7EC8; color:#aaa;"><div class="n">border-accent</div>#8B7EC8</div>
+      </div>
+    </div>
+    <div class="token-col">
+      <div class="col-head" style="background:#1A1721; color:#EAE7E3;">Dark — Inside the Machine</div>
+      <div class="sw-row">
+        <div class="sw" style="background:#1A1721; color:#777;"><div class="n">bg</div>#1A1721</div>
+        <div class="sw" style="background:#211E2A; color:#777;"><div class="n">bg-alt</div>#211E2A</div>
+        <div class="sw" style="background:#2A2633; color:#999;"><div class="n">surface</div>#2A2633</div>
+      </div>
+      <div class="sw-row">
+        <div class="sw" style="background:#1A1721; color:#EAE7E3;"><div class="n">text</div>#EAE7E3</div>
+        <div class="sw" style="background:#1A1721; color:rgba(234,231,227,0.5);"><div class="n">text-muted</div>warm/0.5</div>
+        <div class="sw" style="background:#1A1721; color:rgba(234,231,227,0.25);"><div class="n">text-ghost</div>warm/0.25</div>
+      </div>
+      <div class="sw-row">
+        <div class="sw" style="background:#1A1721; color:#A99ADB;"><div class="n">accent</div>#A99ADB</div>
+        <div class="sw" style="background:#1A1721; color:#B8ABE6;"><div class="n">accent-peak</div>#B8ABE6</div>
+        <div class="sw" style="background:rgba(169,154,219,0.08); color:#A99ADB;"><div class="n">accent-surface</div>violet/0.08</div>
+      </div>
+      <div class="sw-row">
+        <div class="sw" style="background:#1A1721; border-bottom:2px solid rgba(169,154,219,0.12); color:#555;"><div class="n">border</div>violet/0.12</div>
+        <div class="sw" style="background:#1A1721; border-bottom:2px solid rgba(169,154,219,0.25); color:#555;"><div class="n">border-strong</div>violet/0.25</div>
+        <div class="sw" style="background:#1A1721; border-bottom:2px solid #A99ADB; color:#555;"><div class="n">border-accent</div>#A99ADB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 05. Emotional Arc</h2>
+  <p class="note">
+    Three accent levels: environment (borders, labels) → accent (active states) → peak (CTA, awakening).
+  </p>
+
+  <div class="arc">
+    <div class="arc-s" style="background:#1A1721;">
+      <div class="lv" style="color:#555;">Environment</div>
+      <div class="dm" style="color:rgba(234,231,227,0.3);">// SPECIFICATIONS</div>
+      <div class="tk">rgba(accent, 0.12)</div>
+    </div>
+    <div class="arc-s" style="background:#1A1721;">
+      <div class="lv" style="color:#A99ADB;">Accent</div>
+      <div class="dm" style="color:#A99ADB;">Esver OS</div>
+      <div class="tk">#A99ADB / #8B7EC8</div>
+    </div>
+    <div class="arc-s" style="background:#1A1721;">
+      <div class="lv" style="color:#B8ABE6;">Peak</div>
+      <div class="dm" style="color:#B8ABE6;">AWAKEN YOURS.</div>
+      <div class="tk">#B8ABE6 / #9D8FD6</div>
+    </div>
+  </div>
+  <div class="arc">
+    <div class="arc-s" style="background:#F0EDE8;">
+      <div class="lv" style="color:#bbb;">Environment</div>
+      <div class="dm" style="color:rgba(26,26,26,0.2);">// SPECIFICATIONS</div>
+      <div class="tk" style="color:#bbb;">rgba(black, 0.12)</div>
+    </div>
+    <div class="arc-s" style="background:#F0EDE8;">
+      <div class="lv" style="color:#8B7EC8;">Accent</div>
+      <div class="dm" style="color:#8B7EC8;">Esver OS</div>
+      <div class="tk" style="color:#bbb;">#8B7EC8</div>
+    </div>
+    <div class="arc-s" style="background:#F0EDE8;">
+      <div class="lv" style="color:#9D8FD6;">Peak</div>
+      <div class="dm" style="color:#9D8FD6;">AWAKEN YOURS.</div>
+      <div class="tk" style="color:#bbb;">#9D8FD6</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 06. Peak State — CTA Buttons</h2>
+
+  <div class="cta-grid">
+    <div class="cta-card" style="background:#F0EDE8; color:#1A1A1A;">
+      <div class="btn" style="background:#9D8FD6; color:#fff;">Awaken yours</div>
+      <div class="meta">PEAK FILLED on bone</div>
+    </div>
+    <div class="cta-card" style="background:#F0EDE8; color:#1A1A1A;">
+      <div class="btn" style="background:transparent; color:#9D8FD6; border:1px solid #9D8FD6;">Awaken yours</div>
+      <div class="meta">PEAK GHOST on bone</div>
+    </div>
+    <div class="cta-card" style="background:#F0EDE8; color:#1A1A1A;">
+      <div class="btn" style="background:#8B7EC8; color:#fff;">Learn more</div>
+      <div class="meta">STANDARD ACCENT on bone</div>
+    </div>
+    <div class="cta-card" style="background:#1A1721; color:#EAE7E3;">
+      <div class="btn" style="background:#B8ABE6; color:#1A1721;">Awaken yours</div>
+      <div class="meta">PEAK FILLED on violet-black</div>
+    </div>
+    <div class="cta-card" style="background:#1A1721; color:#EAE7E3;">
+      <div class="btn" style="background:transparent; color:#B8ABE6; border:1px solid #B8ABE6;">Awaken yours</div>
+      <div class="meta">PEAK GHOST on violet-black</div>
+    </div>
+    <div class="cta-card" style="background:#1A1721; color:#EAE7E3;">
+      <div class="btn" style="background:#A99ADB; color:#1A1721;">Learn more</div>
+      <div class="meta">STANDARD ACCENT on violet-black</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2>// 07. Construction Reference</h2>
+
+  <div class="ref">
+    <strong>Mark:</strong> Hexagonal Knot — regular hexagon (pointy-top, R=200) + hexagram with Celtic weave<br>
+    <strong>Stroke:</strong> 16/512 viewBox = ~4% of hex diameter. Matches original concept image proportions.<br>
+    <strong>Weave:</strong> Gap 24 units (16/sin60° + margin). Each edge OVER at t=1/3, UNDER at t=2/3.<br>
+    <strong>Inner void:</strong> Circumradius R/√3 ≈ 0.577R, rotated 30° from outer hex (flat-top).<br>
+    <strong>Favicon:</strong> Simplified (no weave), heavier relative strokes for 16-32px legibility.<br>
+    <strong>Peak accent:</strong> Reserved for CTA buttons, boot text, awakening moments. Max 1 per viewport.<br>
+    <strong>Dark bg:</strong> #1A1721 (HSL 260° 18% 11%) — violet at minimum intensity, not brown-black.<br>
+    <strong>Dark text:</strong> #EAE7E3 — warm off-white, carries bone warmth into dark mode.<br>
+    <strong>Dark borders:</strong> rgba(169,154,219, 0.12) — violet-tinted, not neutral white/0.12.<br>
+    <strong>Typeface:</strong> Geist Mono Variable (self-hosted). One typeface. No exceptions.<br>
+    <strong>Symbol reads as:</strong> Sovereignty (six-fold symmetry) · interconnection (interlocking bands) · integrity (inner void)
+  </div>
+
+</body>
+</html>

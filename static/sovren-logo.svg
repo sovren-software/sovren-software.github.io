@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Sovren Software — Hexagonal Knot Mark
+    Geometry: Regular hexagon (R=200, pointy-top) + hexagram with Celtic weave
+    Center: (256, 256)
+    Stroke: 16 (~4% of hex diameter — matches original image proportions)
+    Weave: each hexagram side is OVER at t=1/3, UNDER at t=2/3
+    Gap: 24 units (16/sin60° + 5 margin — visible separation at all scales)
+  -->
+
+  <!-- Layer 1: Hexagram lines with dasharray gaps at under-crossings (t=2/3) -->
+  <g fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linecap="butt">
+    <!-- Triangle A: V0→V2, V2→V4, V4→V0 -->
+    <line x1="256" y1="56" x2="429.21" y2="356"
+          stroke-dasharray="218.94 24 103.47"/>
+    <line x1="429.21" y1="356" x2="82.79" y2="356"
+          stroke-dasharray="218.94 24 103.47"/>
+    <line x1="82.79" y1="356" x2="256" y2="56"
+          stroke-dasharray="218.94 24 103.47"/>
+    <!-- Triangle B: V1→V3, V3→V5, V5→V1 -->
+    <line x1="429.21" y1="156" x2="256" y2="456"
+          stroke-dasharray="218.94 24 103.47"/>
+    <line x1="256" y1="456" x2="82.79" y2="156"
+          stroke-dasharray="218.94 24 103.47"/>
+    <line x1="82.79" y1="156" x2="429.21" y2="156"
+          stroke-dasharray="218.94 24 103.47"/>
+  </g>
+
+  <!-- Layer 2: Outer hexagon border -->
+  <polygon points="256,56 429.21,156 429.21,356 256,456 82.79,356 82.79,156"
+           fill="none" stroke="#8B7EC8" stroke-width="16"
+           stroke-linejoin="miter" stroke-miterlimit="4"/>
+
+  <!-- Layer 3: Over-segments at over-crossings (t=1/3), drawn on top -->
+  <g fill="none" stroke="#8B7EC8" stroke-width="16" stroke-linecap="butt">
+    <line x1="298.74" y1="130.01" x2="328.75" y2="181.97"/>
+    <line x1="343.75" y1="356" x2="283.74" y2="356"/>
+    <line x1="125.53" y1="281.99" x2="155.54" y2="230.03"/>
+    <line x1="386.47" y1="230.01" x2="356.46" y2="281.97"/>
+    <line x1="213.26" y1="381.99" x2="183.25" y2="330.03"/>
+    <line x1="168.25" y1="156" x2="228.26" y2="156"/>
+  </g>
+</svg>

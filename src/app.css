@@ -23,25 +23,30 @@
 
   --accent: #8B7EC8;
   --accent-light: #A99ADB;
+  --accent-peak: #9D8FD6;
   --accent-surface: rgba(139, 126, 200, 0.08);
 }
 
 [data-theme='dark'] {
-  /* Colors — Schematic Magitek Dark Theme */
-  --bg: #141210;
-  --bg-alt: #1A1816;
-  --surface: #1E1C1A;
-  --surface-2: #242220;
-  --border: rgba(232, 228, 223, 0.10);
-  --border-strong: rgba(232, 228, 223, 0.22);
+  /* Colors — Violet Atmosphere Dark Theme
+     Background shares the accent's hue family at minimum intensity.
+     Violet is the substrate, not decoration. */
+  --bg: #1A1721;
+  --bg-alt: #211E2A;
+  --surface: #2A2633;
+  --surface-2: #322D3C;
+  --border: rgba(169, 154, 219, 0.12);
+  --border-strong: rgba(169, 154, 219, 0.25);
 
-  --text-primary: #E8E4DF;
-  --text-secondary: rgba(232, 228, 223, 0.60);
-  --text-muted: rgba(232, 228, 223, 0.32);
-  --text-ghost: rgba(232, 228, 223, 0.14);
+  /* Warm off-white — carries bone warmth into dark mode */
+  --text-primary: #EAE7E3;
+  --text-secondary: rgba(234, 231, 227, 0.60);
+  --text-muted: rgba(234, 231, 227, 0.32);
+  --text-ghost: rgba(234, 231, 227, 0.14);
 
   --accent: #A99ADB;
-  --accent-light: #C4B9E8;
+  --accent-light: #B8ABE6;
+  --accent-peak: #B8ABE6;
   --accent-surface: rgba(169, 154, 219, 0.08);
 }
 
