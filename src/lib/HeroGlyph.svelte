@@ -19,41 +19,41 @@
 
     <!-- Outer hex — slow rotate -->
     <g class="spin-slow" style="transform-origin:300px 250px">
-      <polygon points="300,30 540,170 540,330 300,470 60,330 60,170" stroke="var(--accent)" stroke-width="1" opacity="0.3" />
+      <polygon points="300,30 540,170 540,330 300,470 60,330 60,170" stroke="var(--accent)" stroke-width="2" opacity="0.3" />
     </g>
     <g class="spin-slow-reverse" style="transform-origin:300px 250px">
-      <polygon points="300,70 500,185 500,315 300,430 100,315 100,185" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
+      <polygon points="300,70 500,185 500,315 300,430 100,315 100,185" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
     </g>
 
     <!-- Convergence lines -->
-    <line x1="300" y1="80" x2="300" y2="210" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.25" />
-    <line x1="130" y1="370" x2="250" y2="270" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.25" />
-    <line x1="470" y1="370" x2="350" y2="270" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.25" />
+    <line x1="300" y1="80" x2="300" y2="210" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.25" />
+    <line x1="130" y1="370" x2="250" y2="270" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.25" />
+    <line x1="470" y1="370" x2="350" y2="270" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.25" />
 
     <!-- Central node — pulsing glow -->
-    <circle cx="300" cy="250" r="40" stroke="var(--accent)" stroke-width="2" opacity="0.4" filter="url(#glow-s)" />
-    <circle cx="300" cy="250" r="20" stroke="var(--accent)" stroke-width="1.5" opacity="0.35" class="pulse" />
+    <circle cx="300" cy="250" r="40" stroke="var(--accent)" stroke-width="3" opacity="0.4" filter="url(#glow-s)" />
+    <circle cx="300" cy="250" r="20" stroke="var(--accent)" stroke-width="2.5" opacity="0.35" class="pulse" />
     <circle cx="300" cy="250" r="5" fill="var(--accent)" opacity="0.7" class="pulse" filter="url(#glow-s)" />
 
     <!-- Domain nodes -->
-    <circle cx="300" cy="80" r="28" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.35" />
-    <rect x="285" y="68" width="30" height="24" rx="2" stroke="var(--accent)" stroke-width="1" opacity="0.35" />
-    <line x1="290" y1="78" x2="305" y2="78" stroke="var(--accent)" stroke-width="1" opacity="0.5" />
-    <line x1="290" y1="82" x2="300" y2="82" stroke="var(--accent)" stroke-width="1" opacity="0.35" />
+    <circle cx="300" cy="80" r="28" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.35" />
+    <rect x="285" y="68" width="30" height="24" rx="2" stroke="var(--accent)" stroke-width="2" opacity="0.35" />
+    <line x1="290" y1="78" x2="305" y2="78" stroke="var(--accent)" stroke-width="2" opacity="0.5" />
+    <line x1="290" y1="82" x2="300" y2="82" stroke="var(--accent)" stroke-width="2" opacity="0.35" />
 
-    <circle cx="130" cy="370" r="28" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.35" />
-    <circle cx="130" cy="365" r="10" stroke="var(--accent)" stroke-width="1" opacity="0.35" />
-    <path d="M113,382 Q130,376 147,382" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
+    <circle cx="130" cy="370" r="28" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.35" />
+    <circle cx="130" cy="365" r="10" stroke="var(--accent)" stroke-width="2" opacity="0.35" />
+    <path d="M113,382 Q130,376 147,382" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
 
-    <circle cx="470" cy="370" r="28" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.35" />
-    <rect x="455" y="356" width="30" height="28" rx="0" stroke="var(--accent)" stroke-width="1" opacity="0.35" />
-    <circle cx="470" cy="367" r="4" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
-    <line x1="470" y1="371" x2="470" y2="378" stroke="var(--accent)" stroke-width="1" opacity="0.4" />
+    <circle cx="470" cy="370" r="28" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.35" />
+    <rect x="455" y="356" width="30" height="28" rx="0" stroke="var(--accent)" stroke-width="2" opacity="0.35" />
+    <circle cx="470" cy="367" r="4" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
+    <line x1="470" y1="371" x2="470" y2="378" stroke="var(--accent)" stroke-width="2" opacity="0.4" />
 
     <!-- Signal paths -->
-    <line x1="300" y1="108" x2="300" y2="210" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 6" opacity="0.3" />
-    <line x1="148" y1="352" x2="265" y2="268" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 6" opacity="0.3" />
-    <line x1="452" y1="352" x2="335" y2="268" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 6" opacity="0.3" />
+    <line x1="300" y1="108" x2="300" y2="210" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6" opacity="0.3" />
+    <line x1="148" y1="352" x2="265" y2="268" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6" opacity="0.3" />
+    <line x1="452" y1="352" x2="335" y2="268" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 6" opacity="0.3" />
 
     <text x="300" y="40" text-anchor="middle" class="glyph-label">COMPUTE</text>
     <text x="80" y="415" text-anchor="middle" class="glyph-label">IDENTITY</text>
@@ -84,40 +84,40 @@
 
     <!-- Outer energy ring — slow rotate -->
     <g class="spin-slow" style="transform-origin:200px 220px">
-      <circle cx="200" cy="220" r="180" stroke="var(--accent)" stroke-width="0.5" opacity="0.12" stroke-dasharray="3 8" />
+      <circle cx="200" cy="220" r="180" stroke="var(--accent)" stroke-width="1" opacity="0.12" stroke-dasharray="3 8" />
     </g>
     <g class="spin-slow-reverse" style="transform-origin:200px 220px">
-      <circle cx="200" cy="220" r="155" stroke="var(--accent)" stroke-width="0.5" opacity="0.08" stroke-dasharray="2 12" />
+      <circle cx="200" cy="220" r="155" stroke="var(--accent)" stroke-width="1" opacity="0.08" stroke-dasharray="2 12" />
     </g>
 
     <!-- Crystal body — upper half (Ethereum-esque) -->
-    <polygon points="200,30 310,200 200,260 90,200" fill="url(#crystal-fill)" stroke="var(--accent)" stroke-width="1.5" opacity="0.5" />
+    <polygon points="200,30 310,200 200,260 90,200" fill="url(#crystal-fill)" stroke="var(--accent)" stroke-width="2.5" opacity="0.5" />
     <!-- Crystal body — lower half -->
-    <polygon points="200,260 310,200 200,430 90,200" fill="url(#crystal-fill)" stroke="var(--accent)" stroke-width="1.5" opacity="0.45" />
+    <polygon points="200,260 310,200 200,430 90,200" fill="url(#crystal-fill)" stroke="var(--accent)" stroke-width="2.5" opacity="0.45" />
 
     <!-- Inner facet — upper -->
-    <polygon points="200,65 280,195 200,240 120,195" stroke="var(--accent)" stroke-width="0.75" opacity="0.3" fill="none" />
+    <polygon points="200,65 280,195 200,240 120,195" stroke="var(--accent)" stroke-width="1.5" opacity="0.3" fill="none" />
     <!-- Inner facet — lower -->
-    <polygon points="200,240 280,195 200,395 120,195" stroke="var(--accent)" stroke-width="0.75" opacity="0.25" fill="none" />
+    <polygon points="200,240 280,195 200,395 120,195" stroke="var(--accent)" stroke-width="1.5" opacity="0.25" fill="none" />
 
     <!-- Center horizontal line (the "waist") -->
-    <line x1="90" y1="200" x2="310" y2="200" stroke="var(--accent)" stroke-width="1.5" opacity="0.4" />
+    <line x1="90" y1="200" x2="310" y2="200" stroke="var(--accent)" stroke-width="2.5" opacity="0.4" />
 
     <!-- Vertical axis -->
-    <line x1="200" y1="30" x2="200" y2="430" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
+    <line x1="200" y1="30" x2="200" y2="430" stroke="var(--accent)" stroke-width="1" opacity="0.15" />
 
     <!-- Upper facet lines (left) -->
-    <line x1="200" y1="30" x2="90" y2="200" stroke="var(--accent)" stroke-width="0.5" opacity="0.2" />
-    <line x1="200" y1="65" x2="120" y2="195" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
+    <line x1="200" y1="30" x2="90" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.2" />
+    <line x1="200" y1="65" x2="120" y2="195" stroke="var(--accent)" stroke-width="1" opacity="0.15" />
     <!-- Upper facet lines (right) -->
-    <line x1="200" y1="30" x2="310" y2="200" stroke="var(--accent)" stroke-width="0.5" opacity="0.2" />
-    <line x1="200" y1="65" x2="280" y2="195" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
+    <line x1="200" y1="30" x2="310" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.2" />
+    <line x1="200" y1="65" x2="280" y2="195" stroke="var(--accent)" stroke-width="1" opacity="0.15" />
 
     <!-- Cross facet lines -->
-    <line x1="145" y1="115" x2="255" y2="115" stroke="var(--accent)" stroke-width="0.5" opacity="0.1" />
-    <line x1="120" y1="155" x2="280" y2="155" stroke="var(--accent)" stroke-width="0.5" opacity="0.08" />
-    <line x1="120" y1="280" x2="280" y2="280" stroke="var(--accent)" stroke-width="0.5" opacity="0.06" />
-    <line x1="150" y1="340" x2="250" y2="340" stroke="var(--accent)" stroke-width="0.5" opacity="0.05" />
+    <line x1="145" y1="115" x2="255" y2="115" stroke="var(--accent)" stroke-width="1" opacity="0.1" />
+    <line x1="120" y1="155" x2="280" y2="155" stroke="var(--accent)" stroke-width="1" opacity="0.08" />
+    <line x1="120" y1="280" x2="280" y2="280" stroke="var(--accent)" stroke-width="1" opacity="0.06" />
+    <line x1="150" y1="340" x2="250" y2="340" stroke="var(--accent)" stroke-width="1" opacity="0.05" />
 
     <!-- Core glow — pulsing -->
     <circle cx="200" cy="200" r="18" fill="var(--accent)" opacity="0.15" filter="url(#glow-e)" class="pulse" />
@@ -125,16 +125,16 @@
     <circle cx="200" cy="200" r="3" fill="var(--accent)" opacity="0.8" />
 
     <!-- Energy radiating lines -->
-    <line x1="60" y1="200" x2="85" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.25" class="pulse" />
-    <line x1="315" y1="200" x2="340" y2="200" stroke="var(--accent)" stroke-width="1" opacity="0.25" class="pulse" />
-    <line x1="200" y1="0" x2="200" y2="22" stroke="var(--accent)" stroke-width="1" opacity="0.2" class="pulse-delay" />
-    <line x1="200" y1="438" x2="200" y2="460" stroke="var(--accent)" stroke-width="1" opacity="0.15" class="pulse-delay" />
+    <line x1="60" y1="200" x2="85" y2="200" stroke="var(--accent)" stroke-width="2" opacity="0.25" class="pulse" />
+    <line x1="315" y1="200" x2="340" y2="200" stroke="var(--accent)" stroke-width="2" opacity="0.25" class="pulse" />
+    <line x1="200" y1="0" x2="200" y2="22" stroke="var(--accent)" stroke-width="2" opacity="0.2" class="pulse-delay" />
+    <line x1="200" y1="438" x2="200" y2="460" stroke="var(--accent)" stroke-width="2" opacity="0.15" class="pulse-delay" />
 
     <!-- Diagonal energy rays -->
-    <line x1="75" y1="100" x2="108" y2="125" stroke="var(--accent)" stroke-width="0.75" opacity="0.1" stroke-dasharray="2 4" />
-    <line x1="325" y1="100" x2="292" y2="125" stroke="var(--accent)" stroke-width="0.75" opacity="0.1" stroke-dasharray="2 4" />
-    <line x1="75" y1="320" x2="108" y2="295" stroke="var(--accent)" stroke-width="0.75" opacity="0.08" stroke-dasharray="2 4" />
-    <line x1="325" y1="320" x2="292" y2="295" stroke="var(--accent)" stroke-width="0.75" opacity="0.08" stroke-dasharray="2 4" />
+    <line x1="75" y1="100" x2="108" y2="125" stroke="var(--accent)" stroke-width="1.5" opacity="0.1" stroke-dasharray="2 4" />
+    <line x1="325" y1="100" x2="292" y2="125" stroke="var(--accent)" stroke-width="1.5" opacity="0.1" stroke-dasharray="2 4" />
+    <line x1="75" y1="320" x2="108" y2="295" stroke="var(--accent)" stroke-width="1.5" opacity="0.08" stroke-dasharray="2 4" />
+    <line x1="325" y1="320" x2="292" y2="295" stroke="var(--accent)" stroke-width="1.5" opacity="0.08" stroke-dasharray="2 4" />
 
     <!-- Small orbiting data points -->
     <circle cx="145" cy="115" r="2" fill="var(--accent)" opacity="0.4" class="pulse" />
@@ -155,55 +155,55 @@
     </defs>
 
     <!-- Scan frame -->
-    <rect x="100" y="40" width="200" height="280" rx="0" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.3" />
+    <rect x="100" y="40" width="200" height="280" rx="0" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.3" />
 
     <!-- Corner brackets -->
-    <line x1="100" y1="40" x2="135" y2="40" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="100" y1="40" x2="100" y2="75" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="300" y1="40" x2="265" y2="40" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="300" y1="40" x2="300" y2="75" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="100" y1="320" x2="135" y2="320" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="100" y1="320" x2="100" y2="285" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="300" y1="320" x2="265" y2="320" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
-    <line x1="300" y1="320" x2="300" y2="285" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="100" y1="40" x2="135" y2="40" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="100" y1="40" x2="100" y2="75" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="300" y1="40" x2="265" y2="40" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="300" y1="40" x2="300" y2="75" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="100" y1="320" x2="135" y2="320" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="100" y1="320" x2="100" y2="285" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="300" y1="320" x2="265" y2="320" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
+    <line x1="300" y1="320" x2="300" y2="285" stroke="var(--accent)" stroke-width="3.5" opacity="0.6" filter="url(#glow-v)" />
 
     <!-- Face outline -->
-    <ellipse cx="200" cy="160" rx="58" ry="72" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.35" fill="none" />
+    <ellipse cx="200" cy="160" rx="58" ry="72" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.35" fill="none" />
 
     <!-- Eyes -->
-    <ellipse cx="178" cy="145" rx="12" ry="6" stroke="var(--text-primary)" stroke-width="1" opacity="0.35" fill="none" />
-    <ellipse cx="222" cy="145" rx="12" ry="6" stroke="var(--text-primary)" stroke-width="1" opacity="0.35" fill="none" />
+    <ellipse cx="178" cy="145" rx="12" ry="6" stroke="var(--text-primary)" stroke-width="2" opacity="0.35" fill="none" />
+    <ellipse cx="222" cy="145" rx="12" ry="6" stroke="var(--text-primary)" stroke-width="2" opacity="0.35" fill="none" />
     <circle cx="178" cy="145" r="3" fill="var(--accent)" opacity="0.6" filter="url(#glow-v)" />
     <circle cx="222" cy="145" r="3" fill="var(--accent)" opacity="0.6" filter="url(#glow-v)" />
 
     <!-- Nose + mouth -->
-    <line x1="200" y1="158" x2="200" y2="178" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.2" />
-    <line x1="183" y1="192" x2="217" y2="192" stroke="var(--text-primary)" stroke-width="1" opacity="0.2" />
+    <line x1="200" y1="158" x2="200" y2="178" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.2" />
+    <line x1="183" y1="192" x2="217" y2="192" stroke="var(--text-primary)" stroke-width="2" opacity="0.2" />
 
     <!-- Animated scan line -->
-    <line x1="105" y1="180" x2="295" y2="180" stroke="var(--accent)" stroke-width="1.5" opacity="0.4" class="scan-sweep" filter="url(#glow-v)" />
+    <line x1="105" y1="180" x2="295" y2="180" stroke="var(--accent)" stroke-width="2.5" opacity="0.4" class="scan-sweep" filter="url(#glow-v)" />
 
     <!-- Scan grid lines -->
-    <line x1="110" y1="100" x2="290" y2="100" stroke="var(--accent)" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.2" />
-    <line x1="110" y1="140" x2="290" y2="140" stroke="var(--accent)" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.18" />
-    <line x1="110" y1="220" x2="290" y2="220" stroke="var(--accent)" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.18" />
-    <line x1="110" y1="260" x2="290" y2="260" stroke="var(--accent)" stroke-width="0.75" stroke-dasharray="3 5" opacity="0.2" />
+    <line x1="110" y1="100" x2="290" y2="100" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.2" />
+    <line x1="110" y1="140" x2="290" y2="140" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.18" />
+    <line x1="110" y1="220" x2="290" y2="220" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.18" />
+    <line x1="110" y1="260" x2="290" y2="260" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.2" />
 
     <!-- Data points -->
-    <circle cx="165" cy="130" r="3" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
-    <circle cx="235" cy="130" r="3" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
-    <circle cx="200" cy="205" r="3" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
-    <circle cx="168" cy="178" r="3" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
-    <circle cx="232" cy="178" r="3" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
+    <circle cx="165" cy="130" r="3" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
+    <circle cx="235" cy="130" r="3" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
+    <circle cx="200" cy="205" r="3" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
+    <circle cx="168" cy="178" r="3" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
+    <circle cx="232" cy="178" r="3" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
 
     <!-- Data point connections -->
-    <line x1="165" y1="130" x2="235" y2="130" stroke="var(--accent)" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.25" />
-    <line x1="168" y1="178" x2="232" y2="178" stroke="var(--accent)" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.25" />
-    <line x1="165" y1="130" x2="168" y2="178" stroke="var(--accent)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.15" />
-    <line x1="235" y1="130" x2="232" y2="178" stroke="var(--accent)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.15" />
+    <line x1="165" y1="130" x2="235" y2="130" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" />
+    <line x1="168" y1="178" x2="232" y2="178" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.25" />
+    <line x1="165" y1="130" x2="168" y2="178" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+    <line x1="235" y1="130" x2="232" y2="178" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
 
     <!-- Match bar -->
-    <rect x="120" y="350" width="160" height="8" rx="0" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.2" fill="none" />
+    <rect x="120" y="350" width="160" height="8" rx="0" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.2" fill="none" />
     <rect x="120" y="350" width="152" height="8" rx="0" fill="var(--accent)" opacity="0.25" />
 
     <text x="200" y="382" text-anchor="middle" class="glyph-label">MATCH_CONFIDENCE: 99.7%</text>
@@ -221,39 +221,39 @@
 
     <!-- Outer hex — slow rotate -->
     <g class="spin-slow" style="transform-origin:220px 210px">
-      <polygon points="220,30 390,120 390,300 220,390 50,300 50,120" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.3" fill="none" />
+      <polygon points="220,30 390,120 390,300 220,390 50,300 50,120" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.3" fill="none" />
     </g>
     <g class="spin-slow-reverse" style="transform-origin:220px 210px">
-      <polygon points="220,55 370,132 370,288 220,365 70,288 70,132" stroke="var(--text-primary)" stroke-width="1" opacity="0.2" fill="none" />
+      <polygon points="220,55 370,132 370,288 220,365 70,288 70,132" stroke="var(--text-primary)" stroke-width="2" opacity="0.2" fill="none" />
     </g>
 
     <!-- Vault door -->
-    <circle cx="220" cy="210" r="80" stroke="var(--text-primary)" stroke-width="2" opacity="0.35" fill="none" />
-    <circle cx="220" cy="210" r="65" stroke="var(--text-primary)" stroke-width="1" opacity="0.25" fill="none" />
+    <circle cx="220" cy="210" r="80" stroke="var(--text-primary)" stroke-width="3" opacity="0.35" fill="none" />
+    <circle cx="220" cy="210" r="65" stroke="var(--text-primary)" stroke-width="2" opacity="0.25" fill="none" />
 
     <!-- Lock — glowing -->
-    <circle cx="220" cy="195" r="14" stroke="var(--accent)" stroke-width="1.5" opacity="0.6" fill="none" filter="url(#glow-m)" class="pulse" />
-    <line x1="220" y1="209" x2="220" y2="235" stroke="var(--accent)" stroke-width="1.5" opacity="0.5" />
-    <rect x="208" y="228" width="24" height="18" rx="0" stroke="var(--accent)" stroke-width="1" opacity="0.4" fill="none" />
+    <circle cx="220" cy="195" r="14" stroke="var(--accent)" stroke-width="2.5" opacity="0.6" fill="none" filter="url(#glow-m)" class="pulse" />
+    <line x1="220" y1="209" x2="220" y2="235" stroke="var(--accent)" stroke-width="2.5" opacity="0.5" />
+    <rect x="208" y="228" width="24" height="18" rx="0" stroke="var(--accent)" stroke-width="2" opacity="0.4" fill="none" />
 
     <!-- Vault bolts -->
-    <circle cx="220" cy="130" r="5" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
-    <circle cx="289" cy="170" r="5" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
-    <circle cx="289" cy="250" r="5" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
-    <circle cx="220" cy="290" r="5" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
-    <circle cx="151" cy="250" r="5" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
-    <circle cx="151" cy="170" r="5" stroke="var(--text-primary)" stroke-width="1" opacity="0.3" fill="none" />
+    <circle cx="220" cy="130" r="5" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
+    <circle cx="289" cy="170" r="5" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
+    <circle cx="289" cy="250" r="5" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
+    <circle cx="220" cy="290" r="5" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
+    <circle cx="151" cy="250" r="5" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
+    <circle cx="151" cy="170" r="5" stroke="var(--text-primary)" stroke-width="2" opacity="0.3" fill="none" />
 
     <!-- Radial lines -->
-    <line x1="220" y1="145" x2="220" y2="135" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
-    <line x1="275" y1="173" x2="284" y2="170" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
-    <line x1="275" y1="247" x2="284" y2="250" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
-    <line x1="220" y1="275" x2="220" y2="285" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
-    <line x1="165" y1="247" x2="156" y2="250" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
-    <line x1="165" y1="173" x2="156" y2="170" stroke="var(--accent)" stroke-width="0.75" opacity="0.2" />
+    <line x1="220" y1="145" x2="220" y2="135" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
+    <line x1="275" y1="173" x2="284" y2="170" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
+    <line x1="275" y1="247" x2="284" y2="250" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
+    <line x1="220" y1="275" x2="220" y2="285" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
+    <line x1="165" y1="247" x2="156" y2="250" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
+    <line x1="165" y1="173" x2="156" y2="170" stroke="var(--accent)" stroke-width="1.5" opacity="0.2" />
 
     <!-- Timer bar -->
-    <rect x="130" y="400" width="180" height="6" rx="0" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.25" fill="none" />
+    <rect x="130" y="400" width="180" height="6" rx="0" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.25" fill="none" />
     <rect x="130" y="400" width="90" height="6" rx="0" fill="var(--accent)" opacity="0.35" />
 
     <text x="220" y="428" text-anchor="middle" class="glyph-label">VAULT_SEAL: IMMUTABLE</text>
@@ -269,40 +269,40 @@
     </defs>
 
     <!-- Book spine -->
-    <line x1="260" y1="50" x2="260" y2="340" stroke="var(--text-primary)" stroke-width="2" opacity="0.35" />
+    <line x1="260" y1="50" x2="260" y2="340" stroke="var(--text-primary)" stroke-width="3" opacity="0.35" />
 
     <!-- Pages -->
-    <path d="M260,50 Q175,44 70,62 L70,330 Q175,318 260,340 Z" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.3" fill="none" />
-    <path d="M260,50 Q345,44 450,62 L450,330 Q345,318 260,340 Z" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.3" fill="none" />
+    <path d="M260,50 Q175,44 70,62 L70,330 Q175,318 260,340 Z" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.3" fill="none" />
+    <path d="M260,50 Q345,44 450,62 L450,330 Q345,318 260,340 Z" stroke="var(--text-primary)" stroke-width="2.5" opacity="0.3" fill="none" />
 
     <!-- Left: trifecta -->
-    <polygon points="165,120 125,195 205,195" stroke="var(--accent)" stroke-width="1.5" opacity="0.45" fill="none" filter="url(#glow-c)" />
+    <polygon points="165,120 125,195 205,195" stroke="var(--accent)" stroke-width="2.5" opacity="0.45" fill="none" filter="url(#glow-c)" />
     <circle cx="165" cy="120" r="4" fill="var(--accent)" opacity="0.5" class="pulse" />
     <circle cx="125" cy="195" r="4" fill="var(--accent)" opacity="0.5" class="pulse-delay" />
     <circle cx="205" cy="195" r="4" fill="var(--accent)" opacity="0.5" />
     <circle cx="165" cy="170" r="3" fill="var(--accent)" opacity="0.6" filter="url(#glow-c)" class="pulse" />
 
     <!-- Left text lines -->
-    <line x1="100" y1="235" x2="230" y2="235" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.15" />
-    <line x1="100" y1="252" x2="210" y2="252" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.12" />
-    <line x1="100" y1="269" x2="225" y2="269" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.12" />
-    <line x1="100" y1="286" x2="190" y2="286" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.1" />
+    <line x1="100" y1="235" x2="230" y2="235" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.15" />
+    <line x1="100" y1="252" x2="210" y2="252" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12" />
+    <line x1="100" y1="269" x2="225" y2="269" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12" />
+    <line x1="100" y1="286" x2="190" y2="286" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.1" />
 
     <!-- Right: esper crystal -->
-    <polygon points="350,110 385,155 385,225 350,270 315,225 315,155" stroke="var(--accent)" stroke-width="1.5" opacity="0.4" fill="none" />
-    <polygon points="350,130 372,160 372,220 350,250 328,220 328,160" stroke="var(--accent)" stroke-width="1" fill="var(--accent-surface)" opacity="0.5" />
-    <line x1="350" y1="130" x2="350" y2="250" stroke="var(--accent)" stroke-width="0.75" opacity="0.25" />
-    <line x1="315" y1="155" x2="385" y2="155" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
-    <line x1="315" y1="225" x2="385" y2="225" stroke="var(--accent)" stroke-width="0.5" opacity="0.15" />
+    <polygon points="350,110 385,155 385,225 350,270 315,225 315,155" stroke="var(--accent)" stroke-width="2.5" opacity="0.4" fill="none" />
+    <polygon points="350,130 372,160 372,220 350,250 328,220 328,160" stroke="var(--accent)" stroke-width="2" fill="var(--accent-surface)" opacity="0.5" />
+    <line x1="350" y1="130" x2="350" y2="250" stroke="var(--accent)" stroke-width="1.5" opacity="0.25" />
+    <line x1="315" y1="155" x2="385" y2="155" stroke="var(--accent)" stroke-width="1" opacity="0.15" />
+    <line x1="315" y1="225" x2="385" y2="225" stroke="var(--accent)" stroke-width="1" opacity="0.15" />
     <circle cx="350" cy="190" r="5" fill="var(--accent)" opacity="0.6" filter="url(#glow-c)" class="pulse" />
 
     <!-- Right text lines -->
-    <line x1="300" y1="285" x2="425" y2="285" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.12" />
-    <line x1="300" y1="302" x2="405" y2="302" stroke="var(--text-primary)" stroke-width="0.75" opacity="0.1" />
+    <line x1="300" y1="285" x2="425" y2="285" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.12" />
+    <line x1="300" y1="302" x2="405" y2="302" stroke="var(--text-primary)" stroke-width="1.5" opacity="0.1" />
 
     <!-- Binding marks -->
-    <circle cx="260" cy="50" r="8" stroke="var(--accent)" stroke-width="1.5" opacity="0.45" fill="none" filter="url(#glow-c)" />
-    <circle cx="260" cy="340" r="8" stroke="var(--accent)" stroke-width="1.5" opacity="0.45" fill="none" filter="url(#glow-c)" />
+    <circle cx="260" cy="50" r="8" stroke="var(--accent)" stroke-width="2.5" opacity="0.45" fill="none" filter="url(#glow-c)" />
+    <circle cx="260" cy="340" r="8" stroke="var(--accent)" stroke-width="2.5" opacity="0.45" fill="none" filter="url(#glow-c)" />
 
     <text x="260" y="378" text-anchor="middle" class="glyph-label">DOCTRINE: SOVEREIGNTY</text>
     <text x="260" y="398" text-anchor="middle" class="glyph-label">REVISION: 0.8.2-ARCANE</text>

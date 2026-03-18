@@ -4,7 +4,7 @@
     Sovren Hexagonal Knot — Favicon (simplified, no weave at this scale)
     R=11, center=(16,16), pointy-top, stroke=1.4
   -->
-  <g stroke="#8B7EC8" stroke-width="1.4" stroke-linecap="butt">
+  <g stroke="#8B7EC8" stroke-width="2" stroke-linecap="butt">
     <!-- Outer hexagon -->
     <polygon points="16,5 25.53,10.5 25.53,21.5 16,27 6.47,21.5 6.47,10.5"
              stroke-linejoin="miter" stroke-miterlimit="4"/>

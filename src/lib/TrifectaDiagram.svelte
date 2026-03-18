@@ -42,13 +42,13 @@
 
   .edge {
     stroke: var(--text-primary);
-    stroke-width: 1.5;
+    stroke-width: 2.5;
     opacity: 0.8;
   }
 
   .inner {
     stroke: var(--accent);
-    stroke-width: 0.75;
+    stroke-width: 1.5;
     opacity: 0.3;
     stroke-dasharray: 4 4;
   }

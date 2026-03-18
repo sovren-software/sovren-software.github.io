@@ -50,7 +50,7 @@
 
   .conn {
     stroke: var(--accent);
-    stroke-width: 1;
+    stroke-width: 2;
     opacity: 0.3;
     stroke-dasharray: 6 4;
   }
@@ -58,7 +58,7 @@
   .layer-box {
     fill: none;
     stroke: var(--text-primary);
-    stroke-width: 1;
+    stroke-width: 1.5;
     opacity: 0.6;
   }
 
@@ -91,14 +91,14 @@
 
   .output {
     stroke: var(--accent);
-    stroke-width: 1.5;
+    stroke-width: 2.5;
     opacity: 0.5;
   }
 
   .result-box {
     fill: none;
     stroke: var(--accent);
-    stroke-width: 1.5;
+    stroke-width: 2.5;
     opacity: 0.6;
   }
 
