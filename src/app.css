@@ -314,6 +314,43 @@ a {
   transform-origin: left;
 }
 
+.btn-peak {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  padding: var(--btn-pad);
+  border: 1px solid var(--accent-peak);
+  background: transparent;
+  color: var(--accent-peak);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-peak::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--accent-peak);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-slow);
+  z-index: -1;
+}
+
+.btn-peak:hover {
+  color: var(--bg);
+}
+
+.btn-peak:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .btn-secondary {
   display: inline-block;
   font-family: var(--font-mono);

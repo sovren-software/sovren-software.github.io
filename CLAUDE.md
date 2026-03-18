@@ -158,14 +158,15 @@ Reusable Svelte components in `src/lib/`:
 | `PillarList.svelte` | label, pillars[] | Panel-bordered pillars with violet number badges |
 | `CtaSection.svelte` | title, body, actions[] | Panel-framed CTA section |
 | `StatusBar.svelte` | (none) | Bottom status bar: version, operational status, copyright |
-| `Nav.svelte` | theme, onToggleTheme | Top nav with `//` separators, `SYS:LIGHT`/`SYS:DARK` toggle |
+| `Nav.svelte` | theme, onToggleTheme | Top nav with hexagonal knot mark, `//` separators, `SYS:LIGHT`/`SYS:DARK` toggle |
 
 **Product pages** use all four main components with zero local CSS (except Esver's launch briefing form). **Home/Ecosystem** retain unique layouts but use design tokens and panel classes throughout.
 
 ### Rules
 
 - Never add a second typeface
-- Violet accent (`--accent`) is used sparingly: active nav state, pillar numbers, tags, blockquote borders, hover states, status dot
+- Violet accent (`--accent`) is used sparingly: active nav state, nav mark, pillar numbers, tags, blockquote borders, hover states, status dot
+- Peak accent (`--accent-peak`) is reserved for awakening-moment CTAs only (`.btn-peak`). Max 1 per viewport. Currently on: "READ THE CODEX" (home, Esver), "EXPLORE THE STACK →" (Codex)
 - All color values must use theme-aware CSS variables — never hardcode colors
 - All transitions: `var(--transition-fast)` (0.15s) or `var(--transition-slow)` (0.4s)
 - All sections have opaque `var(--bg)` backgrounds (no transparent backgrounds)
@@ -346,11 +347,8 @@ The original site was pure monochrome (black/white) with a Three.js 3D wireframe
 - No blog platform for content launch strategy
 - `esver.computer` has no standalone landing page
 - MrHaven SDK not yet documented
-- OG image uses static bone palette — needs regeneration with new color system
 - Glyph animations are CSS-only — no scroll-linked parallax or mouse interaction
 - `AsciiArt.svelte` and `EsperCrystal.svelte` are created but unused (superseded by HeroGlyph approach) — candidates for cleanup
-- Nav does not yet use the hexagonal knot mark (still text-only "SOVREN" wordmark)
-- `--accent-peak` token defined but not yet applied to any CTA components
 
 ### Component Inventory (new in redesign)
 | Component | Purpose | Status |
@@ -390,12 +388,11 @@ The site had no logo mark (text-only "SOVREN" wordmark), the dark mode was a bro
 - Mark is infinitely scalable (SVG), works from 16px favicon to print
 
 ### Known Limitations
-- Mark not yet integrated into site Nav (still text-only wordmark)
-- `--accent-peak` defined but not yet wired to any CTA components
-- Dark mode visual QA not yet done — tokens landed, browser testing needed
-- OG image not yet regenerated with new palette
+- Dark mode visual QA not yet done — tokens landed, mark + peak CTAs wired, browser testing needed
 - X/Twitter banner text rendering uses fallback font (not Geist Mono) — cosmetic only
 - Brand kit PNGs are rasterized from SVG; re-export if SVG sources change
+- OG image does not include hexagonal knot mark (satori doesn't support inline SVG elements; would require data URI or different pipeline)
+- Nav mark uses `stroke-dasharray` Celtic knot weave which may render slightly differently across browsers at 20px — visually verified in build but not cross-browser tested
 
 ### Files Added
 | File | Purpose |
@@ -412,6 +409,36 @@ The site had no logo mark (text-only "SOVREN" wordmark), the dark mode was a bro
 | `brand/preview.html` | Brand kit reference — all variants, scale tests, nav mockups |
 | `brand/color-study.html` | Color theory rationale — emotional arc, text warmth, token system |
 
+## Design Decisions (2026-03-18 Brand v3 Integration)
+
+### Rationale
+Brand system v3 shipped tokens and assets (c68b171) but nothing in the site consumed them — the nav was still text-only, CTAs used `--accent` not `--accent-peak`, and the OG image hadn't been regenerated. This integration wires v3 into every visible surface.
+
+### What Changed
+1. **Nav mark** — Hexagonal knot SVG inlined in `Nav.svelte` before "SOVREN" text. Uses `currentColor` inheriting from a `.nav-mark` class colored `var(--accent)`, so it theme-swaps automatically. Flexbox layout with `gap: var(--space-sm)`.
+2. **`.btn-peak` CSS class** — New button variant in `app.css` that mirrors `.btn-primary` structure (border, fill animation via `::before` pseudo-element) but uses `--accent-peak` for border, text, and fill. Hover inverts to `var(--bg)` text on peak-colored background.
+3. **Peak CTAs on awakening moments** — "READ THE CODEX" (home + Esver pages) and "EXPLORE THE STACK →" (Codex page) now use `.btn-peak`. Functional CTAs ("SUBSCRIBE", "VIEW ON GITHUB", "LAUNCH APP") remain `.btn-primary`.
+4. **CtaSection component** — Added `'peak'` as a recognized `style` prop value alongside `'secondary'`.
+5. **OG image regenerated** — `npm run generate-og` re-rendered the PNG from current palette constants (which already matched light-mode tokens, so no visual change — but the file is now freshly built).
+6. **Legacy static assets** — `og-image.svg` and `x-banner.svg` were already deleted in a prior commit; confirmed absent.
+
+### Trade-offs
+- **Inline SVG in Nav vs `<img>` tag** — Inline SVG enables `currentColor` theme-awareness without extra HTTP request, but adds ~1.2KB to the Nav component markup. At 20px render size the Celtic knot weave is decorative rather than legible, but it provides brand recognition at a glance.
+- **Separate `.btn-peak` class vs extending `.btn-primary`** — Could have used a modifier class (`.btn-primary.btn-peak`) to avoid duplicating the base button styles. Chose a standalone class for clarity and to avoid specificity issues. The duplication is ~15 lines of CSS.
+- **Peak accent on 3 CTAs** — The brand system specifies "max 1 per viewport." These 3 CTAs are on different pages, so the constraint is satisfied. If future pages add more peak CTAs, this rule should be enforced.
+- **OG image without mark** — Satori (the OG image generator) doesn't support inline SVG elements natively. Adding the mark would require a data URI or a different rendering pipeline (Playwright screenshot, etc.). The current schematic layout is clean without it.
+
+### Expected Benefits
+- Every page now reflects the v3 brand identity — mark in nav, peak accent on doctrine CTAs
+- Dark mode gets full visual coherence: violet mark + violet-bordered peak buttons on violet-black background
+- The emotional arc (environment → accent → peak) is now structurally enforced in the CSS, not just documented
+
+### Known Limitations
+- Nav mark at 20px may lose Celtic knot weave detail — the over/under crossings are very small. Cross-browser rendering of `stroke-dasharray` at this scale not yet tested.
+- Dark mode visual QA still needed — all tokens and components are wired but not browser-tested together
+- OG image doesn't include the mark (satori limitation)
+- `.btn-peak` duplicates `.btn-primary` base styles — acceptable at current scale, but if more button variants emerge, consider a shared base class
+
 ## Backlog (external systems — not actionable from this repo)
 
 These require access to external dashboards, registrars, or depend on work that doesn't exist yet:
@@ -422,14 +449,12 @@ These require access to external dashboards, registrars, or depend on work that 
 - MrHaven SDK section on the MrHaven page (blocked on SDK docs)
 - Cloudflare Transform Rules for CDN-level security headers (see `SECURITY.md`)
 - Clean up unused components (AsciiArt.svelte, EsperCrystal.svelte)
-- Dark mode visual QA session — glyphs, panels, dot grid against new violet atmosphere tokens (2026-03-18 color system landed, QA not yet done)
-- Integrate hexagonal knot mark into Nav.svelte (replace "SOVREN" text-only wordmark with mark + text lockup)
-- Apply `--accent-peak` to CTA buttons site-wide (currently CTAs use `--accent`, peak reserved for "Awaken yours" moments)
-- Regenerate OG image (`npm run generate-og`) to reflect new color system
+- Dark mode visual QA session — glyphs, panels, dot grid, nav mark, peak CTAs against violet atmosphere tokens (2026-03-18 all wired, QA not yet done)
 - Update X profiles with new banner/profile assets (PNGs ready in `brand/`)
 - Update `@TheCesarCross` bio: "Augmentum OS" → "Esver OS"
 
 ### Completed
+- [x] Brand v3 integration — nav mark, `.btn-peak` CTA class, peak accent on awakening CTAs, OG image regenerated (2026-03-18)
 - [x] Brand system v3 — hexagonal knot mark, violet atmosphere dark mode, peak state accent, warm text (2026-03-18)
 - [x] Favicon SVG updated to hexagonal knot on violet-black (2026-03-18)
 - [x] Dark mode CSS tokens rewritten — violet-tinted backgrounds, borders, warm off-white text (2026-03-18)

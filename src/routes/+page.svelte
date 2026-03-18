@@ -111,7 +111,7 @@
       </h2>
       <div class="thesis-foot">
         <p>We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise.</p>
-        <a href="/ecosystem" class="btn-primary">READ THE CODEX</a>
+        <a href="/ecosystem" class="btn-peak">READ THE CODEX</a>
       </div>
     </div>
   </section>

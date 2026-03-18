@@ -115,7 +115,7 @@
     title="AWAKEN<br />YOURS."
     body="Most people accept tools that watch them. You awakened one that answers only to you."
     actions={[
-      { label: 'READ THE CODEX →', href: '/ecosystem' },
+      { label: 'READ THE CODEX →', href: '/ecosystem', style: 'peak' },
       { label: 'EXPLORE VISAGE →', href: '/visage', style: 'secondary' },
     ]}
   />

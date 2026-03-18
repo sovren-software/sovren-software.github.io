@@ -15,7 +15,30 @@
 
 <nav aria-label="Primary">
   <div class="nav-inner">
-    <a href="/" class="wordmark" on:click={close}>SOVREN</a>
+    <a href="/" class="wordmark" on:click={close}>
+      <svg class="nav-mark" viewBox="0 0 512 512" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="butt">
+          <line x1="256" y1="56" x2="429.21" y2="356" stroke-dasharray="218.94 24 103.47"/>
+          <line x1="429.21" y1="356" x2="82.79" y2="356" stroke-dasharray="218.94 24 103.47"/>
+          <line x1="82.79" y1="356" x2="256" y2="56" stroke-dasharray="218.94 24 103.47"/>
+          <line x1="429.21" y1="156" x2="256" y2="456" stroke-dasharray="218.94 24 103.47"/>
+          <line x1="256" y1="456" x2="82.79" y2="156" stroke-dasharray="218.94 24 103.47"/>
+          <line x1="82.79" y1="156" x2="429.21" y2="156" stroke-dasharray="218.94 24 103.47"/>
+        </g>
+        <polygon points="256,56 429.21,156 429.21,356 256,456 82.79,356 82.79,156"
+                 fill="none" stroke="currentColor" stroke-width="16"
+                 stroke-linejoin="miter" stroke-miterlimit="4"/>
+        <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="butt">
+          <line x1="298.74" y1="130.01" x2="328.75" y2="181.97"/>
+          <line x1="343.75" y1="356" x2="283.74" y2="356"/>
+          <line x1="125.53" y1="281.99" x2="155.54" y2="230.03"/>
+          <line x1="386.47" y1="230.01" x2="356.46" y2="281.97"/>
+          <line x1="213.26" y1="381.99" x2="183.25" y2="330.03"/>
+          <line x1="168.25" y1="156" x2="228.26" y2="156"/>
+        </g>
+      </svg>
+      SOVREN
+    </a>
 
     <div class="nav-links" class:open={menuOpen}>
       <span class="sep">//</span>
@@ -65,11 +88,20 @@
   }
 
   .wordmark {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
     font-size: var(--fs-wordmark);
     font-weight: var(--fw-bold);
     letter-spacing: var(--ls-wider);
     color: var(--text-primary);
     text-decoration: none;
+  }
+
+  .nav-mark {
+    width: 20px;
+    height: 20px;
+    color: var(--accent);
   }
 
   .nav-actions {

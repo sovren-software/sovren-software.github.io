@@ -18,7 +18,7 @@
         {#each actions as a}
           <a
             href={a.href}
-            class={a.style === 'secondary' ? 'btn-secondary' : 'btn-primary'}
+            class={a.style === 'secondary' ? 'btn-secondary' : a.style === 'peak' ? 'btn-peak' : 'btn-primary'}
             target={a.external ? '_blank' : undefined}
             rel={a.external ? 'noreferrer' : undefined}
           >

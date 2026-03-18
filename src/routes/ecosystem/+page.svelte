@@ -103,7 +103,7 @@
     <div class="closing-inner panel--strong reveal" use:reveal>
       <h2>ONE OPERATOR.<br />TOTAL AUTHORITY.</h2>
       <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Esver OS is the command center — voice-ready, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
-      <a href="/" class="btn-primary">EXPLORE THE STACK →</a>
+      <a href="/" class="btn-peak">EXPLORE THE STACK →</a>
     </div>
   </section>
 </main>
