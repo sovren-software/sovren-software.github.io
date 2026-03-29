@@ -1,0 +1,276 @@
+{
+  "account": "@sovren_software",
+  "voice": "Declarative. Terse. No hedging. No emojis. Thesis and philosophy only.",
+  "posts": [
+    {
+      "id": 1,
+      "text": "Most privacy tools ask you to trust someone else's server. We think that is a contradiction. Sovereign means your hardware, your keys, your compute. No exceptions.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-03-29",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 2,
+      "text": "Privacy is not a spectrum. Either the data stays on your hardware or it does not. There is no \"mostly private.\"",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-03-30",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 3,
+      "text": "If your AI assistant logs every conversation to a server you do not control, what exactly are you trusting?",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-03-31",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 4,
+      "text": "Governance bolted onto an application can be circumvented. Governance in the substrate cannot.\n\nThat is the difference between a security product and secure architecture.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-01",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 5,
+      "text": "The kernel is the last place governance can be bypassed. So that is where we put it.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-02",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 6,
+      "text": "Structural trust means the system cannot betray you even if the operator wants it to. Not \"we promise.\" Not \"our policy.\" The architecture will not allow it.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-03",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 7,
+      "text": "Sovereignty is not a product feature. It is an architectural commitment made before the first line of code. Every component we build assumes the network is hostile and the user owns their data.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-04",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 8,
+      "text": "Agents are actors, not tools. Actors need identity that persists. Authority that has bounds. Accountability that is permanent.\n\nThis is not a feature request. It is an infrastructure problem.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-05",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 9,
+      "text": "An AI agent without a persistent identity is a stranger every session. Identity is not authentication. Identity is continuity.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-06",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 10,
+      "text": "The question is not whether AI agents will manage money. The question is who holds the keys. We built infrastructure where the answer is always: the owner.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-07",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 11,
+      "text": "Accountability is an infrastructure problem, not a policy problem. You cannot audit what you cannot trace. You cannot trace what does not produce receipts. Receipts are architectural, not optional.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-08",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 12,
+      "text": "Don't trust. Verify. Every claim is provable. Every action produces a receipt. Every agent has an identity that persists.\n\nTrust is a property of architecture, not a feeling about the vendor.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-09",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 13,
+      "text": "Autonomy without accountability is chaos. Accountability without autonomy is captivity. The infrastructure must enforce both simultaneously.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-10",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 14,
+      "text": "The hardest problem in AI is not reasoning. It is accountability.\n\nHow do you audit what an agent actually did? Not what it logged. What it did.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-11",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 15,
+      "text": "Computing without sovereignty is rented. Identity without sovereignty is borrowed. Capital without sovereignty is custodied.\n\nWe build all three layers because sovereignty is not a feature. It is the foundation.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-12",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 16,
+      "text": "One thesis. Three expressions. Sovereign compute. Sovereign identity. Sovereign capital.\n\nThe convergence is architectural, not marketing.",
+      "category": "vision",
+      "status": "pending",
+      "scheduled": "2026-04-13",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 17,
+      "text": "Negative space is a design decision. What a system refuses to do reveals more about its values than what it ships.",
+      "category": "philosophy",
+      "status": "pending",
+      "scheduled": "2026-04-14",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 18,
+      "text": "Security as a property of architecture, not a product you install. The difference is whether it can be circumvented.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-15",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 19,
+      "text": "Correctness is not optional in trust infrastructure. The safety verifier, the identity system, and the knowledge engine cannot afford undefined behavior.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-16",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 20,
+      "text": "We do not compete on features. We compete on trust assumptions. Every piece of the stack runs on hardware you own, with keys you control.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-17",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 21,
+      "text": "You own data you can delete. You control systems you can audit. You are sovereign over infrastructure you can replace. Everything else is a lease.",
+      "category": "philosophy",
+      "status": "pending",
+      "scheduled": "2026-04-18",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 22,
+      "text": "The bottleneck is not smarter agents or better models. It is the layer between them.\n\nOne person hits a ceiling not of talent but of coordination. The solution is structural, not more effort.",
+      "category": "vision",
+      "status": "pending",
+      "scheduled": "2026-04-19",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 23,
+      "text": "The constraint shapes the product. One founder. Sovereign infrastructure. Three domains.\n\nIf the system multiplies capability enough, team size stops mattering.",
+      "category": "vision",
+      "status": "pending",
+      "scheduled": "2026-04-20",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 24,
+      "text": "The system that helps you build is governed by the system you build. Self-compounding infrastructure. Not a pitch. A proof that runs continuously.",
+      "category": "vision",
+      "status": "pending",
+      "scheduled": "2026-04-21",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 25,
+      "text": "The cost of sovereignty is complexity. The cost of dependence is everything else.",
+      "category": "philosophy",
+      "status": "pending",
+      "scheduled": "2026-04-22",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 26,
+      "text": "Convenience and dependence look the same until you try to leave.",
+      "category": "philosophy",
+      "status": "pending",
+      "scheduled": "2026-04-23",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 27,
+      "text": "At what point does \"convenient\" become \"dependent\"? The answer is wherever you stopped being able to leave.",
+      "category": "philosophy",
+      "status": "pending",
+      "scheduled": "2026-04-24",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 28,
+      "text": "Every piece of software you run on someone else's terms is a decision you made. Sovereignty is choosing to make a different one.",
+      "category": "philosophy",
+      "status": "pending",
+      "scheduled": "2026-04-25",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 29,
+      "text": "The question is not whether you need privacy. The question is whether the systems you use structurally guarantee it or merely promise it.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-26",
+      "posted_at": null,
+      "tweet_id": null
+    },
+    {
+      "id": 30,
+      "text": "Sovereignty is the baseline. Not the premium tier. Not the enterprise add-on. The baseline.",
+      "category": "thesis",
+      "status": "pending",
+      "scheduled": "2026-04-27",
+      "posted_at": null,
+      "tweet_id": null
+    }
+  ]
+}
