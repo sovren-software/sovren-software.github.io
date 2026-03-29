@@ -439,6 +439,79 @@ Brand system v3 shipped tokens and assets (c68b171) but nothing in the site cons
 - OG image doesn't include the mark (satori limitation)
 - `.btn-peak` duplicates `.btn-primary` base styles — acceptable at current scale, but if more button variants emerge, consider a shared base class
 
+## Social Content Queue (2026-03-28)
+
+Automated daily thesis/vision posts for `@sovren_software` via a content queue system.
+
+### Architecture
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| Queue file | `scripts/content-queue.json` | 30 scheduled posts with status tracking |
+| Post script | `scripts/daily-post.js` | Reads queue, posts next due item via Twitter API v2, marks posted |
+| Cron | `0 14 * * *` (10 AM ET) | Sources `~/.claude/secrets.env`, runs daily-post.js |
+
+### Commands
+
+```bash
+npm run post          # Post next due item
+npm run post:dry      # Preview without posting
+npm run post:list     # Show full queue status
+node scripts/daily-post.js --add "text" --category thesis   # Append new post
+```
+
+### Design Decisions
+
+**D1: Thesis-only auto-scheduling**
+- **Decision:** Only sovereignty thesis / vision / philosophy posts are auto-scheduled. All product announcements, technical content, and build-in-public posts are manual and founder-driven.
+- **Rationale:** Account data showed 3 authentic posts (509-1,394 views) vastly outperformed 556 automated ones (0-57 views). Automated product posts risk being poorly timed or contradicting the founder's manual narrative. Technical depth is reserved for long-form X articles, benchmarks, demos, and videos.
+- **Trade-off:** Slower product content cadence, but higher quality and timing control.
+
+**D2: Milestone-aligned sequencing**
+- **Decision:** 30 posts are sequenced in 4 weekly arcs that prime the audience for upcoming product milestones.
+- **Rationale:** Thesis posts build narrative context so that manual product drops land on prepared ground.
+- **Sequence:** Week 1 (hardware sovereignty → OpenHome) → Week 2 (agent identity → Passport SDK) → Week 3 (convergence bridge) → Week 4 (coordination ceiling → DACU demo).
+
+**D3: Content lives in sovren-website, not mr-haven**
+- **Decision:** Brand-level social content and posting infrastructure lives in this repo.
+- **Rationale:** `@sovren_software` is the umbrella brand. `mr-haven` is one product underneath it. Brand assets belong at the brand level.
+
+**D4: Credentials via secrets.env, not dotenv**
+- **Decision:** Cron sources `~/.claude/secrets.env` directly. No dotenv package for credential loading.
+- **Rationale:** Twitter API credentials (`TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_SECRET`) are already available via direnv in interactive sessions and via secrets.env for cron. Adding dotenv would duplicate existing infrastructure.
+
+### Voice Rules (enforced by daily-post.js)
+
+- Under 280 characters
+- No emojis (regex check)
+- No exclamation marks
+- No hype words (excited, amazing, incredible, revolutionary, game-changing, LFG, wagmi)
+- Declarative, terse, no hedging
+
+### Known Limitations
+
+- **No retry on failure.** If the Twitter API is down at 10 AM ET, the post is skipped until the next cron run (tomorrow). The post remains "pending" and will be picked up the next day.
+- **No thread support.** Each post is standalone. Threading requires the reply API (Pro tier, available but not wired).
+- **Queue is JSON, not a database.** Fine for 30-60 posts. If the queue grows past ~200 posts, consider SQLite.
+- **Cron depends on machine uptime.** If the-first is off at 14:00 UTC, the post is missed. No catch-up mechanism.
+- **No analytics feedback loop.** The script does not read engagement data. Weekly manual review via X Analytics is needed to adjust content.
+
+### Remaining Work
+
+- [ ] Fix @sovren_software bio: remove `**` markdown artifacts + trailing comma (manual, X settings)
+- [ ] Delete old automated/reply-farming posts from the profile (manual, ~30-45 min)
+- [ ] Monitor first week of posts for delivery confirmation (`/tmp/sovren-post.log`)
+- [ ] After 30 days: review analytics, draft next batch, evaluate X article timing
+- [ ] Consider adding `--retry` flag for transient API failures
+- [ ] Wire threading support for multi-part posts when needed
+
+### Dependencies
+
+- `twitter-api-v2` (devDependency) — Twitter API v2 client
+- Environment: `TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_SECRET`
+
+---
+
 ## Backlog (external systems — not actionable from this repo)
 
 These require access to external dashboards, registrars, or depend on work that doesn't exist yet:
@@ -454,6 +527,7 @@ These require access to external dashboards, registrars, or depend on work that 
 - Update `@TheCesarCross` bio: "Augmentum OS" → "Esver OS"
 
 ### Completed
+- [x] Daily content queue system — 30 thesis posts, auto-post via cron at 10 AM ET, Twitter API v2 (2026-03-28)
 - [x] Brand v3 integration — nav mark, `.btn-peak` CTA class, peak accent on awakening CTAs, OG image regenerated (2026-03-18)
 - [x] Brand system v3 — hexagonal knot mark, violet atmosphere dark mode, peak state accent, warm text (2026-03-18)
 - [x] Favicon SVG updated to hexagonal knot on violet-black (2026-03-18)
