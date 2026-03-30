@@ -3,6 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "description": "Sovren Software marketing site — sovren.software",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sovren-software/sovren-software.github.io.git"
+  },
+  "homepage": "https://sovren.software",
   "engines": {
     "node": ">=20"
   },
