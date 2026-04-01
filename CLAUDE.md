@@ -353,7 +353,7 @@ The original site was pure monochrome (black/white) with a Three.js 3D wireframe
 ### Component Inventory (new in redesign)
 | Component | Purpose | Status |
 |-----------|---------|--------|
-| `HeroGlyph.svelte` | Animated SVG line-art per product hero | Active, 5 variants |
+| `HeroGlyph.svelte` | Animated SVG line-art per product hero | Active, 5 variants (esver = V4 crystal mark) |
 | `Icon.svelte` | 9 thin-line SVG icon glyphs | Active |
 | `StatusBar.svelte` | Bottom status bar | Active |
 | `StackDiagram.svelte` | Three-product convergence diagram | Active (homepage) |
@@ -408,6 +408,7 @@ The site had no logo mark (text-only "SOVREN" wordmark), the dark mode was a bro
 | `brand/x-banner-founder.svg/.png` | X banner for `@TheCesarCross` |
 | `brand/preview.html` | Brand kit reference — all variants, scale tests, nav mockups |
 | `brand/color-study.html` | Color theory rationale — emotional arc, text warmth, token system |
+| `static/esver-mark.svg` | Esver OS crystal mark V4 (neon variant, 512px, hardcoded colors) |
 
 ## Design Decisions (2026-03-18 Brand v3 Integration)
 
@@ -512,6 +513,36 @@ node scripts/daily-post.js --add "text" --category thesis   # Append new post
 
 ---
 
+## Design Decisions (2026-04-01 Esver Crystal Mark V4)
+
+### Rationale
+The Esver OS product page used a placeholder "Magicite crystal" glyph (Ethereum-esque diamond with rotating rings). The V4 crystal mark — a 6-vertex elongated crystal with construction lines, vertex nodes, radiating inner lines, and a glowing core — was designed as the official Esver OS logo. This replaces the placeholder with the actual brand mark, and adds a circular circuit board pattern behind it as ambient hero decoration.
+
+### What Changed
+1. **HeroGlyph esver variant** — Replaced the Ethereum-esque diamond with the V4 6-vertex crystal geometry. Faithful translation of the JSX source (`esver-logo-v4.jsx`) into theme-aware SVG using `var(--accent)`, `var(--accent-light)`, `var(--accent-peak)` for automatic light/dark mode support. Progressive detail (construction lines, vertex nodes, mid-edge nodes, neon edge glow, core bloom) matches the original design.
+2. **Circular circuit pattern** — Added to `ProductHero.svelte` as a positioned SVG behind the crystal glyph (esver page only). Concentric broken rings with circuit nodes, connector lines, and chevron traces. Radial gradient mask fades the circuit from center outward (strongest near crystal, dissolving at edges). Container opacity at 10% for subtlety.
+3. **Crystal mark SVG** — `static/esver-mark.svg` added as a standalone asset (512px canonical neon variant).
+4. **Glyph label** — Changed from `MAGICITE_CORE: ACTIVE` to `ESVER_MARK: V4 · CRYSTAL_ACTIVE`.
+
+### Trade-offs
+- **Inline SVG circuit pattern vs raster image** — Circuit is ~80 lines of SVG in ProductHero. Could be extracted to a component, but it's only used once and the SVG needs the radial gradient mask which is simpler inline. If other pages need similar patterns, extract to a shared component.
+- **Circuit at 10% opacity** — Deliberately very subtle on the warm bone background. On dark mode (violet atmosphere) it may be more or less visible — dark mode QA still needed.
+- **Theme-aware glyph vs static SVG** — The glyph uses CSS variables for all colors, so it adapts to light/dark mode. The standalone `static/esver-mark.svg` uses hardcoded neon colors (for use as a standalone asset/favicon/OG image).
+- **Progressive detail from JSX** — The website glyph renders at one size (hero), so all detail levels are shown. The NixOS integration uses `rsvg-convert` from the canonical SVG which lacks the size-specific detail dropping. For icon sizes (16-48px), the pre-rendered PNGs in `esver-os/assets/logo/png/` are generated from size-specific SVGs via ImageMagick.
+
+### Expected Benefits
+- Official brand mark replaces placeholder artwork
+- Circuit pattern adds depth to the schematic magitek aesthetic without competing with content
+- Theme-aware SVG artwork swaps cleanly with dark mode
+- Canonical SVG source in esver-os repo enables NixOS build-time PNG generation
+
+### Known Limitations
+- Dark mode not visually tested with the new crystal glyph or circuit pattern
+- Circuit pattern is esver-page only — other product heroes unchanged
+- OG image does not include the crystal mark (satori limitation, same as hexagonal knot)
+- Circuit pattern at 10% may be invisible on some displays — acceptable as ambient texture
+- The sized SVGs in `esver-os/assets/logo/sized/` have progressive detail for each size, but the NixOS `rsvg-convert` derivation uses the single canonical 512px SVG for all sizes
+
 ## Backlog (external systems — not actionable from this repo)
 
 These require access to external dashboards, registrars, or depend on work that doesn't exist yet:
@@ -527,6 +558,7 @@ These require access to external dashboards, registrars, or depend on work that 
 - Update `@TheCesarCross` bio: "Augmentum OS" → "Esver OS"
 
 ### Completed
+- [x] Esver crystal mark V4 — replaced placeholder glyph with official 6-vertex crystal, added circuit pattern hero decoration, crystal mark SVG as static asset (2026-04-01)
 - [x] Daily content queue system — 30 thesis posts, auto-post via cron at 10 AM ET, Twitter API v2 (2026-03-28)
 - [x] Brand v3 integration — nav mark, `.btn-peak` CTA class, peak accent on awakening CTAs, OG image regenerated (2026-03-18)
 - [x] Brand system v3 — hexagonal knot mark, violet atmosphere dark mode, peak state accent, warm text (2026-03-18)
