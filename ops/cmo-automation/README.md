@@ -23,6 +23,7 @@ Structure
 - scripts/analyze_x_cmo.py
 - scripts/generate_engagement_queue.py
 - scripts/review_engagement_queue.py
+- scripts/reconstruct_fiverr_playbook.py
 - reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md
 
 Quick start
@@ -32,8 +33,9 @@ Quick start
 2) Run:
    - python3 scripts/collect_x_data.py
    - python3 scripts/analyze_x_cmo.py
-   - python3 scripts/generate_engagement_queue.py
-   - python3 scripts/review_engagement_queue.py
+  - python3 scripts/generate_engagement_queue.py
+  - python3 scripts/review_engagement_queue.py
+  - python3 scripts/reconstruct_fiverr_playbook.py
 
 Outputs
 - data/latest.json
