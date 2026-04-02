@@ -117,21 +117,20 @@ def root_ideas(role: str) -> str:
 def detect_topic(source_text: str) -> tuple[str, str]:
     s = (source_text or "").lower()
     topic_map = [
-        ("evals", ["eval", "benchmark", "test", "score"]),
-        ("memory", ["memory", "context", "recall", "state"]),
-        ("orchestration", ["orchestration", "workflow", "pipeline", "automation"]),
-        ("governance", ["governance", "policy", "compliance", "guardrail"]),
-        ("verification", ["verify", "proof", "receipt", "audit", "on-chain"]),
-        ("agent", ["agent", "autonomous", "multi-agent"]),
-        ("distribution", ["distribution", "growth", "retention", "onboarding"]),
-        ("shipping", ["ship", "release", "roadmap", "milestone"]),
+        ("evals", ["eval", "benchmark", "test", "score", "grade", "leaderboard"]),
+        ("memory", ["memory", "context", "recall", "state", "retrieval", "rag"]),
+        ("orchestration", ["orchestration", "workflow", "pipeline", "automation", "scheduler", "queue", "routing"]),
+        ("governance", ["governance", "policy", "compliance", "guardrail", "control", "constraints"]),
+        ("verification", ["verify", "proof", "receipt", "audit", "on-chain", "attestation"]),
+        ("agent", ["agent", "autonomous", "multi-agent", "copilot"]),
+        ("distribution", ["distribution", "growth", "retention", "onboarding", "funnel", "activation"]),
+        ("shipping", ["ship", "release", "roadmap", "milestone", "launch", "repo", "sdk", "api", "integration", "supports"]),
     ]
     for topic, kws in topic_map:
         for kw in kws:
             if kw in s:
                 return topic, kw
     return "general", ""
-
 
 def build_reply_text(role: str, target_user: str, source_text: str, idx_seed: int) -> str:
     topic, kw = detect_topic(source_text)
@@ -152,8 +151,8 @@ def build_reply_text(role: str, target_user: str, source_text: str, idx_seed: in
                 f"@{target_user} Good framing. Distribution quality shows up in repeatable retention, not reach spikes.",
             ],
             "general": [
-                f"@{target_user} Good observation. The useful test is whether it changes operator control, reliability, or verification quality.",
-                f"@{target_user} Useful angle. I care most about what can be measured and repeated in production.",
+                f"@{target_user} Useful angle. What matters is whether this improves operator control or reliability under load.",
+                f"@{target_user} I look at this through execution quality. If it is measurable in production, it is worth building on.",
             ],
         },
         "product-agent": {
@@ -188,8 +187,8 @@ def build_reply_text(role: str, target_user: str, source_text: str, idx_seed: in
                 f"@{target_user} We see this too. Orchestration quality compounds faster than model-level tuning.",
             ],
             "general": [
-                f"@{target_user} Solid perspective. The key is whether it improves measurable outcomes in production.",
-                f"@{target_user} Good signal. What makes this useful is the path from idea to repeatable operational impact.",
+                f"@{target_user} Solid perspective. The key test is whether it improves measurable outcomes in production.",
+                f"@{target_user} Useful perspective. Operational value shows up when the idea survives real deployment constraints.",
             ],
         },
     }
@@ -296,7 +295,8 @@ def hydrate_single_action(action: dict, policy: dict, resolver: Resolver, seen: 
             return out
 
         topic, _ = detect_topic(source_text)
-        if topic == "general":
+        anchor = source_anchor(source_text)
+        if topic == "general" and len(anchor.split()) < 2:
             out["hydration_status"] = "blocked"
             out["hydration_reason"] = "insufficient_context_specificity"
             return out
@@ -304,7 +304,6 @@ def hydrate_single_action(action: dict, policy: dict, resolver: Resolver, seen: 
         target_user = out.get("target_user") or candidate.get("author") or "builder"
         idx_seed = len(seen["reply_norms"]) + len(target_user) + len(tweet_id)
         reply_raw = build_reply_text(role, target_user, source_text, idx_seed)
-        anchor = source_anchor(source_text)
         if anchor and len(anchor.split()) >= 2:
             reply_raw = f"{reply_raw} Specific to {anchor}."
         reply_text = enforce_style(reply_raw, remove_links=no_links_in_replies, no_hashtags=no_hashtags)
