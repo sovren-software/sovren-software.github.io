@@ -12,6 +12,7 @@ What this does today
 2) Analyze behavior and output baseline metrics
 3) Generate a conservative dry-run engagement queue
 4) Score the queue for risk/quality before any execution
+5) Build execution report from approved actions (dry-run default)
 
 Current mode
 - Dry-run / assisted only.
@@ -25,6 +26,7 @@ Structure
 - scripts/generate_engagement_queue.py
 - scripts/review_engagement_queue.py
 - scripts/reconstruct_fiverr_playbook.py
+- scripts/execute_approved_queue.py
 - reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md
 - reports/CMO-CUTOVER-48H-RUNBOOK.md
 
@@ -38,6 +40,7 @@ Quick start
   - python3 scripts/generate_engagement_queue.py
   - python3 scripts/review_engagement_queue.py
   - python3 scripts/reconstruct_fiverr_playbook.py
+  - python3 scripts/execute_approved_queue.py
 
 Outputs
 - data/latest.json
@@ -46,6 +49,8 @@ Outputs
 - data/engagement-queue.json
 - reports/cmo-queue-review.json
 - reports/cmo-queue-review.md
+- reports/cmo-execution-report.json
+- reports/cmo-execution-report.md
 
 Guardrails
 - Generic short-reply behavior is penalized.
