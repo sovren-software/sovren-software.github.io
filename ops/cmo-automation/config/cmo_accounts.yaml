@@ -1,0 +1,42 @@
+accounts:
+  - handle: TheCesarCross
+    role: founder
+    voice: founder-authentic
+    target_mix:
+      root_posts_per_day: 1
+      replies_per_day: 12
+      quote_posts_per_week: 4
+  - handle: sovren_software
+    role: brand
+    voice: thesis-terse
+    target_mix:
+      root_posts_per_day: 1
+      replies_per_day: 10
+      quote_posts_per_week: 3
+  - handle: mrhaven_agent
+    role: product-agent
+    voice: guardian-utility
+    target_mix:
+      root_posts_per_day: 2
+      replies_per_day: 6
+      quote_posts_per_week: 2
+
+analysis:
+  lookback_days: 21
+  baseline_label: fiverr-period
+  detect_patterns:
+    short_reply_threshold_chars: 90
+    short_reply_ratio_alert: 0.75
+    repeated_openers:
+      - "Totally agree"
+      - "Agree"
+      - "Appreciate"
+      - "Nice take"
+      - "We value"
+      - "Right then"
+
+risk_controls:
+  max_replies_per_hour_per_account: 8
+  random_delay_seconds: [45, 180]
+  avoid_repeated_same-user-replies_within_hours: 24
+  dry_run_default: true

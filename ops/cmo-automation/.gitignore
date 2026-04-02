@@ -1,0 +1,10 @@
+# Generated runtime artifacts
+data/*.json
+reports/cmo-analysis.json
+reports/cmo-analysis.md
+reports/cmo-queue-review.json
+reports/cmo-queue-review.md
+
+# Python cache
+__pycache__/
+*.pyc
