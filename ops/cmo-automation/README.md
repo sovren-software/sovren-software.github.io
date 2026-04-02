@@ -16,8 +16,9 @@ What this does today
 6) Build execution report from approved actions (dry-run default)
 
 Current mode
-- Dry-run / assisted only.
-- No autonomous posting in this module yet.
+- Quality-gated assisted automation with optional live execution.
+- Root posts can execute live.
+- Quote-style engagement is subject to X platform eligibility constraints and may fail with 403 when not in-thread/not mentioned.
 
 Structure
 - config/cmo_accounts.yaml
@@ -32,6 +33,7 @@ Structure
 - reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md
 - reports/CMO-CUTOVER-48H-RUNBOOK.md
 - reports/CMO-ECOSYSTEM-MARKETING-BRIEF.md
+- reports/CMO-QUALITY-UPGRADE-2026-04-02.md
 
 Quick start
 1) Export credentials (or source ~/.claude/secrets.env)
@@ -63,7 +65,9 @@ Guardrails
 - Repetitive opener patterns are penalized.
 - Per-account recommended caps are enforced by policy review before execution.
 - Voice style enforcement for generated copy: no exclamation marks, no emojis, no em/en dashes.
+- Additional quality constraints: no hashtags, no links in replies, no duplicate target tweet IDs, no duplicate reply patterns.
+- Context-specificity gate blocks generic or low-signal reply candidates.
 
 Notes
-- Generated JSON/analysis artifacts are ignored in git by default.
-- Commit strategy/docs/scripts, not volatile runtime snapshots.
+- Standard practice is to commit strategy/docs/scripts and avoid volatile runtime snapshots.
+- For major cutovers or upgrades, commit representative execution artifacts to preserve auditability of behavior changes.

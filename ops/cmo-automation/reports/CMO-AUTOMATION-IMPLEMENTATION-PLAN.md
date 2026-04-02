@@ -153,7 +153,26 @@ Weekly review output
 
 ---
 
+## Phase 6 — Quality Hardening Upgrade (completed 2026-04-02)
+
+Implemented
+- Policy-level constraints: no hashtags, no links in replies, unique contextual replies.
+- Hydration-level enforcement for copy/style/duplication.
+- Duplicate suppression across both target tweet IDs and reply text patterns.
+- Context-specificity gate and low-signal source filtering.
+- Mission alignment gate wired via operating policy + ecosystem brief.
+
+Measured outcome (latest cycle)
+- 18 approved actions
+- 16 hydrated and ready after quality gating
+- 2 blocked (low signal or duplicate target)
+- 0 hashtag/link/duplicate violations in hydrated replies
+
+Observed platform constraint
+- Live quote-style engagement can fail with HTTP 403 when account is not mentioned or in-thread for the target post.
+
 Status
-- Baseline system scaffold is implemented under:
+- Baseline + quality-hardening scaffold is implemented under:
   ~/cDesign/sovren-website/ops/cmo-automation
-- Ready for day-1 operation and playbook reconstruction.
+- Upgrade details, decision log, limitations, and remaining work:
+  reports/CMO-QUALITY-UPGRADE-2026-04-02.md

@@ -1,0 +1,670 @@
+{
+  "generated_at": "2026-04-02T18:53:13.051948+00:00",
+  "mode": "dry-run",
+  "accounts": {
+    "TheCesarCross": {
+      "historical": {
+        "reply_ratio": 1.0,
+        "short_reply_ratio": 0.8,
+        "avg_impressions": 5.7,
+        "avg_likes": 0.2
+      },
+      "queue_counts": {
+        "total": 9,
+        "reply": 8,
+        "root": 1
+      },
+      "applied_cap": 8,
+      "confidence": 0.45,
+      "risk_flags": [
+        "historical reply ratio high: 1.0"
+      ],
+      "founder_denylist_rejections": 0,
+      "recommendation": "throttled_autonomous",
+      "approved_count": 5,
+      "rejected_count": 4,
+      "approved_actions": [
+        {
+          "account": "TheCesarCross",
+          "action": "root_post",
+          "priority": "high",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Anchor narrative with original voice-aligned post.",
+          "constraints": {
+            "must_pass_voice_review": true,
+            "must_align_strategy": true,
+            "min_gap_minutes": 180
+          },
+          "post_text": "We are building accountable AI operations where identity, bounds, and receipts are structural, not optional.",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "post",
+            "We are building accountable AI operations where identity, bounds, and receipts are structural, not optional."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": "permacastapp",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 98
+          },
+          "target_tweet_id": "2039625900137021855",
+          "reply_text": "@permacastapp Yes. Without verifiable receipts, accountability collapses into trust claims. Specific to curation already happening across.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039625900137021855",
+            "@permacastapp Yes. Without verifiable receipts, accountability collapses into trust claims. Specific to curation already happening across."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": "bitshala_org",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 127
+          },
+          "hydration_status": "blocked",
+          "hydration_reason": "low_signal_source"
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": "bala_1116",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 69
+          },
+          "target_tweet_id": "2039771869835104462",
+          "reply_text": "@bala_1116 I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to bitcoin nodes paired lora.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039771869835104462",
+            "@bala_1116 I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to bitcoin nodes paired lora."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": "naorisprotocol",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 145
+          },
+          "target_tweet_id": "2039763775264260526",
+          "reply_text": "@naorisprotocol I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to must sign.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039763775264260526",
+            "@naorisprotocol I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to must sign."
+          ],
+          "hydration_status": "hydrated"
+        }
+      ],
+      "rejected_actions": [
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": "miftahuleth",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 112
+          }
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": "dgrid_ai",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 153
+          }
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": null,
+          "target_pool": "discovery",
+          "priority": "low",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Exploration budget for net-new qualified audience.",
+          "constraints": {
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "must_not_hit_founder_denylist": true
+          }
+        },
+        {
+          "account": "TheCesarCross",
+          "action": "reply",
+          "target_user": null,
+          "target_pool": "discovery",
+          "priority": "low",
+          "window_est": [
+            "09:00-11:00",
+            "18:00-20:00"
+          ],
+          "why": "Exploration budget for net-new qualified audience.",
+          "constraints": {
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "must_not_hit_founder_denylist": true
+          }
+        }
+      ]
+    },
+    "sovren_software": {
+      "historical": {
+        "reply_ratio": 0.9,
+        "short_reply_ratio": 0.722,
+        "avg_impressions": 12.1,
+        "avg_likes": 0.15
+      },
+      "queue_counts": {
+        "total": 11,
+        "reply": 10,
+        "root": 1
+      },
+      "applied_cap": 10,
+      "confidence": 0.65,
+      "risk_flags": [],
+      "founder_denylist_rejections": 0,
+      "recommendation": "autonomous_with_posthoc",
+      "approved_count": 11,
+      "rejected_count": 0,
+      "approved_actions": [
+        {
+          "account": "sovren_software",
+          "action": "root_post",
+          "priority": "high",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Anchor narrative with original voice-aligned post.",
+          "constraints": {
+            "must_pass_voice_review": true,
+            "must_align_strategy": true,
+            "min_gap_minutes": 180
+          },
+          "post_text": "Structural trust means governance lives in infrastructure and every meaningful action is verifiable.",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "post",
+            "Structural trust means governance lives in infrastructure and every meaningful action is verifiable."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "elonogyx",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 125
+          },
+          "target_tweet_id": "2039734716329308587",
+          "reply_text": "@elonogyx Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to elon musk space advantage.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039734716329308587",
+            "@elonogyx Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to elon musk space advantage."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "aiwitharsalan",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 156
+          },
+          "target_tweet_id": "2039748268100575360",
+          "reply_text": "@aiwitharsalan Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to campaigns managed solid foundation.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039748268100575360",
+            "@aiwitharsalan Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to campaigns managed solid foundation."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "cryptosmiff",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 171
+          },
+          "target_tweet_id": "2039767880313774148",
+          "reply_text": "@cryptosmiff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to every company become media.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039767880313774148",
+            "@cryptosmiff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to every company become media."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "shafu0x",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 175
+          },
+          "target_tweet_id": "2039763995687620696",
+          "reply_text": "@shafu0x Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to grow agentic commerce 100x.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039763995687620696",
+            "@shafu0x Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to grow agentic commerce 100x."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "agentcashdev",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 116
+          },
+          "target_tweet_id": "2037584354684060017",
+          "reply_text": "@agentcashdev Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to agentcash officially supports provides.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2037584354684060017",
+            "@agentcashdev Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to agentcash officially supports provides."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "0xjeff",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 53
+          },
+          "target_tweet_id": "2039721409740673323",
+          "reply_text": "@0xjeff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to hmmmm interesting.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039721409740673323",
+            "@0xjeff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to hmmmm interesting."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "code_bykuti",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 142
+          },
+          "target_tweet_id": "2039762493661421579",
+          "reply_text": "@code_bykuti Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to real value drafting returns.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039762493661421579",
+            "@code_bykuti Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to real value drafting returns."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "prakashs720",
+          "target_pool": "core",
+          "priority": "medium",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Continuation of existing interaction graph.",
+          "constraints": {
+            "max_replies_to_same_user_per_24h": 1,
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "min_delay_seconds": 68
+          },
+          "target_tweet_id": "2039710298551255248",
+          "reply_text": "@prakashs720 Solid perspective. The key test is whether it improves measurable outcomes in production.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039710298551255248",
+            "@prakashs720 Solid perspective. The key test is whether it improves measurable outcomes in production."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": "builder",
+          "target_pool": "discovery",
+          "priority": "low",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Exploration budget for net-new qualified audience.",
+          "constraints": {
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "must_not_hit_founder_denylist": false
+          },
+          "target_tweet_id": "2039779067415973975",
+          "reply_text": "@builder We see this too. Orchestration quality compounds faster than model-level tuning. Specific to 200k automation agency describe.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039779067415973975",
+            "@builder We see this too. Orchestration quality compounds faster than model-level tuning. Specific to 200k automation agency describe."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "sovren_software",
+          "action": "reply",
+          "target_user": null,
+          "target_pool": "discovery",
+          "priority": "low",
+          "window_est": [
+            "10:00-11:00",
+            "14:00-15:00",
+            "19:00-20:00"
+          ],
+          "why": "Exploration budget for net-new qualified audience.",
+          "constraints": {
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "must_not_hit_founder_denylist": false
+          },
+          "hydration_status": "blocked",
+          "hydration_reason": "duplicate_target_tweet"
+        }
+      ],
+      "rejected_actions": []
+    },
+    "mrhaven_agent": {
+      "historical": {
+        "reply_ratio": 0.0,
+        "short_reply_ratio": null,
+        "avg_impressions": 8.18,
+        "avg_likes": 0.45
+      },
+      "queue_counts": {
+        "total": 2,
+        "reply": 1,
+        "root": 1
+      },
+      "applied_cap": 6,
+      "confidence": 0.55,
+      "risk_flags": [],
+      "founder_denylist_rejections": 0,
+      "recommendation": "autonomous_with_posthoc",
+      "approved_count": 2,
+      "rejected_count": 0,
+      "approved_actions": [
+        {
+          "account": "mrhaven_agent",
+          "action": "root_post",
+          "priority": "high",
+          "window_est": [
+            "08:00-09:00",
+            "13:00-14:00",
+            "21:00-22:00"
+          ],
+          "why": "Anchor narrative with original voice-aligned post.",
+          "constraints": {
+            "must_pass_voice_review": true,
+            "must_align_strategy": true,
+            "min_gap_minutes": 180
+          },
+          "post_text": "Agent systems get reliable when memory, orchestration, and verification are designed as one operating model.",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "post",
+            "Agent systems get reliable when memory, orchestration, and verification are designed as one operating model."
+          ],
+          "hydration_status": "hydrated"
+        },
+        {
+          "account": "mrhaven_agent",
+          "action": "reply",
+          "target_user": "builder",
+          "target_pool": "discovery",
+          "priority": "low",
+          "window_est": [
+            "08:00-09:00",
+            "13:00-14:00",
+            "21:00-22:00"
+          ],
+          "why": "Exploration budget for net-new qualified audience.",
+          "constraints": {
+            "must_be_contextual": true,
+            "must_clear_relevance_score": 0.7,
+            "must_not_hit_founder_denylist": false
+          },
+          "target_tweet_id": "2039779241311793628",
+          "reply_text": "@builder Good point on memory. Are you separating short-term context from durable decisions in your pipeline? Specific to memory lookup microseconds claude.",
+          "execution_mode": "quote_workaround",
+          "x_cli_command": [
+            "x-cli",
+            "-j",
+            "tweet",
+            "quote",
+            "2039779241311793628",
+            "@builder Good point on memory. Are you separating short-term context from durable decisions in your pipeline? Specific to memory lookup microseconds claude."
+          ],
+          "hydration_status": "hydrated"
+        }
+      ],
+      "rejected_actions": []
+    }
+  },
+  "global_recommendation": "autonomous_with_posthoc",
+  "notes": [
+    "approval_rate=0.82"
+  ],
+  "hydrated_at": "2026-04-02T18:57:37.150532+00:00",
+  "hydration_summary": {
+    "total_approved": 18,
+    "hydrated": 16,
+    "blocked": 2
+  }
+}

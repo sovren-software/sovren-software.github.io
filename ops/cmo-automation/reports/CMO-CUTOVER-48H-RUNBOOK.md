@@ -10,7 +10,7 @@ Decisions captured
 - Automation: hybrid-autonomous, including founder account
 - Targeting: 80% whitelist core + 20% discovery
 - Founder policy: strict deny-list (no unrelated consumer-brand/meme/politics/price-gambling engagement)
-- Fallback on failures/rate-limits: root posts only
+- Fallback on failures/rate-limits/platform eligibility failures: root posts only
 
 ## T-48h (start now)
 1) Run full pipeline and verify outputs:
@@ -34,7 +34,11 @@ Decisions captured
 ## T-0h (Fiverr off)
 1) Disable Fiverr service.
 2) Keep in-house automation active with current caps.
-3) Post-hoc audit sample (minimum 20% of sent actions).
+3) Run execution preflight:
+   - verify no hashtag/link violations
+   - verify no duplicate targets/reply patterns
+   - verify quote eligibility assumptions for candidate targets
+4) Post-hoc audit sample (minimum 20% of sent actions).
 
 ## T+24h and T+48h
 1) Rebuild playbook report and trend deltas.

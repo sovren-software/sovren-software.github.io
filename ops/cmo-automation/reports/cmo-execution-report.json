@@ -1,0 +1,736 @@
+{
+  "generated_at": "2026-04-02T19:00:16.242127+00:00",
+  "mode": "live",
+  "input_review_mode": "dry-run",
+  "summary": {
+    "total_approved": 18,
+    "ready_to_execute": 16,
+    "blocked": 2,
+    "executed": 3,
+    "failed": 13
+  },
+  "actions": [
+    {
+      "id": 1,
+      "account": "TheCesarCross",
+      "action": "root_post",
+      "target_user": null,
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "TheCesarCross",
+        "action": "root_post",
+        "priority": "high",
+        "window_est": [
+          "09:00-11:00",
+          "18:00-20:00"
+        ],
+        "why": "Anchor narrative with original voice-aligned post.",
+        "constraints": {
+          "must_pass_voice_review": true,
+          "must_align_strategy": true,
+          "min_gap_minutes": 180
+        },
+        "post_text": "We are building accountable AI operations where identity, bounds, and receipts are structural, not optional.",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "post",
+          "We are building accountable AI operations where identity, bounds, and receipts are structural, not optional."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "executed",
+      "returncode": 0,
+      "stdout": "{\n  \"id\": \"2039779946336297234\",\n  \"text\": \"We are building accountable AI operations where identity, bounds, and receipts are structural, not optional.\",\n  \"edit_history_tweet_ids\": [\n    \"2039779946336297234\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "id": 2,
+      "account": "TheCesarCross",
+      "action": "reply",
+      "target_user": "permacastapp",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "TheCesarCross",
+        "action": "reply",
+        "target_user": "permacastapp",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "09:00-11:00",
+          "18:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 98
+        },
+        "target_tweet_id": "2039625900137021855",
+        "reply_text": "@permacastapp Yes. Without verifiable receipts, accountability collapses into trust claims. Specific to curation already happening across.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039625900137021855",
+          "@permacastapp Yes. Without verifiable receipts, accountability collapses into trust claims. Specific to curation already happening across."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 3,
+      "account": "TheCesarCross",
+      "action": "reply",
+      "target_user": "bitshala_org",
+      "ready": false,
+      "reason": "missing_reply_payload",
+      "source": {
+        "account": "TheCesarCross",
+        "action": "reply",
+        "target_user": "bitshala_org",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "09:00-11:00",
+          "18:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 127
+        },
+        "hydration_status": "blocked",
+        "hydration_reason": "low_signal_source"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": 4,
+      "account": "TheCesarCross",
+      "action": "reply",
+      "target_user": "bala_1116",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "TheCesarCross",
+        "action": "reply",
+        "target_user": "bala_1116",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "09:00-11:00",
+          "18:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 69
+        },
+        "target_tweet_id": "2039771869835104462",
+        "reply_text": "@bala_1116 I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to bitcoin nodes paired lora.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039771869835104462",
+          "@bala_1116 I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to bitcoin nodes paired lora."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 5,
+      "account": "TheCesarCross",
+      "action": "reply",
+      "target_user": "naorisprotocol",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "TheCesarCross",
+        "action": "reply",
+        "target_user": "naorisprotocol",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "09:00-11:00",
+          "18:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 145
+        },
+        "target_tweet_id": "2039763775264260526",
+        "reply_text": "@naorisprotocol I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to must sign.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039763775264260526",
+          "@naorisprotocol I look at this through execution quality. If it is measurable in production, it is worth building on. Specific to must sign."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 6,
+      "account": "sovren_software",
+      "action": "root_post",
+      "target_user": null,
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "root_post",
+        "priority": "high",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Anchor narrative with original voice-aligned post.",
+        "constraints": {
+          "must_pass_voice_review": true,
+          "must_align_strategy": true,
+          "min_gap_minutes": 180
+        },
+        "post_text": "Structural trust means governance lives in infrastructure and every meaningful action is verifiable.",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "post",
+          "Structural trust means governance lives in infrastructure and every meaningful action is verifiable."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "executed",
+      "returncode": 0,
+      "stdout": "{\n  \"id\": \"2039779951449096421\",\n  \"text\": \"Structural trust means governance lives in infrastructure and every meaningful action is verifiable.\",\n  \"edit_history_tweet_ids\": [\n    \"2039779951449096421\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "id": 7,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "elonogyx",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "elonogyx",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 125
+        },
+        "target_tweet_id": "2039734716329308587",
+        "reply_text": "@elonogyx Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to elon musk space advantage.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039734716329308587",
+          "@elonogyx Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to elon musk space advantage."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 8,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "aiwitharsalan",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "aiwitharsalan",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 156
+        },
+        "target_tweet_id": "2039748268100575360",
+        "reply_text": "@aiwitharsalan Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to campaigns managed solid foundation.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039748268100575360",
+          "@aiwitharsalan Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to campaigns managed solid foundation."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 9,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "cryptosmiff",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "cryptosmiff",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 171
+        },
+        "target_tweet_id": "2039767880313774148",
+        "reply_text": "@cryptosmiff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to every company become media.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039767880313774148",
+          "@cryptosmiff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to every company become media."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 10,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "shafu0x",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "shafu0x",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 175
+        },
+        "target_tweet_id": "2039763995687620696",
+        "reply_text": "@shafu0x Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to grow agentic commerce 100x.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039763995687620696",
+          "@shafu0x Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to grow agentic commerce 100x."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 11,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "agentcashdev",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "agentcashdev",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 116
+        },
+        "target_tweet_id": "2037584354684060017",
+        "reply_text": "@agentcashdev Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to agentcash officially supports provides.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2037584354684060017",
+          "@agentcashdev Solid perspective. The key test is whether it improves measurable outcomes in production. Specific to agentcash officially supports provides."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 12,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "0xjeff",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "0xjeff",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 53
+        },
+        "target_tweet_id": "2039721409740673323",
+        "reply_text": "@0xjeff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to hmmmm interesting.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039721409740673323",
+          "@0xjeff Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to hmmmm interesting."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 13,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "code_bykuti",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "code_bykuti",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 142
+        },
+        "target_tweet_id": "2039762493661421579",
+        "reply_text": "@code_bykuti Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to real value drafting returns.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039762493661421579",
+          "@code_bykuti Useful perspective. Operational value shows up when the idea survives real deployment constraints. Specific to real value drafting returns."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 14,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "prakashs720",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "prakashs720",
+        "target_pool": "core",
+        "priority": "medium",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Continuation of existing interaction graph.",
+        "constraints": {
+          "max_replies_to_same_user_per_24h": 1,
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "min_delay_seconds": 68
+        },
+        "target_tweet_id": "2039710298551255248",
+        "reply_text": "@prakashs720 Solid perspective. The key test is whether it improves measurable outcomes in production.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039710298551255248",
+          "@prakashs720 Solid perspective. The key test is whether it improves measurable outcomes in production."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 15,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": "builder",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": "builder",
+        "target_pool": "discovery",
+        "priority": "low",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Exploration budget for net-new qualified audience.",
+        "constraints": {
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "must_not_hit_founder_denylist": false
+        },
+        "target_tweet_id": "2039779067415973975",
+        "reply_text": "@builder We see this too. Orchestration quality compounds faster than model-level tuning. Specific to 200k automation agency describe.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039779067415973975",
+          "@builder We see this too. Orchestration quality compounds faster than model-level tuning. Specific to 200k automation agency describe."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    },
+    {
+      "id": 16,
+      "account": "sovren_software",
+      "action": "reply",
+      "target_user": null,
+      "ready": false,
+      "reason": "missing_reply_payload",
+      "source": {
+        "account": "sovren_software",
+        "action": "reply",
+        "target_user": null,
+        "target_pool": "discovery",
+        "priority": "low",
+        "window_est": [
+          "10:00-11:00",
+          "14:00-15:00",
+          "19:00-20:00"
+        ],
+        "why": "Exploration budget for net-new qualified audience.",
+        "constraints": {
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "must_not_hit_founder_denylist": false
+        },
+        "hydration_status": "blocked",
+        "hydration_reason": "duplicate_target_tweet"
+      },
+      "status": "blocked"
+    },
+    {
+      "id": 17,
+      "account": "mrhaven_agent",
+      "action": "root_post",
+      "target_user": null,
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "mrhaven_agent",
+        "action": "root_post",
+        "priority": "high",
+        "window_est": [
+          "08:00-09:00",
+          "13:00-14:00",
+          "21:00-22:00"
+        ],
+        "why": "Anchor narrative with original voice-aligned post.",
+        "constraints": {
+          "must_pass_voice_review": true,
+          "must_align_strategy": true,
+          "min_gap_minutes": 180
+        },
+        "post_text": "Agent systems get reliable when memory, orchestration, and verification are designed as one operating model.",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "post",
+          "Agent systems get reliable when memory, orchestration, and verification are designed as one operating model."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "executed",
+      "returncode": 0,
+      "stdout": "{\n  \"id\": \"2039779965663686712\",\n  \"text\": \"Agent systems get reliable when memory, orchestration, and verification are designed as one operating model.\",\n  \"edit_history_tweet_ids\": [\n    \"2039779965663686712\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "id": 18,
+      "account": "mrhaven_agent",
+      "action": "reply",
+      "target_user": "builder",
+      "ready": true,
+      "reason": "explicit_command",
+      "source": {
+        "account": "mrhaven_agent",
+        "action": "reply",
+        "target_user": "builder",
+        "target_pool": "discovery",
+        "priority": "low",
+        "window_est": [
+          "08:00-09:00",
+          "13:00-14:00",
+          "21:00-22:00"
+        ],
+        "why": "Exploration budget for net-new qualified audience.",
+        "constraints": {
+          "must_be_contextual": true,
+          "must_clear_relevance_score": 0.7,
+          "must_not_hit_founder_denylist": false
+        },
+        "target_tweet_id": "2039779241311793628",
+        "reply_text": "@builder Good point on memory. Are you separating short-term context from durable decisions in your pipeline? Specific to memory lookup microseconds claude.",
+        "execution_mode": "quote_workaround",
+        "x_cli_command": [
+          "x-cli",
+          "-j",
+          "tweet",
+          "quote",
+          "2039779241311793628",
+          "@builder Good point on memory. Are you separating short-term context from durable decisions in your pipeline? Specific to memory lookup microseconds claude."
+        ],
+        "hydration_status": "hydrated"
+      },
+      "status": "failed",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ccross/.local/bin/x-cli\", line 10, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 279, in main\n    cli()\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1485, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1406, in main\n    rv = self.invoke(ctx)\n         ^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1873, in invoke\n    return _process_result(sub_ctx.command.invoke(sub_ctx))\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 1269, in invoke\n    return ctx.invoke(self.callback, **ctx.params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/decorators.py\", line 93, in new_func\n    return ctx.invoke(f, obj, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/click/core.py\", line 824, in invoke\n    return callback(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/cli.py\", line 117, in tweet_quote\n    data = state.client.post_tweet(text, quote_tweet_id=tid)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 74, in post_tweet\n    return self._oauth_request(\"POST\", f\"{API_BASE}/tweets\", body)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 35, in _oauth_request\n    return self._handle(resp)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/home/ccross/.local/share/uv/tools/x-cli/lib/python3.11/site-packages/x_cli/api.py\", line 45, in _handle\n    raise RuntimeError(f\"API error (HTTP {resp.status_code}): {msg}\")\nRuntimeError: API error (HTTP 403): {\"detail\":\"Quoting this post is not allowed because you have not been mentioned or are not part of the conversation thread of the post you are quoting.\",\"type\":\"about:blank\",\"title\":\"Forbidden\",\"status\":403}"
+    }
+  ]
+}
