@@ -70,6 +70,9 @@
       "no_exclamation_marks": true,
       "no_emojis": true,
       "no_em_dash_or_en_dash": true,
+      "no_hashtags": true,
+      "no_links_in_replies": true,
+      "unique_contextual_replies": true,
       "tone": "relevant_and_interesting"
     }
   },

@@ -32,6 +32,13 @@ EMOJI_RE = re.compile(
     "]+",
     flags=re.UNICODE,
 )
+URL_RE = re.compile(r"https?://\S+|www\.\S+", flags=re.IGNORECASE)
+HASHTAG_RE = re.compile(r"(^|\s)#\w+")
+
+LOW_SIGNAL_RE = re.compile(
+    r"\b(giveaway|airdrop|retweet\s+to\s+win|win\s+free|pump|moon|token\s+price|telegram\s+community)\b",
+    flags=re.IGNORECASE,
+)
 
 
 def load_json(path: Path):
@@ -77,49 +84,144 @@ def normalize_text(text: str, limit: int = 100) -> str:
     return clean[: limit - 1].rstrip() + "…"
 
 
-def enforce_style(text: str) -> str:
+def strip_noise(text: str) -> str:
+    s = URL_RE.sub("", text or "")
+    s = HASHTAG_RE.sub("", s)
+    s = re.sub(r"@\w+", "", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def enforce_style(text: str, *, remove_links: bool = False, no_hashtags: bool = False) -> str:
     s = text or ""
     s = s.replace("!", "")
     s = s.replace("—", " ").replace("–", " ")
     s = EMOJI_RE.sub("", s)
+    if remove_links:
+        s = URL_RE.sub("", s)
+    if no_hashtags:
+        s = HASHTAG_RE.sub("", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s[:278]
 
 
-def build_root_text(account: str, role: str) -> str:
+def root_ideas(role: str) -> str:
     ideas = {
-        "founder": "Building AI products is mostly distribution math plus feedback loops. Own both and ship faster.",
-        "brand": "Good AI products win when onboarding is instant, outcomes are measurable, and support feels human.",
-        "product-agent": "Agent workflows improve when memory, orchestration, and evals are designed as one system.",
+        "founder": "We are building accountable AI operations where identity, bounds, and receipts are structural, not optional.",
+        "brand": "Structural trust means governance lives in infrastructure and every meaningful action is verifiable.",
+        "product-agent": "Agent systems get reliable when memory, orchestration, and verification are designed as one operating model.",
     }
-    base = ideas.get(role, ideas["brand"])
-    return enforce_style(f"{base} #{account}")
+    return ideas.get(role, ideas["brand"])
 
 
-def safe_founder_reply(target_user: str, excerpt: str) -> str:
-    raw = (
-        f"@{target_user} Good signal. I care less about hype and more about repeatable distribution plus retention. "
-        f"{excerpt}"
-    )
-    return enforce_style(raw)
+def detect_topic(source_text: str) -> tuple[str, str]:
+    s = (source_text or "").lower()
+    topic_map = [
+        ("evals", ["eval", "benchmark", "test", "score"]),
+        ("memory", ["memory", "context", "recall", "state"]),
+        ("orchestration", ["orchestration", "workflow", "pipeline", "automation"]),
+        ("governance", ["governance", "policy", "compliance", "guardrail"]),
+        ("verification", ["verify", "proof", "receipt", "audit", "on-chain"]),
+        ("agent", ["agent", "autonomous", "multi-agent"]),
+        ("distribution", ["distribution", "growth", "retention", "onboarding"]),
+        ("shipping", ["ship", "release", "roadmap", "milestone"]),
+    ]
+    for topic, kws in topic_map:
+        for kw in kws:
+            if kw in s:
+                return topic, kw
+    return "general", ""
 
 
-def build_reply_text(account: str, role: str, target_user: str, source_text: str) -> str:
-    excerpt = normalize_text(source_text, limit=80)
-    if role == "founder":
-        return safe_founder_reply(target_user, excerpt)
-    if role == "product-agent":
-        return enforce_style(
-            f"@{target_user} Useful thread. Curious what your eval loop looks like once this is in production. {excerpt}"
-        )
-    return enforce_style(
-        f"@{target_user} Solid point. We see the same pattern in shipping: clear UX plus measurable outcomes compound. {excerpt}"
-    )
+def build_reply_text(role: str, target_user: str, source_text: str, idx_seed: int) -> str:
+    topic, kw = detect_topic(source_text)
+    k = kw or "this"
+
+    variants = {
+        "founder": {
+            "evals": [
+                f"@{target_user} Strong point on evals. In practice, {k} only matters if it changes routing decisions and failure handling.",
+                f"@{target_user} Agree on eval direction. We treat {k} as an operating control, not a reporting artifact.",
+            ],
+            "verification": [
+                f"@{target_user} This maps to our view. Verification has to be built into execution, not added after the fact.",
+                f"@{target_user} Yes. Without verifiable receipts, accountability collapses into trust claims.",
+            ],
+            "distribution": [
+                f"@{target_user} Distribution is the constraint most teams underprice. Measurable retention is what validates the channel.",
+                f"@{target_user} Good framing. Distribution quality shows up in repeatable retention, not reach spikes.",
+            ],
+            "general": [
+                f"@{target_user} Good observation. The useful test is whether it changes operator control, reliability, or verification quality.",
+                f"@{target_user} Useful angle. I care most about what can be measured and repeated in production.",
+            ],
+        },
+        "product-agent": {
+            "evals": [
+                f"@{target_user} Useful thread. How are you feeding eval outcomes back into orchestration policy after deployment?",
+                f"@{target_user} Curious about your eval loop design. Do failed cases automatically update routing or guardrails?",
+            ],
+            "memory": [
+                f"@{target_user} Good point on memory. Are you separating short-term context from durable decisions in your pipeline?",
+                f"@{target_user} Memory quality usually decides reliability. How are you handling stale context detection?",
+            ],
+            "orchestration": [
+                f"@{target_user} Strong orchestration point. Are you optimizing for throughput, reliability, or reversibility first?",
+                f"@{target_user} Practical question: what part of the orchestration stack is your current bottleneck?",
+            ],
+            "general": [
+                f"@{target_user} Useful angle. What has this changed in your production workflow so far?",
+                f"@{target_user} Thanks for sharing. What metric improved most after this change?",
+            ],
+        },
+        "brand": {
+            "governance": [
+                f"@{target_user} This is aligned with how we think about governance. Constraints need to be enforceable in system behavior.",
+                f"@{target_user} Agreed. Governance only works when the system can prove what was allowed and what was blocked.",
+            ],
+            "verification": [
+                f"@{target_user} Exactly. Verification quality determines whether trust is operational or just narrative.",
+                f"@{target_user} Same view here. Verifiable proof creates accountability that survives handoffs and scale.",
+            ],
+            "orchestration": [
+                f"@{target_user} Strong point. Reliable orchestration is usually the difference between demos and durable systems.",
+                f"@{target_user} We see this too. Orchestration quality compounds faster than model-level tuning.",
+            ],
+            "general": [
+                f"@{target_user} Solid perspective. The key is whether it improves measurable outcomes in production.",
+                f"@{target_user} Good signal. What makes this useful is the path from idea to repeatable operational impact.",
+            ],
+        },
+    }
+
+    role_bucket = variants.get(role, variants["brand"])
+    options = role_bucket.get(topic) or role_bucket["general"]
+    return options[idx_seed % len(options)]
 
 
 def contains_denylist(text: str, keywords: list[str]) -> bool:
     t = (text or "").lower()
     return any(k.lower() in t for k in keywords)
+
+
+def source_anchor(text: str) -> str:
+    stop = {
+        "this", "that", "with", "from", "your", "about", "into", "once", "when", "what",
+        "have", "been", "they", "them", "then", "than", "will", "just", "more", "less",
+    }
+    words = re.findall(r"[a-zA-Z0-9]+", (text or "").lower())
+    keep = [w for w in words if len(w) > 3 and w not in stop]
+    if not keep:
+        return ""
+    return " ".join(keep[:4])
+
+
+def canonical_reply(text: str) -> str:
+    s = (text or "").lower().strip()
+    s = re.sub(r"@\w+", "", s)
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 
 
 def default_resolver(target_user: str | None, account: str) -> dict | None:
@@ -134,7 +236,7 @@ def default_resolver(target_user: str | None, account: str) -> dict | None:
     else:
         query = account_queries.get(account, "AI products OR automation")
 
-    data = run_json(["x-cli", "-j", "tweet", "search", query, "--max", "10"])
+    data = run_json(["x-cli", "-j", "tweet", "search", query, "--max", "15"])
     if not isinstance(data, list) or not data:
         return None
 
@@ -142,21 +244,28 @@ def default_resolver(target_user: str | None, account: str) -> dict | None:
         if not isinstance(t, dict):
             continue
         tweet_id = t.get("id")
-        text = t.get("text")
-        author = ((t.get("author") or {}).get("username") if isinstance(t.get("author"), dict) else None)
-        if tweet_id and text:
-            return {"id": str(tweet_id), "text": text, "author": author}
+        text = t.get("text") or ""
+        author = (t.get("author", {}).get("username") if isinstance(t.get("author"), dict) else None)
+        if not tweet_id or not text:
+            continue
+        if LOW_SIGNAL_RE.search(text):
+            continue
+        return {"id": str(tweet_id), "text": text, "author": author}
     return None
 
 
-def hydrate_single_action(action: dict, policy: dict, resolver: Resolver) -> dict:
+def hydrate_single_action(action: dict, policy: dict, resolver: Resolver, seen: dict) -> dict:
     out = dict(action)
     account = out.get("account", "")
     role = policy.get("account_strategy", {}).get(account, {}).get("role", "brand")
     founder_keywords = policy.get("founder_denylist", {}).get("keywords", [])
 
+    style = policy.get("copy_style", {}).get("for_all_accounts", {})
+    no_hashtags = bool(style.get("no_hashtags", True))
+    no_links_in_replies = bool(style.get("no_links_in_replies", True))
+
     if out.get("action") == "root_post":
-        post_text = build_root_text(account, role)
+        post_text = enforce_style(root_ideas(role), no_hashtags=no_hashtags)
         if role == "founder" and contains_denylist(post_text, founder_keywords):
             out["hydration_status"] = "blocked"
             out["hydration_reason"] = "founder_denylist_hit"
@@ -174,15 +283,46 @@ def hydrate_single_action(action: dict, policy: dict, resolver: Resolver) -> dic
             out["hydration_reason"] = "no_candidate_tweet"
             return out
 
+        tweet_id = str(candidate["id"])
+        if tweet_id in seen["tweet_ids"]:
+            out["hydration_status"] = "blocked"
+            out["hydration_reason"] = "duplicate_target_tweet"
+            return out
+
+        source_text = strip_noise(candidate.get("text", ""))
+        if not source_text or LOW_SIGNAL_RE.search(source_text):
+            out["hydration_status"] = "blocked"
+            out["hydration_reason"] = "low_signal_source"
+            return out
+
+        topic, _ = detect_topic(source_text)
+        if topic == "general":
+            out["hydration_status"] = "blocked"
+            out["hydration_reason"] = "insufficient_context_specificity"
+            return out
+
         target_user = out.get("target_user") or candidate.get("author") or "builder"
-        reply_text = build_reply_text(account, role, target_user, candidate.get("text", ""))
+        idx_seed = len(seen["reply_norms"]) + len(target_user) + len(tweet_id)
+        reply_raw = build_reply_text(role, target_user, source_text, idx_seed)
+        anchor = source_anchor(source_text)
+        if anchor and len(anchor.split()) >= 2:
+            reply_raw = f"{reply_raw} Specific to {anchor}."
+        reply_text = enforce_style(reply_raw, remove_links=no_links_in_replies, no_hashtags=no_hashtags)
 
         if role == "founder" and contains_denylist(reply_text, founder_keywords):
             out["hydration_status"] = "blocked"
             out["hydration_reason"] = "founder_denylist_hit"
             return out
 
-        tweet_id = str(candidate["id"])
+        norm = canonical_reply(reply_text)
+        if norm in seen["reply_norms"]:
+            out["hydration_status"] = "blocked"
+            out["hydration_reason"] = "duplicate_reply_text"
+            return out
+
+        seen["tweet_ids"].add(tweet_id)
+        seen["reply_norms"].add(norm)
+
         out["target_user"] = target_user
         out["target_tweet_id"] = tweet_id
         out["reply_text"] = reply_text
@@ -204,12 +344,14 @@ def hydrate_review(review: dict, policy: dict, resolver: Resolver) -> dict:
     ready = 0
     blocked = 0
 
+    seen = {"tweet_ids": set(), "reply_norms": set()}
+
     for account, payload in review.get("accounts", {}).items():
         approved = payload.get("approved_actions", [])
         hydrated_approved = []
         for action in approved:
             total += 1
-            h = hydrate_single_action(action, policy, resolver)
+            h = hydrate_single_action(action, policy, resolver, seen)
             hydrated_approved.append(h)
             if h.get("hydration_status") == "hydrated":
                 ready += 1
