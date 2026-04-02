@@ -31,6 +31,7 @@ Structure
 - scripts/execute_approved_queue.py
 - reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md
 - reports/CMO-CUTOVER-48H-RUNBOOK.md
+- reports/CMO-ECOSYSTEM-MARKETING-BRIEF.md
 
 Quick start
 1) Export credentials (or source ~/.claude/secrets.env)

@@ -73,6 +73,26 @@
       "tone": "relevant_and_interesting"
     }
   },
+  "cmo_alignment": {
+    "category": "structural_trust_infrastructure",
+    "ecosystem_scope": [
+      "Sovren Software",
+      "Esver OS",
+      "Mr Haven",
+      "Engram",
+      "Dendrite"
+    ],
+    "message_relevance_gate": {
+      "must_map_to_at_least_one": [
+        "mission",
+        "product_capability",
+        "roadmap_milestone",
+        "verification_proof"
+      ],
+      "disallow_generic_hot_takes": true,
+      "disallow_unanchored_trend_chasing": true
+    }
+  },
   "risk_controls": {
     "max_replies_per_hour_per_account": 8,
     "max_replies_to_same_user_per_24h": 1,
