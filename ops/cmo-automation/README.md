@@ -61,6 +61,7 @@ Guardrails
 - Generic short-reply behavior is penalized.
 - Repetitive opener patterns are penalized.
 - Per-account recommended caps are enforced by policy review before execution.
+- Voice style enforcement for generated copy: no exclamation marks, no emojis, no em/en dashes.
 
 Notes
 - Generated JSON/analysis artifacts are ignored in git by default.

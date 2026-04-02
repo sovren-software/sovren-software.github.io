@@ -65,6 +65,14 @@
       "vote blue"
     ]
   },
+  "copy_style": {
+    "for_all_accounts": {
+      "no_exclamation_marks": true,
+      "no_emojis": true,
+      "no_em_dash_or_en_dash": true,
+      "tone": "relevant_and_interesting"
+    }
+  },
   "risk_controls": {
     "max_replies_per_hour_per_account": 8,
     "max_replies_to_same_user_per_24h": 1,
