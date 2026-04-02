@@ -6,29 +6,41 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 QUEUE_PATH = ROOT / "data" / "engagement-queue.json"
 ANALYSIS_PATH = ROOT / "reports" / "cmo-analysis.json"
+POLICY_PATH = ROOT / "config" / "operating_policy.json"
 OUT_JSON = ROOT / "reports" / "cmo-queue-review.json"
 OUT_MD = ROOT / "reports" / "cmo-queue-review.md"
-
-# policy thresholds
-MAX_REPLY_SHARE = 0.6
-MAX_SHORT_REPLY_SHARE = 0.6
 
 
 def clamp(v, lo, hi):
     return max(lo, min(hi, v))
 
 
+def has_denylist_hit(action: dict, deny_keywords: list[str]) -> bool:
+    text = " ".join(
+        [
+            str(action.get("target_user") or ""),
+            str(action.get("why") or ""),
+            str(action.get("target_pool") or ""),
+        ]
+    ).lower()
+    return any(k.lower() in text for k in deny_keywords)
+
+
 def main() -> None:
-    if not QUEUE_PATH.exists():
-        raise SystemExit("Missing engagement queue; run generate_engagement_queue.py first")
-    if not ANALYSIS_PATH.exists():
-        raise SystemExit("Missing analysis report; run analyze_x_cmo.py first")
+    for p in [QUEUE_PATH, ANALYSIS_PATH, POLICY_PATH]:
+        if not p.exists():
+            raise SystemExit(f"Missing required input: {p}")
 
     queue = json.loads(QUEUE_PATH.read_text())
     analysis = json.loads(ANALYSIS_PATH.read_text())
+    policy = json.loads(POLICY_PATH.read_text())
 
     actions = queue.get("actions", [])
     account_stats = analysis.get("accounts", {})
+    account_policy = policy.get("account_strategy", {})
+
+    MAX_REPLY_SHARE = 0.9
+    MAX_SHORT_REPLY_SHARE = 0.8
 
     by_account = {}
     for a in actions:
@@ -45,8 +57,13 @@ def main() -> None:
     approves = 0
     total = 0
 
+    founder_deny_keywords = policy.get("founder_denylist", {}).get("keywords", [])
+
     for account, items in by_account.items():
         stats = account_stats.get(account, {})
+        caps = account_policy.get(account, {})
+        daily_reply_cap = int(caps.get("daily_reply_cap", 6))
+
         reply_items = [i for i in items if i.get("action") == "reply"]
         root_items = [i for i in items if i.get("action") == "root_post"]
 
@@ -55,26 +72,36 @@ def main() -> None:
 
         risk_flags = []
         if reply_ratio is not None and reply_ratio > MAX_REPLY_SHARE:
-            risk_flags.append(f"historical reply ratio too high: {reply_ratio}")
+            risk_flags.append(f"historical reply ratio high: {reply_ratio}")
         if short_reply_ratio is not None and short_reply_ratio > MAX_SHORT_REPLY_SHARE:
-            risk_flags.append(f"historical short-reply ratio too high: {short_reply_ratio}")
+            risk_flags.append(f"historical short-reply ratio high: {short_reply_ratio}")
 
-        # confidence: start conservative, add/subtract based on historical quality
-        conf = 0.5
-        conf -= 0.2 if risk_flags else 0.0
-        conf += 0.2 if stats.get("avg_likes", 0) >= 1 else 0.0
+        founder_filtered = []
+        if account == "TheCesarCross":
+            for r in reply_items:
+                if has_denylist_hit(r, founder_deny_keywords):
+                    founder_filtered.append(r)
+
+        # confidence score
+        conf = 0.55
+        conf -= 0.1 if risk_flags else 0.0
+        conf -= 0.1 if founder_filtered else 0.0
+        conf += 0.1 if stats.get("avg_likes", 0) >= 1 else 0.0
         conf += 0.1 if stats.get("avg_impressions", 0) >= 10 else 0.0
         conf = round(clamp(conf, 0.0, 1.0), 2)
 
-        # decision: if risky history, recommend root-heavy only
+        # approval logic: keep automation moving, but enforce caps and denylist
+        approved_replies = [r for r in reply_items if r not in founder_filtered][:daily_reply_cap]
+
+        # if history is risky, throttle replies but do not halt entirely
         if risk_flags:
-            approved = [i for i in root_items]
-            rejected = [i for i in reply_items]
-            recommendation = "root_only"
+            approved_replies = approved_replies[: max(1, daily_reply_cap // 2)]
+            recommendation = "throttled_autonomous"
         else:
-            approved = items
-            rejected = []
-            recommendation = "approve_with_caps"
+            recommendation = "autonomous_with_posthoc"
+
+        approved = root_items + approved_replies
+        rejected = [r for r in reply_items if r not in approved_replies]
 
         approves += len(approved)
         total += len(items)
@@ -91,8 +118,10 @@ def main() -> None:
                 "reply": len(reply_items),
                 "root": len(root_items),
             },
+            "applied_cap": daily_reply_cap,
             "confidence": conf,
             "risk_flags": risk_flags,
+            "founder_denylist_rejections": len(founder_filtered),
             "recommendation": recommendation,
             "approved_count": len(approved),
             "rejected_count": len(rejected),
@@ -105,12 +134,9 @@ def main() -> None:
         review["notes"].append("Queue contains no actions.")
     else:
         approval_rate = approves / total
-        if approval_rate >= 0.7:
-            review["global_recommendation"] = "assisted_execute"
-        elif approval_rate > 0:
-            review["global_recommendation"] = "root_only_assisted"
-        else:
-            review["global_recommendation"] = "hold"
+        review["global_recommendation"] = (
+            "autonomous_with_posthoc" if approval_rate >= 0.5 else "throttled_autonomous"
+        )
         review["notes"].append(f"approval_rate={approval_rate:.2f}")
 
     OUT_JSON.write_text(json.dumps(review, indent=2))
@@ -128,6 +154,8 @@ def main() -> None:
             f"- recommendation: {r['recommendation']}",
             f"- queue (total/reply/root): {r['queue_counts']['total']}/{r['queue_counts']['reply']}/{r['queue_counts']['root']}",
             f"- approved: {r['approved_count']} | rejected: {r['rejected_count']}",
+            f"- cap applied: {r['applied_cap']}",
+            f"- founder denylist rejections: {r['founder_denylist_rejections']}",
             f"- risk flags: {r['risk_flags']}",
             "",
         ]

@@ -1,0 +1,75 @@
+{
+  "transition": {
+    "fiverr_overlap_hours": 48,
+    "objective": "replace outsourced engagement with in-house automation without activity pause"
+  },
+  "success_targets_30d": {
+    "qualified_follower_growth_pct": 8,
+    "median_engagement_per_post_lift_pct": 25,
+    "short_generic_reply_share_max_pct": 30
+  },
+  "automation": {
+    "mode": "hybrid-autonomous",
+    "founder_autonomy": "autonomous_with_posthoc_audit",
+    "dry_run_default": true
+  },
+  "account_strategy": {
+    "TheCesarCross": {
+      "role": "founder",
+      "mix_pct": {"root": 35, "reply": 50, "quote": 15},
+      "daily_reply_cap": 8,
+      "time_windows_est": ["09:00-11:00", "18:00-20:00"]
+    },
+    "sovren_software": {
+      "role": "brand",
+      "mix_pct": {"root": 45, "reply": 40, "quote": 15},
+      "daily_reply_cap": 10,
+      "time_windows_est": ["10:00-11:00", "14:00-15:00", "19:00-20:00"]
+    },
+    "mrhaven_agent": {
+      "role": "product-agent",
+      "mix_pct": {"root": 60, "reply": 25, "quote": 15},
+      "daily_reply_cap": 6,
+      "time_windows_est": ["08:00-09:00", "13:00-14:00", "21:00-22:00"]
+    }
+  },
+  "targeting": {
+    "strategy": "core-whitelist-plus-discovery",
+    "exploration_budget_pct": 20,
+    "core_whitelist_pct": 80,
+    "minimum_relevance_score": 0.7,
+    "founder_scope": "whitelist_plus_approved_discovery"
+  },
+  "founder_denylist": {
+    "preset": "strict",
+    "categories": [
+      "mainstream_consumer_brands",
+      "meme_bait",
+      "partisan_politics",
+      "token_price_speculation",
+      "celebrity_gossip",
+      "giveaway_airdrop_threads"
+    ],
+    "keywords": [
+      "skittles",
+      "giveaway",
+      "airdrop",
+      "win free",
+      "retweet to win",
+      "$btc to",
+      "$eth to",
+      "meme coin",
+      "pump",
+      "moon",
+      "vote red",
+      "vote blue"
+    ]
+  },
+  "risk_controls": {
+    "max_replies_per_hour_per_account": 8,
+    "max_replies_to_same_user_per_24h": 1,
+    "avoid_repeated_same_user_within_hours": 24,
+    "random_delay_seconds_min": 45,
+    "random_delay_seconds_max": 180
+  }
+}

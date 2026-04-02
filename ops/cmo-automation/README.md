@@ -19,12 +19,14 @@ Current mode
 
 Structure
 - config/cmo_accounts.yaml
+- config/operating_policy.json
 - scripts/collect_x_data.py
 - scripts/analyze_x_cmo.py
 - scripts/generate_engagement_queue.py
 - scripts/review_engagement_queue.py
 - scripts/reconstruct_fiverr_playbook.py
 - reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md
+- reports/CMO-CUTOVER-48H-RUNBOOK.md
 
 Quick start
 1) Export credentials (or source ~/.claude/secrets.env)
