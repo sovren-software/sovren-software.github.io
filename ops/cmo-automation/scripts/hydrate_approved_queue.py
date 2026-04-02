@@ -4,6 +4,7 @@ import json
 import os
 import re
 import subprocess
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
@@ -15,6 +16,22 @@ OUT_JSON = ROOT / "reports" / "cmo-hydrated-queue.json"
 OUT_MD = ROOT / "reports" / "cmo-hydrated-queue.md"
 
 Resolver = Callable[[str | None, str], dict | None]
+
+EMOJI_RE = re.compile(
+    "["
+    "\U0001F300-\U0001F5FF"
+    "\U0001F600-\U0001F64F"
+    "\U0001F680-\U0001F6FF"
+    "\U0001F700-\U0001F77F"
+    "\U0001F780-\U0001F7FF"
+    "\U0001F800-\U0001F8FF"
+    "\U0001F900-\U0001F9FF"
+    "\U0001FA00-\U0001FAFF"
+    "\U00002700-\U000027BF"
+    "\U00002600-\U000026FF"
+    "]+",
+    flags=re.UNICODE,
+)
 
 
 def load_json(path: Path):
@@ -37,11 +54,20 @@ def load_credential_mapping() -> None:
     os.environ.update(mapping)
 
 
-def run_json(cmd: list[str]):
-    p = subprocess.run(cmd, capture_output=True, text=True)
-    if p.returncode != 0:
+def run_json(cmd: list[str], retries: int = 2):
+    for attempt in range(retries + 1):
+        p = subprocess.run(cmd, capture_output=True, text=True)
+        if p.returncode == 0:
+            return json.loads(p.stdout)
+
+        reset_match = re.search(r"Resets at (\d+)", p.stderr)
+        if reset_match and attempt < retries:
+            reset_ts = int(reset_match.group(1))
+            sleep_for = max(1, reset_ts - int(time.time()) + 1)
+            time.sleep(min(sleep_for, 30))
+            continue
+
         raise RuntimeError(f"Command failed: {' '.join(cmd)}\nSTDERR:\n{p.stderr}")
-    return json.loads(p.stdout)
 
 
 def normalize_text(text: str, limit: int = 100) -> str:
@@ -51,21 +77,31 @@ def normalize_text(text: str, limit: int = 100) -> str:
     return clean[: limit - 1].rstrip() + "…"
 
 
+def enforce_style(text: str) -> str:
+    s = text or ""
+    s = s.replace("!", "")
+    s = s.replace("—", " ").replace("–", " ")
+    s = EMOJI_RE.sub("", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s[:278]
+
+
 def build_root_text(account: str, role: str) -> str:
     ideas = {
-        "founder": "Building AI products is mostly distribution math + feedback loops. Own both, ship faster.",
+        "founder": "Building AI products is mostly distribution math plus feedback loops. Own both and ship faster.",
         "brand": "Good AI products win when onboarding is instant, outcomes are measurable, and support feels human.",
         "product-agent": "Agent workflows improve when memory, orchestration, and evals are designed as one system.",
     }
     base = ideas.get(role, ideas["brand"])
-    return f"{base} #{account}"[:278]
+    return enforce_style(f"{base} #{account}")
 
 
 def safe_founder_reply(target_user: str, excerpt: str) -> str:
-    return (
-        f"@{target_user} Good signal here. I care less about hype and more about repeatable distribution + retention. "
+    raw = (
+        f"@{target_user} Good signal. I care less about hype and more about repeatable distribution plus retention. "
         f"{excerpt}"
-    )[:278]
+    )
+    return enforce_style(raw)
 
 
 def build_reply_text(account: str, role: str, target_user: str, source_text: str) -> str:
@@ -73,14 +109,12 @@ def build_reply_text(account: str, role: str, target_user: str, source_text: str
     if role == "founder":
         return safe_founder_reply(target_user, excerpt)
     if role == "product-agent":
-        return (
-            f"@{target_user} Nice thread. Curious what your eval loop looks like once this is in production. "
-            f"{excerpt}"
-        )[:278]
-    return (
-        f"@{target_user} Solid point. We see the same pattern in shipping: clear UX + measurable outcomes compound. "
-        f"{excerpt}"
-    )[:278]
+        return enforce_style(
+            f"@{target_user} Useful thread. Curious what your eval loop looks like once this is in production. {excerpt}"
+        )
+    return enforce_style(
+        f"@{target_user} Solid point. We see the same pattern in shipping: clear UX plus measurable outcomes compound. {excerpt}"
+    )
 
 
 def contains_denylist(text: str, keywords: list[str]) -> bool:

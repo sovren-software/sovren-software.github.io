@@ -9,6 +9,13 @@ import hydrate_approved_queue  # noqa: E402
 
 
 class HydrateApprovedQueueTests(unittest.TestCase):
+    def test_enforce_style_removes_exclamation_emoji_and_em_dash(self):
+        raw = "Useful launch 🚀 with fast rollout — now live!"
+        cleaned = hydrate_approved_queue.enforce_style(raw)
+        self.assertNotIn("!", cleaned)
+        self.assertNotIn("🚀", cleaned)
+        self.assertNotIn("—", cleaned)
+
     def test_hydrate_root_post_adds_text_and_command(self):
         action = {"account": "sovren_software", "action": "root_post", "priority": "high"}
         policy = {
