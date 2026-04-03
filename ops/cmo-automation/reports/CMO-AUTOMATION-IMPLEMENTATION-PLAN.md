@@ -245,11 +245,6 @@ Implemented changes
 - Tests: fixed pre-existing seen parameter bug, updated fixtures. 6/6 passing.
 
 Drawbacks and known limitations
-- API keys are empty until new X Developer App is created manually at developer.x.com.
-  All X API functionality (daily posts, data collection, CMO pipeline) is offline until then.
-- GitHub Actions secrets must also be updated manually in the sovren-software repo settings.
-- @sovren_software posting requires OAuth user tokens generated through the new app's auth
-  flow — this is a separate manual step from creating the app itself.
 - The hydration layer still produces templated replies with "Specific to [keyword salad]"
   suffixes. This copy quality issue predates the restructure and needs a generator rewrite
   before reply automation could safely resume.
@@ -259,11 +254,15 @@ Drawbacks and known limitations
 - X Premium subscription on @mrhaven_agent must be cancelled manually (via App Store,
   Google Play, or X support depending on how it was purchased).
 
-Remaining work to fully complete this phase
-1. Create new X Developer App at developer.x.com under @TheCesarCross (Read+Write permissions)
-2. Fill 7 credential values in ~/.engram/envrc/secrets/secrets.env
-3. Update 4 GitHub Actions secrets in sovren-software repo settings
-4. Run direnv reload, then verify: x-cli -j user get TheCesarCross
-5. Cancel @mrhaven_agent X Premium subscription
-6. Fix "Specific to [keyword salad]" suffix in hydration generator — blocks reply quality
-7. Add quote eligibility preflight check before including candidates in hydrated queue
+Completed items (verified 2026-04-03)
+1. DONE: X Developer App created under @TheCesarCross (Read+Write, Production package)
+2. DONE: All 9 credential values filled in ~/.engram/envrc/secrets/secrets.env
+3. DONE: 4 GitHub Actions secrets set in sovren-software repo (X_API_KEY, X_API_SECRET,
+   X_SOVREN_ACCESS_TOKEN, X_SOVREN_ACCESS_SECRET)
+4. DONE: Both accounts verified via x-cli (TheCesarCross 985 followers, sovren_software 67)
+5. DONE: Daily Thesis Post dry-run passed in GitHub Actions
+
+Remaining work
+1. Cancel @mrhaven_agent X Premium subscription
+2. Fix "Specific to [keyword salad]" suffix in hydration generator — blocks reply quality
+3. Add quote eligibility preflight check before including candidates in hydrated queue
