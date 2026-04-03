@@ -12,8 +12,8 @@
  *   node scripts/daily-post.js --add "text" # Add a new post to the queue
  *
  * Environment (via direnv):
- *   TWITTER_API_KEY, TWITTER_API_SECRET,
- *   TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
+ *   X_API_KEY, X_API_SECRET — app credentials (registered under @TheCesarCross)
+ *   X_SOVREN_ACCESS_TOKEN, X_SOVREN_ACCESS_SECRET — posts as @sovren_software
  */
 
 import { readFileSync, writeFileSync } from 'fs';
@@ -57,17 +57,20 @@ function validateVoice(text) {
 }
 
 async function postToX(text) {
-  const { TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET } = process.env;
+  const appKey = process.env.X_API_KEY;
+  const appSecret = process.env.X_API_SECRET;
+  const accessToken = process.env.X_SOVREN_ACCESS_TOKEN;
+  const accessSecret = process.env.X_SOVREN_ACCESS_SECRET;
 
-  if (!TWITTER_API_KEY || !TWITTER_API_SECRET || !TWITTER_ACCESS_TOKEN || !TWITTER_ACCESS_SECRET) {
-    throw new Error('Missing Twitter API credentials in environment');
+  if (!appKey || !appSecret || !accessToken || !accessSecret) {
+    throw new Error('Missing X API credentials. Required: X_API_KEY, X_API_SECRET, X_SOVREN_ACCESS_TOKEN, X_SOVREN_ACCESS_SECRET');
   }
 
   const client = new TwitterApi({
-    appKey: TWITTER_API_KEY,
-    appSecret: TWITTER_API_SECRET,
-    accessToken: TWITTER_ACCESS_TOKEN,
-    accessSecret: TWITTER_ACCESS_SECRET,
+    appKey,
+    appSecret,
+    accessToken,
+    accessSecret,
   });
 
   const response = await client.v2.tweet(text);

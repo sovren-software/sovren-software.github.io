@@ -176,3 +176,89 @@ Status
   ~/cDesign/sovren-website/ops/cmo-automation
 - Upgrade details, decision log, limitations, and remaining work:
   reports/CMO-QUALITY-UPGRADE-2026-04-02.md
+
+---
+
+## Phase 7 — Account Restructure and Credential Migration (2026-04-03)
+
+Context
+- @mrhaven_agent suspended by X on 2026-04-02 for "inauthentic behaviors."
+- Root causes: unverified bot-labeled account (no blue check, no delegated admin, 4 followers),
+  13 consecutive HTTP 403 failures from quote attempts to conversations the account was not
+  part of, coordinated API usage across 3 accounts sharing one developer app.
+- The X Developer App was registered under @mrhaven_agent. Suspension revoked all API
+  credentials (HTTP 401 on bearer-token read-only calls confirmed).
+- @TheCesarCross and @sovren_software survived due to blue check verification and delegated
+  admin access — protective factors @mrhaven_agent lacked.
+
+Decisions
+
+D1. Abandon @mrhaven_agent without appeal
+- Rationale: account carried bot-labeled baggage, only 4 followers, no organic social graph.
+  Appealing risks drawing further scrutiny to the coordinated account cluster.
+  Product updates flow through @sovren_software instead.
+- Trade-off: lose the handle and any residual SEO value. X Premium subscription requires
+  manual cancellation (X does not auto-cancel on suspension).
+- Expected benefit: clean break, no residual risk to surviving accounts.
+
+D2. Register new X Developer App under @TheCesarCross
+- Rationale: strongest account (verified, 974 followers, established). App owner gets
+  simplest auth flow for self-posting.
+- Trade-off: ties API infrastructure to the founder's personal account. If founder account
+  is ever restricted, API access is lost again.
+- Expected benefit: API app inherits the trust signals of the founder account.
+
+D3. Per-account access tokens with unified app credentials
+- Rationale: each account (@TheCesarCross, @sovren_software) gets its own OAuth access
+  token pair. App-level credentials (API key, API secret, bearer token) are shared.
+  This enables per-account credential routing in the execution layer.
+- Trade-off: more credentials to manage (7 vars vs 5). Scripts need account-to-token mapping.
+- Expected benefit: eliminates single-token-for-all-accounts pattern that contributed to
+  coordinated behavior detection. Each account's posting is independently authenticated.
+
+D4. Scheduled roots only — no automated replies or quotes
+- Rationale: the 13 consecutive 403 failures on quote attempts were the primary trigger
+  signal. Reply/quote automation on accounts without organic conversation participation
+  is inherently risky under X's authenticity rules.
+- Trade-off: reduced engagement volume and reach. No automated discovery of new audiences
+  through reply threads.
+- Expected benefit: eliminates the engagement pattern that caused the suspension. Root-post
+  scheduling is the safest automation mode under X's rules.
+
+Implemented changes
+- secrets.env: removed dead mrhaven_agent credentials, added 7-variable per-account structure
+  (X_API_KEY, X_API_SECRET, X_BEARER_TOKEN, X_FOUNDER_ACCESS_TOKEN, X_FOUNDER_ACCESS_SECRET,
+  X_SOVREN_ACCESS_TOKEN, X_SOVREN_ACCESS_SECRET). Values empty pending new app creation.
+- collect_x_data.py: removed mrhaven_agent from account list, simplified to bearer-only auth.
+- execute_approved_queue.py: added ACCOUNT_TOKEN_MAP for per-account credential routing,
+  set_account_tokens() called before each action execution.
+- hydrate_approved_queue.py: simplified to bearer-only auth, removed mrhaven_agent queries.
+- daily-post.js: updated to use X_SOVREN_ACCESS_TOKEN/SECRET for @sovren_software posting.
+- daily-post.yml: GitHub Actions secrets updated to new variable names.
+- cmo_accounts.yaml: removed mrhaven_agent entry.
+- operating_policy.json: removed mrhaven_agent account strategy.
+- CMO-ECOSYSTEM-MARKETING-BRIEF.md: removed mrhaven_agent messaging intent.
+- CLAUDE.md: updated credential references.
+- Tests: fixed pre-existing seen parameter bug, updated fixtures. 6/6 passing.
+
+Drawbacks and known limitations
+- API keys are empty until new X Developer App is created manually at developer.x.com.
+  All X API functionality (daily posts, data collection, CMO pipeline) is offline until then.
+- GitHub Actions secrets must also be updated manually in the sovren-software repo settings.
+- @sovren_software posting requires OAuth user tokens generated through the new app's auth
+  flow — this is a separate manual step from creating the app itself.
+- The hydration layer still produces templated replies with "Specific to [keyword salad]"
+  suffixes. This copy quality issue predates the restructure and needs a generator rewrite
+  before reply automation could safely resume.
+- No circuit breaker in execute_approved_queue.py — if reply automation is re-enabled in
+  the future, the script should abort after N consecutive failures to avoid triggering
+  platform detection.
+- X Premium subscription on @mrhaven_agent must be cancelled manually (via App Store,
+  Google Play, or X support depending on how it was purchased).
+
+Remaining work to fully complete this phase
+1. Create new X Developer App at developer.x.com under @TheCesarCross (Read+Write permissions)
+2. Fill 7 credential values in ~/.engram/envrc/secrets/secrets.env
+3. Update 4 GitHub Actions secrets in sovren-software repo settings
+4. Run direnv reload, then verify: x-cli -j user get TheCesarCross
+5. Cancel @mrhaven_agent X Premium subscription

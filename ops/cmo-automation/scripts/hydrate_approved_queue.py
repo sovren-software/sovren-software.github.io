@@ -48,17 +48,15 @@ def load_json(path: Path):
 
 
 def load_credential_mapping() -> None:
-    mapping = {
-        "X_API_KEY": os.getenv("X_API_KEY") or os.getenv("TWITTER_API_KEY"),
-        "X_API_SECRET": os.getenv("X_API_SECRET") or os.getenv("TWITTER_API_SECRET"),
-        "X_BEARER_TOKEN": os.getenv("X_BEARER_TOKEN") or os.getenv("TWITTER_BEARER_TOKEN"),
-        "X_ACCESS_TOKEN": os.getenv("X_ACCESS_TOKEN") or os.getenv("TWITTER_ACCESS_TOKEN"),
-        "X_ACCESS_TOKEN_SECRET": os.getenv("X_ACCESS_TOKEN_SECRET") or os.getenv("TWITTER_ACCESS_SECRET"),
-    }
-    missing = [k for k, v in mapping.items() if not v]
-    if missing:
-        raise SystemExit(f"Missing required credentials: {', '.join(missing)}")
-    os.environ.update(mapping)
+    """Load X API credentials. Hydration uses bearer token for tweet lookups."""
+    bearer = os.getenv("X_BEARER_TOKEN")
+    if not bearer:
+        raise SystemExit("Missing required credential: X_BEARER_TOKEN")
+    os.environ["X_BEARER_TOKEN"] = bearer
+    for key in ("X_API_KEY", "X_API_SECRET"):
+        val = os.getenv(key)
+        if val:
+            os.environ[key] = val
 
 
 def run_json(cmd: list[str], retries: int = 2):
@@ -227,7 +225,6 @@ def default_resolver(target_user: str | None, account: str) -> dict | None:
     account_queries = {
         "TheCesarCross": "AI founders OR agentic workflow OR product distribution",
         "sovren_software": "AI automation OR workflow systems OR developer tools",
-        "mrhaven_agent": "agent memory OR orchestration OR evals",
     }
 
     if target_user:

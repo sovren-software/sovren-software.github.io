@@ -479,7 +479,7 @@ node scripts/daily-post.js --add "text" --category thesis   # Append new post
 
 **D4: Credentials via secrets.env, not dotenv**
 - **Decision:** Cron sources `~/.claude/secrets.env` directly. No dotenv package for credential loading.
-- **Rationale:** Twitter API credentials (`TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_SECRET`) are already available via direnv in interactive sessions and via secrets.env for cron. Adding dotenv would duplicate existing infrastructure.
+- **Rationale:** X API credentials (`X_API_KEY`, `X_API_SECRET`, `X_SOVREN_ACCESS_TOKEN`, `X_SOVREN_ACCESS_SECRET`) are already available via direnv in interactive sessions and via secrets.env for cron. Adding dotenv would duplicate existing infrastructure.
 
 ### Voice Rules (enforced by daily-post.js)
 
@@ -509,7 +509,7 @@ node scripts/daily-post.js --add "text" --category thesis   # Append new post
 ### Dependencies
 
 - `twitter-api-v2` (devDependency) — Twitter API v2 client
-- Environment: `TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_SECRET`
+- Environment: `X_API_KEY`, `X_API_SECRET`, `X_SOVREN_ACCESS_TOKEN`, `X_SOVREN_ACCESS_SECRET`
 
 ---
 

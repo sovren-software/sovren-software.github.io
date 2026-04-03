@@ -18,18 +18,32 @@ def load_json(path: Path):
     return json.loads(path.read_text())
 
 
+ACCOUNT_TOKEN_MAP = {
+    "TheCesarCross": ("X_FOUNDER_ACCESS_TOKEN", "X_FOUNDER_ACCESS_SECRET"),
+    "sovren_software": ("X_SOVREN_ACCESS_TOKEN", "X_SOVREN_ACCESS_SECRET"),
+}
+
+
 def load_credential_mapping() -> None:
-    mapping = {
-        "X_API_KEY": os.getenv("X_API_KEY") or os.getenv("TWITTER_API_KEY"),
-        "X_API_SECRET": os.getenv("X_API_SECRET") or os.getenv("TWITTER_API_SECRET"),
-        "X_BEARER_TOKEN": os.getenv("X_BEARER_TOKEN") or os.getenv("TWITTER_BEARER_TOKEN"),
-        "X_ACCESS_TOKEN": os.getenv("X_ACCESS_TOKEN") or os.getenv("TWITTER_ACCESS_TOKEN"),
-        "X_ACCESS_TOKEN_SECRET": os.getenv("X_ACCESS_TOKEN_SECRET") or os.getenv("TWITTER_ACCESS_SECRET"),
-    }
-    missing = [k for k, v in mapping.items() if not v]
-    if missing:
-        raise SystemExit(f"Missing required credentials: {', '.join(missing)}")
-    os.environ.update(mapping)
+    """Load X API app credentials. Per-account tokens are set before each action."""
+    for key in ("X_API_KEY", "X_API_SECRET", "X_BEARER_TOKEN"):
+        val = os.getenv(key)
+        if not val:
+            raise SystemExit(f"Missing required credential: {key}")
+        os.environ[key] = val
+    # Validate per-account tokens exist
+    for account, (tok, sec) in ACCOUNT_TOKEN_MAP.items():
+        if not os.getenv(tok) or not os.getenv(sec):
+            raise SystemExit(f"Missing access tokens for @{account}: {tok}, {sec}")
+
+
+def set_account_tokens(account: str) -> None:
+    """Set X_ACCESS_TOKEN/SECRET for the given account before x-cli execution."""
+    token_keys = ACCOUNT_TOKEN_MAP.get(account)
+    if not token_keys:
+        raise RuntimeError(f"No credentials configured for @{account}")
+    os.environ["X_ACCESS_TOKEN"] = os.getenv(token_keys[0], "")
+    os.environ["X_ACCESS_TOKEN_SECRET"] = os.getenv(token_keys[1], "")
 
 
 def flatten_approved_actions(review: dict) -> list[dict]:
@@ -91,6 +105,7 @@ def build_execution_plan(review: dict, live: bool = False) -> dict:
             "source": action,
         }
         if live and ready:
+            set_account_tokens(action.get("account", ""))
             row.update(run_live(action))
         elif live:
             row.update({"status": "blocked"})

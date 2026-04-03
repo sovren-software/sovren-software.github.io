@@ -25,12 +25,6 @@
       "mix_pct": {"root": 45, "reply": 40, "quote": 15},
       "daily_reply_cap": 10,
       "time_windows_est": ["10:00-11:00", "14:00-15:00", "19:00-20:00"]
-    },
-    "mrhaven_agent": {
-      "role": "product-agent",
-      "mix_pct": {"root": 60, "reply": 25, "quote": 15},
-      "daily_reply_cap": 6,
-      "time_windows_est": ["08:00-09:00", "13:00-14:00", "21:00-22:00"]
     }
   },
   "targeting": {

@@ -43,7 +43,6 @@ This brief aligns all outbound messaging with the mission, architecture, and roa
 
 ## Account-level messaging intent
 - @sovren_software: thesis, architecture, milestones, category narrative.
-- @mrhaven_agent: concrete proof posture, verifiable outcomes, grounded operational commentary.
 - @TheCesarCross: founder context, strategic synthesis, conviction with specificity.
 
 ## Hard editorial rules for generated copy

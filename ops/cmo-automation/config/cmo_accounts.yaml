@@ -13,14 +13,6 @@ accounts:
       root_posts_per_day: 1
       replies_per_day: 10
       quote_posts_per_week: 3
-  - handle: mrhaven_agent
-    role: product-agent
-    voice: guardian-utility
-    target_mix:
-      root_posts_per_day: 2
-      replies_per_day: 6
-      quote_posts_per_week: 2
-
 analysis:
   lookback_days: 21
   baseline_label: fiverr-period

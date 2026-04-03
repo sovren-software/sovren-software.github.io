@@ -2,10 +2,9 @@ CMO Automation (X/Twitter)
 
 Purpose
 - Internal, data-driven replacement for outsourced engagement operations.
-- Covers three coordinated accounts:
-  - @TheCesarCross
-  - @sovren_software
-  - @mrhaven_agent
+- Covers two coordinated accounts:
+  - @TheCesarCross (founder)
+  - @sovren_software (brand)
 
 What this does today
 1) Collect snapshot data from X API (profile + timeline)
@@ -16,9 +15,10 @@ What this does today
 6) Build execution report from approved actions (dry-run default)
 
 Current mode
-- Quality-gated assisted automation with optional live execution.
-- Root posts can execute live.
-- Quote-style engagement is subject to X platform eligibility constraints and may fail with 403 when not in-thread/not mentioned.
+- Scheduled root posts only. No automated replies or quotes.
+- @mrhaven_agent was removed after X suspension for inauthentic behavior (2026-04-03).
+- API credentials are per-account (X_FOUNDER_* for @TheCesarCross, X_SOVREN_* for @sovren_software).
+- See reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md Phase 7 for full decision log.
 
 Structure
 - config/cmo_accounts.yaml
@@ -37,8 +37,9 @@ Structure
 
 Quick start
 1) Export credentials (or source ~/.claude/secrets.env)
-   - Required: X_API_KEY, X_API_SECRET, X_BEARER_TOKEN, X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET
-   - Script also maps from TWITTER_* variables.
+   - App credentials: X_API_KEY, X_API_SECRET, X_BEARER_TOKEN
+   - Per-account tokens: X_FOUNDER_ACCESS_TOKEN, X_FOUNDER_ACCESS_SECRET (for @TheCesarCross)
+   - Per-account tokens: X_SOVREN_ACCESS_TOKEN, X_SOVREN_ACCESS_SECRET (for @sovren_software)
 2) Run:
    - python3 scripts/collect_x_data.py
    - python3 scripts/analyze_x_cmo.py

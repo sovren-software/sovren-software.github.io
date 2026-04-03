@@ -23,7 +23,7 @@ class HydrateApprovedQueueTests(unittest.TestCase):
             "founder_denylist": {"keywords": []},
         }
 
-        out = hydrate_approved_queue.hydrate_single_action(action, policy, resolver=lambda *_: None)
+        out = hydrate_approved_queue.hydrate_single_action(action, policy, resolver=lambda *_: None, seen={"tweet_ids": set(), "reply_norms": set()})
 
         self.assertEqual("hydrated", out["hydration_status"])
         self.assertTrue(out["post_text"])
@@ -40,7 +40,7 @@ class HydrateApprovedQueueTests(unittest.TestCase):
         def resolver(target_user, account):
             return {"id": "12345", "text": "Shipping useful agent products this week."}
 
-        out = hydrate_approved_queue.hydrate_single_action(action, policy, resolver=resolver)
+        out = hydrate_approved_queue.hydrate_single_action(action, policy, resolver=resolver, seen={"tweet_ids": set(), "reply_norms": set()})
 
         self.assertEqual("hydrated", out["hydration_status"])
         self.assertEqual("12345", out["target_tweet_id"])
@@ -48,13 +48,13 @@ class HydrateApprovedQueueTests(unittest.TestCase):
         self.assertIn("@alice", out["reply_text"])
 
     def test_hydrate_reply_blocks_without_candidate(self):
-        action = {"account": "mrhaven_agent", "action": "reply", "target_user": "nobody"}
+        action = {"account": "sovren_software", "action": "reply", "target_user": "nobody"}
         policy = {
-            "account_strategy": {"mrhaven_agent": {"role": "product-agent"}},
+            "account_strategy": {"sovren_software": {"role": "brand"}},
             "founder_denylist": {"keywords": []},
         }
 
-        out = hydrate_approved_queue.hydrate_single_action(action, policy, resolver=lambda *_: None)
+        out = hydrate_approved_queue.hydrate_single_action(action, policy, resolver=lambda *_: None, seen={"tweet_ids": set(), "reply_norms": set()})
 
         self.assertEqual("blocked", out["hydration_status"])
         self.assertEqual("no_candidate_tweet", out["hydration_reason"])
