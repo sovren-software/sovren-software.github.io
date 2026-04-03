@@ -9,8 +9,12 @@
     "short_generic_reply_share_max_pct": 30
   },
   "automation": {
-    "mode": "hybrid-autonomous",
-    "founder_autonomy": "autonomous_with_posthoc_audit",
+    "mode": "hybrid-manual-review",
+    "execution_model": "roots_auto_replies_manual",
+    "root_posts": "auto_scheduled",
+    "reply_candidates": "generated_for_manual_review",
+    "quote_candidates": "generated_for_manual_review",
+    "live_execution": "never_automatic",
     "dry_run_default": true
   },
   "account_strategy": {

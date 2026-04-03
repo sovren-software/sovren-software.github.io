@@ -216,14 +216,17 @@ D3. Per-account access tokens with unified app credentials
 - Expected benefit: eliminates single-token-for-all-accounts pattern that contributed to
   coordinated behavior detection. Each account's posting is independently authenticated.
 
-D4. Scheduled roots only — no automated replies or quotes
+D4. Hybrid model — roots auto-scheduled, replies/quotes manual-review only
 - Rationale: the 13 consecutive 403 failures on quote attempts were the primary trigger
-  signal. Reply/quote automation on accounts without organic conversation participation
-  is inherently risky under X's authenticity rules.
-- Trade-off: reduced engagement volume and reach. No automated discovery of new audiences
-  through reply threads.
-- Expected benefit: eliminates the engagement pattern that caused the suspension. Root-post
-  scheduling is the safest automation mode under X's rules.
+  signal. Fully automated reply/quote posting is too risky. But the pipeline's candidate
+  generation and hydration are still valuable for surfacing engagement opportunities.
+  Human-in-the-loop on all engagement actions eliminates the automation detection risk
+  while preserving reach.
+- Trade-off: slower engagement cadence (manual review bottleneck). Founder must review
+  cmo-hydrated-queue.md each cycle and run approved x-cli commands individually.
+- Expected benefit: maintains engagement volume at human quality. The founder is the
+  circuit breaker — no risk of automated 403 cascades or template-fingerprinted replies.
+  Free tier API limits (1,500 writes/month, 10K reads/month) are sufficient.
 
 Implemented changes
 - secrets.env: removed dead mrhaven_agent credentials, added 7-variable per-account structure
@@ -250,9 +253,9 @@ Drawbacks and known limitations
 - The hydration layer still produces templated replies with "Specific to [keyword salad]"
   suffixes. This copy quality issue predates the restructure and needs a generator rewrite
   before reply automation could safely resume.
-- No circuit breaker in execute_approved_queue.py — if reply automation is re-enabled in
-  the future, the script should abort after N consecutive failures to avoid triggering
-  platform detection.
+- No circuit breaker in execute_approved_queue.py — manual execution mitigates this, but
+  if automated execution is ever re-enabled, the script should abort after N consecutive
+  failures to avoid triggering platform detection.
 - X Premium subscription on @mrhaven_agent must be cancelled manually (via App Store,
   Google Play, or X support depending on how it was purchased).
 
@@ -262,3 +265,5 @@ Remaining work to fully complete this phase
 3. Update 4 GitHub Actions secrets in sovren-software repo settings
 4. Run direnv reload, then verify: x-cli -j user get TheCesarCross
 5. Cancel @mrhaven_agent X Premium subscription
+6. Fix "Specific to [keyword salad]" suffix in hydration generator — blocks reply quality
+7. Add quote eligibility preflight check before including candidates in hydrated queue

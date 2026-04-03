@@ -15,7 +15,10 @@ What this does today
 6) Build execution report from approved actions (dry-run default)
 
 Current mode
-- Scheduled root posts only. No automated replies or quotes.
+- Hybrid: root posts auto-scheduled, reply/quote candidates generated for manual review.
+- Root posts execute via cron (daily-post.js for @sovren_software) or manual x-cli.
+- Reply/quote candidates are generated and hydrated by the pipeline but never auto-executed.
+  Review cmo-hydrated-queue.md, then run approved x-cli commands manually.
 - @mrhaven_agent was removed after X suspension for inauthentic behavior (2026-04-03).
 - API credentials are per-account (X_FOUNDER_* for @TheCesarCross, X_SOVREN_* for @sovren_software).
 - See reports/CMO-AUTOMATION-IMPLEMENTATION-PLAN.md Phase 7 for full decision log.
