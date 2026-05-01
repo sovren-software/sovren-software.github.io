@@ -304,6 +304,8 @@ git push             # GitHub Actions auto-deploys from main branch
 
 CI pipeline runs `check → lint → build` in sequence. All three must pass before deployment.
 
+After pushing website copy changes, wait for the GitHub Pages deploy workflow to complete, then verify the live URL directly. For identity/copy updates, check both that the new key phrases are present and that the replaced old phrases are absent from live HTML; local build output is not enough.
+
 CNAME file at `static/CNAME` contains `sovren.software`. Do not delete it.
 
 DNS: 4 A records (185.199.108-111.153) + www CNAME → `sovren-software.github.io`. All proxied through Cloudflare.
