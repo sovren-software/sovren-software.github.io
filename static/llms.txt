@@ -1,10 +1,8 @@
 # Sovren Software
 
-> Sovereign computing infrastructure — tools for people and autonomous agents who want computing, identity, and assets fully under their control. We build the stack that makes digital autonomy practical.
+> Customer-owned infrastructure for reliable agentic work: verified workflows, local identity, and programmable capital.
 
-Sovren Software is an independent software company building open, inspectable tools across three domains: sovereign operating systems, local biometric identity, and non-custodial asset management. Everything is designed to run on hardware you own, answer only to you, and never route control through a third party.
-
-The site uses a "schematic magitek" visual language: warm bone backgrounds, panel-framed layouts, thin border rules, sparse violet accents, and a technical dossier aesthetic built entirely with Geist Mono.
+Sovren Software builds tools for people and companies that need agents to act reliably without giving vendors control of the workflow, identity, or assets underneath. The core product is Esver OS: a governed workspace and runtime that turns repeated company workflows into verified executable skills agents can run on local or customer-controlled infrastructure.
 
 Website: https://sovren.software
 GitHub: https://github.com/sovren-software
@@ -16,26 +14,30 @@ Contact: hello@sovren.software
 
 ### Esver OS
 
-**Category:** Operating System / Sovereign Computing
-**Status:** Ships Summer 2026
+**Category:** Governed AI workspace / Customer-owned agent runtime
+**Status:** Private development
 **URL:** https://sovren.software/esver
 **Product site:** https://esver.computer
 **GitHub:** https://github.com/sovren-software
 
-Esver OS is sovereign command infrastructure built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of operator authority. These three properties do not trade off against each other. That is the engineering commitment.
+Esver OS turns repeated company workflows into verified executable skills that agents can run reliably under customer-owned control. It is not a generic chatbot, not a docs-search layer, and not a cloud bot farm. It is an operating layer for making company work executable.
 
-Positioning: Esver OS is your command center. The user is the operator; the AI is the co-pilot. The machine executes commands and surfaces context inside authority boundaries defined by the operator — always, without exception.
+Plain-language positioning: teach Esver how a job is done once, verify the steps, then let agents rerun it safely.
 
-Core tagline: "One operator. Total authority. UX, privacy, and security — none sacrificed."
+Product ladder:
+- **Task:** One thing someone needs done.
+- **Workflow:** The repeated path through tools, context, decisions, and checks.
+- **Skill:** A verified workflow an agent can execute with evidence gates.
+- **Role:** A set of skills that serves a person, team, or business function.
 
 Key capabilities:
-- **Voice-native command interface:** Issue commands, query system state, trigger workflows, and orchestrate tasks in natural language. The entire command layer runs on local inference — nothing is transcribed in the cloud. The UX is fast because the system is yours.
-- **Biometric-secured access:** Visage integrated at the OS level as a native identity primitive — not a plugin, not a third-party service. Face verification happens via on-device ONNX inference. Governs session access, elevated privileges, and sensitive operations. Biometrics never leave the hardware.
-- **Local AI co-pilot:** On-device inference layer surfaces context and executes tasks on command. No telemetry. No behavioral profiles sent upstream. No vendor with a copy of your activity. Intelligence without surveillance.
-- **Declarative sovereign infrastructure:** The entire OS state is declared in a single reproducible configuration file — version-controlled, auditable, rollback-capable. No silent updates. No background processes you did not authorize. Clone your machine to new hardware in minutes.
-- **Programmable orchestration:** Automation and agent tasks operate inside explicit authority boundaries defined by the operator. Every elevated action requires authorization.
+- **Workflow capture:** Preserve the tools, context, decisions, and evidence that make repeated work succeed.
+- **Skill verification:** Convert workflows into skills only when they have boundaries, answer gates, evidence checks, and repeatable execution paths.
+- **Customer-owned runtime:** Run skills on local or customer-controlled infrastructure rather than routing sensitive work through a vendor black box.
+- **Authority boundaries:** Human approval, audit trails, local memory, and rollback are part of the operating layer.
+- **Persistent workflow intelligence:** The durable asset is not a prompt. It is the verified workflow: what context was needed, which route worked, which answer was acceptable, what evidence was captured, and where human authority was required.
 
-Built on: NixOS (Linux). Interface: voice-ready, natural language, local inference. Auth: biometric (Visage) + MFA, session-scoped. AI: on-device co-pilot, no telemetry. Config: declarative, Git-tracked.
+Built on: NixOS / Linux. Runtime: local or customer-controlled. Unit of value: verified executable skills. Trust model: customer-owned control, evidence gates, human-approved authority.
 
 ---
 
@@ -52,8 +54,8 @@ Visage is a Linux face authentication daemon that works as a PAM module. Windows
 Key capabilities:
 - **Local ONNX inference:** Face recognition model runs on your hardware. Your biometrics never leave your machine.
 - **PAM integration:** Drop-in replacement for any PAM-based authentication stack. Works with sudo, screen lock, and login without modifying existing system configuration.
-- **IR camera support:** Native support for Windows Hello-compatible IR cameras. Liveness detection built in. Resistant to photo-based spoofing attacks.
-- **Sub-second authentication:** Under one second on warm starts. Persistent daemon keeps the model resident — faster than typing a password.
+- **IR camera support:** Native support for Windows Hello-compatible IR cameras. Liveness detection built in.
+- **Sub-second authentication:** Persistent daemon keeps the model resident for fast authentication.
 
 Built in Rust. Auth: PAM module. Camera: RGB + IR via V4L2. Inference: ONNX, on-device. Ships standalone; integrates natively with Esver OS.
 
@@ -67,13 +69,13 @@ Built in Rust. Auth: PAM module. Camera: RGB + IR via V4L2. Inference: ONNX, on-
 **Product site:** https://mrhaven.io
 **GitHub:** https://github.com/sovren-software/mr-haven
 
-Mr. Haven is a non-custodial USDC time vault protocol deployed on Base L2 (Coinbase's Ethereum L2). It removes financial intermediaries from asset management entirely. Deposit USDC, define conditions, name beneficiaries or autonomous agents — the smart contract handles execution with no intermediary, no approval required.
+Mr. Haven is a non-custodial USDC time vault protocol deployed on Base L2. Deposit USDC, define conditions, name beneficiaries or autonomous agents, and the smart contract handles execution with no intermediary.
 
 Key capabilities:
-- **Time vault:** Lock USDC for any duration. Set exact unlock timestamps or recurring release schedules. Contract enforces the rules — no humans in the loop.
-- **Inactivity trigger:** Set a threshold: if you go offline for X days, funds transfer. An on-chain dead man's switch.
-- **Beneficiary designations:** Designate multiple beneficiaries with percentage splits. Update designations anytime while funds are locked.
-- **Non-custodial:** Your keys, your rules. No admin key. No company can freeze, redirect, or reclaim your funds.
+- **Time vault:** Lock USDC for any duration. Set exact unlock timestamps or recurring release schedules.
+- **Inactivity trigger:** Set a threshold: if you go offline for X days, funds transfer.
+- **Beneficiary designations:** Designate multiple beneficiaries with percentage splits.
+- **Non-custodial:** Your keys, your rules. No admin key. No company can freeze, redirect, or reclaim funds.
 
 Chain: Base L2. Asset: USDC. Standard: ERC4626 vault. Custody: non-custodial. Smart contract only.
 
@@ -81,11 +83,11 @@ Chain: Base L2. Asset: USDC. Standard: ERC4626 vault. Custody: non-custodial. Sm
 
 ## The Thesis
 
-The default state of modern technology is extraction. Your operating system reports back to its maker. Your biometrics are stored in someone else's database. Your assets move through someone else's rails.
+Modern AI products often ask companies to trust an external service with the context, memory, and authority required to perform work. Sovren Software moves that control back to the customer.
 
-Sovren Software rejects that premise. Computing can be sovereign. Identity can be local. Assets can be self-custodied. The tools exist. Sovren Software builds sovereign command infrastructure on a single engineering commitment: UX, privacy, and security are not a tradeoff triangle — they are a trifecta. Every design decision moves along all three axes without sacrificing any of them. The company's thesis: convenience should not require compromise. The vendor model demands that tradeoff. Sovren rejects it.
+The company thesis is simple: repeated work should become verified infrastructure. When a workflow is captured, checked, and made executable, agents can stop rediscovering the job every time. They can run the work inside boundaries the owner controls.
 
-> Privacy is not a feature. Control is not an option. Sovereignty is the baseline.
+> Verified work. Local identity. Programmable capital. Customer-owned control.
 
 ---
 
@@ -93,7 +95,7 @@ Sovren Software rejects that premise. Computing can be sovereign. Identity can b
 
 - **Founded:** 2025
 - **Structure:** Independent software company
-- **Open source:** Visage (MIT). Esver OS (private, planned open source). Mr. Haven (auditable smart contracts).
+- **Open source:** Visage (MIT). Esver OS (private development). Mr. Haven (auditable smart contracts).
 - **GitHub:** https://github.com/sovren-software
 - **Twitter/X:** https://twitter.com/sovren_software
 - **Email:** hello@sovren.software

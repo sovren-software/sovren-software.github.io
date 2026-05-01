@@ -1,6 +1,6 @@
 # Sovren Software — sovren.software
 
-Marketing site for **Sovren Software**, the company behind the Sovren Stack: a sovereign computing platform spanning OS, identity, and programmable finance.
+Marketing site for **Sovren Software**, the company behind customer-owned infrastructure for reliable agentic work: Esver OS for verified workflows, Visage for local identity, and Mr. Haven for programmable capital.
 
 Live at **[sovren.software](https://sovren.software)**
 
@@ -8,11 +8,11 @@ Live at **[sovren.software](https://sovren.software)**
 
 ## What Is the Sovren Stack?
 
-The Sovren Stack is three products that together give individuals full-stack digital sovereignty:
+The Sovren Stack is three products that keep work, identity, and assets under owner control:
 
 | Product | Layer | Status |
 |---------|-------|--------|
-| **Esver OS** | Computing — declarative NixOS system | Ships Summer 2026 |
+| **Esver OS** | Work — verified executable skills on customer-owned infrastructure | Private development |
 | **Visage** | Identity — local face auth via PAM + ONNX | Live · v0.2.0 · MIT |
 | **MrHaven** | Finance — non-custodial USDC time vault on Base L2 | Live on mainnet |
 

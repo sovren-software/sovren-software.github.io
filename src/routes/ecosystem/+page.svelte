@@ -1,12 +1,12 @@
 <svelte:head>
   <title>The Codex — Sovren Stack Doctrine | Sovren Software</title>
-  <meta name="description" content="Privacy is not a feature. Security is not a tradeoff. Sovereignty is the only acceptable default. The codex behind Sovren Software's sovereign command infrastructure." />
+  <meta name="description" content="The doctrine behind Sovren Software: verified work, local identity, programmable capital, and customer-owned infrastructure for reliable agents." />
   <link rel="canonical" href="https://sovren.software/ecosystem" />
-  <meta property="og:title" content="The Sovren Codex. Command Your Infrastructure." />
-  <meta property="og:description" content="We build sovereign infrastructure for operators who refuse to be tenants. Compute, identity, and capital — under a single chain of command." />
+  <meta property="og:title" content="The Sovren Codex. Own the work agents run." />
+  <meta property="og:description" content="Verified workflows, local identity, programmable capital, and customer-owned control." />
   <meta property="og:url" content="https://sovren.software/ecosystem" />
-  <meta name="twitter:title" content="The Sovren Codex. Command Your Infrastructure." />
-  <meta name="twitter:description" content="We build sovereign infrastructure for operators who refuse to be tenants. Compute, identity, and capital — under a single chain of command." />
+  <meta name="twitter:title" content="The Sovren Codex. Own the work agents run." />
+  <meta name="twitter:description" content="Verified workflows, local identity, programmable capital, and customer-owned control." />
 </svelte:head>
 
 <script>
@@ -20,8 +20,8 @@
       num: '01',
       domain: 'COMPUTING',
       icon: 'compute',
-      title: 'THE MACHINE IS A COMMAND CENTER, NOT A SUBSCRIPTION.',
-      desc: 'An operating system that serves the vendor is not yours. Esver OS is built on the trifecta: UX that does not demand technical sacrifice, privacy that is architectural rather than cosmetic, and security that is the perimeter of your authority. Voice-native interface. Local AI co-pilot. Biometric-secured sessions. Declarative NixOS substrate. None of these properties trade off against the others. That is the point.',
+      title: 'THE MACHINE IS WHERE VERIFIED WORK RUNS.',
+      desc: 'Esver OS turns repeated company workflows into verified executable skills that agents can run under customer-owned control. The core unit is not a chat thread. It is a skill: a workflow with context, boundaries, evidence gates, and a repeatable execution path on local or customer-controlled infrastructure.',
       link: { label: 'ESVER OS →', href: '/esver' }
     },
     {
@@ -67,7 +67,7 @@
 
         <blockquote>You are not the root user of your own life. You are a tenant. Sovren Software exists to change that.</blockquote>
 
-        <p>We build infrastructure on a single engineering commitment: UX, privacy, and security are not a tradeoff triangle. They are a trifecta. Every design decision moves along all three axes without sacrificing any of them. A command center you actually want to use. An identity layer that cannot be stolen. A capital layer no one else can touch. The stack is sovereign because it was built to be — not because sovereignty was bolted on after the fact.</p>
+        <p>We build infrastructure for work, identity, and assets that should stay under owner control. The work layer turns repeated company workflows into verified executable skills. The identity layer keeps authentication local to the machine. The capital layer makes asset rules programmable without a custodian. The stack is sovereign because control lives with the owner, not with the vendor running the service.</p>
       </div>
 
       <div class="trifecta-vis reveal" use:reveal>
@@ -101,8 +101,8 @@
 
   <section class="closing">
     <div class="closing-inner panel--strong reveal" use:reveal>
-      <h2>ONE OPERATOR.<br />TOTAL AUTHORITY.</h2>
-      <p>The Sovren Stack is unified sovereign infrastructure built on a single commitment: UX, privacy, and security without compromise at every layer. Esver OS is the command center — voice-ready, biometric-secured, AI-augmented, declaratively configured. Visage is the identity primitive — your face, verified on your hardware, never leaving it. Mr. Haven is the capital layer — programmable rules, autonomous execution, no custodian. Together they give one operator total authority over compute, identity, and capital.</p>
+      <h2>OWN THE WORK<br />AGENTS RUN.</h2>
+      <p>The Sovren Stack is customer-owned infrastructure for reliable agentic work. Esver OS turns repeated workflows into verified executable skills. Visage keeps identity local to the machine. Mr. Haven makes capital follow programmable rules without a custodian. Together they move control of work, identity, and assets back to the owner.</p>
       <a href="/" class="btn-peak">EXPLORE THE STACK →</a>
     </div>
   </section>

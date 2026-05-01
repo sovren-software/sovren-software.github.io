@@ -1,12 +1,12 @@
 <svelte:head>
-  <title>Sovren Software — Sovereign Command Infrastructure</title>
-  <meta name="description" content="Sovereign command infrastructure for the high-leverage operator. Esver OS, Visage, and Mr. Haven — compute, identity, and capital. UX, privacy, and security — none sacrificed." />
+  <title>Sovren Software — Customer-Owned Infrastructure for Agentic Work</title>
+  <meta name="description" content="Sovren Software builds customer-owned infrastructure for reliable agentic work: Esver OS for verified workflows, Visage for local identity, and Mr. Haven for programmable capital." />
   <link rel="canonical" href="https://sovren.software/" />
-  <meta property="og:title" content="Sovren Software — Sovereign Command Infrastructure" />
-  <meta property="og:description" content="Sovereign command infrastructure for the high-leverage operator. Compute, identity, and capital — UX, privacy, and security without compromise." />
+  <meta property="og:title" content="Sovren Software — Customer-Owned Infrastructure for Agentic Work" />
+  <meta property="og:description" content="Esver OS turns repeated company workflows into verified executable skills. Visage keeps identity local. Mr. Haven keeps capital programmable." />
   <meta property="og:url" content="https://sovren.software/" />
-  <meta name="twitter:title" content="Sovren Software — Sovereign Command Infrastructure" />
-  <meta name="twitter:description" content="Sovereign command infrastructure for the high-leverage operator. Compute, identity, and capital — UX, privacy, and security without compromise." />
+  <meta name="twitter:title" content="Sovren Software — Customer-Owned Infrastructure for Agentic Work" />
+  <meta name="twitter:description" content="Esver OS turns repeated company workflows into verified executable skills. Visage keeps identity local. Mr. Haven keeps capital programmable." />
 </svelte:head>
 
 <script>
@@ -22,7 +22,7 @@
       icon: 'compute',
       name: 'ESVER OS',
       href: '/esver',
-      description: 'Voice-native command interface. Biometric-secured access. Local AI co-pilot. Declarative NixOS substrate. UX, privacy, and security — none sacrificed.',
+      description: 'Customer-owned operating layer for reliable agentic work. Esver turns repeated company workflows into verified executable skills agents can run on local or customer-controlled infrastructure.',
     },
     {
       number: '02',
@@ -50,7 +50,7 @@
         <span class="hero-label hero-label--left">// 001</span>
         <span class="hero-label hero-label--right">V1.0</span>
         <h1>THE SOVREN<br />STACK.</h1>
-        <p class="hero-sub">&gt; Sovereign compute. Local identity. Programmable capital.</p>
+        <p class="hero-sub">&gt; Verified work. Local identity. Programmable capital.</p>
         <div class="scroll-hint">[ SCROLL TO EXPLORE ]</div>
       </div>
       <div class="hero-glyph">
@@ -104,13 +104,13 @@
     <div class="thesis-inner panel--strong reveal" use:reveal>
       <div class="panel-header">// DOCTRINE</div>
       <h2 class="thesis-statement">
-        Privacy is not a feature.<br />
-        Security is not a tradeoff.<br />
-        Sovereignty is the only<br />
-        acceptable default.
+        Work should be verifiable.<br />
+        Identity should stay local.<br />
+        Capital should obey code.<br />
+        Control should stay with the owner.
       </h2>
       <div class="thesis-foot">
-        <p>We build infrastructure for operators who refuse to rent their own stack. Sovereign compute, local identity, and programmable capital — UX, privacy, and security without compromise.</p>
+        <p>We build customer-owned infrastructure for people and companies that need agents to act reliably without giving vendors control of the workflow, identity, or assets underneath.</p>
         <a href="/ecosystem" class="btn-peak">READ THE CODEX</a>
       </div>
     </div>

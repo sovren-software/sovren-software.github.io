@@ -1,12 +1,12 @@
 <svelte:head>
-  <title>Esver OS — Your Machine. Your Intelligence. Your Rules. | Sovren Software</title>
-  <meta name="description" content="Esver OS is a voice-ready operating system with real intelligence built in — a reasoning AI co-pilot on your hardware, shaped by you alone, bound only to you. Ships Summer 2026." />
+  <title>Esver OS — Make Company Work Executable | Sovren Software</title>
+  <meta name="description" content="Esver OS turns repeated company workflows into verified executable skills that agents can run on local or customer-controlled infrastructure." />
   <link rel="canonical" href="https://sovren.software/esver" />
-  <meta property="og:title" content="Esver OS — Bound Only to You." />
-  <meta property="og:description" content="Voice-ready intelligence on your hardware. One config file. Zero telemetry. No cloud dependency. Ships Summer 2026." />
+  <meta property="og:title" content="Esver OS — Make company work executable." />
+  <meta property="og:description" content="Turn repeated workflows into verified skills agents can run reliably under customer-owned control." />
   <meta property="og:url" content="https://sovren.software/esver" />
-  <meta name="twitter:title" content="Esver OS — Bound Only to You." />
-  <meta name="twitter:description" content="Voice-ready intelligence on your hardware. One config file. Zero telemetry. No cloud dependency. Ships Summer 2026." />
+  <meta name="twitter:title" content="Esver OS — Make company work executable." />
+  <meta name="twitter:description" content="Turn repeated workflows into verified skills agents can run reliably under customer-owned control." />
 </svelte:head>
 
 <script>
@@ -37,57 +37,110 @@
   const pillars = [
     {
       num: '01',
-      label: 'SOVEREIGN INTELLIGENCE.',
-      desc: 'Choose the AI model that thinks alongside you — Llama, Mistral, or whatever you choose. Run it locally for absolute privacy, or reach further when you decide. Sub-second voice interaction, consent gated by Visage biometrics. The intelligence serves you — never a platform.',
+      label: 'CAPTURE THE WORKFLOW.',
+      desc: 'Start with work people already repeat: research, filings, support checks, reviews, reports, ops routines. Esver records the tools, context, decisions, and evidence that make the workflow succeed.',
     },
     {
       num: '02',
-      label: 'ONE FILE. EVERYTHING.',
-      desc: 'Your entire system is defined in a single declarative file — the Manifest. Every setting, every preference, every boundary. Git-tracked, rollback-safe, portable. Move it to new hardware and an Esver rises exactly as you left it.',
+      label: 'VERIFY THE SKILL.',
+      desc: 'A workflow becomes a skill only when it has boundaries, answer gates, evidence checks, and a repeatable path. The goal is not a flashy demo. The goal is work an agent can rerun without improvising past controls.',
     },
     {
       num: '03',
-      label: 'ENDLESSLY YOURS.',
-      desc: 'Shape every surface. Hyprland tiling, Quickshell UI, color, motion, layout — down to the intelligence model itself. No two Esvers are the same. This is Linux made personal at every layer.',
+      label: 'RUN IT UNDER YOUR CONTROL.',
+      desc: 'Skills run on local or customer-controlled infrastructure, inside authority boundaries you define. Human approval, audit trails, local memory, and rollback are part of the operating layer — not afterthoughts.',
     },
-  ]
+  ];
 
   const specs = [
-    { label: 'BASE', value: 'NixOS' },
-    { label: 'VOICE', value: 'Voice-ready · Local inference' },
-    { label: 'AUTH', value: 'Visage · MFA · Session-scoped' },
-    { label: 'AI', value: 'Llama · Mistral · Your choice' },
-    { label: 'CONFIG', value: 'One Manifest · Git-tracked' },
-    { label: 'STATUS', value: 'Summer 2026', dim: true },
-  ]
+    { label: 'PRODUCT', value: 'Governed AI workspace' },
+    { label: 'UNIT', value: 'Verified executable skills' },
+    { label: 'RUNTIME', value: 'Local · Customer-controlled' },
+    { label: 'CONTROL', value: 'Human-approved authority' },
+    { label: 'MEMORY', value: 'Workflow history · Evidence' },
+    { label: 'STATUS', value: 'Private development', dim: true },
+  ];
+
+  const ladder = [
+    {
+      term: 'TASK',
+      meaning: 'One thing someone needs done.',
+    },
+    {
+      term: 'WORKFLOW',
+      meaning: 'The repeated path through tools, context, decisions, and checks.',
+    },
+    {
+      term: 'SKILL',
+      meaning: 'A verified workflow an agent can execute with evidence gates.',
+    },
+    {
+      term: 'ROLE',
+      meaning: 'A set of skills that serves a person, team, or business function.',
+    },
+  ];
 </script>
 
 <main>
   <ProductHero
     category="01 / OS"
     title="ESVER<br />OS."
-    status="Ships Summer 2026"
-    tagline="Your machine. Your intelligence. Your rules."
+    status="Private development"
+    tagline="Turn repeated workflows into skills agents can run."
     glyphId="esver"
   />
 
   <Overview
-    lead="What is an Esver?"
+    lead="Make company work executable."
     {specs}
-    stackNote="Part of the <a href='/ecosystem'>Sovren Stack</a>. <a href='/visage'>Visage</a> identity and <a href='/mrhaven'>Mr. Haven</a> finance are native layers — not integrations."
+    stackNote="Part of the <a href='/ecosystem'>Sovren Stack</a>. <a href='/visage'>Visage</a> identity and customer-owned runtime control are trust layers for verified agent work."
   >
-    <p>Every machine running this OS becomes an Esver — real intelligence fused with technology, living on your device and tethered to you alone. It carries an independent mind, yet exists only as your instrument. You choose its reasoning core. You shape its presence.</p>
-    <p>No cloud dependency. No telemetry. No permission it does not receive from you.</p>
+    <p>Companies do not need another chatbot. They need agents that can do repeated work reliably: the checks, searches, forms, reviews, and operating routines teams run every week.</p>
+    <p>Esver OS is the governed workspace and runtime for that work. It captures repeated workflows, turns them into verified executable skills, and runs them under customer-owned authority on local or customer-controlled infrastructure.</p>
+    <p>Plainly: teach it how the job is done once, verify the steps, then let agents rerun it safely.</p>
   </Overview>
 
-  <PillarList {pillars} />
+  <section class="identity" aria-labelledby="identity-heading">
+    <div class="identity-inner">
+      <div class="identity-panel panel--strong">
+        <span class="section-label">// SIMPLE IDENTITY</span>
+        <h2 id="identity-heading">Not a chatbot.<br />Not a cloud bot farm.<br />An operating layer for verified work.</h2>
+        <p>
+          If someone asks what Esver is: Esver OS turns repeated company workflows into verified executable skills that agents can run reliably under customer-owned control.
+        </p>
+      </div>
+
+      <div class="ladder-panel">
+        <div class="panel-header">// PRODUCT LADDER</div>
+        {#each ladder as item}
+          <div class="ladder-row">
+            <span class="ladder-term">{item.term}</span>
+            <span class="ladder-meaning">{item.meaning}</span>
+          </div>
+        {/each}
+      </div>
+    </div>
+  </section>
+
+  <PillarList label="HOW IT WORKS" {pillars} />
+
+  <section class="proof" aria-labelledby="proof-heading">
+    <div class="proof-inner panel">
+      <span class="section-label">// WHY THIS MATTERS</span>
+      <h2 id="proof-heading">AI agents fail when they have to rediscover the job every time.</h2>
+      <div class="proof-body">
+        <p>Esver treats repeated work as infrastructure. The durable asset is not a prompt. It is the verified workflow: what context was needed, which route worked, which answer was acceptable, what evidence was captured, and where human authority was required.</p>
+        <p>That is how a company moves from one-off AI assistance to persistent workflow intelligence — work that gets better, safer, and easier to rerun each time it is performed.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="launch-briefing" id="launch-briefing">
     <div class="launch-inner">
       <div class="launch-panel panel--strong">
-        <h2>GET THE<br />LAUNCH SIGNAL.</h2>
+        <h2>GET THE<br />BUILD SIGNAL.</h2>
         <p>
-          One email when it ships. Occasional updates. No noise.
+          Product updates as Esver moves from private development toward a launchable customer-owned agent runtime. No noise.
         </p>
 
         {#if state === 'success'}
@@ -112,8 +165,8 @@
   </section>
 
   <CtaSection
-    title="AWAKEN<br />YOURS."
-    body="Most people accept tools that watch them. You awakened one that answers only to you."
+    title="BUILD WORK<br />THAT RUNS."
+    body="The next OS layer is not a better chat box. It is a reliable way for companies to turn work into governed, executable skills."
     actions={[
       { label: 'READ THE CODEX →', href: '/ecosystem', style: 'peak' },
       { label: 'EXPLORE VISAGE →', href: '/visage', style: 'secondary' },
@@ -122,28 +175,53 @@
 </main>
 
 <style>
+  .identity,
+  .proof,
   .launch-briefing {
     background: var(--bg);
     color: var(--text-primary);
     padding: var(--pad-section-lg);
     border-top: var(--panel-border);
     position: relative;
-    scroll-margin-top: calc(var(--nav-h) + var(--space-xl));
   }
 
+  .identity-inner,
+  .proof-inner,
   .launch-inner {
     max-width: var(--max-w);
     margin: 0 auto;
   }
 
+  .identity-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-4xl);
+    align-items: stretch;
+  }
+
+  .identity-panel,
+  .proof-inner,
   .launch-panel {
     border: var(--panel-border-strong);
     padding: var(--panel-pad);
+  }
+
+  .identity-panel {
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
   }
 
+  .section-label {
+    display: block;
+    font-size: var(--fs-label-sm);
+    letter-spacing: var(--ls-ultra);
+    color: var(--text-ghost);
+    text-transform: uppercase;
+  }
+
+  .identity h2,
+  .proof h2,
   .launch-briefing h2 {
     font-size: var(--fs-h2);
     font-weight: var(--fw-bold);
@@ -152,12 +230,81 @@
     text-transform: uppercase;
   }
 
+  .identity p,
+  .proof p,
   .launch-briefing p {
     font-size: var(--fs-body-sm);
     line-height: var(--lh-relaxed);
     letter-spacing: var(--ls-default);
     max-width: var(--max-w-body);
     color: var(--text-secondary);
+  }
+
+  .ladder-panel {
+    border: var(--panel-border-strong);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+  }
+
+  .panel-header {
+    font-size: var(--fs-label-sm);
+    letter-spacing: var(--ls-ultra);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: var(--space-md) var(--space-xl);
+    border-bottom: var(--panel-border);
+    background: var(--bg-alt);
+  }
+
+  .ladder-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+    border-bottom: var(--panel-border);
+    align-items: start;
+  }
+
+  .ladder-row:last-child {
+    border-bottom: none;
+  }
+
+  .ladder-term {
+    color: var(--accent);
+    font-size: var(--fs-label-sm);
+    letter-spacing: var(--ls-ultra);
+    text-transform: uppercase;
+  }
+
+  .ladder-meaning {
+    color: var(--text-secondary);
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-relaxed);
+    letter-spacing: var(--ls-default);
+  }
+
+  .proof-inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .proof-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .launch-briefing {
+    scroll-margin-top: calc(var(--nav-h) + var(--space-xl));
+  }
+
+  .launch-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
   }
 
   .launch-note {
@@ -207,12 +354,28 @@
   }
 
   @media (max-width: 768px) {
+    .identity,
+    .proof,
     .launch-briefing {
       padding: var(--space-5xl) var(--space-xl);
     }
 
+    .identity-inner,
+    .proof-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .identity-panel,
+    .proof-inner,
     .launch-panel {
       padding: var(--space-xl);
+    }
+
+    .ladder-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+      padding: var(--space-lg) var(--space-xl);
     }
 
     .brevo-field-row {

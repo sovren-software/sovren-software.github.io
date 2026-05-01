@@ -188,7 +188,7 @@ const svg = await satori(
               textTransform: 'uppercase',
               fontFamily: 'Geist Mono',
             },
-            children: '> SOVEREIGN COMPUTE  ·  LOCAL IDENTITY  ·  PROGRAMMABLE CAPITAL',
+            children: '> VERIFIED WORK  ·  LOCAL IDENTITY  ·  PROGRAMMABLE CAPITAL',
           },
         },
         // Bottom domain

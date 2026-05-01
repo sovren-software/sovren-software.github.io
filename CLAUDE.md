@@ -254,8 +254,8 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 **The x10 thesis lives on individual product pages.** "The infrastructure that multiplies what one person can do" belongs to Esver OS. The stack-level copy describes what the stack IS (three layers), not what any one layer does.
 
 **Thesis hierarchy:**
-1. Stack level (Home, Codex): sovereignty across OS + identity + finance
-2. Product level: each product surfaces the founder-as-proof / capability-multiplication angle
+1. Esver level: repeated company workflows become verified executable skills
+2. Stack level (Home, Codex): verified work + local identity + programmable capital stay customer-owned
 3. Feature level: technical specifics, no thesis language needed
 
 **Tone:** Declarative. Terse. No hedging. No "we believe" or "we think." State things as facts.
@@ -264,22 +264,21 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 
 ### Home
 - Hero H1: `THE SOVREN STACK.`
-- Hero sub: `> Sovereign compute. Local identity. Programmable capital.`
+- Hero sub: `> Verified work. Local identity. Programmable capital.`
 - Hero frame labels: `// 001` (top-left), `V1.0` (top-right)
 - Thesis panel header: `// DOCTRINE`
 
 ### Esver OS
-- Primary tagline: "Your machine. Your intelligence. Your rules."
-- Secondary tagline: "Bound only to you."
-- Overview lead: "What is an Esver?"
-- CTA title: "AWAKEN YOURS."
-- CTA body: "Most people accept tools that watch them. You awakened one that answers only to you."
-- 3 pillars: Sovereign Intelligence, One File Everything, Endlessly Yours
-- Specs: Voice-ready, Llama/Mistral/Your choice, One Manifest
-- Avoid: "cognitive OS", "always watching", "watches and learns", "voice-native" (use "voice-ready")
-- "Awaken/awakened": max 2 uses per page (Brand Kit v5 decision #10)
-- Status: Ships Summer 2026
-- Governing doc: Brand Kit v4 (vault: `Projects/Esver-OS/Branding/Esver-OS-Brand-Kit-v4.md`) + v5 decisions
+- Primary tagline: "Turn repeated workflows into skills agents can run."
+- One-liner: "Esver OS turns repeated company workflows into verified executable skills that agents can run on local or customer-controlled infrastructure."
+- Overview lead: "Make company work executable."
+- CTA title: "BUILD WORK THAT RUNS."
+- Product ladder: task → workflow → skill → role
+- 3 pillars: Capture the Workflow, Verify the Skill, Run It Under Your Control
+- Specs: Governed AI workspace, verified executable skills, local/customer-controlled runtime, human-approved authority
+- Avoid: "AI OS" as the lead, "voice-native", "co-pilot" as the core category, "production-ready", "anti-bot solved", "works across all sites"
+- Status: Private development
+- Governing docs: Product identity synthesis + Persistent Workflow Intelligence thesis + latest Delta answer-quality ADR
 
 ### Visage
 - **Status:** Live · v0.2.0 · MIT
@@ -291,7 +290,7 @@ All static files live in `static/` (NOT `public/` — SvelteKit convention). Cop
 - Page title: "THE CODEX." (category: DOCTRINE)
 - Nav link text: "CODEX" (URL remains `/ecosystem`)
 - Blockquote styled with violet left border + accent-surface background
-- Closing H2: "ONE OPERATOR. TOTAL AUTHORITY."
+- Closing H2: "OWN THE WORK AGENTS RUN."
 - Hero glyph: open grimoire with trifecta triangle + esper crystal
 
 ## Deploy Process

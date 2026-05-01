@@ -1,6 +1,6 @@
 <!-- Sovren Stack architecture diagram: three layers converging -->
 <div class="diagram-wrap">
-  <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sovren Stack architecture: Esver OS, Visage, and Mr. Haven converging into one sovereign layer" role="img">
+  <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sovren Stack architecture: Esver OS, Visage, and Mr. Haven linking verified work, local identity, and programmable capital" role="img">
     <!-- Connection lines to center -->
     <line x1="80" y1="80" x2="240" y2="200" class="conn" />
     <line x1="240" y1="50" x2="240" y2="200" class="conn" />
